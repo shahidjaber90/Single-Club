@@ -10,7 +10,14 @@ class SideNavigationBar extends StatefulWidget {
   State<SideNavigationBar> createState() => _SideNavigationBarState();
 }
 
+bool istapped = false;
+
 class _SideNavigationBarState extends State<SideNavigationBar> {
+  List<Color> itemColors =
+      List.generate(navigationData.length, (index) => Colors.white);
+  List<Color> contentColors =
+      List.generate(navigationData.length, (index) => Color(0xff2C50ED));
+  int? lastSelectedIndex;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -77,7 +84,6 @@ class _SideNavigationBarState extends State<SideNavigationBar> {
                     image: DecorationImage(
                         image: AssetImage('assets/images/user.png'),
                         fit: BoxFit.cover)),
-                child: Text('Shahid'),
               ),
             ),
           ],
@@ -136,12 +142,27 @@ class _SideNavigationBarState extends State<SideNavigationBar> {
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: GestureDetector(
                   onTap: () {
+                    setState(() {
+                      itemColors[index] = ColorConstant.blueColor;
+                      contentColors[index] = ColorConstant.whiteColor;
+
+                      if (lastSelectedIndex != null &&
+                          lastSelectedIndex != index) {
+                        itemColors[lastSelectedIndex!] =
+                            ColorConstant.whiteColor;
+                        contentColors[lastSelectedIndex!] =
+                            ColorConstant.blueColor;
+                      }
+                      lastSelectedIndex = index;
+                    });
+
                     print(navigationData[index]['title']);
                   },
                   child: Container(
                       height: 50,
                       width: 231,
                       decoration: BoxDecoration(
+                          color: itemColors[index],
                           border: Border(
                               bottom: BorderSide(
                                   width: 1, color: ColorConstant.blueColor))),
@@ -153,14 +174,13 @@ class _SideNavigationBarState extends State<SideNavigationBar> {
                           Text(
                             '${navigationData[index]['title']}',
                             style: GoogleFonts.poppins(
+                                color: contentColors[index],
                                 fontSize: 14,
                                 fontWeight: FontWeight.w400,
                                 letterSpacing: 0.5),
                           ),
-                          Icon(
-                            Icons.arrow_forward_ios_rounded,
-                            color: ColorConstant.blueColor,
-                          )
+                          Icon(Icons.arrow_forward_ios_rounded,
+                              color: contentColors[index])
                         ],
                       )),
                 ),
