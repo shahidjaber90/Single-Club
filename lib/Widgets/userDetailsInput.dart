@@ -19,7 +19,10 @@ class DataDetailsWidget extends StatelessWidget {
       height: height,
       child: Column(
         children: [
-          Image.asset(detailsText!,height: 35,width: 35,)
+          Image.asset(
+            detailsText!,
+            fit: BoxFit.fill,
+          )
         ],
       ),
     );

@@ -7,6 +7,7 @@ import 'package:singleclub/Local_variables/navigationData.dart';
 import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/Pages/analyse_widget.dart';
+import 'package:singleclub/Widgets/Pages/vipView_widget.dart';
 import 'package:singleclub/Widgets/side_navigation_bar.dart';
 import 'package:singleclub/Widgets/user_widget.dart';
 import 'package:singleclub/Widgets/Pages/users_layout_widget.dart';
@@ -58,7 +59,7 @@ class _HomePageViewState extends State<HomePageView> {
                     child: const SideNavigationBar(),
                   ),
                 ),
-      
+
                 // App Bar
                 Container(
                   alignment: Alignment.topCenter,
@@ -161,7 +162,8 @@ class _HomePageViewState extends State<HomePageView> {
                                               style: GoogleFonts.beVietnamPro(
                                                   fontSize: 20,
                                                   fontWeight: FontWeight.w500,
-                                                  color: ColorConstant.blueColor),
+                                                  color:
+                                                      ColorConstant.blueColor),
                                             ),
                                             Icon(
                                               Icons.keyboard_arrow_down_rounded,
@@ -178,9 +180,9 @@ class _HomePageViewState extends State<HomePageView> {
                           ),
                         ),
                         // app Bar End
-      
+
                         // Data from Menu
-      
+
                         Container(
                           height: MediaQuery.of(context).size.height,
                           width: MediaQuery.of(context).size.width * 0.76,
@@ -198,15 +200,16 @@ class _HomePageViewState extends State<HomePageView> {
     ));
   }
 }
+
 Widget _getWidgetByIndex(int index) {
-    switch (index) {
-      case 0:
-        return const AnalyseWidget();
-      case 1:
-        return const UserWidget();
-      // case 2:
-      //   return WidgetC();
-      default:
-        return const AnalyseWidget();
-    }
+  switch (index) {
+    case 0:
+      return const AnalyseWidget();
+    case 1:
+      return const UserWidget();
+    case 3:
+      return VipViewWidget();
+    default:
+      return const AnalyseWidget();
   }
+}

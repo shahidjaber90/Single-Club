@@ -238,67 +238,211 @@ class _UserWidgetState extends State<UserWidget> {
                         height: 10,
                       ),
 
-                      // details user
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 5),
-                            child: Checkbox(
-                              value: isTap,
-                              onChanged: (value) {
-                                setState(() {
-                                  isTap = value!;
-                                });
-                              },
-                            ),
-                          ),
-                          DataHeadingWidget(
-                              height: 24.0, width: 20.0, headingText: '01'),
-                          DataDetailsWidget(
-                              height: 35.0,
-                              width: 35.0,
-                              detailsText: 'assets/images/user1.png'),
-                          DataHeadingWidget(
-                              height: 24.0,
-                              width: 113.0,
-                              headingText: 'King Of Kings'),
-                          DataHeadingWidget(
-                              height: 24.0,
-                              width: 100.0,
-                              headingText: '548645'),
-                          DataHeadingWidget(
-                              height: 24.0,
-                              width: 100.0,
-                              headingText: '01722924089'),
-                          DataHeadingWidget(
-                              height: 24.0,
-                              width: 216.0,
-                              headingText: 'kingofkingslove@gmail.com'),
-                          DataHeadingWidget(
-                              height: 24.0, width: 96.0, headingText: 'Status'),
-                          DataHeadingWidget(
-                              height: 24.0,
-                              width: 120.0,
-                              headingText: 'Bangladesh'),
-                          Container(
-                            decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: ColorConstant.arrowColor),
-                              borderRadius: BorderRadius.circular(4),
-                              color: ColorConstant.whiteColor,
-                            ),
-                            child: Padding(
+                      // first details user
+                      Container(
+                        height: 55,
+                        color: ColorConstant.whiteColor,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
                               padding:
-                                  const EdgeInsets.symmetric(horizontal: 4),
-                              child: (Text(
-                                'Details',
-                                style:
-                                    TextStyle(color: ColorConstant.arrowColor),
-                              )),
+                                  const EdgeInsets.symmetric(horizontal: 5),
+                              child: Checkbox(
+                                value: isTap,
+                                onChanged: (value) {
+                                  setState(() {
+                                    isTap = value!;
+                                  });
+                                },
+                              ),
                             ),
-                          )
-                        ],
+                            DataHeadingWidget(
+                                height: 24.0, width: 20.0, headingText: '01'),
+                            DataDetailsWidget(
+                                height: 35.0,
+                                width: 35.0,
+                                detailsText: 'assets/images/user1.png'),
+                            DataHeadingWidget(
+                                height: 24.0,
+                                width: 113.0,
+                                headingText: 'King Of Kings'),
+                            DataHeadingWidget(
+                                height: 24.0,
+                                width: 100.0,
+                                headingText: '548645'),
+                            DataHeadingWidget(
+                                height: 24.0,
+                                width: 100.0,
+                                headingText: '01722924089'),
+                            DataHeadingWidget(
+                                height: 24.0,
+                                width: 216.0,
+                                headingText: 'kingofkingslove@gmail.com'),
+                            // status
+                            Container(
+                              height: 24,
+                              width: 80,
+                              decoration: BoxDecoration(
+                                  color: ColorConstant.arrowColor
+                                      .withOpacity(0.70),
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 4),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(
+                                      Icons.circle_sharp,
+                                      color: Colors.green,
+                                    ),
+                                    Text(
+                                      'Active',
+                                      style: TextStyle(color: Colors.green),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: 120,
+                              height: 24,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Image.asset('assets/icons/flag.png'),
+                                      const SizedBox(width: 6),
+                                      Text(
+                                        'Bangladesh',
+                                        style: GoogleFonts.poppins(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: ColorConstant.arrowColor),
+                                borderRadius: BorderRadius.circular(4),
+                                color: ColorConstant.whiteColor,
+                              ),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 4),
+                                child: (Text(
+                                  'Details',
+                                  style: TextStyle(
+                                      color: ColorConstant.arrowColor),
+                                )),
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                      // second details user
+                      Container(
+                        height: 55,
+                        color: ColorConstant.searchColor,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 5),
+                              child: Checkbox(
+                                value: isTap,
+                                onChanged: (value) {
+                                  setState(() {
+                                    isTap = value!;
+                                  });
+                                },
+                              ),
+                            ),
+                            DataHeadingWidget(
+                                height: 24.0, width: 20.0, headingText: '02'),
+                            DataDetailsWidget(
+                                height: 42.0,
+                                width: 35.0,
+                                detailsText: 'assets/images/user2.png'),
+                            DataHeadingWidget(
+                                height: 24.0,
+                                width: 335.0,
+                                headingText: '@Ashley H. Throop'),
+                            DataHeadingWidget(
+                                height: 24.0,
+                                width: 208.0,
+                                headingText: '01722924089'),
+                            // status
+                            Container(
+                              height: 24,
+                              width: 80,
+                              decoration: BoxDecoration(
+                                  color: ColorConstant.arrowColor
+                                      .withOpacity(0.70),
+                                  borderRadius: BorderRadius.circular(20)),
+                              child: const Padding(
+                                padding: EdgeInsets.symmetric(horizontal: 4),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Icon(
+                                      Icons.circle_sharp,
+                                      color: Colors.red,
+                                    ),
+                                    Text(
+                                      'Ban',
+                                      style: TextStyle(color: Colors.red),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: 120,
+                              height: 24,
+                              child: Column(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Image.asset('assets/icons/flag.png'),
+                                      const SizedBox(width: 6),
+                                      Text(
+                                        'Bangladesh',
+                                        style: GoogleFonts.poppins(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                border:
+                                    Border.all(color: ColorConstant.arrowColor),
+                                borderRadius: BorderRadius.circular(4),
+                                color: ColorConstant.whiteColor,
+                              ),
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 4),
+                                child: (Text(
+                                  'Details',
+                                  style: TextStyle(
+                                      color: ColorConstant.arrowColor),
+                                )),
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -309,6 +453,5 @@ class _UserWidgetState extends State<UserWidget> {
         ),
       ],
     );
-    ;
   }
 }
