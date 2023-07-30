@@ -97,40 +97,6 @@ class _SideNavigationBarState extends State<SideNavigationBar> {
           'Master Panel',
           style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w500),
         ),
-        // Title of Menu
-        Container(
-          width: 300,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 6),
-            child: Column(
-              children: [
-                Container(
-                  height: 62,
-                  width: 231,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      color: ColorConstant.blueColor),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset('assets/images/Group 1000003753.png'),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        'Analyse',
-                        style: GoogleFonts.poppins(
-                            fontSize: 20,
-                            color: ColorConstant.whiteColor,
-                            fontWeight: FontWeight.w500),
-                      )
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
         // List of Menu
         Expanded(
             child: SizedBox(
