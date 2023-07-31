@@ -22,7 +22,7 @@ class _VipViewWidgetState extends State<VipViewWidget> {
           child: Container(
             height: MediaQuery.of(context).size.height * 0.96,
             width: MediaQuery.of(context).size.width * 0.748,
-            color: ColorConstant.whiteColor,
+            color: ColorConstant.searchColor,
             child: Column(
               children: [
                 // button VIP
@@ -1196,9 +1196,9 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                 ),
                 // headings
                 Container(
-                  color: ColorConstant.searchColor,
-                  alignment: Alignment.topLeft,
-                  height: 430,
+                  color: ColorConstant.whiteColor,
+                  alignment: Alignment.topCenter,
+                  height: 60,
                   width: MediaQuery.of(context).size.width * 0.748,
                   child: Column(
                     children: [
@@ -1216,6 +1216,79 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                             TextWidget(text: 'Logo'),
                             TextWidget(text: 'Chat Bubble'),
                             TextWidget(text: 'Action'),
+                          ],
+                        ),
+                      )
+                    ],
+                  ), // main column End
+                ),
+
+                // details
+                Container(
+                  color: ColorConstant.searchColor,
+                  alignment: Alignment.topCenter,
+                  height: 70,
+                  width: MediaQuery.of(context).size.width * 0.748,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            TextWidget(text: '01'),
+                            TextWidget(text: 'All'),
+                            TextWidget(text: '500.000'),
+                            TextWidget(text: '15/30 Days'),
+                            TextWidget(text: '170k/350k'),
+                            Container(
+                              height: 54,
+                              width: 110,
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/images/hondaCBR.png'),
+                                      scale: 1.0)),
+                            ),
+                            Container(
+                              height: 54,
+                              width: 110,
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/images/hondaCBR.png'),
+                                      scale: 1.0)),
+                            ),
+                            Container(
+                              height: 54,
+                              width: 110,
+                              decoration: const BoxDecoration(
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          'assets/images/hondaCBR.png'),
+                                      fit: BoxFit.cover)),
+                            ),
+                            Container(
+                              width: 110,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
+                                children: [
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.edit,
+                                        color: ColorConstant.blueColor,
+                                      )),
+                                  IconButton(
+                                      onPressed: () {},
+                                      icon: Icon(
+                                        Icons.delete,
+                                        color: ColorConstant.blueColor,
+                                      )),
+                                ],
+                              ),
+                            ),
                           ],
                         ),
                       )

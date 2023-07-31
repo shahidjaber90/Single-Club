@@ -7,6 +7,8 @@ import 'package:singleclub/Local_variables/navigationData.dart';
 import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/Pages/analyse_widget.dart';
+import 'package:singleclub/Widgets/Pages/guardian_view.dart';
+import 'package:singleclub/Widgets/Pages/reward_view.dart';
 import 'package:singleclub/Widgets/Pages/vipView_widget.dart';
 import 'package:singleclub/Widgets/side_navigation_bar.dart';
 import 'package:singleclub/Widgets/user_widget.dart';
@@ -208,7 +210,11 @@ Widget _getWidgetByIndex(int index) {
     case 1:
       return const UserWidget();
     case 3:
-      return VipViewWidget();
+      return const VipViewWidget();
+    case 5:
+      return const RewardView();
+    case 6:
+      return const GuardianView();
     default:
       return const AnalyseWidget();
   }

@@ -328,6 +328,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+  web_pagination:
+    dependency: "direct main"
+    description:
+      name: web_pagination
+      sha256: "0d0d6cf6ae06034115f979735e47858f8952e099ef1279a3866ec5b8aa3262fb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.5"
   win32:
     dependency: transitive
     description:
