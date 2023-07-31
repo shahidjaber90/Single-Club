@@ -10,3 +10,14 @@ List userDetails = [
   'New Host',
   'Freeze',
 ];
+List banDetails = [
+  'All',
+  'User Ban',
+  'User New',
+  'Host Ban',
+  'New Host Ban',
+  'Device',
+  'Old Ban',
+  'Freeze',
+  'New Freeze',
+];

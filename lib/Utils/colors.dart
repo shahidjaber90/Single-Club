@@ -6,3 +6,4 @@ class ColorConstant {
   static Color searchColor = Color(0xFFF5F4F6);
   static Color arrowColor = Color(0xffD2D2D2);
 }
+

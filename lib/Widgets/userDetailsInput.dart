@@ -15,6 +15,7 @@ class DataDetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.centerLeft,
       width: width,
       height: height,
       child: Column(

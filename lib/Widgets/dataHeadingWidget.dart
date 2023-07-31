@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:singleclub/Utils/colors.dart';
 
 class DataHeadingWidget extends StatelessWidget {
   DataHeadingWidget({
@@ -15,6 +16,7 @@ class DataHeadingWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       width: width,
       height: height,
       child: Column(

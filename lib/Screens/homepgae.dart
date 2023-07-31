@@ -6,9 +6,17 @@ import 'package:provider/provider.dart';
 import 'package:singleclub/Local_variables/navigationData.dart';
 import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
+import 'package:singleclub/Widgets/Pages/Giftpage.dart';
+import 'package:singleclub/Widgets/Pages/Rechargepage.dart';
+import 'package:singleclub/Widgets/Pages/Storepage.dart';
 import 'package:singleclub/Widgets/Pages/analyse_widget.dart';
+import 'package:singleclub/Widgets/Pages/banView.dart';
+import 'package:singleclub/Widgets/Pages/bannerpage.dart';
 import 'package:singleclub/Widgets/Pages/guardian_view.dart';
+import 'package:singleclub/Widgets/Pages/levelpage.dart';
+import 'package:singleclub/Widgets/Pages/reportView.dart';
 import 'package:singleclub/Widgets/Pages/reward_view.dart';
+import 'package:singleclub/Widgets/Pages/salarypage.dart';
 import 'package:singleclub/Widgets/Pages/vipView_widget.dart';
 import 'package:singleclub/Widgets/side_navigation_bar.dart';
 import 'package:singleclub/Widgets/user_widget.dart';
@@ -186,7 +194,7 @@ class _HomePageViewState extends State<HomePageView> {
                         // Data from Menu
 
                         Container(
-                          height: MediaQuery.of(context).size.height,
+                          height: MediaQuery.of(context).size.height * 1.00,
                           width: MediaQuery.of(context).size.width * 0.76,
                           child: _getWidgetByIndex(ind),
                         ),
@@ -206,15 +214,31 @@ class _HomePageViewState extends State<HomePageView> {
 Widget _getWidgetByIndex(int index) {
   switch (index) {
     case 0:
-      return const AnalyseWidget();
+      return const AnalyseWidget(); //ok 1
     case 1:
-      return const UserWidget();
+      return const UserWidget(); // ok 12
+    case 2:
+      return StorPage(); // ok 11
     case 3:
-      return const VipViewWidget();
+      return const VipViewWidget(); // ok
+    case 4:
+      return GiftPage(); // ok 4
     case 5:
-      return const RewardView();
+      return const RewardView(); // ok
     case 6:
-      return const GuardianView();
+      return const GuardianView(); // ok 5
+    case 7:
+      return const BanView(); // ok 3
+    case 8:
+      return const Levelview(); // ok 6
+    case 10:
+      return const ReportView(); // ok 8
+    case 14:
+      return const RechargePage(); // ok 8
+    case 16:
+      return const BannerView(); // ok 2
+    case 18:
+      return const ClearPage(); // ok 2
     default:
       return const AnalyseWidget();
   }

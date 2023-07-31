@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:singleclub/Local_variables/giftsData.dart';
 import 'package:singleclub/Utils/colors.dart';
+import 'package:singleclub/Widgets/textfield_heading.dart';
+import 'package:singleclub/Widgets/textfield_widget.dart';
 import 'package:singleclub/Widgets/textwidget.dart';
 
 class VipViewWidget extends StatefulWidget {
@@ -77,292 +79,43 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                                             .start,
                                                     children: [
                                                       // 1
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 50),
-                                                        child: Text(
-                                                          'VIP',
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                          style: GoogleFonts
-                                                              .poppins(
-                                                                  fontSize: 20,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                vertical: 8,
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  suffixIcon:
-                                                                      Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                  ),
-                                                                  hintText:
-                                                                      'Select Category:',
-                                                                  hintStyle: GoogleFonts.poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                                  border: OutlineInputBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
-                                                                      borderSide:
-                                                                          BorderSide(
-                                                                              color: ColorConstant.blueColor))),
-                                                        ),
-                                                      ),
+                                                      TextFieldHeadnig(
+                                                          headingText: 'VIP'),
+                                                      TextFieldWidget(
+                                                          labelText:
+                                                              'Select Category'),
 
                                                       // 2
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 50),
-                                                        child: Text(
-                                                          'VIP',
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                          style: GoogleFonts
-                                                              .poppins(
-                                                                  fontSize: 20,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                vertical: 8,
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration: InputDecoration(
-                                                              hintText:
-                                                                  'Select Types:',
-                                                              hintStyle: GoogleFonts
-                                                                  .poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                              border: OutlineInputBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8),
-                                                                  borderSide:
-                                                                      BorderSide(
-                                                                          color:
-                                                                              ColorConstant.blueColor))),
-                                                        ),
-                                                      ),
+                                                      TextFieldHeadnig(
+                                                          headingText: 'VIP'),
+                                                      TextFieldWidget(
+                                                          labelText:
+                                                              'Select Types'),
 
                                                       // 3
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 50),
-                                                        child: Text(
-                                                          'Name',
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                          style: GoogleFonts
-                                                              .poppins(
-                                                                  fontSize: 20,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                vertical: 8,
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration: InputDecoration(
-                                                              hintText:
-                                                                  'Enter Name:',
-                                                              hintStyle: GoogleFonts
-                                                                  .poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                              border: OutlineInputBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8),
-                                                                  borderSide:
-                                                                      BorderSide(
-                                                                          color:
-                                                                              ColorConstant.blueColor))),
-                                                        ),
-                                                      ),
+                                                      TextFieldHeadnig(
+                                                          headingText: 'Name'),
+                                                      TextFieldWidget(
+                                                          labelText:
+                                                              'Enter Name'),
                                                       // 4
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 50),
-                                                        child: Text(
-                                                          'Day',
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                          style: GoogleFonts
-                                                              .poppins(
-                                                                  fontSize: 20,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                vertical: 8,
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  suffixIcon:
-                                                                      Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                  ),
-                                                                  hintText:
-                                                                      'Select Days:',
-                                                                  hintStyle: GoogleFonts.poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                                  border: OutlineInputBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
-                                                                      borderSide:
-                                                                          BorderSide(
-                                                                              color: ColorConstant.blueColor))),
-                                                        ),
-                                                      ),
+                                                      TextFieldHeadnig(
+                                                          headingText: 'Day'),
+                                                      TextFieldWidget(
+                                                          labelText:
+                                                              'Select Days'),
                                                       // 5
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 50),
-                                                        child: Text(
-                                                          'Price',
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                          style: GoogleFonts
-                                                              .poppins(
-                                                                  fontSize: 20,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                vertical: 8,
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration: InputDecoration(
-                                                              hintText: 'Coin:',
-                                                              hintStyle: GoogleFonts
-                                                                  .poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                              border: OutlineInputBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8),
-                                                                  borderSide:
-                                                                      BorderSide(
-                                                                          color:
-                                                                              ColorConstant.blueColor))),
-                                                        ),
-                                                      ),
+                                                      TextFieldHeadnig(
+                                                          headingText: 'Price'),
+                                                      TextFieldWidget(
+                                                          labelText: 'Coin'),
                                                       // 6
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 50),
-                                                        child: Text(
-                                                          'Opportunity',
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                          style: GoogleFonts
-                                                              .poppins(
-                                                                  fontSize: 20,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                vertical: 8,
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  suffixIcon:
-                                                                      Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                  ),
-                                                                  hintText:
-                                                                      'Select Power:',
-                                                                  hintStyle: GoogleFonts.poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                                  border: OutlineInputBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
-                                                                      borderSide:
-                                                                          BorderSide(
-                                                                              color: ColorConstant.blueColor))),
-                                                        ),
-                                                      ),
-                                                      // icons
+                                                      TextFieldHeadnig(
+                                                          headingText:
+                                                              'Opportunity'),
+                                                      TextFieldWidget(
+                                                          labelText:
+                                                              'Select Power'),
 
                                                       Row(
                                                         mainAxisAlignment:
@@ -700,37 +453,10 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                                                       50),
                                                           child: Image.asset(
                                                               'assets/icons/vip_medal.png')),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  suffixIcon:
-                                                                      Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                  ),
-                                                                  hintText:
-                                                                      'Select Medal:',
-                                                                  hintStyle: GoogleFonts.poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                                  border: OutlineInputBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
-                                                                      borderSide:
-                                                                          BorderSide(
-                                                                              color: ColorConstant.blueColor))),
-                                                        ),
-                                                      ),
+
+                                                      TextFieldWidget(
+                                                          labelText:
+                                                              'Select Medal'),
                                                       // line 7
                                                       Padding(
                                                           padding:
@@ -740,37 +466,9 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                                                       50),
                                                           child: Image.asset(
                                                               'assets/icons/entrance_effect.png')),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  suffixIcon:
-                                                                      Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                  ),
-                                                                  hintText:
-                                                                      'Select Entry:',
-                                                                  hintStyle: GoogleFonts.poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                                  border: OutlineInputBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
-                                                                      borderSide:
-                                                                          BorderSide(
-                                                                              color: ColorConstant.blueColor))),
-                                                        ),
-                                                      ),
+                                                      TextFieldWidget(
+                                                          labelText:
+                                                              'Select Entry'),
                                                       // line 8
                                                       Padding(
                                                           padding:
@@ -780,38 +478,9 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                                                       50),
                                                           child: Image.asset(
                                                               'assets/icons/chat_bubbles.png')),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                vertical: 8,
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  suffixIcon:
-                                                                      Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                  ),
-                                                                  hintText:
-                                                                      'Select Bubble Chat:',
-                                                                  hintStyle: GoogleFonts.poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                                  border: OutlineInputBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
-                                                                      borderSide:
-                                                                          BorderSide(
-                                                                              color: ColorConstant.blueColor))),
-                                                        ),
-                                                      ),
+                                                      TextFieldWidget(
+                                                          labelText:
+                                                              'Select Bubble Chat'),
                                                       // line 9
                                                       Padding(
                                                           padding:
@@ -821,38 +490,9 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                                                       50),
                                                           child: Image.asset(
                                                               'assets/icons/video_call_frame.png')),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                vertical: 8,
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  suffixIcon:
-                                                                      Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                  ),
-                                                                  hintText:
-                                                                      'Select Frame:',
-                                                                  hintStyle: GoogleFonts.poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                                  border: OutlineInputBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
-                                                                      borderSide:
-                                                                          BorderSide(
-                                                                              color: ColorConstant.blueColor))),
-                                                        ),
-                                                      ),
+                                                      TextFieldWidget(
+                                                          labelText:
+                                                              'Select frame'),
                                                       // line 8
                                                       ///
                                                       ///
@@ -983,7 +623,7 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                           backgroundColor: Colors.transparent,
                                           elevation: 0,
                                           title: Container(
-                                            width: 325,
+                                            width: 400,
                                             color: ColorConstant.blueColor,
                                             child: Column(
                                               children: [
@@ -999,7 +639,7 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                                           .whiteColor),
                                                 ),
                                                 Container(
-                                                  width: 325,
+                                                  width: 400,
                                                   color:
                                                       ColorConstant.whiteColor,
                                                   child: Padding(
@@ -1009,96 +649,19 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                                     child: Column(
                                                       children: [
                                                         // 2
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  vertical: 8,
-                                                                  horizontal:
-                                                                      10),
-                                                          child: TextFormField(
-                                                            decoration:
-                                                                InputDecoration(
-                                                                    suffixIcon:
-                                                                        Icon(
-                                                                      Icons
-                                                                          .keyboard_arrow_down_rounded,
-                                                                      color: ColorConstant
-                                                                          .arrowColor,
-                                                                    ),
-                                                                    hintText:
-                                                                        'Select Category:',
-                                                                    hintStyle: GoogleFonts.poppins(
-                                                                        fontSize:
-                                                                            16,
-                                                                        color: ColorConstant
-                                                                            .arrowColor),
-                                                                    border: OutlineInputBorder(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(
-                                                                                8),
-                                                                        borderSide:
-                                                                            BorderSide(color: ColorConstant.blueColor))),
-                                                          ),
-                                                        ),
+                                                        TextFieldWidget(
+                                                            labelText:
+                                                                'Select Category:'),
                                                         // 3
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  vertical: 8,
-                                                                  horizontal:
-                                                                      10),
-                                                          child: TextFormField(
-                                                            decoration: InputDecoration(
-                                                                hintText:
-                                                                    'Expire:',
-                                                                hintStyle: GoogleFonts.poppins(
-                                                                    fontSize:
-                                                                        16,
-                                                                    color: ColorConstant
-                                                                        .arrowColor),
-                                                                border: OutlineInputBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .circular(
-                                                                                8),
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                            color:
-                                                                                ColorConstant.blueColor))),
-                                                          ),
-                                                        ),
+                                                        TextFieldWidget(
+                                                            labelText:
+                                                                'Expire:'),
                                                         // 4
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  vertical: 8,
-                                                                  horizontal:
-                                                                      10),
-                                                          child: TextFormField(
-                                                            decoration: InputDecoration(
-                                                                hintText: 'ID:',
-                                                                hintStyle: GoogleFonts.poppins(
-                                                                    fontSize:
-                                                                        16,
-                                                                    color: ColorConstant
-                                                                        .arrowColor),
-                                                                border: OutlineInputBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .circular(
-                                                                                8),
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                            color:
-                                                                                ColorConstant.blueColor))),
-                                                          ),
-                                                        ),
+                                                        TextFieldWidget(
+                                                            labelText: 'ID:'),
                                                         // user
                                                         const SizedBox(
-                                                            height: 10),
+                                                            height: 20),
                                                         Row(
                                                           mainAxisAlignment:
                                                               MainAxisAlignment
