@@ -51,20 +51,41 @@ class _GuardianViewState extends State<GuardianView> {
                                         backgroundColor: Colors.transparent,
                                         elevation: 0,
                                         title: Container(
-                                          width: 425,
+                                          // width: 425,
                                           color: ColorConstant.blueColor,
                                           child: Column(
                                             children: [
-                                              Text(
-                                                'Add Guardian',
-                                                textAlign: TextAlign.center,
-                                                style: GoogleFonts.poppins(
-                                                    fontSize: 30,
-                                                    fontWeight: FontWeight.w600,
-                                                    letterSpacing: 0.5,
-                                                    color: ColorConstant
-                                                        .whiteColor),
-                                              ),
+                                             
+                        Container(
+                          // height: 53,
+                          // width: double.infinity,
+                          color: ColorConstant.blueColor,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                        
+                            
+                            children: [
+                              Text(
+                                // textAlign: TextAlign.center,
+                                "Add Guardian",
+                                style: GoogleFonts.poppins(
+                                    color: ColorConstant.whiteColor,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(width: 60,),
+                               
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: const Icon(Icons.close),
+                                color: ColorConstant.whiteColor,
+                              )
+                            ],
+                          ),
+                        ),
+                       
                                               Container(
                                                 width: 425,
                                                 color: ColorConstant.whiteColor,
@@ -485,17 +506,37 @@ class _GuardianViewState extends State<GuardianView> {
                                             color: ColorConstant.blueColor,
                                             child: Column(
                                               children: [
-                                                Text(
-                                                  'Send Guardian',
-                                                  textAlign: TextAlign.center,
-                                                  style: GoogleFonts.poppins(
-                                                      fontSize: 30,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      letterSpacing: 0.5,
-                                                      color: ColorConstant
-                                                          .whiteColor),
-                                                ),
+                                               
+                        Container(
+                          // height: 53,
+                          // width: double.infinity,
+                          color: ColorConstant.blueColor,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                        
+                            
+                            children: [
+                              Text(
+                                // textAlign: TextAlign.center,
+                                "Send Guardian",
+                                style: GoogleFonts.poppins(
+                                    color: ColorConstant.whiteColor,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(width: 40,),
+                               
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: const Icon(Icons.close),
+                                color: ColorConstant.whiteColor,
+                              )
+                            ],
+                          ),
+                        ),
+                       
                                                 Container(
                                                   width: 325,
                                                   color:

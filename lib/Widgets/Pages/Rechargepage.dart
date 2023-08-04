@@ -152,27 +152,45 @@ class _RechargePageState extends State<RechargePage> {
                               elevation: 0,
                               actions: [
                                 Container(
-                                  width:
-                                      MediaQuery.of(context).size.width * 0.30,
+                                  // width:
+                                  //     MediaQuery.of(context).size.width * 0.30,
                                   color: ColorConstant.whiteColor,
                                   child: SingleChildScrollView(
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Container(
-                                          height: 53,
-                                          width: double.infinity,
-                                          color: ColorConstant.blueColor,
-                                          child: Text(
-                                            textAlign: TextAlign.center,
-                                            "Recharge ",
-                                            style: GoogleFonts.poppins(
-                                                color: ColorConstant.whiteColor,
-                                                fontSize: 30,
-                                                fontWeight: FontWeight.w600),
-                                          ),
-                                        ),
+                                        
+                        Container(
+                          // height: 53,
+                          // width: double.infinity,
+                          color: ColorConstant.blueColor,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                        
+                            
+                            children: [
+                              Text(
+                                // textAlign: TextAlign.center,
+                                "Recharge",
+                                style: GoogleFonts.poppins(
+                                    color: ColorConstant.whiteColor,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(width: 60,),
+                               
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: const Icon(Icons.close),
+                                color: ColorConstant.whiteColor,
+                              )
+                            ],
+                          ),
+                        ),
+                       
                                         const SizedBox(
                                           height: 10,
                                         ),
@@ -366,28 +384,45 @@ class _RechargePageState extends State<RechargePage> {
                                 elevation: 0,
                                 actions: [
                                   Container(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.30,
+                                    // width: MediaQuery.of(context).size.width *
+                                    //     0.30,
                                     color: ColorConstant.whiteColor,
                                     child: SingleChildScrollView(
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                          Container(
-                                            height: 53,
-                                            width: double.infinity,
-                                            color: ColorConstant.blueColor,
-                                            child: Text(
-                                              textAlign: TextAlign.center,
-                                              "Recharge Back",
-                                              style: GoogleFonts.poppins(
-                                                  color:
-                                                      ColorConstant.whiteColor,
-                                                  fontSize: 30,
-                                                  fontWeight: FontWeight.w600),
-                                            ),
-                                          ),
+                                         
+                        Container(
+                          // height: 53,
+                          // width: double.infinity,
+                          color: ColorConstant.blueColor,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                        
+                            
+                            children: [
+                              Text(
+                                // textAlign: TextAlign.center,
+                                "Recharge Back",
+                                style: GoogleFonts.poppins(
+                                    color: ColorConstant.whiteColor,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(width: 40,),
+                               
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: const Icon(Icons.close),
+                                color: ColorConstant.whiteColor,
+                              )
+                            ],
+                          ),
+                        ),
+                       
                                           const SizedBox(
                                             height: 10,
                                           ),

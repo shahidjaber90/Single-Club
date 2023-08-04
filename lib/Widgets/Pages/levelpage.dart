@@ -53,21 +53,36 @@ class _LevelviewState extends State<Levelview> {
                       elevation: 0,
                       actions: [
                         Container(
-                          width: MediaQuery.of(context).size.width * 0.30,
+                          // width: MediaQuery.of(context).size.width * 0.30,
                           color: ColorConstant.whiteColor,
                           child: Column(
                             children: [
                               Container(
-                                height: 53,
-                                width: double.infinity,
+                                // height: 53,
+                                // width: double.infinity,
                                 color: ColorConstant.blueColor,
-                                child: Text(
-                                  textAlign: TextAlign.center,
-                                  "Add Level",
-                                  style: GoogleFonts.poppins(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      // textAlign: TextAlign.center,
+                                      "Add Level",
+                                      style: GoogleFonts.poppins(
+                                          color: ColorConstant.whiteColor,
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.w600),
+                                    ),
+                                    const SizedBox(
+                                      width: 60,
+                                    ),
+                                    IconButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                      },
+                                      icon: const Icon(Icons.close),
                                       color: ColorConstant.whiteColor,
-                                      fontSize: 30,
-                                      fontWeight: FontWeight.w600),
+                                    )
+                                  ],
                                 ),
                               ),
                               const SizedBox(
@@ -144,34 +159,47 @@ class _LevelviewState extends State<Levelview> {
                               Container(
                                 height: 100,
                                 width: 140,
-                                color: ColorConstant.whiteColor,
-                                child: Column(
-                                  children: [
-                                    Text(
-                                      textAlign: TextAlign.center,
-                                      "Upload File",
-                                      style: GoogleFonts.poppins(
-                                          color: ColorConstant.blueColor,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                    SizedBox(
-                                      height: 50,
-                                      width: 50,
-                                      child: Image.asset(
-                                        "assets/icons/cloudupload.png",
-                                        fit: BoxFit.contain,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: ColorConstant.whiteColor,
+                                    boxShadow: [
+                                      BoxShadow(
+                                          color: ColorConstant.blueColor
+                                              .withOpacity(0.30),
+                                          offset: const Offset(1, 2.0),
+                                          blurRadius: 2.0,
+                                          spreadRadius: 0.0),
+                                    ]),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(top: 8.0),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        textAlign: TextAlign.center,
+                                        "Upload File",
+                                        style: GoogleFonts.poppins(
+                                            color: ColorConstant.blueColor,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w400),
                                       ),
-                                    ),
-                                    Text(
-                                      textAlign: TextAlign.center,
-                                      "SVG/WEP",
-                                      style: GoogleFonts.poppins(
-                                          color: ColorConstant.blueColor,
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.w400),
-                                    ),
-                                  ],
+                                      SizedBox(
+                                        height: 50,
+                                        width: 50,
+                                        child: Image.asset(
+                                          "assets/icons/cloudupload.png",
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ),
+                                      Text(
+                                        textAlign: TextAlign.center,
+                                        "SVG/WEP",
+                                        style: GoogleFonts.poppins(
+                                            color: ColorConstant.blueColor,
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w400),
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ),
                               const SizedBox(
@@ -256,18 +284,49 @@ class _LevelviewState extends State<Levelview> {
             child: Expanded(
               // flex: 1,
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: List.generate(
-                  text2.length,
-                  (index) => Text(
-                    text2[index],
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.poppins(
-                        fontSize: 15, fontWeight: FontWeight.w300),
-                  ),
-                  growable: true,
-                ),
-              ),
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Text(
+                      text2[0],
+                      style: GoogleFonts.poppins(
+                          fontSize: 15, fontWeight: FontWeight.w400),
+                    ),
+                    SizedBox(
+                      height: 50,
+                      width: 50,
+                      child: Image.asset("assets/images/levelimage.png"),
+                    ),
+                    Text(
+                      text2[2],
+                      style: GoogleFonts.poppins(
+                          fontSize: 15, fontWeight: FontWeight.w400),
+                    ),
+                    Text(
+                      text2[3],
+                      style: GoogleFonts.poppins(
+                          fontSize: 15, fontWeight: FontWeight.w400),
+                    ),
+                    Text(
+                      text2[4],
+                      style: GoogleFonts.poppins(
+                          fontSize: 15, fontWeight: FontWeight.w400),
+                    ),
+                    Text(
+                      text2[5],
+                      style: GoogleFonts.poppins(
+                          fontSize: 15, fontWeight: FontWeight.w400),
+                    ),
+                    Text(
+                      text2[6],
+                      style: GoogleFonts.poppins(
+                          fontSize: 15, fontWeight: FontWeight.w400),
+                    ),
+                    Text(
+                      text2[7],
+                      style: GoogleFonts.poppins(
+                          fontSize: 15, fontWeight: FontWeight.w400),
+                    ),
+                  ]),
             ),
           ),
         ),

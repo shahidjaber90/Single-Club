@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:singleclub/Local_variables/navigationData.dart';
 import 'package:singleclub/Utils/colors.dart';
@@ -78,9 +79,10 @@ class AnalyseWidget extends StatelessWidget {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Image.asset(
-                                'assets/icons/${navigationData[index]['icon']}',
-                                scale: 0.6,
+                              SvgPicture.asset(
+                                'assets/svg/${navigationData[index]['icon']}',
+                                height: 40,
+                                width: 40,
                               ),
                               Text('${navigationData[index]['count']}'),
                               Text(

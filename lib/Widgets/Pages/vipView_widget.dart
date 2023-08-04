@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:singleclub/Local_variables/giftsData.dart';
 import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/textfield_heading.dart';
 import 'package:singleclub/Widgets/textfield_widget.dart';
@@ -53,22 +52,41 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                         backgroundColor: Colors.transparent,
                                         elevation: 0,
                                         title: Container(
-                                          width: 425,
+                                          width: 400,
                                           color: ColorConstant.blueColor,
                                           child: Column(
                                             children: [
-                                              Text(
-                                                'Add VIP',
-                                                textAlign: TextAlign.center,
-                                                style: GoogleFonts.poppins(
-                                                    fontSize: 30,
-                                                    fontWeight: FontWeight.w600,
-                                                    letterSpacing: 0.5,
-                                                    color: ColorConstant
-                                                        .whiteColor),
-                                              ),
+                                               Container(
+                          // height: 53,
+                          // width: double.infinity,
+                          color: ColorConstant.blueColor,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                        
+                            
+                            children: [
+                              Text(
+                                // textAlign: TextAlign.center,
+                                "Add Vip",
+                                style: GoogleFonts.poppins(
+                                    color: ColorConstant.whiteColor,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(width: 60,),
+                               
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: const Icon(Icons.close),
+                                color: ColorConstant.whiteColor,
+                              )
+                            ],
+                          ),
+                        ),
                                               Container(
-                                                width: 425,
+                                                // width: 425,
                                                 color: ColorConstant.whiteColor,
                                                 child: Padding(
                                                   padding:
@@ -623,23 +641,41 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                           backgroundColor: Colors.transparent,
                                           elevation: 0,
                                           title: Container(
-                                            width: 400,
+                                            // width: 400,
                                             color: ColorConstant.blueColor,
                                             child: Column(
                                               children: [
-                                                Text(
-                                                  'Send Gift',
-                                                  textAlign: TextAlign.center,
-                                                  style: GoogleFonts.poppins(
-                                                      fontSize: 30,
-                                                      fontWeight:
-                                                          FontWeight.w600,
-                                                      letterSpacing: 0.5,
-                                                      color: ColorConstant
-                                                          .whiteColor),
-                                                ),
+                                                 Container(
+                          // height: 53,
+                          // width: double.infinity,
+                          color: ColorConstant.blueColor,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                        
+                            
+                            children: [
+                              Text(
+                                // textAlign: TextAlign.center,
+                                "Send Vip",
+                                style: GoogleFonts.poppins(
+                                    color: ColorConstant.whiteColor,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(width: 60,),
+                               
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: const Icon(Icons.close),
+                                color: ColorConstant.whiteColor,
+                              )
+                            ],
+                          ),
+                        ),
                                                 Container(
-                                                  width: 400,
+                                                  // width: 400,
                                                   color:
                                                       ColorConstant.whiteColor,
                                                   child: Padding(

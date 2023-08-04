@@ -63,7 +63,7 @@ class _ReportViewState extends State<ReportView> {
                                                   Colors.transparent,
                                               elevation: 0,
                                               title: Container(
-                                                width: 425,
+                                                // width: 425,
                                                 decoration: BoxDecoration(
                                                     color:
                                                         ColorConstant.blueColor,
@@ -73,20 +73,37 @@ class _ReportViewState extends State<ReportView> {
                                                             .blueColor)),
                                                 child: Column(
                                                   children: [
-                                                    Text(
-                                                      'Create Complain',
-                                                      textAlign:
-                                                          TextAlign.center,
-                                                      style: GoogleFonts.poppins(
-                                                          fontSize: 30,
-                                                          fontWeight:
-                                                              FontWeight.w600,
-                                                          letterSpacing: 0.5,
-                                                          color: ColorConstant
-                                                              .whiteColor),
-                                                    ),
+                                                     Container(
+                          // height: 53,
+                          // width: double.infinity,
+                          color: ColorConstant.blueColor,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                        
+                            
+                            children: [
+                              Text(
+                                // textAlign: TextAlign.center,
+                                "Create Complain",
+                                style: GoogleFonts.poppins(
+                                    color: ColorConstant.whiteColor,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(width: 60,),
+                               
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: const Icon(Icons.close),
+                                color: ColorConstant.whiteColor,
+                              )
+                            ],
+                          ),
+                        ),
                                                     Container(
-                                                      width: 425,
+                                                      // width: 425,
                                                       color: ColorConstant
                                                           .whiteColor,
                                                       child: Padding(
@@ -102,8 +119,8 @@ class _ReportViewState extends State<ReportView> {
                                                             TextFieldHeadnig(
                                                                 headingText:
                                                                     'Category'),
-                                                            Container(
-                                                              width: 360,
+                                                            Padding(
+                                                              padding: const EdgeInsets.only(left :20.0),
                                                               child: TextFieldWidget(
                                                                   labelText:
                                                                       'Select Types'),
@@ -174,47 +191,56 @@ class _ReportViewState extends State<ReportView> {
                                                                         });
                                                                   },
                                                                   child:
-                                                                      Container(
-                                                                    height: 100,
-                                                                    width: 140,
-                                                                    color: ColorConstant
-                                                                        .whiteColor,
-                                                                    child:
-                                                                        Column(
-                                                                      children: [
-                                                                        Text(
-                                                                          textAlign:
-                                                                              TextAlign.center,
-                                                                          "Upload File",
-                                                                          style: GoogleFonts.poppins(
-                                                                              color: ColorConstant.blueColor,
-                                                                              fontSize: 14,
-                                                                              fontWeight: FontWeight.w400),
-                                                                        ),
-                                                                        SizedBox(
-                                                                          height:
-                                                                              50,
-                                                                          width:
-                                                                              50,
-                                                                          child:
-                                                                              Image.asset(
-                                                                            "assets/icons/cloudupload.png",
-                                                                            fit:
-                                                                                BoxFit.contain,
-                                                                          ),
-                                                                        ),
-                                                                        Text(
-                                                                          textAlign:
-                                                                              TextAlign.center,
-                                                                          "Video/Screen-Short",
-                                                                          style: GoogleFonts.poppins(
-                                                                              color: ColorConstant.blueColor,
-                                                                              fontSize: 14,
-                                                                              fontWeight: FontWeight.w400),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
+ 
+                        Container(
+                          
+                          height: 100,
+                          width: 140,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                          color: ColorConstant.whiteColor,
+                            boxShadow: [
+                              BoxShadow(
+                                  color:
+                                      ColorConstant.blueColor.withOpacity(0.30),
+                                  offset: const Offset(1, 2.0),
+                                  blurRadius: 2.0,
+                                  spreadRadius: 0.0),
+                            ]),
+                           
+                          child: Padding(
+                            padding: const EdgeInsets.only(top : 8.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  textAlign: TextAlign.center,
+                                  "Upload File",
+                                  style: GoogleFonts.poppins(
+                                      color: ColorConstant.blueColor,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                                SizedBox(
+                                  height: 50,
+                                  width: 50,
+                                  child: Image.asset(
+                                    "assets/icons/cloudupload.png",
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                                Text(
+                                  textAlign: TextAlign.center,
+                                  "SVG/WEP",
+                                  style: GoogleFonts.poppins(
+                                      color: ColorConstant.blueColor,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      
                                                                 ),
                                                               ],
                                                             ),

@@ -5,9 +5,17 @@ import 'package:singleclub/Widgets/alertButton.dart';
 import 'package:singleclub/Widgets/chip.dart';
 import 'package:singleclub/Widgets/textfield_widget.dart';
 
-class GiftPage extends StatelessWidget {
+class GiftPage extends StatefulWidget {
   GiftPage({super.key});
 
+  @override
+  State<GiftPage> createState() => _GiftPageState();
+}
+
+class _GiftPageState extends State<GiftPage> {
+  bool isButton = false;
+  Color textColor = const Color(0xFF2C50ED);
+  Color color = const Color(0xFFFFFFFF);
   final List text = [
     "SL",
     "Product",
@@ -20,6 +28,7 @@ class GiftPage extends StatelessWidget {
     "Date/Time",
     "Action",
   ];
+
   final List text2 = [
     "01",
     "image",
@@ -31,6 +40,7 @@ class GiftPage extends StatelessWidget {
     "Master Point",
     "14-Feb-2023\n15:39",
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -75,6 +85,10 @@ class GiftPage extends StatelessWidget {
                       children: [
                         GestureDetector(
                           onTap: () {
+                            setState(() {
+                              color = Color(0xFF2C50ED);
+                              textColor = Color(0xffFFFFFF);
+                            });
                             showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
@@ -83,22 +97,45 @@ class GiftPage extends StatelessWidget {
                                 elevation: 0,
                                 actions: [
                                   Container(
-                                    width: MediaQuery.of(context).size.width *
-                                        0.30,
+                                    // width: MediaQuery.of(context).size.width *
+                                    //     0.30,
                                     color: ColorConstant.whiteColor,
                                     child: Column(
                                       children: [
                                         Container(
-                                          height: 53,
-                                          width: double.infinity,
+                                          // height: 53,
+                                          // width: double.infinity,
                                           color: ColorConstant.blueColor,
-                                          child: Text(
-                                            textAlign: TextAlign.center,
-                                            "Send Gift",
-                                            style: GoogleFonts.poppins(
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                // textAlign: TextAlign.center,
+                                                "Send Gift",
+                                                style: GoogleFonts.poppins(
+                                                    color: ColorConstant
+                                                        .whiteColor,
+                                                    fontSize: 30,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                              const SizedBox(
+                                                width: 60,
+                                              ),
+                                              IconButton(
+                                                onPressed: () {
+                                                  setState(() {
+                                                    textColor =
+                                                        Color(0xFF2C50ED);
+                                                    color = Color(0xffFFFFFF);
+                                                  });
+                                                  Navigator.pop(context);
+                                                },
+                                                icon: const Icon(Icons.close),
                                                 color: ColorConstant.whiteColor,
-                                                fontSize: 30,
-                                                fontWeight: FontWeight.w600),
+                                              )
+                                            ],
                                           ),
                                         ),
                                         const SizedBox(
@@ -145,15 +182,6 @@ class GiftPage extends StatelessWidget {
                                                   Positioned(
                                                     left: 120,
                                                     child: GestureDetector(
-                                                      //
-
-                                                      //
-                                                      //
-                                                      //
-                                                      //
-                                                      //
-                                                      //
-
                                                       onTap: () {
                                                         showDialog(
                                                           context: context,
@@ -165,41 +193,48 @@ class GiftPage extends StatelessWidget {
                                                                     .transparent,
                                                             elevation: 0,
                                                             actions: [
-                                                              Padding(
-                                                                padding:
-                                                                    const EdgeInsets
-                                                                            .all(
-                                                                        20.0),
+                                                              Container(
+                                                                // width: MediaQuery.of(
+                                                                //             context)
+                                                                //         .size
+                                                                //         .width *
+                                                                //     0.30,
+                                                                height: 641,
+                                                                color: ColorConstant
+                                                                    .whiteColor,
                                                                 child:
-                                                                    Container(
-                                                                  width: MediaQuery.of(
-                                                                              context)
-                                                                          .size
-                                                                          .width *
-                                                                      0.30,
-                                                                  color: ColorConstant
-                                                                      .whiteColor,
+                                                                    SingleChildScrollView(
                                                                   child: Column(
                                                                     crossAxisAlignment:
                                                                         CrossAxisAlignment
                                                                             .start,
                                                                     children: [
                                                                       Container(
-                                                                        height:
-                                                                            53,
-                                                                        width: double
-                                                                            .infinity,
+                                                                        // height: 53,
+                                                                        // width: double.infinity,
                                                                         color: ColorConstant
                                                                             .blueColor,
                                                                         child:
+                                                                            Row(
+                                                                          mainAxisAlignment:
+                                                                              MainAxisAlignment.center,
+                                                                          children: [
                                                                             Text(
-                                                                          textAlign:
-                                                                              TextAlign.center,
-                                                                          "Lucky Gift",
-                                                                          style: GoogleFonts.poppins(
+                                                                              // textAlign: TextAlign.center,
+                                                                              "lucky Gift",
+                                                                              style: GoogleFonts.poppins(color: ColorConstant.whiteColor, fontSize: 30, fontWeight: FontWeight.w600),
+                                                                            ),
+                                                                            const SizedBox(
+                                                                              width: 60,
+                                                                            ),
+                                                                            IconButton(
+                                                                              onPressed: () {
+                                                                                Navigator.pop(context);
+                                                                              },
+                                                                              icon: const Icon(Icons.close),
                                                                               color: ColorConstant.whiteColor,
-                                                                              fontSize: 30,
-                                                                              fontWeight: FontWeight.w600),
+                                                                            )
+                                                                          ],
                                                                         ),
                                                                       ),
                                                                       const SizedBox(
@@ -398,6 +433,9 @@ class GiftPage extends StatelessWidget {
                                                                                 AlertButton(buttonName: "Save"),
                                                                               ],
                                                                             ),
+                                                                            const SizedBox(
+                                                                              height: 24,
+                                                                            ),
                                                                           ],
                                                                         ),
                                                                       )
@@ -516,14 +554,14 @@ class GiftPage extends StatelessWidget {
                             width: 138,
                             height: 32,
                             decoration: BoxDecoration(
-                                color: ColorConstant.whiteColor,
+                                color: color,
                                 border:
                                     Border.all(color: ColorConstant.blueColor),
                                 borderRadius: BorderRadius.circular(24)),
                             child: Text(
                               'Add Gift',
                               style: TextStyle(
-                                  color: ColorConstant.blueColor,
+                                  color: textColor,
                                   letterSpacing: 0.5,
                                   fontSize: 11,
                                   fontWeight: FontWeight.w700),
@@ -537,12 +575,15 @@ class GiftPage extends StatelessWidget {
                             width: 138,
                             height: 32,
                             decoration: BoxDecoration(
-                                color: ColorConstant.blueColor,
+                                border: Border.all(
+                                  color: ColorConstant.blueColor,
+                                ),
+                                color: ColorConstant.whiteColor,
                                 borderRadius: BorderRadius.circular(24)),
                             child: Text(
                               'Send Gift',
                               style: TextStyle(
-                                  color: ColorConstant.whiteColor,
+                                  color: ColorConstant.blueColor,
                                   letterSpacing: 0.5,
                                   fontSize: 11,
                                   fontWeight: FontWeight.w700),
@@ -619,18 +660,50 @@ class GiftPage extends StatelessWidget {
                       Expanded(
                         // flex: 1,
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: List.generate(
-                            text2.length,
-                            (index) => Text(
-                              text2[index],
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.poppins(
-                                  fontSize: 15, fontWeight: FontWeight.w400),
-                            ),
-                            growable: true,
-                          ),
-                        ),
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(
+                                text2[0],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              SizedBox(
+                                height: 50,
+                                width: 50,
+                                child:
+                                    Image.asset("assets/images/hondaCBR.png"),
+                              ),
+                              Text(
+                                text2[1],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                text2[2],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                text2[3],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                text2[4],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                text2[5],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                text2[6],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                            ]),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -50,20 +50,39 @@ class _RewardViewState extends State<RewardView> {
                                       backgroundColor: Colors.transparent,
                                       elevation: 0,
                                       title: Container(
-                                        width: 425,
+                                        // width: 425,
                                         color: ColorConstant.blueColor,
                                         child: Column(
                                           children: [
-                                            Text(
-                                              'Set Up Reward',
-                                              textAlign: TextAlign.center,
-                                              style: GoogleFonts.poppins(
-                                                  fontSize: 30,
-                                                  fontWeight: FontWeight.w600,
-                                                  letterSpacing: 0.5,
-                                                  color:
-                                                      ColorConstant.whiteColor),
-                                            ),
+                                             Container(
+                          // height: 53,
+                          // width: double.infinity,
+                          color: ColorConstant.blueColor,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                        
+                            
+                            children: [
+                              Text(
+                                // textAlign: TextAlign.center,
+                                "Set up Reward",
+                                style: GoogleFonts.poppins(
+                                    color: ColorConstant.whiteColor,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              const SizedBox(width: 60,),
+                               
+                              IconButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                icon: const Icon(Icons.close),
+                                color: ColorConstant.whiteColor,
+                              )
+                            ],
+                          ),
+                        ),
                                             Container(
                                               width: 425,
                                               color: ColorConstant.whiteColor,

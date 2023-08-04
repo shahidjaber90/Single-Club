@@ -87,26 +87,44 @@ class StorPage extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.all(20.0),
                                     child: Container(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.55, //
-                                      width: MediaQuery.of(context).size.width *
-                                          0.30,
+                                      // height:
+                                      // MediaQuery.of(context).size.height *
+                                      //     0.55, //
+                                      // width: MediaQuery.of(context).size.width *
+                                      //     0.30,
                                       color: ColorConstant.whiteColor,
                                       child: Column(
                                         children: [
                                           Container(
-                                            height: 53,
-                                            width: double.infinity,
+                                            // height: 53,
+                                            // width: double.infinity,
                                             color: ColorConstant.blueColor,
-                                            child: Text(
-                                              textAlign: TextAlign.center,
-                                              "Send Gift",
-                                              style: GoogleFonts.poppins(
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  // textAlign: TextAlign.center,
+                                                  "Send Gift",
+                                                  style: GoogleFonts.poppins(
+                                                      color: ColorConstant
+                                                          .whiteColor,
+                                                      fontSize: 30,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                ),
+                                                const SizedBox(
+                                                  width: 60,
+                                                ),
+                                                IconButton(
+                                                  onPressed: () {
+                                                    Navigator.pop(context);
+                                                  },
+                                                  icon: const Icon(Icons.close),
                                                   color:
                                                       ColorConstant.whiteColor,
-                                                  fontSize: 30,
-                                                  fontWeight: FontWeight.w600),
+                                                )
+                                              ],
                                             ),
                                           ),
                                           TextFieldWidget(labelText: 'ID :'),
@@ -118,7 +136,10 @@ class StorPage extends StatelessWidget {
                                           const SizedBox(
                                             height: 10,
                                           ),
-                                          AlertButton(buttonName: 'Send')
+                                          AlertButton(buttonName: 'Send'),
+                                          const SizedBox(
+                                            height: 24,
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -160,25 +181,43 @@ class StorPage extends StatelessWidget {
                                     Padding(
                                       padding: const EdgeInsets.all(20.0),
                                       child: Container(
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.30,
+                                        // width:
+                                        //     MediaQuery.of(context).size.width *
+                                        //         0.30,
                                         color: ColorConstant.whiteColor,
                                         child: Column(
                                           children: [
                                             Container(
-                                              height: 53,
-                                              width: double.infinity,
+                                              // height: 53,
+                                              // width: double.infinity,
                                               color: ColorConstant.blueColor,
-                                              child: Text(
-                                                textAlign: TextAlign.center,
-                                                "Add Effect",
-                                                style: GoogleFonts.poppins(
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    // textAlign: TextAlign.center,
+                                                    "Add Effect",
+                                                    style: GoogleFonts.poppins(
+                                                        color: ColorConstant
+                                                            .whiteColor,
+                                                        fontSize: 30,
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                  const SizedBox(
+                                                    width: 60,
+                                                  ),
+                                                  IconButton(
+                                                    onPressed: () {
+                                                      Navigator.pop(context);
+                                                    },
+                                                    icon:
+                                                        const Icon(Icons.close),
                                                     color: ColorConstant
                                                         .whiteColor,
-                                                    fontSize: 30,
-                                                    fontWeight:
-                                                        FontWeight.w600),
+                                                  )
+                                                ],
                                               ),
                                             ),
                                             TextFieldWidget(
@@ -197,38 +236,58 @@ class StorPage extends StatelessWidget {
                                             Container(
                                               height: 100,
                                               width: 140,
-                                              color: ColorConstant.whiteColor,
-                                              child: Column(
-                                                children: [
-                                                  Text(
-                                                    textAlign: TextAlign.center,
-                                                    "Upload File",
-                                                    style: GoogleFonts.poppins(
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(10),
+                                                  color:
+                                                      ColorConstant.whiteColor,
+                                                  boxShadow: [
+                                                    BoxShadow(
                                                         color: ColorConstant
-                                                            .blueColor,
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 50,
-                                                    width: 50,
-                                                    child: Image.asset(
-                                                      "assets/icons/cloudupload.png",
-                                                      fit: BoxFit.contain,
+                                                            .blueColor
+                                                            .withOpacity(0.30),
+                                                        offset: const Offset(
+                                                            1, 2.0),
+                                                        blurRadius: 2.0,
+                                                        spreadRadius: 0.0),
+                                                  ]),
+                                              child: Padding(
+                                                padding: const EdgeInsets.only(
+                                                    top: 8.0),
+                                                child: Column(
+                                                  children: [
+                                                    Text(
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      "Upload File",
+                                                      style: GoogleFonts.poppins(
+                                                          color: ColorConstant
+                                                              .blueColor,
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w400),
                                                     ),
-                                                  ),
-                                                  Text(
-                                                    textAlign: TextAlign.center,
-                                                    "SVG/WEP",
-                                                    style: GoogleFonts.poppins(
-                                                        color: ColorConstant
-                                                            .blueColor,
-                                                        fontSize: 14,
-                                                        fontWeight:
-                                                            FontWeight.w400),
-                                                  ),
-                                                ],
+                                                    SizedBox(
+                                                      height: 50,
+                                                      width: 50,
+                                                      child: Image.asset(
+                                                        "assets/icons/cloudupload.png",
+                                                        fit: BoxFit.contain,
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      textAlign:
+                                                          TextAlign.center,
+                                                      "SVG/WEP",
+                                                      style: GoogleFonts.poppins(
+                                                          color: ColorConstant
+                                                              .blueColor,
+                                                          fontSize: 14,
+                                                          fontWeight:
+                                                              FontWeight.w400),
+                                                    ),
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                             const SizedBox(
@@ -334,18 +393,55 @@ class StorPage extends StatelessWidget {
                       Expanded(
                         // flex: 1,
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: List.generate(
-                            text2.length,
-                            (index) => Text(
-                              text2[index],
-                              textAlign: TextAlign.center,
-                              style: GoogleFonts.poppins(
-                                  fontSize: 15, fontWeight: FontWeight.w400),
-                            ),
-                            growable: true,
-                          ),
-                        ),
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(
+                                text2[0],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              SizedBox(
+                                height: 50,
+                                width: 50,
+                                child:
+                                    Image.asset("assets/images/hondaCBR.png"),
+                              ),
+                              Text(
+                                text2[2],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                text2[3],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                text2[4],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                text2[5],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                text2[6],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                text2[7],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                              Text(
+                                text2[8],
+                                style: GoogleFonts.poppins(
+                                    fontSize: 15, fontWeight: FontWeight.w400),
+                              ),
+                            ]),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
