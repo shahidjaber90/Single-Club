@@ -4,8 +4,8 @@ import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
 import 'package:singleclub/Widgets/dropdown_widget.dart';
 
-import '../textfield_Widegt3.dart';
-import '../textfield_widget.dart';
+import '../../Widgets/textfield_Widegt3.dart';
+import '../../Widgets/textfield_widget.dart';
 
 class VsPage extends StatefulWidget {
   const VsPage({super.key});

@@ -7,7 +7,7 @@ import 'package:singleclub/Widgets/chip.dart';
 import 'package:singleclub/Widgets/dropdown_widget.dart';
 
 import '../../Utils/colors.dart';
-import '../alertButton.dart';
+import '../../Widgets/alertButton.dart';
 
 class GamePage extends StatefulWidget {
   const GamePage({super.key});

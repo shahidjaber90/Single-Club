@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:singleclub/Local_variables/navigationData.dart';
 import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
-import 'package:singleclub/Widgets/Pages/users_layout_widget.dart';
+import 'package:singleclub/Screens/Pages/users_layout_widget.dart';
 import 'package:singleclub/Widgets/dropdown_widget.dart';
 import 'package:singleclub/provider/togglepage.dart';
 

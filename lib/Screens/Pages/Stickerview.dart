@@ -4,7 +4,7 @@ import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
 import 'package:singleclub/Widgets/alertbutton2.dart';
 
-import '../textfield_widget.dart';
+import '../../Widgets/textfield_widget.dart';
 
 class StickerView extends StatefulWidget {
   const StickerView({super.key});

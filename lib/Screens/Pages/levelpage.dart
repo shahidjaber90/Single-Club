@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
 
-import '../textfield_widget.dart';
+import '../../Widgets/textfield_widget.dart';
 
 class Levelview extends StatefulWidget {
   const Levelview({super.key});

@@ -5,28 +5,30 @@ import 'package:line_icons/line_icon.dart';
 import 'package:provider/provider.dart';
 import 'package:singleclub/Local_variables/navigationData.dart';
 import 'package:singleclub/Local_variables/variables.dart';
+import 'package:singleclub/Screens/Pages/agency_view.dart';
+import 'package:singleclub/Screens/Pages/media_view.dart';
 import 'package:singleclub/Screens/admin_page.dart';
 import 'package:singleclub/Utils/colors.dart';
-import 'package:singleclub/Widgets/Pages/Giftpage.dart';
-import 'package:singleclub/Widgets/Pages/Rechargepage.dart';
-import 'package:singleclub/Widgets/Pages/Stickerview.dart';
-import 'package:singleclub/Widgets/Pages/Storepage.dart';
-import 'package:singleclub/Widgets/Pages/analyse_widget.dart';
-import 'package:singleclub/Widgets/Pages/banView.dart';
-import 'package:singleclub/Widgets/Pages/bannerpage.dart';
-import 'package:singleclub/Widgets/Pages/gamepage.dart';
-import 'package:singleclub/Widgets/Pages/guardian_view.dart';
-import 'package:singleclub/Widgets/Pages/levelpage.dart';
-import 'package:singleclub/Widgets/Pages/payment.dart';
-import 'package:singleclub/Widgets/Pages/reportView.dart';
-import 'package:singleclub/Widgets/Pages/reward_view.dart';
-import 'package:singleclub/Widgets/Pages/salarypage.dart';
-import 'package:singleclub/Widgets/Pages/setting_view.dart';
-import 'package:singleclub/Widgets/Pages/vipView_widget.dart';
-import 'package:singleclub/Widgets/Pages/vs_page.dart';
+import 'package:singleclub/Screens/Pages/Giftpage.dart';
+import 'package:singleclub/Screens/Pages/Rechargepage.dart';
+import 'package:singleclub/Screens/Pages/Stickerview.dart';
+import 'package:singleclub/Screens/Pages/Storepage.dart';
+import 'package:singleclub/Screens/Pages/analyse_widget.dart';
+import 'package:singleclub/Screens/Pages/banView.dart';
+import 'package:singleclub/Screens/Pages/bannerpage.dart';
+import 'package:singleclub/Screens/Pages/gamepage.dart';
+import 'package:singleclub/Screens/Pages/guardian_view.dart';
+import 'package:singleclub/Screens/Pages/levelpage.dart';
+import 'package:singleclub/Screens/Pages/payment.dart';
+import 'package:singleclub/Screens/Pages/reportView.dart';
+import 'package:singleclub/Screens/Pages/reward_view.dart';
+import 'package:singleclub/Screens/Pages/salarypage.dart';
+import 'package:singleclub/Screens/Pages/setting_view.dart';
+import 'package:singleclub/Screens/Pages/vipView_widget.dart';
+import 'package:singleclub/Screens/Pages/vs_page.dart';
 import 'package:singleclub/Widgets/side_navigation_bar.dart';
 import 'package:singleclub/Widgets/user_widget.dart';
-import 'package:singleclub/Widgets/Pages/users_layout_widget.dart';
+import 'package:singleclub/Screens/Pages/users_layout_widget.dart';
 import 'package:singleclub/provider/togglepage.dart';
 
 class HomePageView extends StatefulWidget {
@@ -299,9 +301,9 @@ Widget _getWidgetByIndex(int index) {
     case 11:
       return const AnalyseWidget(); // ads page pending
     case 12:
-      return const AnalyseWidget(); // verifications page pending
+      return const MediaPage(); // verifications page pending
     case 13:
-      return const AnalyseWidget(); // agency page pending
+      return const AgencyPage(); // ok
     case 14:
       return const ReportView(); // ok
     case 15:
@@ -311,7 +313,7 @@ Widget _getWidgetByIndex(int index) {
     case 17:
       return const GuardianView(); // ok
     case 18:
-      return const AnalyseWidget(); // media page pending
+      return const MediaPage(); // ok
     case 19:
       return const BannerView(); // ok
     case 20:

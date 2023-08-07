@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:provider/provider.dart';
 import 'package:singleclub/Utils/colors.dart';
-import 'package:singleclub/Widgets/Pages/add_admin_widget.dart';
+import 'package:singleclub/Screens/Pages/add_admin_widget.dart';
 import 'package:singleclub/provider/togglepage.dart';
 
 class AddAdminPage extends StatefulWidget {
