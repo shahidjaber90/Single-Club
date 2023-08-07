@@ -45,7 +45,6 @@ class _AgencyPageState extends State<AgencyPage> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // button Complain
                         Row(
                           children: [
                             Container(
@@ -69,14 +68,14 @@ class _AgencyPageState extends State<AgencyPage> {
                                             tap1
                                                 ? setState(() {
                                                     tap1 = !tap1;
-                                                    blueColor = Colors.white;
-                                                    whiteColor =
+                                                    whiteColor = Colors.white;
+                                                    blueColor =
                                                         Color(0xff2C50ED);
                                                   })
                                                 : setState(() {
                                                     tap1 = !tap1;
-                                                    whiteColor = Colors.white;
-                                                    blueColor =
+                                                    blueColor = Colors.white;
+                                                    whiteColor =
                                                         Color(0xff2C50ED);
                                                   });
 
@@ -130,18 +129,18 @@ class _AgencyPageState extends State<AgencyPage> {
                                                                           () {
                                                                           tap1 =
                                                                               !tap1;
-                                                                          blueColor =
-                                                                              Colors.white;
                                                                           whiteColor =
+                                                                              Colors.white;
+                                                                          blueColor =
                                                                               Color(0xff2C50ED);
                                                                         })
                                                                       : setState(
                                                                           () {
                                                                           tap1 =
                                                                               !tap1;
-                                                                          whiteColor =
-                                                                              Colors.white;
                                                                           blueColor =
+                                                                              Colors.white;
+                                                                          whiteColor =
                                                                               Color(0xff2C50ED);
                                                                         });
                                                                   Navigator.pop(
@@ -328,15 +327,15 @@ class _AgencyPageState extends State<AgencyPage> {
                                             width: 140,
                                             height: 32,
                                             decoration: BoxDecoration(
-                                                color: blueColor,
+                                                color: whiteColor,
                                                 border: Border.all(
-                                                    color: whiteColor),
+                                                    color: blueColor),
                                                 borderRadius:
                                                     BorderRadius.circular(20)),
                                             child: Text(
                                               'Commission',
                                               style: TextStyle(
-                                                  color: whiteColor,
+                                                  color: blueColor,
                                                   letterSpacing: 0.5,
                                                   fontSize: 11,
                                                   fontWeight: FontWeight.w700),
