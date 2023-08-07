@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
+import 'package:singleclub/Widgets/dropdown_widget.dart';
 
 import '../../Utils/colors.dart';
 import '../textfield_widget.dart';
@@ -13,6 +15,13 @@ class RechargePage extends StatefulWidget {
 }
 
 class _RechargePageState extends State<RechargePage> {
+  bool tap1 = false;
+  bool tap2 = false;
+  Color whiteColor = (Colors.white);
+  Color blueColor = const Color(0xff2C50ED);
+  Color whiteColor2 = (Colors.white);
+  Color blueColor2 = const Color(0xff2C50ED);
+
   final List text = [
     "SN",
     "Admin",
@@ -144,7 +153,20 @@ class _RechargePageState extends State<RechargePage> {
                     children: [
                       GestureDetector(
                         onTap: () {
+                          tap1
+                              ? setState(() {
+                                  tap1 = !tap1;
+                                  whiteColor = Colors.white;
+                                  blueColor = Color(0xff2C50ED);
+                                })
+                              : setState(() {
+                                  tap1 = !tap1;
+                                  blueColor = Colors.white;
+                                  whiteColor = Color(0xff2C50ED);
+                                });
+
                           showDialog(
+                            barrierDismissible: false,
                             context: context,
                             builder: (context) => AlertDialog(
                               scrollable: true,
@@ -152,45 +174,60 @@ class _RechargePageState extends State<RechargePage> {
                               elevation: 0,
                               actions: [
                                 Container(
-                                  // width:
-                                  //     MediaQuery.of(context).size.width * 0.30,
+                                  width: 400,
+                                  height: 641,
                                   color: ColorConstant.whiteColor,
                                   child: SingleChildScrollView(
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        
-                        Container(
-                          // height: 53,
-                          // width: double.infinity,
-                          color: ColorConstant.blueColor,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                        
-                            
-                            children: [
-                              Text(
-                                // textAlign: TextAlign.center,
-                                "Recharge",
-                                style: GoogleFonts.poppins(
-                                    color: ColorConstant.whiteColor,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              const SizedBox(width: 60,),
-                               
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                icon: const Icon(Icons.close),
-                                color: ColorConstant.whiteColor,
-                              )
-                            ],
-                          ),
-                        ),
-                       
+                                        Container(
+                                          // height: 53,
+                                          // width: double.infinity,
+                                          color: ColorConstant.blueColor,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                // textAlign: TextAlign.center,
+                                                "Recharge",
+                                                style: GoogleFonts.poppins(
+                                                    color: ColorConstant
+                                                        .whiteColor,
+                                                    fontSize: 30,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
+                                              const SizedBox(
+                                                width: 60,
+                                              ),
+                                              IconButton(
+                                                onPressed: () {
+                                                  tap1
+                                                      ? setState(() {
+                                                          tap1 = !tap1;
+                                                          whiteColor =
+                                                              Colors.white;
+                                                          blueColor =
+                                                              Color(0xff2C50ED);
+                                                        })
+                                                      : setState(() {
+                                                          tap1 = !tap1;
+                                                          blueColor =
+                                                              Colors.white;
+                                                          whiteColor =
+                                                              Color(0xff2C50ED);
+                                                        });
+                                                  Navigator.pop(context);
+                                                },
+                                                icon: const Icon(Icons.close),
+                                                color: ColorConstant.whiteColor,
+                                              )
+                                            ],
+                                          ),
+                                        ),
                                         const SizedBox(
                                           height: 10,
                                         ),
@@ -261,7 +298,10 @@ class _RechargePageState extends State<RechargePage> {
                                                               height: 32,
                                                               decoration: BoxDecoration(
                                                                   color: ColorConstant
-                                                                      .blueColor,
+                                                                      .whiteColor,
+                                                                  border: Border.all(
+                                                                      color: ColorConstant
+                                                                          .blueColor),
                                                                   borderRadius:
                                                                       BorderRadius
                                                                           .circular(
@@ -270,7 +310,7 @@ class _RechargePageState extends State<RechargePage> {
                                                                 'User',
                                                                 style: TextStyle(
                                                                     color: ColorConstant
-                                                                        .whiteColor,
+                                                                        .blueColor,
                                                                     letterSpacing:
                                                                         0.5,
                                                                     fontSize:
@@ -287,21 +327,12 @@ class _RechargePageState extends State<RechargePage> {
                                                   ),
                                                 ],
                                               ),
-                                              Text(
-                                                "Admin",
-                                                style: GoogleFonts.inter(
-                                                    color: Colors.black,
-                                                    fontSize: 25,
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
+                                              DropdownWidget(
+                                                  items: adminList,
+                                                  selectItem: 'Select Admin',
+                                                  title: 'Admin'),
                                               const SizedBox(
-                                                height: 15,
-                                              ),
-                                              TextFieldWidget(
-                                                  labelText: 'Select Admin :'),
-                                              const SizedBox(
-                                                height: 15,
+                                                height: 4,
                                               ),
                                               TextFieldWidget(
                                                   labelText:
@@ -331,8 +362,7 @@ class _RechargePageState extends State<RechargePage> {
                                               const SizedBox(
                                                 height: 15,
                                               ),
-                                              TextFieldWidget(
-                                                  labelText: ' Select product'),
+                                              DropdownWidget5(),
                                               const SizedBox(
                                                 height: 10,
                                               ),
@@ -345,6 +375,9 @@ class _RechargePageState extends State<RechargePage> {
                                           ),
                                         ),
                                         AlertButton(buttonName: 'Add'),
+                                        const SizedBox(
+                                          height: 20,
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -358,14 +391,13 @@ class _RechargePageState extends State<RechargePage> {
                           width: 138,
                           height: 32,
                           decoration: BoxDecoration(
-                              color: ColorConstant.whiteColor,
-                              border:
-                                  Border.all(color: ColorConstant.blueColor),
+                              color: whiteColor,
+                              border: Border.all(color: blueColor),
                               borderRadius: BorderRadius.circular(24)),
                           child: Text(
                             'Recharge',
                             style: TextStyle(
-                                color: ColorConstant.blueColor,
+                                color: blueColor,
                                 letterSpacing: 0.5,
                                 fontSize: 11,
                                 fontWeight: FontWeight.w700),
@@ -376,7 +408,20 @@ class _RechargePageState extends State<RechargePage> {
                         left: 120,
                         child: GestureDetector(
                           onTap: () {
+                            tap2
+                                ? setState(() {
+                                    tap2 = !tap2;
+                                    whiteColor2 = Colors.white;
+                                    blueColor2 = Color(0xff2C50ED);
+                                  })
+                                : setState(() {
+                                    tap2 = !tap2;
+                                    blueColor2 = Colors.white;
+                                    whiteColor2 = Color(0xff2C50ED);
+                                  });
+
                             showDialog(
+                              barrierDismissible: false,
                               context: context,
                               builder: (context) => AlertDialog(
                                 scrollable: true,
@@ -384,45 +429,60 @@ class _RechargePageState extends State<RechargePage> {
                                 elevation: 0,
                                 actions: [
                                   Container(
-                                    // width: MediaQuery.of(context).size.width *
-                                    //     0.30,
+                                    width: 400,
                                     color: ColorConstant.whiteColor,
                                     child: SingleChildScrollView(
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
-                                         
-                        Container(
-                          // height: 53,
-                          // width: double.infinity,
-                          color: ColorConstant.blueColor,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                        
-                            
-                            children: [
-                              Text(
-                                // textAlign: TextAlign.center,
-                                "Recharge Back",
-                                style: GoogleFonts.poppins(
-                                    color: ColorConstant.whiteColor,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              const SizedBox(width: 40,),
-                               
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                icon: const Icon(Icons.close),
-                                color: ColorConstant.whiteColor,
-                              )
-                            ],
-                          ),
-                        ),
-                       
+                                          Container(
+                                            // height: 53,
+                                            // width: double.infinity,
+                                            color: ColorConstant.blueColor,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Text(
+                                                  // textAlign: TextAlign.center,
+                                                  "Recharge Back",
+                                                  style: GoogleFonts.poppins(
+                                                      color: ColorConstant
+                                                          .whiteColor,
+                                                      fontSize: 30,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                ),
+                                                const SizedBox(
+                                                  width: 40,
+                                                ),
+                                                IconButton(
+                                                  onPressed: () {
+                                                    tap2
+                                                        ? setState(() {
+                                                            tap2 = !tap2;
+                                                            whiteColor2 =
+                                                                Colors.white;
+                                                            blueColor2 = Color(
+                                                                0xff2C50ED);
+                                                          })
+                                                        : setState(() {
+                                                            tap2 = !tap2;
+                                                            blueColor2 =
+                                                                Colors.white;
+                                                            whiteColor2 = Color(
+                                                                0xff2C50ED);
+                                                          });
+                                                    Navigator.pop(context);
+                                                  },
+                                                  icon: const Icon(Icons.close),
+                                                  color:
+                                                      ColorConstant.whiteColor,
+                                                )
+                                              ],
+                                            ),
+                                          ),
                                           const SizedBox(
                                             height: 10,
                                           ),
@@ -495,7 +555,10 @@ class _RechargePageState extends State<RechargePage> {
                                                                 height: 32,
                                                                 decoration: BoxDecoration(
                                                                     color: ColorConstant
-                                                                        .blueColor,
+                                                                        .whiteColor,
+                                                                    border: Border.all(
+                                                                        color: ColorConstant
+                                                                            .blueColor),
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             24)),
@@ -503,7 +566,7 @@ class _RechargePageState extends State<RechargePage> {
                                                                   'User',
                                                                   style: TextStyle(
                                                                       color: ColorConstant
-                                                                          .whiteColor,
+                                                                          .blueColor,
                                                                       letterSpacing:
                                                                           0.5,
                                                                       fontSize:
@@ -520,22 +583,12 @@ class _RechargePageState extends State<RechargePage> {
                                                     ),
                                                   ],
                                                 ),
-                                                Text(
-                                                  "Admin",
-                                                  style: GoogleFonts.inter(
-                                                      color: Colors.black,
-                                                      fontSize: 25,
-                                                      fontWeight:
-                                                          FontWeight.w400),
-                                                ),
+                                                DropdownWidget(
+                                                    items: adminList,
+                                                    selectItem: 'Select Admin',
+                                                    title: 'Admin'),
                                                 const SizedBox(
-                                                  height: 15,
-                                                ),
-                                                TextFieldWidget(
-                                                    labelText:
-                                                        'Select Admin :'),
-                                                const SizedBox(
-                                                  height: 15,
+                                                  height: 4,
                                                 ),
                                                 TextFieldWidget(
                                                     labelText: 'ID :'),
@@ -604,7 +657,10 @@ class _RechargePageState extends State<RechargePage> {
                                                                 height: 32,
                                                                 decoration: BoxDecoration(
                                                                     color: ColorConstant
-                                                                        .blueColor,
+                                                                        .whiteColor,
+                                                                    border: Border.all(
+                                                                        color: ColorConstant
+                                                                            .blueColor),
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             24)),
@@ -612,7 +668,7 @@ class _RechargePageState extends State<RechargePage> {
                                                                   'All Clear ',
                                                                   style: TextStyle(
                                                                       color: ColorConstant
-                                                                          .whiteColor,
+                                                                          .blueColor,
                                                                       letterSpacing:
                                                                           0.5,
                                                                       fontSize:
@@ -639,6 +695,7 @@ class _RechargePageState extends State<RechargePage> {
                                             ),
                                           ),
                                           AlertButton(buttonName: 'Add'),
+                                          const SizedBox(height: 20),
                                         ],
                                       ),
                                     ),
@@ -652,12 +709,13 @@ class _RechargePageState extends State<RechargePage> {
                             width: 138,
                             height: 32,
                             decoration: BoxDecoration(
-                                color: ColorConstant.blueColor,
+                                color: whiteColor2,
+                                border: Border.all(color: blueColor2),
                                 borderRadius: BorderRadius.circular(24)),
                             child: Text(
                               'Recharge Back',
                               style: TextStyle(
-                                  color: ColorConstant.whiteColor,
+                                  color: blueColor2,
                                   letterSpacing: 0.5,
                                   fontSize: 11,
                                   fontWeight: FontWeight.w700),

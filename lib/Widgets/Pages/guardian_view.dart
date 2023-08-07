@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
+import 'package:singleclub/Widgets/dropdown_widget.dart';
+import 'package:singleclub/Widgets/textfield_heading.dart';
+import 'package:singleclub/Widgets/textfield_widget.dart';
 import 'package:singleclub/Widgets/textwidget.dart';
 import 'package:web_pagination/web_pagination.dart';
 
@@ -12,6 +17,12 @@ class GuardianView extends StatefulWidget {
 }
 
 class _GuardianViewState extends State<GuardianView> {
+  bool tap1 = false;
+  bool tap2 = false;
+  Color whiteColor = (Colors.white);
+  Color blueColor = const Color(0xff2C50ED);
+  Color whiteColor2 = (Colors.white);
+  Color blueColor2 = const Color(0xff2C50ED);
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -43,7 +54,20 @@ class _GuardianViewState extends State<GuardianView> {
                               ),
                               GestureDetector(
                                 onTap: () {
+                                  tap1
+                                      ? setState(() {
+                                          tap1 = !tap1;
+                                          whiteColor = Colors.white;
+                                          blueColor = Color(0xff2C50ED);
+                                        })
+                                      : setState(() {
+                                          tap1 = !tap1;
+                                          blueColor = Colors.white;
+                                          whiteColor = Color(0xff2C50ED);
+                                        });
+
                                   showDialog(
+                                    barrierDismissible: false,
                                     context: context,
                                     builder: (context) {
                                       return AlertDialog(
@@ -51,43 +75,62 @@ class _GuardianViewState extends State<GuardianView> {
                                         backgroundColor: Colors.transparent,
                                         elevation: 0,
                                         title: Container(
-                                          // width: 425,
+                                          width: 400,
                                           color: ColorConstant.blueColor,
                                           child: Column(
                                             children: [
-                                             
-                        Container(
-                          // height: 53,
-                          // width: double.infinity,
-                          color: ColorConstant.blueColor,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                        
-                            
-                            children: [
-                              Text(
-                                // textAlign: TextAlign.center,
-                                "Add Guardian",
-                                style: GoogleFonts.poppins(
-                                    color: ColorConstant.whiteColor,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              const SizedBox(width: 60,),
-                               
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                icon: const Icon(Icons.close),
-                                color: ColorConstant.whiteColor,
-                              )
-                            ],
-                          ),
-                        ),
-                       
                                               Container(
-                                                width: 425,
+                                                // height: 53,
+                                                // width: double.infinity,
+                                                color: ColorConstant.blueColor,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      // textAlign: TextAlign.center,
+                                                      "Add Guardian",
+                                                      style: GoogleFonts.poppins(
+                                                          color: ColorConstant
+                                                              .whiteColor,
+                                                          fontSize: 30,
+                                                          fontWeight:
+                                                              FontWeight.w600),
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 60,
+                                                    ),
+                                                    IconButton(
+                                                      onPressed: () {
+                                                        tap1
+                                                            ? setState(() {
+                                                                tap1 = !tap1;
+                                                                whiteColor =
+                                                                    Colors
+                                                                        .white;
+                                                                blueColor = Color(
+                                                                    0xff2C50ED);
+                                                              })
+                                                            : setState(() {
+                                                                tap1 = !tap1;
+                                                                blueColor =
+                                                                    Colors
+                                                                        .white;
+                                                                whiteColor = Color(
+                                                                    0xff2C50ED);
+                                                              });
+                                                        Navigator.pop(context);
+                                                      },
+                                                      icon: const Icon(
+                                                          Icons.close),
+                                                      color: ColorConstant
+                                                          .whiteColor,
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
+                                              Container(
+                                                width: 400,
                                                 color: ColorConstant.whiteColor,
                                                 child: Padding(
                                                   padding:
@@ -98,313 +141,81 @@ class _GuardianViewState extends State<GuardianView> {
                                                             .start,
                                                     children: [
                                                       // 1
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 50),
-                                                        child: Text(
-                                                          'Guardian',
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                          style: GoogleFonts
-                                                              .poppins(
-                                                                  fontSize: 20,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                vertical: 8,
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  suffixIcon:
-                                                                      Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                  ),
-                                                                  hintText:
-                                                                      'Select Guardian:',
-                                                                  hintStyle: GoogleFonts.poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                                  border: OutlineInputBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
-                                                                      borderSide:
-                                                                          BorderSide(
-                                                                              color: ColorConstant.blueColor))),
-                                                        ),
-                                                      ),
-
+                                                      DropdownWidget(
+                                                          items: guardianList,
+                                                          selectItem:
+                                                              'Select Guardian',
+                                                          title: 'Guardian'),
                                                       // 4
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 50),
-                                                        child: Text(
-                                                          'Day',
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                          style: GoogleFonts
-                                                              .poppins(
-                                                                  fontSize: 20,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                vertical: 8,
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  suffixIcon:
-                                                                      Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                  ),
-                                                                  hintText:
-                                                                      'Select Days:',
-                                                                  hintStyle: GoogleFonts.poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                                  border: OutlineInputBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
-                                                                      borderSide:
-                                                                          BorderSide(
-                                                                              color: ColorConstant.blueColor))),
-                                                        ),
-                                                      ),
+                                                      DropdownWidget(
+                                                          items: selectDays,
+                                                          selectItem:
+                                                              'Select Days',
+                                                          title: 'Day'),
                                                       // 5
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 50),
-                                                        child: Text(
-                                                          'Price',
-                                                          textAlign:
-                                                              TextAlign.left,
-                                                          style: GoogleFonts
-                                                              .poppins(
-                                                                  fontSize: 20,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w400),
-                                                        ),
-                                                      ),
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                    .symmetric(
-                                                                vertical: 8,
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration: InputDecoration(
-                                                              hintText: 'Coin:',
-                                                              hintStyle: GoogleFonts
-                                                                  .poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                              border: OutlineInputBorder(
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              8),
-                                                                  borderSide:
-                                                                      BorderSide(
-                                                                          color:
-                                                                              ColorConstant.blueColor))),
-                                                        ),
-                                                      ),
-
+                                                      TextFieldHeadnig(
+                                                          headingText: 'Price'),
+                                                      TextFieldWidget(
+                                                          labelText: 'Coin'),
                                                       /////////////////////////////// line 7
-                                                      Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  horizontal:
-                                                                      50),
-                                                          child: Image.asset(
-                                                              'assets/icons/entrance_effect.png')),
+
+                                                      //
                                                       Padding(
                                                         padding:
                                                             const EdgeInsets
-                                                                    .symmetric(
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  suffixIcon:
-                                                                      Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                  ),
-                                                                  hintText:
-                                                                      'Select Entry:',
-                                                                  hintStyle: GoogleFonts.poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                                  border: OutlineInputBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
-                                                                      borderSide:
-                                                                          BorderSide(
-                                                                              color: ColorConstant.blueColor))),
+                                                                .only(left: 16),
+                                                        child: Row(
+                                                          children: [
+                                                            SvgPicture.asset(
+                                                                'assets/svg/listitem/entrance_effect.svg')
+                                                          ],
                                                         ),
                                                       ),
-                                                      // line 8
-                                                      Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  horizontal:
-                                                                      50),
-                                                          child: Image.asset(
-                                                              'assets/icons/chat_bubbles.png')),
+                                                      DropdownWidget4(
+                                                          items:
+                                                              selectCategorys,
+                                                          selectItem:
+                                                              'Select Entry'),
+                                                      //
                                                       Padding(
                                                         padding:
                                                             const EdgeInsets
-                                                                    .symmetric(
-                                                                vertical: 8,
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  suffixIcon:
-                                                                      Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                  ),
-                                                                  hintText:
-                                                                      'Select Bubble Chat:',
-                                                                  hintStyle: GoogleFonts.poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                                  border: OutlineInputBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
-                                                                      borderSide:
-                                                                          BorderSide(
-                                                                              color: ColorConstant.blueColor))),
+                                                                .only(left: 16),
+                                                        child: Row(
+                                                          children: [
+                                                            SvgPicture.asset(
+                                                                'assets/svg/listitem/chat_bubbles.svg')
+                                                          ],
                                                         ),
                                                       ),
-                                                      // line 9
-                                                      Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  horizontal:
-                                                                      50),
-                                                          child: Image.asset(
-                                                              'assets/icons/vip_medal.png')),
+                                                      DropdownWidget4(
+                                                          items:
+                                                              selectCategorys,
+                                                          selectItem:
+                                                              'Select Bubble Chat'),
                                                       Padding(
                                                         padding:
                                                             const EdgeInsets
-                                                                    .symmetric(
-                                                                vertical: 8,
-                                                                horizontal: 50),
-                                                        child: TextFormField(
-                                                          decoration:
-                                                              InputDecoration(
-                                                                  suffixIcon:
-                                                                      Icon(
-                                                                    Icons
-                                                                        .keyboard_arrow_down_rounded,
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                  ),
-                                                                  hintText:
-                                                                      'Select Logo:',
-                                                                  hintStyle: GoogleFonts.poppins(
-                                                                      fontSize:
-                                                                          16,
-                                                                      color: ColorConstant
-                                                                          .arrowColor),
-                                                                  border: OutlineInputBorder(
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              8),
-                                                                      borderSide:
-                                                                          BorderSide(
-                                                                              color: ColorConstant.blueColor))),
+                                                                .only(left: 16),
+                                                        child: Row(
+                                                          children: [
+                                                            SvgPicture.asset(
+                                                                'assets/svg/listitem/medal.svg')
+                                                          ],
                                                         ),
                                                       ),
-                                                      // line 8
-                                                      // 6// line 5
-                                                      Row(
-                                                        children: [
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                  'assets/icons/vip_diamondss.png'),
-                                                              Text(
-                                                                'Anti Kick',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                  'assets/icons/mute.png'),
-                                                              Text(
-                                                                'Anti Mute',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
+                                                      DropdownWidget4(
+                                                          items:
+                                                              selectCategorys,
+                                                          selectItem:
+                                                              'Select Logo'),
+                                                      //
+                                                      DropdownWidget6(
+                                                        hintText:
+                                                            'Select Power',
                                                       ),
+                                                      const SizedBox(
+                                                          height: 18),
 
                                                       ///
                                                       ///
@@ -477,14 +288,13 @@ class _GuardianViewState extends State<GuardianView> {
                                   width: 138,
                                   height: 32,
                                   decoration: BoxDecoration(
-                                      color: ColorConstant.whiteColor,
-                                      border: Border.all(
-                                          color: ColorConstant.blueColor),
+                                      color: whiteColor,
+                                      border: Border.all(color: blueColor),
                                       borderRadius: BorderRadius.circular(24)),
                                   child: Text(
                                     'Add Guardian',
                                     style: TextStyle(
-                                        color: ColorConstant.blueColor,
+                                        color: blueColor,
                                         letterSpacing: 0.5,
                                         fontSize: 11,
                                         fontWeight: FontWeight.w700),
@@ -495,50 +305,88 @@ class _GuardianViewState extends State<GuardianView> {
                                 left: 120,
                                 child: GestureDetector(
                                   onTap: () {
+                                    tap2
+                                        ? setState(() {
+                                            tap2 = !tap2;
+                                            whiteColor2 = Colors.white;
+                                            blueColor2 = Color(0xff2C50ED);
+                                          })
+                                        : setState(() {
+                                            tap2 = !tap2;
+                                            blueColor2 = Colors.white;
+                                            whiteColor2 = Color(0xff2C50ED);
+                                          });
+
                                     showDialog(
+                                      barrierDismissible: false,
                                       context: context,
                                       builder: (context) {
                                         return AlertDialog(
                                           backgroundColor: Colors.transparent,
                                           elevation: 0,
                                           title: Container(
-                                            width: 325,
+                                            width: 400,
                                             color: ColorConstant.blueColor,
                                             child: Column(
                                               children: [
-                                               
-                        Container(
-                          // height: 53,
-                          // width: double.infinity,
-                          color: ColorConstant.blueColor,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                        
-                            
-                            children: [
-                              Text(
-                                // textAlign: TextAlign.center,
-                                "Send Guardian",
-                                style: GoogleFonts.poppins(
-                                    color: ColorConstant.whiteColor,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              const SizedBox(width: 40,),
-                               
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                icon: const Icon(Icons.close),
-                                color: ColorConstant.whiteColor,
-                              )
-                            ],
-                          ),
-                        ),
-                       
                                                 Container(
-                                                  width: 325,
+                                                  // height: 53,
+                                                  // width: double.infinity,
+                                                  color:
+                                                      ColorConstant.blueColor,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        // textAlign: TextAlign.center,
+                                                        "Send Guardian",
+                                                        style: GoogleFonts.poppins(
+                                                            color: ColorConstant
+                                                                .whiteColor,
+                                                            fontSize: 30,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600),
+                                                      ),
+                                                      const SizedBox(
+                                                        width: 40,
+                                                      ),
+                                                      IconButton(
+                                                        onPressed: () {
+                                                          tap2
+                                                              ? setState(() {
+                                                                  tap2 = !tap2;
+                                                                  whiteColor2 =
+                                                                      Colors
+                                                                          .white;
+                                                                  blueColor2 =
+                                                                      Color(
+                                                                          0xff2C50ED);
+                                                                })
+                                                              : setState(() {
+                                                                  tap2 = !tap2;
+                                                                  blueColor2 =
+                                                                      Colors
+                                                                          .white;
+                                                                  whiteColor2 =
+                                                                      Color(
+                                                                          0xff2C50ED);
+                                                                });
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                        icon: const Icon(
+                                                            Icons.close),
+                                                        color: ColorConstant
+                                                            .whiteColor,
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width: 400,
                                                   color:
                                                       ColorConstant.whiteColor,
                                                   child: Padding(
@@ -548,93 +396,18 @@ class _GuardianViewState extends State<GuardianView> {
                                                     child: Column(
                                                       children: [
                                                         // 2
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  vertical: 8,
-                                                                  horizontal:
-                                                                      10),
-                                                          child: TextFormField(
-                                                            decoration:
-                                                                InputDecoration(
-                                                                    suffixIcon:
-                                                                        Icon(
-                                                                      Icons
-                                                                          .keyboard_arrow_down_rounded,
-                                                                      color: ColorConstant
-                                                                          .arrowColor,
-                                                                    ),
-                                                                    hintText:
-                                                                        'Select Category:',
-                                                                    hintStyle: GoogleFonts.poppins(
-                                                                        fontSize:
-                                                                            16,
-                                                                        color: ColorConstant
-                                                                            .arrowColor),
-                                                                    border: OutlineInputBorder(
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(
-                                                                                8),
-                                                                        borderSide:
-                                                                            BorderSide(color: ColorConstant.blueColor))),
-                                                          ),
-                                                        ),
+                                                        DropdownWidget4(
+                                                            items:
+                                                                selectCategorys,
+                                                            selectItem:
+                                                                'Select Category'),
                                                         // 3
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  vertical: 8,
-                                                                  horizontal:
-                                                                      10),
-                                                          child: TextFormField(
-                                                            decoration: InputDecoration(
-                                                                hintText:
-                                                                    'Expire:',
-                                                                hintStyle: GoogleFonts.poppins(
-                                                                    fontSize:
-                                                                        16,
-                                                                    color: ColorConstant
-                                                                        .arrowColor),
-                                                                border: OutlineInputBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .circular(
-                                                                                8),
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                            color:
-                                                                                ColorConstant.blueColor))),
-                                                          ),
-                                                        ),
+                                                        TextFieldWidget(
+                                                            labelText:
+                                                                'Expire'),
                                                         // 4
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  vertical: 8,
-                                                                  horizontal:
-                                                                      10),
-                                                          child: TextFormField(
-                                                            decoration: InputDecoration(
-                                                                hintText: 'ID:',
-                                                                hintStyle: GoogleFonts.poppins(
-                                                                    fontSize:
-                                                                        16,
-                                                                    color: ColorConstant
-                                                                        .arrowColor),
-                                                                border: OutlineInputBorder(
-                                                                    borderRadius:
-                                                                        BorderRadius
-                                                                            .circular(
-                                                                                8),
-                                                                    borderSide:
-                                                                        BorderSide(
-                                                                            color:
-                                                                                ColorConstant.blueColor))),
-                                                          ),
-                                                        ),
+                                                        TextFieldWidget(
+                                                            labelText: 'ID'),
                                                         // user
                                                         const SizedBox(
                                                             height: 10),
@@ -660,7 +433,7 @@ class _GuardianViewState extends State<GuardianView> {
                                                           ],
                                                         ),
                                                         const SizedBox(
-                                                            height: 90),
+                                                            height: 70),
                                                         // Button
                                                         GestureDetector(
                                                           onTap: () {
@@ -712,13 +485,14 @@ class _GuardianViewState extends State<GuardianView> {
                                     width: 138,
                                     height: 32,
                                     decoration: BoxDecoration(
-                                        color: ColorConstant.blueColor,
+                                        color: whiteColor2,
+                                        border: Border.all(color: blueColor2),
                                         borderRadius:
                                             BorderRadius.circular(24)),
                                     child: Text(
                                       'Send Guardian',
                                       style: TextStyle(
-                                          color: ColorConstant.whiteColor,
+                                          color: blueColor2,
                                           letterSpacing: 0.5,
                                           fontSize: 11,
                                           fontWeight: FontWeight.w700),

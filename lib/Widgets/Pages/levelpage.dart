@@ -13,6 +13,10 @@ class Levelview extends StatefulWidget {
 }
 
 class _LevelviewState extends State<Levelview> {
+  bool tap1 = false;
+  Color whiteColor = (Colors.white);
+  Color blueColor = const Color(0xff2C50ED);
+
   final List text = [
     "Level Name",
     "Level Icon",
@@ -45,7 +49,20 @@ class _LevelviewState extends State<Levelview> {
               width: 500,
               child: GestureDetector(
                 onTap: () {
+                  tap1
+                      ? setState(() {
+                          tap1 = !tap1;
+                          whiteColor = Colors.white;
+                          blueColor = Color(0xff2C50ED);
+                        })
+                      : setState(() {
+                          tap1 = !tap1;
+                          blueColor = Colors.white;
+                          whiteColor = Color(0xff2C50ED);
+                        });
+
                   showDialog(
+                    barrierDismissible: false,
                     context: context,
                     builder: (context) => AlertDialog(
                       scrollable: true,
@@ -53,7 +70,7 @@ class _LevelviewState extends State<Levelview> {
                       elevation: 0,
                       actions: [
                         Container(
-                          // width: MediaQuery.of(context).size.width * 0.30,
+                          width: 400,
                           color: ColorConstant.whiteColor,
                           child: Column(
                             children: [
@@ -77,6 +94,17 @@ class _LevelviewState extends State<Levelview> {
                                     ),
                                     IconButton(
                                       onPressed: () {
+                                        tap1
+                                            ? setState(() {
+                                                tap1 = !tap1;
+                                                whiteColor = Colors.white;
+                                                blueColor = Color(0xff2C50ED);
+                                              })
+                                            : setState(() {
+                                                tap1 = !tap1;
+                                                blueColor = Colors.white;
+                                                whiteColor = Color(0xff2C50ED);
+                                              });
                                         Navigator.pop(context);
                                       },
                                       icon: const Icon(Icons.close),
@@ -126,14 +154,17 @@ class _LevelviewState extends State<Levelview> {
                                             width: 138,
                                             height: 32,
                                             decoration: BoxDecoration(
-                                                color: ColorConstant.blueColor,
+                                                color: ColorConstant.whiteColor,
+                                                border: Border.all(
+                                                    color: ColorConstant
+                                                        .blueColor),
                                                 borderRadius:
                                                     BorderRadius.circular(24)),
                                             child: Text(
                                               'Show off',
                                               style: TextStyle(
                                                   color:
-                                                      ColorConstant.whiteColor,
+                                                      ColorConstant.blueColor,
                                                   letterSpacing: 0.5,
                                                   fontSize: 11,
                                                   fontWeight: FontWeight.w700),
@@ -221,13 +252,13 @@ class _LevelviewState extends State<Levelview> {
                   width: 138,
                   height: 32,
                   decoration: BoxDecoration(
-                      color: ColorConstant.blueColor,
-                      border: Border.all(color: ColorConstant.blueColor),
+                      color: whiteColor,
+                      border: Border.all(color: blueColor),
                       borderRadius: BorderRadius.circular(24)),
                   child: Text(
                     'Add Level',
                     style: TextStyle(
-                        color: ColorConstant.whiteColor,
+                        color: blueColor,
                         letterSpacing: 0.5,
                         fontSize: 11,
                         fontWeight: FontWeight.w700),

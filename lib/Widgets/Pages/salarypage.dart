@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
+import 'package:singleclub/Widgets/dropdown_widget.dart';
 
 import '../../Utils/colors.dart';
 import '../textfield_widget.dart';
@@ -142,7 +144,174 @@ class _ClearPageState extends State<ClearPage> {
                   width: 770,
                   height: 30,
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      showDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          scrollable: true,
+                          backgroundColor: Colors.transparent,
+                          elevation: 0,
+                          actions: [
+                            Container(
+                              width: 400,
+                              height: 341,
+                              color: ColorConstant.whiteColor,
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                      // height: 53,
+                                      // width: double.infinity,
+                                      color: ColorConstant.blueColor,
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text('                     '),
+                                          Text(
+                                            // textAlign: TextAlign.center,
+                                            "Clear Amount",
+                                            style: GoogleFonts.poppins(
+                                                color: ColorConstant.whiteColor,
+                                                fontSize: 30,
+                                                fontWeight: FontWeight.w600),
+                                          ),
+                                          const SizedBox(
+                                            width: 60,
+                                          ),
+                                          IconButton(
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            icon: const Icon(Icons.close),
+                                            color: ColorConstant.whiteColor,
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Padding(
+                                      padding:
+                                          const EdgeInsets.only(left: 10.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              SizedBox(
+                                                height: 40,
+                                                width: 280,
+                                                child: Stack(
+                                                  children: [
+                                                    GestureDetector(
+                                                      child: Container(
+                                                        alignment:
+                                                            Alignment.center,
+                                                        width: 138,
+                                                        height: 32,
+                                                        decoration: BoxDecoration(
+                                                            color: ColorConstant
+                                                                .whiteColor,
+                                                            border: Border.all(
+                                                                color: ColorConstant
+                                                                    .blueColor),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        24)),
+                                                        child: Text(
+                                                          'Specific ',
+                                                          style: TextStyle(
+                                                              color:
+                                                                  ColorConstant
+                                                                      .blueColor,
+                                                              letterSpacing:
+                                                                  0.5,
+                                                              fontSize: 11,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Positioned(
+                                                      left: 120,
+                                                      child: GestureDetector(
+                                                        //
+
+                                                        //
+                                                        //
+                                                        //
+                                                        //
+                                                        //
+                                                        //
+
+                                                        child: Container(
+                                                          alignment:
+                                                              Alignment.center,
+                                                          width: 138,
+                                                          height: 32,
+                                                          decoration: BoxDecoration(
+                                                              color: ColorConstant
+                                                                  .whiteColor,
+                                                              border: Border.all(
+                                                                  color: ColorConstant
+                                                                      .blueColor),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          24)),
+                                                          child: Text(
+                                                            'All Clear',
+                                                            style: TextStyle(
+                                                                color: ColorConstant
+                                                                    .blueColor,
+                                                                letterSpacing:
+                                                                    0.5,
+                                                                fontSize: 11,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700),
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          TextFieldWidget(labelText: 'ID:'),
+                                          const SizedBox(
+                                            height: 10,
+                                          ),
+                                          TextFieldWidget(
+                                              labelText: 'Clear Amount'),
+                                          const SizedBox(
+                                            height: 20,
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    AlertButton(buttonName: 'Clear'),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
                     child: Container(
                       alignment: Alignment.center,
                       height: 24,

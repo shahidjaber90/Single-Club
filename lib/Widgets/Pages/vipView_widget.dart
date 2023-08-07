@@ -1,6 +1,10 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
+import 'package:singleclub/Widgets/dropdown_widget.dart';
 import 'package:singleclub/Widgets/textfield_heading.dart';
 import 'package:singleclub/Widgets/textfield_widget.dart';
 import 'package:singleclub/Widgets/textwidget.dart';
@@ -13,6 +17,13 @@ class VipViewWidget extends StatefulWidget {
 }
 
 class _VipViewWidgetState extends State<VipViewWidget> {
+  bool tap1 = false;
+  bool tap2 = false;
+  Color whiteColor = (Colors.white);
+  Color blueColor = const Color(0xff2C50ED);
+  Color whiteColor2 = (Colors.white);
+  Color blueColor2 = const Color(0xff2C50ED);
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -44,7 +55,20 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                               ),
                               GestureDetector(
                                 onTap: () {
+                                  tap1
+                                      ? setState(() {
+                                          tap1 = !tap1;
+                                          whiteColor = Colors.white;
+                                          blueColor = Color(0xff2C50ED);
+                                        })
+                                      : setState(() {
+                                          tap1 = !tap1;
+                                          blueColor = Colors.white;
+                                          whiteColor = Color(0xff2C50ED);
+                                        });
+
                                   showDialog(
+                                    barrierDismissible: false,
                                     context: context,
                                     builder: (context) {
                                       return AlertDialog(
@@ -56,35 +80,56 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                           color: ColorConstant.blueColor,
                                           child: Column(
                                             children: [
-                                               Container(
-                          // height: 53,
-                          // width: double.infinity,
-                          color: ColorConstant.blueColor,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                        
-                            
-                            children: [
-                              Text(
-                                // textAlign: TextAlign.center,
-                                "Add Vip",
-                                style: GoogleFonts.poppins(
-                                    color: ColorConstant.whiteColor,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              const SizedBox(width: 60,),
-                               
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                icon: const Icon(Icons.close),
-                                color: ColorConstant.whiteColor,
-                              )
-                            ],
-                          ),
-                        ),
+                                              Container(
+                                                // height: 53,
+                                                // width: double.infinity,
+                                                color: ColorConstant.blueColor,
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      // textAlign: TextAlign.center,
+                                                      "Add Vip",
+                                                      style: GoogleFonts.poppins(
+                                                          color: ColorConstant
+                                                              .whiteColor,
+                                                          fontSize: 30,
+                                                          fontWeight:
+                                                              FontWeight.w600),
+                                                    ),
+                                                    const SizedBox(
+                                                      width: 60,
+                                                    ),
+                                                    IconButton(
+                                                      onPressed: () {
+                                                        tap1
+                                                            ? setState(() {
+                                                                tap1 = !tap1;
+                                                                whiteColor =
+                                                                    Colors
+                                                                        .white;
+                                                                blueColor = Color(
+                                                                    0xff2C50ED);
+                                                              })
+                                                            : setState(() {
+                                                                tap1 = !tap1;
+                                                                blueColor =
+                                                                    Colors
+                                                                        .white;
+                                                                whiteColor = Color(
+                                                                    0xff2C50ED);
+                                                              });
+                                                        Navigator.pop(context);
+                                                      },
+                                                      icon: const Icon(
+                                                          Icons.close),
+                                                      color: ColorConstant
+                                                          .whiteColor,
+                                                    )
+                                                  ],
+                                                ),
+                                              ),
                                               Container(
                                                 // width: 425,
                                                 color: ColorConstant.whiteColor,
@@ -97,18 +142,17 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                                             .start,
                                                     children: [
                                                       // 1
-                                                      TextFieldHeadnig(
-                                                          headingText: 'VIP'),
-                                                      TextFieldWidget(
-                                                          labelText:
-                                                              'Select Category'),
+                                                      // TextFieldHeadnig(
+                                                      //     headingText: 'VIP'),
+                                                      DropdownWidget(
+                                                          items:
+                                                              selectCategorys,
+                                                          selectItem:
+                                                              'Select Category',
+                                                          title: 'VIP'),
 
                                                       // 2
-                                                      TextFieldHeadnig(
-                                                          headingText: 'VIP'),
-                                                      TextFieldWidget(
-                                                          labelText:
-                                                              'Select Types'),
+                                                      DropDown2(),
 
                                                       // 3
                                                       TextFieldHeadnig(
@@ -117,405 +161,105 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                                           labelText:
                                                               'Enter Name'),
                                                       // 4
-                                                      TextFieldHeadnig(
-                                                          headingText: 'Day'),
-                                                      TextFieldWidget(
-                                                          labelText:
-                                                              'Select Days'),
+                                                      DropdownWidget(
+                                                          items: selectDays,
+                                                          selectItem:
+                                                              'Select Days',
+                                                          title: 'Day'),
                                                       // 5
                                                       TextFieldHeadnig(
                                                           headingText: 'Price'),
                                                       TextFieldWidget(
                                                           labelText: 'Coin'),
                                                       // 6
-                                                      TextFieldHeadnig(
-                                                          headingText:
-                                                              'Opportunity'),
-                                                      TextFieldWidget(
-                                                          labelText:
-                                                              'Select Power'),
 
-                                                      Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceEvenly,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .end,
-                                                        children: [
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                'assets/icons/speed_up_the_upgrating.png',
-                                                              ),
-                                                              Text(
-                                                                'VIP Gift',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                  'assets/icons/vip_medal.png'),
-                                                              Text(
-                                                                'VIP Medal',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                  'assets/icons/vip_diamonds.png'),
-                                                              Text(
-                                                                'VIP Diamonds',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
+                                                      DropdownWidget3(
+                                                        title: 'Opportunity',
+                                                        hintText:
+                                                            'Select Power',
                                                       ),
                                                       const SizedBox(
-                                                        height: 8,
+                                                        height: 20,
                                                       ),
-                                                      // line 2
-                                                      Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceEvenly,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .end,
-                                                        children: [
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                  'assets/icons/vip_bullet_screen.png'),
-                                                              Text(
-                                                                'VIP Bullet \nScreen',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                  'assets/icons/entrance_effect.png'),
-                                                              Text(
-                                                                'Entrance \nEffect',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                'assets/icons/vip_diamonds.png',
-                                                              ),
-                                                              Text(
-                                                                'Privileged \nFunction',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 8,
-                                                      ),
-                                                      // line 3
-                                                      Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceEvenly,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .end,
-                                                        children: [
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                  'assets/icons/chat_bubbles.png'),
-                                                              Text(
-                                                                'Chat Bubbles',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                  'assets/icons/profile_picture_decoration.png'),
-                                                              Text(
-                                                                'Profile Picture \nDecoration',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                'assets/icons/verification.png',
-                                                              ),
-                                                              Text(
-                                                                'Distinguished \nProfile Card',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 8,
-                                                      ),
-                                                      // line 4
-                                                      Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceEvenly,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .end,
-                                                        children: [
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                  'assets/icons/vip_bullet_screen.png'),
-                                                              Text(
-                                                                'VIP Bullet \nScreen',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                  'assets/icons/entrance_effect.png'),
-                                                              Text(
-                                                                'Entrance \nEffect',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                'assets/icons/vip_diamonds.png',
-                                                              ),
-                                                              Text(
-                                                                'Privileged \nFunction',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
-                                                      const SizedBox(
-                                                        height: 8,
-                                                      ),
-                                                      // line 5
-                                                      Row(
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .spaceEvenly,
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .end,
-                                                        children: [
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                  'assets/icons/chat_bubbles.png'),
-                                                              Text(
-                                                                'Chat Bubbles',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                  'assets/icons/profile_picture_decoration.png'),
-                                                              Text(
-                                                                'Profile Picture \nDecoration',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                          Column(
-                                                            children: [
-                                                              Image.asset(
-                                                                'assets/icons/verification.png',
-                                                              ),
-                                                              Text(
-                                                                'Distinguished \nProfile Card',
-                                                                style: GoogleFonts.inter(
-                                                                    fontSize:
-                                                                        12,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w500,
-                                                                    letterSpacing:
-                                                                        0.5),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ],
-                                                      ),
-
-                                                      /////////////////////////////
                                                       Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  horizontal:
-                                                                      50),
-                                                          child: Image.asset(
-                                                              'assets/icons/vip_medal.png')),
-
-                                                      TextFieldWidget(
-                                                          labelText:
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(left: 16),
+                                                        child: Row(
+                                                          children: [
+                                                            SvgPicture.asset(
+                                                                'assets/svg/listitem/medal.svg')
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      DropdownWidget4(
+                                                          items:
+                                                              selectCategorys,
+                                                          selectItem:
                                                               'Select Medal'),
-                                                      // line 7
+                                                      //
+                                                      const SizedBox(
+                                                        height: 20,
+                                                      ),
                                                       Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  horizontal:
-                                                                      50),
-                                                          child: Image.asset(
-                                                              'assets/icons/entrance_effect.png')),
-                                                      TextFieldWidget(
-                                                          labelText:
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(left: 16),
+                                                        child: Row(
+                                                          children: [
+                                                            SvgPicture.asset(
+                                                                'assets/svg/listitem/entrance_effect.svg')
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      DropdownWidget4(
+                                                          items:
+                                                              selectCategorys,
+                                                          selectItem:
                                                               'Select Entry'),
-                                                      // line 8
+                                                      //
+                                                      const SizedBox(
+                                                        height: 20,
+                                                      ),
                                                       Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  horizontal:
-                                                                      50),
-                                                          child: Image.asset(
-                                                              'assets/icons/chat_bubbles.png')),
-                                                      TextFieldWidget(
-                                                          labelText:
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(left: 16),
+                                                        child: Row(
+                                                          children: [
+                                                            SvgPicture.asset(
+                                                                'assets/svg/listitem/chat_bubbles.svg')
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      DropdownWidget4(
+                                                          items:
+                                                              selectCategorys,
+                                                          selectItem:
                                                               'Select Bubble Chat'),
-                                                      // line 9
+                                                      //
+                                                      const SizedBox(
+                                                        height: 20,
+                                                      ),
                                                       Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                      .symmetric(
-                                                                  horizontal:
-                                                                      50),
-                                                          child: Image.asset(
-                                                              'assets/icons/video_call_frame.png')),
-                                                      TextFieldWidget(
-                                                          labelText:
-                                                              'Select frame'),
-                                                      // line 8
-                                                      ///
-                                                      ///
+                                                        padding:
+                                                            const EdgeInsets
+                                                                .only(left: 16),
+                                                        child: Row(
+                                                          children: [
+                                                            SvgPicture.asset(
+                                                                'assets/svg/listitem/video_call_frame.svg')
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      DropdownWidget4(
+                                                          items:
+                                                              selectCategorys,
+                                                          selectItem:
+                                                              'Select Frame'),
                                                       const SizedBox(
                                                           height: 18),
+                                                      //
 
                                                       // Button
                                                       Padding(
@@ -616,14 +360,13 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                   width: 138,
                                   height: 32,
                                   decoration: BoxDecoration(
-                                      color: ColorConstant.whiteColor,
-                                      border: Border.all(
-                                          color: ColorConstant.blueColor),
+                                      color: whiteColor,
+                                      border: Border.all(color: blueColor),
                                       borderRadius: BorderRadius.circular(24)),
                                   child: Text(
                                     'Add VIP',
                                     style: TextStyle(
-                                        color: ColorConstant.blueColor,
+                                        color: blueColor,
                                         letterSpacing: 0.5,
                                         fontSize: 11,
                                         fontWeight: FontWeight.w700),
@@ -634,7 +377,20 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                 left: 120,
                                 child: GestureDetector(
                                   onTap: () {
+                                    tap2
+                                        ? setState(() {
+                                            tap2 = !tap2;
+                                            whiteColor2 = Colors.white;
+                                            blueColor2 = Color(0xff2C50ED);
+                                          })
+                                        : setState(() {
+                                            tap2 = !tap2;
+                                            blueColor2 = Colors.white;
+                                            whiteColor2 = Color(0xff2C50ED);
+                                          });
+
                                     showDialog(
+                                      barrierDismissible: false,
                                       context: context,
                                       builder: (context) {
                                         return AlertDialog(
@@ -645,37 +401,64 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                             color: ColorConstant.blueColor,
                                             child: Column(
                                               children: [
-                                                 Container(
-                          // height: 53,
-                          // width: double.infinity,
-                          color: ColorConstant.blueColor,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                        
-                            
-                            children: [
-                              Text(
-                                // textAlign: TextAlign.center,
-                                "Send Vip",
-                                style: GoogleFonts.poppins(
-                                    color: ColorConstant.whiteColor,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              const SizedBox(width: 60,),
-                               
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                icon: const Icon(Icons.close),
-                                color: ColorConstant.whiteColor,
-                              )
-                            ],
-                          ),
-                        ),
                                                 Container(
-                                                  // width: 400,
+                                                  // height: 53,
+                                                  // width: double.infinity,
+                                                  color:
+                                                      ColorConstant.blueColor,
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Text(
+                                                        // textAlign: TextAlign.center,
+                                                        "Send Vip",
+                                                        style: GoogleFonts.poppins(
+                                                            color: ColorConstant
+                                                                .whiteColor,
+                                                            fontSize: 30,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600),
+                                                      ),
+                                                      const SizedBox(
+                                                        width: 60,
+                                                      ),
+                                                      IconButton(
+                                                        onPressed: () {
+                                                          tap2
+                                                              ? setState(() {
+                                                                  tap2 = !tap2;
+                                                                  whiteColor2 =
+                                                                      Colors
+                                                                          .white;
+                                                                  blueColor2 =
+                                                                      Color(
+                                                                          0xff2C50ED);
+                                                                })
+                                                              : setState(() {
+                                                                  tap2 = !tap2;
+                                                                  blueColor2 =
+                                                                      Colors
+                                                                          .white;
+                                                                  whiteColor2 =
+                                                                      Color(
+                                                                          0xff2C50ED);
+                                                                });
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                        icon: const Icon(
+                                                            Icons.close),
+                                                        color: ColorConstant
+                                                            .whiteColor,
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width: 400,
                                                   color:
                                                       ColorConstant.whiteColor,
                                                   child: Padding(
@@ -685,9 +468,12 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                                     child: Column(
                                                       children: [
                                                         // 2
-                                                        TextFieldWidget(
-                                                            labelText:
-                                                                'Select Category:'),
+                                                        DropdownWidget(
+                                                            items:
+                                                                selectCategorys,
+                                                            selectItem:
+                                                                'Select Category',
+                                                            title: 'Category'),
                                                         // 3
                                                         TextFieldWidget(
                                                             labelText:
@@ -772,13 +558,14 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                     width: 138,
                                     height: 32,
                                     decoration: BoxDecoration(
-                                        color: ColorConstant.blueColor,
+                                        color: whiteColor2,
+                                        border: Border.all(color: blueColor2),
                                         borderRadius:
                                             BorderRadius.circular(24)),
                                     child: Text(
                                       'Send VIP',
                                       style: TextStyle(
-                                          color: ColorConstant.whiteColor,
+                                          color: blueColor2,
                                           letterSpacing: 0.5,
                                           fontSize: 11,
                                           fontWeight: FontWeight.w700),
@@ -826,7 +613,7 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                 Container(
                   color: ColorConstant.searchColor,
                   alignment: Alignment.topCenter,
-                  height: 70,
+                  // height: 170,
                   width: MediaQuery.of(context).size.width * 0.748,
                   child: Column(
                     children: [

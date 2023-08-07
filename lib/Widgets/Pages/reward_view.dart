@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
+import 'package:singleclub/Widgets/dropdown_widget.dart';
 import 'package:singleclub/Widgets/textfield_heading.dart';
 import 'package:singleclub/Widgets/textfield_widget.dart';
 import 'package:singleclub/Widgets/textwidget.dart';
@@ -54,35 +56,39 @@ class _RewardViewState extends State<RewardView> {
                                         color: ColorConstant.blueColor,
                                         child: Column(
                                           children: [
-                                             Container(
-                          // height: 53,
-                          // width: double.infinity,
-                          color: ColorConstant.blueColor,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                        
-                            
-                            children: [
-                              Text(
-                                // textAlign: TextAlign.center,
-                                "Set up Reward",
-                                style: GoogleFonts.poppins(
-                                    color: ColorConstant.whiteColor,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              const SizedBox(width: 60,),
-                               
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                icon: const Icon(Icons.close),
-                                color: ColorConstant.whiteColor,
-                              )
-                            ],
-                          ),
-                        ),
+                                            Container(
+                                              // height: 53,
+                                              // width: double.infinity,
+                                              color: ColorConstant.blueColor,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    // textAlign: TextAlign.center,
+                                                    "Set up Reward",
+                                                    style: GoogleFonts.poppins(
+                                                        color: ColorConstant
+                                                            .whiteColor,
+                                                        fontSize: 30,
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                  const SizedBox(
+                                                    width: 60,
+                                                  ),
+                                                  IconButton(
+                                                    onPressed: () {
+                                                      Navigator.pop(context);
+                                                    },
+                                                    icon:
+                                                        const Icon(Icons.close),
+                                                    color: ColorConstant
+                                                        .whiteColor,
+                                                  )
+                                                ],
+                                              ),
+                                            ),
                                             Container(
                                               width: 425,
                                               color: ColorConstant.whiteColor,
@@ -94,49 +100,12 @@ class _RewardViewState extends State<RewardView> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     // 1
-                                                    TextFieldHeadnig(
-                                                        headingText: 'User'),
-                                                    TextFieldWidget(
-                                                        labelText:
-                                                            'User Types'),
+                                                    DropdownWidget(
+                                                        items: userTypes,
+                                                        selectItem:
+                                                            'User Types',
+                                                        title: 'User'),
                                                     // 2
-                                                    const Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceEvenly,
-                                                      children: [
-                                                        Text(
-                                                          'All',
-                                                          style: TextStyle(
-                                                              fontSize: 13),
-                                                        ),
-                                                        Text(
-                                                          'New',
-                                                          style: TextStyle(
-                                                              fontSize: 13),
-                                                        ),
-                                                        Text(
-                                                          'Host',
-                                                          style: TextStyle(
-                                                              fontSize: 13),
-                                                        ),
-                                                        Text(
-                                                          'Sender',
-                                                          style: TextStyle(
-                                                              fontSize: 13),
-                                                        ),
-                                                        Text(
-                                                          'Hot Agency',
-                                                          style: TextStyle(
-                                                              fontSize: 13),
-                                                        ),
-                                                        Text(
-                                                          'Top Up Agency',
-                                                          style: TextStyle(
-                                                              fontSize: 13),
-                                                        ),
-                                                      ],
-                                                    ),
                                                     // 3
                                                     TextFieldHeadnig(
                                                         headingText:
@@ -144,30 +113,28 @@ class _RewardViewState extends State<RewardView> {
                                                     TextFieldWidget(
                                                         labelText: 'Coin:'),
                                                     // 4
-                                                    TextFieldHeadnig(
-                                                        headingText:
-                                                            'Reward Day'),
-                                                    TextFieldWidget(
-                                                        labelText:
-                                                            'Select Day'),
+                                                    DropdownWidget(
+                                                        items: selectDays,
+                                                        selectItem:
+                                                            'Select Day',
+                                                        title: 'Reward Day'),
                                                     // 5
-                                                    TextFieldHeadnig(
-                                                        headingText:
-                                                            'Live Time'),
-                                                    TextFieldWidget(
-                                                        labelText:
-                                                            'Select Hours'),
+                                                    DropdownWidget(
+                                                        items: selectHour,
+                                                        selectItem:
+                                                            'Select Hours',
+                                                        title: 'Live Time'),
                                                     // 6
                                                     TextFieldHeadnig(
                                                         headingText: 'Reward'),
                                                     TextFieldWidget(
                                                         labelText: 'Coin'),
                                                     // 7
-                                                    TextFieldHeadnig(
-                                                        headingText: 'Hour'),
-                                                    TextFieldWidget(
-                                                        labelText:
-                                                            'Select Hour'),
+                                                    DropdownWidget(
+                                                        items: selectHour,
+                                                        selectItem:
+                                                            'Select Hours',
+                                                        title: 'Hour'),
 
                                                     //
                                                     const SizedBox(height: 12),

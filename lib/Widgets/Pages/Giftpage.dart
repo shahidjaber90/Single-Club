@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
 import 'package:singleclub/Widgets/chip.dart';
+import 'package:singleclub/Widgets/dropdown_widget.dart';
 import 'package:singleclub/Widgets/textfield_widget.dart';
 
 class GiftPage extends StatefulWidget {
@@ -13,9 +15,12 @@ class GiftPage extends StatefulWidget {
 }
 
 class _GiftPageState extends State<GiftPage> {
-  bool isButton = false;
-  Color textColor = const Color(0xFF2C50ED);
-  Color color = const Color(0xFFFFFFFF);
+  bool tap1 = false;
+  bool tap2 = false;
+  Color whiteColor = (Colors.white);
+  Color blueColor = const Color(0xff2C50ED);
+  Color whiteColor2 = (Colors.white);
+  Color blueColor2 = const Color(0xff2C50ED);
   final List text = [
     "SL",
     "Product",
@@ -85,11 +90,20 @@ class _GiftPageState extends State<GiftPage> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            setState(() {
-                              color = Color(0xFF2C50ED);
-                              textColor = Color(0xffFFFFFF);
-                            });
+                            tap1
+                                ? setState(() {
+                                    tap1 = !tap1;
+                                    whiteColor = Colors.white;
+                                    blueColor = Color(0xff2C50ED);
+                                  })
+                                : setState(() {
+                                    tap1 = !tap1;
+                                    blueColor = Colors.white;
+                                    whiteColor = Color(0xff2C50ED);
+                                  });
+
                             showDialog(
+                              barrierDismissible: false,
                               context: context,
                               builder: (context) => AlertDialog(
                                 scrollable: true,
@@ -97,8 +111,7 @@ class _GiftPageState extends State<GiftPage> {
                                 elevation: 0,
                                 actions: [
                                   Container(
-                                    // width: MediaQuery.of(context).size.width *
-                                    //     0.30,
+                                    width: 400,
                                     color: ColorConstant.whiteColor,
                                     child: Column(
                                       children: [
@@ -125,11 +138,21 @@ class _GiftPageState extends State<GiftPage> {
                                               ),
                                               IconButton(
                                                 onPressed: () {
-                                                  setState(() {
-                                                    textColor =
-                                                        Color(0xFF2C50ED);
-                                                    color = Color(0xffFFFFFF);
-                                                  });
+                                                  tap1
+                                                      ? setState(() {
+                                                          tap1 = !tap1;
+                                                          whiteColor =
+                                                              Colors.white;
+                                                          blueColor =
+                                                              Color(0xff2C50ED);
+                                                        })
+                                                      : setState(() {
+                                                          tap1 = !tap1;
+                                                          blueColor =
+                                                              Colors.white;
+                                                          whiteColor =
+                                                              Color(0xff2C50ED);
+                                                        });
                                                   Navigator.pop(context);
                                                 },
                                                 icon: const Icon(Icons.close),
@@ -183,7 +206,27 @@ class _GiftPageState extends State<GiftPage> {
                                                     left: 120,
                                                     child: GestureDetector(
                                                       onTap: () {
+                                                        tap2
+                                                            ? setState(() {
+                                                                tap2 = !tap2;
+                                                                whiteColor2 =
+                                                                    Colors
+                                                                        .white;
+                                                                blueColor2 = Color(
+                                                                    0xff2C50ED);
+                                                              })
+                                                            : setState(() {
+                                                                tap2 = !tap2;
+                                                                blueColor2 =
+                                                                    Colors
+                                                                        .white;
+                                                                whiteColor2 = Color(
+                                                                    0xff2C50ED);
+                                                              });
+
                                                         showDialog(
+                                                          barrierDismissible:
+                                                              false,
                                                           context: context,
                                                           builder: (context) =>
                                                               AlertDialog(
@@ -194,11 +237,7 @@ class _GiftPageState extends State<GiftPage> {
                                                             elevation: 0,
                                                             actions: [
                                                               Container(
-                                                                // width: MediaQuery.of(
-                                                                //             context)
-                                                                //         .size
-                                                                //         .width *
-                                                                //     0.30,
+                                                                width: 400,
                                                                 height: 641,
                                                                 color: ColorConstant
                                                                     .whiteColor,
@@ -229,6 +268,17 @@ class _GiftPageState extends State<GiftPage> {
                                                                             ),
                                                                             IconButton(
                                                                               onPressed: () {
+                                                                                tap2
+                                                                                    ? setState(() {
+                                                                                        tap2 = !tap2;
+                                                                                        whiteColor2 = Colors.white;
+                                                                                        blueColor2 = Color(0xff2C50ED);
+                                                                                      })
+                                                                                    : setState(() {
+                                                                                        tap2 = !tap2;
+                                                                                        blueColor2 = Colors.white;
+                                                                                        whiteColor2 = Color(0xff2C50ED);
+                                                                                      });
                                                                                 Navigator.pop(context);
                                                                               },
                                                                               icon: const Icon(Icons.close),
@@ -249,15 +299,10 @@ class _GiftPageState extends State<GiftPage> {
                                                                           crossAxisAlignment:
                                                                               CrossAxisAlignment.start,
                                                                           children: [
-                                                                            Text(
-                                                                              // textAlign: TextAlign.center,
-                                                                              "Choose Gift",
-                                                                              style: GoogleFonts.inter(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w400),
+                                                                            DropdownWidget3(
+                                                                              title: 'Choose Gift',
+                                                                              hintText: 'Select Gift',
                                                                             ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            TextFieldWidget(labelText: "Select Gift"),
                                                                             const SizedBox(
                                                                               height: 10,
                                                                             ),
@@ -454,7 +499,10 @@ class _GiftPageState extends State<GiftPage> {
                                                         height: 32,
                                                         decoration: BoxDecoration(
                                                             color: ColorConstant
-                                                                .blueColor,
+                                                                .whiteColor,
+                                                            border: Border.all(
+                                                                color: ColorConstant
+                                                                    .blueColor),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -462,8 +510,9 @@ class _GiftPageState extends State<GiftPage> {
                                                         child: Text(
                                                           'Lucky Gift',
                                                           style: TextStyle(
-                                                              color: ColorConstant
-                                                                  .whiteColor,
+                                                              color:
+                                                                  ColorConstant
+                                                                      .blueColor,
                                                               letterSpacing:
                                                                   0.5,
                                                               fontSize: 11,
@@ -486,7 +535,9 @@ class _GiftPageState extends State<GiftPage> {
                                         const SizedBox(
                                           height: 15,
                                         ),
-                                        TextFieldWidget(labelText: ' Category'),
+                                        DropdownWidget4(
+                                            items: giftCategory,
+                                            selectItem: 'select Category'),
                                         const SizedBox(
                                           height: 10,
                                         ),
@@ -501,38 +552,55 @@ class _GiftPageState extends State<GiftPage> {
                                         Container(
                                           height: 100,
                                           width: 140,
-                                          color: ColorConstant.whiteColor,
-                                          child: Column(
-                                            children: [
-                                              Text(
-                                                textAlign: TextAlign.center,
-                                                "Upload File",
-                                                style: GoogleFonts.poppins(
-                                                    color:
-                                                        ColorConstant.blueColor,
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
-                                              SizedBox(
-                                                height: 50,
-                                                width: 50,
-                                                child: Image.asset(
-                                                  "assets/icons/cloudupload.png",
-                                                  fit: BoxFit.contain,
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                              color: ColorConstant.whiteColor,
+                                              boxShadow: [
+                                                BoxShadow(
+                                                    color: ColorConstant
+                                                        .blueColor
+                                                        .withOpacity(0.30),
+                                                    offset:
+                                                        const Offset(1, 2.0),
+                                                    blurRadius: 2.0,
+                                                    spreadRadius: 0.0),
+                                              ]),
+                                          child: Padding(
+                                            padding:
+                                                const EdgeInsets.only(top: 8.0),
+                                            child: Column(
+                                              children: [
+                                                Text(
+                                                  textAlign: TextAlign.center,
+                                                  "Upload File",
+                                                  style: GoogleFonts.poppins(
+                                                      color: ColorConstant
+                                                          .blueColor,
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.w400),
                                                 ),
-                                              ),
-                                              Text(
-                                                textAlign: TextAlign.center,
-                                                "SVG/WEP",
-                                                style: GoogleFonts.poppins(
-                                                    color:
-                                                        ColorConstant.blueColor,
-                                                    fontSize: 14,
-                                                    fontWeight:
-                                                        FontWeight.w400),
-                                              ),
-                                            ],
+                                                SizedBox(
+                                                  height: 50,
+                                                  width: 50,
+                                                  child: Image.asset(
+                                                    "assets/icons/cloudupload.png",
+                                                    fit: BoxFit.contain,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  textAlign: TextAlign.center,
+                                                  "SVG/WEP",
+                                                  style: GoogleFonts.poppins(
+                                                      color: ColorConstant
+                                                          .blueColor,
+                                                      fontSize: 14,
+                                                      fontWeight:
+                                                          FontWeight.w400),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         ),
                                         const SizedBox(
@@ -554,14 +622,13 @@ class _GiftPageState extends State<GiftPage> {
                             width: 138,
                             height: 32,
                             decoration: BoxDecoration(
-                                color: color,
-                                border:
-                                    Border.all(color: ColorConstant.blueColor),
+                                color: whiteColor,
+                                border: Border.all(color: blueColor),
                                 borderRadius: BorderRadius.circular(24)),
                             child: Text(
                               'Add Gift',
                               style: TextStyle(
-                                  color: textColor,
+                                  color: blueColor,
                                   letterSpacing: 0.5,
                                   fontSize: 11,
                                   fontWeight: FontWeight.w700),

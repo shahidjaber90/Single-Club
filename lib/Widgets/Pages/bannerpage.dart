@@ -13,6 +13,9 @@ class BannerView extends StatefulWidget {
 }
 
 class _BannerViewState extends State<BannerView> {
+  bool tap1 = false;
+  Color whiteColor = (Colors.white);
+  Color blueColor = const Color(0xff2C50ED);
   final List text = [
     "Level Name",
     "Level Icon",
@@ -42,31 +45,39 @@ class _BannerViewState extends State<BannerView> {
         elevation: 0,
         title: GestureDetector(
           onTap: () {
+            tap1
+                ? setState(() {
+                    tap1 = !tap1;
+                    whiteColor = Colors.white;
+                    blueColor = Color(0xff2C50ED);
+                  })
+                : setState(() {
+                    tap1 = !tap1;
+                    blueColor = Colors.white;
+                    whiteColor = Color(0xff2C50ED);
+                  });
+
             showDialog(
+              barrierDismissible: false,
               context: context,
               builder: (context) => AlertDialog(
                 scrollable: true,
                 backgroundColor: Colors.transparent,
-                
-               
                 elevation: 0,
                 actions: [
                   Container(
-                    // width: double.infinity ,
+                    width: 400,
                     color: ColorConstant.whiteColor,
                     child: Column(
                       // mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        
                         Container(
                           // height: 53,
                           // width: double.infinity,
                           color: ColorConstant.blueColor,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
-                        
-                            
                             children: [
                               Text(
                                 // textAlign: TextAlign.center,
@@ -76,10 +87,22 @@ class _BannerViewState extends State<BannerView> {
                                     fontSize: 30,
                                     fontWeight: FontWeight.w600),
                               ),
-                              const SizedBox(width: 60,),
-                               
+                              const SizedBox(
+                                width: 60,
+                              ),
                               IconButton(
                                 onPressed: () {
+                                  tap1
+                                      ? setState(() {
+                                          tap1 = !tap1;
+                                          whiteColor = Colors.white;
+                                          blueColor = Color(0xff2C50ED);
+                                        })
+                                      : setState(() {
+                                          tap1 = !tap1;
+                                          blueColor = Colors.white;
+                                          whiteColor = Color(0xff2C50ED);
+                                        });
                                   Navigator.pop(context);
                                 },
                                 icon: const Icon(Icons.close),
@@ -88,7 +111,6 @@ class _BannerViewState extends State<BannerView> {
                             ],
                           ),
                         ),
-                       
                         const SizedBox(
                           height: 10,
                         ),
@@ -128,13 +150,15 @@ class _BannerViewState extends State<BannerView> {
                                       width: 138,
                                       height: 32,
                                       decoration: BoxDecoration(
-                                          color: ColorConstant.blueColor,
+                                          color: ColorConstant.whiteColor,
+                                          border: Border.all(
+                                              color: ColorConstant.blueColor),
                                           borderRadius:
                                               BorderRadius.circular(24)),
                                       child: Text(
                                         'Add opening',
                                         style: TextStyle(
-                                            color: ColorConstant.whiteColor,
+                                            color: ColorConstant.blueColor,
                                             letterSpacing: 0.5,
                                             fontSize: 11,
                                             fontWeight: FontWeight.w700),
@@ -226,13 +250,13 @@ class _BannerViewState extends State<BannerView> {
             width: 138,
             height: 32,
             decoration: BoxDecoration(
-                color: ColorConstant.blueColor,
-                border: Border.all(color: ColorConstant.blueColor),
+                color: whiteColor,
+                border: Border.all(color: blueColor),
                 borderRadius: BorderRadius.circular(24)),
             child: Text(
               'Send Banner',
               style: TextStyle(
-                  color: ColorConstant.whiteColor,
+                  color: blueColor,
                   letterSpacing: 0.5,
                   fontSize: 11,
                   fontWeight: FontWeight.w700),
@@ -265,7 +289,7 @@ class _BannerViewState extends State<BannerView> {
             height: 10,
           ),
           Container(
-            height: 60,
+            height: 80,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
@@ -288,7 +312,7 @@ class _BannerViewState extends State<BannerView> {
                                 fontSize: 15, fontWeight: FontWeight.w400),
                           ),
                           SizedBox(
-                            height: 50,
+                            height: 65,
                             width: 50,
                             child: Image.asset("assets/images/storebike.png"),
                           ),

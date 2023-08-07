@@ -5,19 +5,25 @@ import 'package:line_icons/line_icon.dart';
 import 'package:provider/provider.dart';
 import 'package:singleclub/Local_variables/navigationData.dart';
 import 'package:singleclub/Local_variables/variables.dart';
+import 'package:singleclub/Screens/admin_page.dart';
 import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/Pages/Giftpage.dart';
 import 'package:singleclub/Widgets/Pages/Rechargepage.dart';
+import 'package:singleclub/Widgets/Pages/Stickerview.dart';
 import 'package:singleclub/Widgets/Pages/Storepage.dart';
 import 'package:singleclub/Widgets/Pages/analyse_widget.dart';
 import 'package:singleclub/Widgets/Pages/banView.dart';
 import 'package:singleclub/Widgets/Pages/bannerpage.dart';
+import 'package:singleclub/Widgets/Pages/gamepage.dart';
 import 'package:singleclub/Widgets/Pages/guardian_view.dart';
 import 'package:singleclub/Widgets/Pages/levelpage.dart';
+import 'package:singleclub/Widgets/Pages/payment.dart';
 import 'package:singleclub/Widgets/Pages/reportView.dart';
 import 'package:singleclub/Widgets/Pages/reward_view.dart';
 import 'package:singleclub/Widgets/Pages/salarypage.dart';
+import 'package:singleclub/Widgets/Pages/setting_view.dart';
 import 'package:singleclub/Widgets/Pages/vipView_widget.dart';
+import 'package:singleclub/Widgets/Pages/vs_page.dart';
 import 'package:singleclub/Widgets/side_navigation_bar.dart';
 import 'package:singleclub/Widgets/user_widget.dart';
 import 'package:singleclub/Widgets/Pages/users_layout_widget.dart';
@@ -31,6 +37,11 @@ class HomePageView extends StatefulWidget {
 }
 
 class _HomePageViewState extends State<HomePageView> {
+  bool icon1 = false;
+  bool icon2 = false;
+  bool icon3 = false;
+  bool icon4 = false;
+  bool icon5 = false;
   DateTime selectedDate = DateTime.now();
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
@@ -64,8 +75,8 @@ class _HomePageViewState extends State<HomePageView> {
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: Container(
                     height: MediaQuery.of(context).size.height,
-                    width: 300,
-                    color: ColorConstant.searchColor,
+                    width: 250,
+                    color: ColorConstant.whiteColor,
                     child: const SideNavigationBar(),
                   ),
                 ),
@@ -122,29 +133,79 @@ class _HomePageViewState extends State<HomePageView> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.spaceBetween,
                                             children: [
-                                              LineIcon(
-                                                Icons.notifications,
-                                                color: ColorConstant.blueColor,
-                                                size: 32,
+                                              GestureDetector(
+                                                onTap: () {
+                                                  setState(() {
+                                                    icon1 = !icon1;
+                                                  });
+                                                },
+                                                child: LineIcon(
+                                                  Icons.notifications,
+                                                  color: icon1
+                                                      ? ColorConstant.blueColor
+                                                      : ColorConstant
+                                                          .arrowColor,
+                                                  size: 32,
+                                                ),
                                               ),
-                                              LineIcon(
-                                                Icons.email,
-                                                color: ColorConstant.blueColor,
-                                                size: 32,
+                                              GestureDetector(
+                                                onTap: () {
+                                                  setState(() {
+                                                    icon2 = !icon2;
+                                                  });
+                                                },
+                                                child: LineIcon(
+                                                  Icons.email,
+                                                  color: icon2
+                                                      ? ColorConstant.blueColor
+                                                      : ColorConstant
+                                                          .arrowColor,
+                                                  size: 32,
+                                                ),
                                               ),
-                                              LineIcon.whatSApp(
-                                                color: ColorConstant.blueColor,
-                                                size: 32,
+                                              GestureDetector(
+                                                onTap: () {
+                                                  setState(() {
+                                                    icon3 = !icon3;
+                                                  });
+                                                },
+                                                child: LineIcon.whatSApp(
+                                                  color: icon3
+                                                      ? ColorConstant.blueColor
+                                                      : ColorConstant
+                                                          .arrowColor,
+                                                  size: 32,
+                                                ),
                                               ),
-                                              LineIcon(
-                                                Icons.calendar_month,
-                                                color: ColorConstant.blueColor,
-                                                size: 32,
+                                              GestureDetector(
+                                                onTap: () {
+                                                  setState(() {
+                                                    icon4 = !icon4;
+                                                  });
+                                                },
+                                                child: LineIcon(
+                                                  Icons.calendar_month,
+                                                  color: icon4
+                                                      ? ColorConstant.blueColor
+                                                      : ColorConstant
+                                                          .arrowColor,
+                                                  size: 32,
+                                                ),
                                               ),
-                                              LineIcon(
-                                                Icons.settings,
-                                                color: ColorConstant.blueColor,
-                                                size: 32,
+                                              GestureDetector(
+                                                onTap: () {
+                                                  setState(() {
+                                                    icon5 = !icon5;
+                                                  });
+                                                },
+                                                child: LineIcon(
+                                                  Icons.settings,
+                                                  color: icon5
+                                                      ? ColorConstant.blueColor
+                                                      : ColorConstant
+                                                          .arrowColor,
+                                                  size: 32,
+                                                ),
                                               ),
                                             ],
                                           ),
@@ -218,27 +279,49 @@ Widget _getWidgetByIndex(int index) {
     case 1:
       return const UserWidget(); // ok 12
     case 2:
-      return StorPage(); // ok 11
+      return const ClearPage(); // ok 11
     case 3:
-      return const VipViewWidget(); // ok
+      return const BanView(); // ok
     case 4:
-      return GiftPage(); // ok 4
+      return const RechargePage(); // ok 4
     case 5:
-      return const RewardView(); // ok
+      return const VsPage(); // ok
     case 6:
-      return const GuardianView(); // ok 5
+      return StorPage(); // ok 5
     case 7:
-      return const BanView(); // ok 3
+      return const VipViewWidget(); // ok 3
     case 8:
-      return const Levelview(); // ok 6
+      return GiftPage(); // ok 6
+    case 9:
+      return const RewardView(); // ok 6
     case 10:
-      return const ReportView(); // ok 8
+      return const GamePage(); // ok
+    case 11:
+      return const AnalyseWidget(); // ads page pending
+    case 12:
+      return const AnalyseWidget(); // verifications page pending
+    case 13:
+      return const AnalyseWidget(); // agency page pending
     case 14:
-      return const RechargePage(); // ok 8
+      return const ReportView(); // ok
+    case 15:
+      return const Levelview(); // ok
     case 16:
-      return const BannerView(); // ok 2
+      return const AddAdminPage(); // ok
+    case 17:
+      return const GuardianView(); // ok
     case 18:
-      return const ClearPage(); // ok 2
+      return const AnalyseWidget(); // media page pending
+    case 19:
+      return const BannerView(); // ok
+    case 20:
+      return const StickerView(); // ok
+    case 21:
+      return const PaymentPage(); // ok
+    case 22:
+      return const Settingpage(); // ok
+    case 23:
+      return const AnalyseWidget(); // signout page pending
     default:
       return const AnalyseWidget();
   }

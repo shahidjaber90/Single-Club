@@ -41,8 +41,8 @@ dependencies:
   provider: ^6.0.5
   web_pagination: ^0.0.5
   flutter_svg: ^2.0.7
-  shared_preferences: ^2.2.0
-  image_picker: ^0.8.9
+  dropdown_button2: ^2.3.7
+  percent_indicator: ^4.2.3
 
 dev_dependencies:
   flutter_test:
@@ -71,6 +71,7 @@ flutter:
     - assets/images/
     - assets/icons/
     - assets/svg/
+    - assets/svg/listitem/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:singleclub/Local_variables/userDetailsData.dart';
+import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
 import 'package:singleclub/Widgets/cardWidget.dart';
 import 'package:singleclub/Widgets/dataHeadingWidget.dart';
+import 'package:singleclub/Widgets/dropdown_widget.dart';
 import 'package:singleclub/Widgets/textfield_widget.dart';
 import 'package:singleclub/Widgets/userDetailsInput.dart';
 import 'package:web_pagination/web_pagination.dart';
@@ -17,6 +19,16 @@ class BanView extends StatefulWidget {
 }
 
 class _BanViewState extends State<BanView> {
+  bool tap1 = false;
+  bool tap2 = false;
+  bool tap3 = false;
+  Color whiteColor = (Colors.white);
+  Color blueColor = const Color(0xff2C50ED);
+  Color whiteColor2 = (Colors.white);
+  Color blueColor2 = const Color(0xff2C50ED);
+  Color whiteColor3 = (Colors.white);
+  Color blueColor3 = const Color(0xff2C50ED);
+
   List<Color> itemColors =
       List.generate(userDetails.length, (index) => Colors.white);
   List<Color> contentColors =
@@ -80,29 +92,56 @@ class _BanViewState extends State<BanView> {
                       width: 280,
                       child: Stack(
                         children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: 138,
-                            height: 32,
-                            decoration: BoxDecoration(
-                                color: ColorConstant.whiteColor,
-                                border:
-                                    Border.all(color: ColorConstant.blueColor),
-                                borderRadius: BorderRadius.circular(24)),
-                            child: Text(
-                              'Ban',
-                              style: TextStyle(
-                                  color: ColorConstant.blueColor,
-                                  letterSpacing: 0.5,
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w700),
+                          GestureDetector(
+                            onTap: () {
+                              tap1
+                                  ? setState(() {
+                                      tap1 = !tap1;
+                                      whiteColor = Colors.white;
+                                      blueColor = Color(0xff2C50ED);
+                                    })
+                                  : setState(() {
+                                      tap1 = !tap1;
+                                      blueColor = Colors.white;
+                                      whiteColor = Color(0xff2C50ED);
+                                    });
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: 138,
+                              height: 32,
+                              decoration: BoxDecoration(
+                                  color: whiteColor,
+                                  border: Border.all(color: blueColor),
+                                  borderRadius: BorderRadius.circular(24)),
+                              child: Text(
+                                'Ban',
+                                style: TextStyle(
+                                    color: blueColor,
+                                    letterSpacing: 0.5,
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w700),
+                              ),
                             ),
                           ),
                           Positioned(
                             left: 120,
                             child: GestureDetector(
                               onTap: () {
+                                tap2
+                                    ? setState(() {
+                                        tap2 = !tap2;
+                                        whiteColor2 = Colors.white;
+                                        blueColor2 = Color(0xff2C50ED);
+                                      })
+                                    : setState(() {
+                                        tap2 = !tap2;
+                                        blueColor2 = Colors.white;
+                                        whiteColor2 = Color(0xff2C50ED);
+                                      });
+
                                 showDialog(
+                                  barrierDismissible: false,
                                   context: context,
                                   builder: (context) {
                                     return AlertDialog(
@@ -110,39 +149,58 @@ class _BanViewState extends State<BanView> {
                                       backgroundColor: Colors.transparent,
                                       elevation: 0,
                                       title: Container(
-                                        // width: 425,
+                                        width: 400,
                                         color: ColorConstant.blueColor,
                                         child: Column(
                                           children: [
-                                           Container(
-                          // height: 53,
-                          // width: double.infinity,
-                          color: ColorConstant.blueColor,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                        
-                            
-                            children: [
-                              Text(
-                                // textAlign: TextAlign.center,
-                                "Active",
-                                style: GoogleFonts.poppins(
-                                    color: ColorConstant.whiteColor,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              const SizedBox(width: 60,),
-                               
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                icon: const Icon(Icons.close),
-                                color: ColorConstant.whiteColor,
-                              )
-                            ],
-                          ),
-                        ),
+                                            Container(
+                                              // height: 53,
+                                              // width: double.infinity,
+                                              color: ColorConstant.blueColor,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    // textAlign: TextAlign.center,
+                                                    "Active",
+                                                    style: GoogleFonts.poppins(
+                                                        color: ColorConstant
+                                                            .whiteColor,
+                                                        fontSize: 30,
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                  const SizedBox(
+                                                    width: 60,
+                                                  ),
+                                                  IconButton(
+                                                    onPressed: () {
+                                                      tap2
+                                                          ? setState(() {
+                                                              tap2 = !tap2;
+                                                              whiteColor2 =
+                                                                  Colors.white;
+                                                              blueColor2 = Color(
+                                                                  0xff2C50ED);
+                                                            })
+                                                          : setState(() {
+                                                              tap2 = !tap2;
+                                                              blueColor2 =
+                                                                  Colors.white;
+                                                              whiteColor2 = Color(
+                                                                  0xff2C50ED);
+                                                            });
+                                                      Navigator.pop(context);
+                                                    },
+                                                    icon:
+                                                        const Icon(Icons.close),
+                                                    color: ColorConstant
+                                                        .whiteColor,
+                                                  )
+                                                ],
+                                              ),
+                                            ),
                                             Container(
                                               // width: 425,
                                               color: ColorConstant.whiteColor,
@@ -167,40 +225,83 @@ class _BanViewState extends State<BanView> {
                                                           width: 280,
                                                           child: Stack(
                                                             children: [
-                                                              Container(
-                                                                alignment:
-                                                                    Alignment
-                                                                        .center,
-                                                                width: 138,
-                                                                height: 32,
-                                                                decoration: BoxDecoration(
-                                                                    color: ColorConstant
-                                                                        .whiteColor,
-                                                                    border: Border.all(
-                                                                        color: ColorConstant
-                                                                            .blueColor),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            24)),
-                                                                child: Text(
-                                                                  'User',
-                                                                  style: TextStyle(
+                                                              GestureDetector(
+                                                                onTap: () {
+                                                                  tap3
+                                                                      ? setState(
+                                                                          () {
+                                                                          tap3 =
+                                                                              !tap3;
+                                                                          whiteColor3 =
+                                                                              Colors.white;
+                                                                          blueColor3 =
+                                                                              Color(0xff2C50ED);
+                                                                        })
+                                                                      : setState(
+                                                                          () {
+                                                                          tap3 =
+                                                                              !tap3;
+                                                                          blueColor3 =
+                                                                              Colors.white;
+                                                                          whiteColor3 =
+                                                                              Color(0xff2C50ED);
+                                                                        });
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  alignment:
+                                                                      Alignment
+                                                                          .center,
+                                                                  width: 138,
+                                                                  height: 32,
+                                                                  decoration: BoxDecoration(
                                                                       color: ColorConstant
-                                                                          .blueColor,
-                                                                      letterSpacing:
-                                                                          0.5,
-                                                                      fontSize:
-                                                                          11,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w700),
+                                                                          .whiteColor,
+                                                                      border: Border.all(
+                                                                          color: ColorConstant
+                                                                              .blueColor),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              24)),
+                                                                  child: Text(
+                                                                    'User',
+                                                                    style: TextStyle(
+                                                                        color: ColorConstant
+                                                                            .blueColor,
+                                                                        letterSpacing:
+                                                                            0.5,
+                                                                        fontSize:
+                                                                            11,
+                                                                        fontWeight:
+                                                                            FontWeight.w700),
+                                                                  ),
                                                                 ),
                                                               ),
                                                               Positioned(
                                                                 left: 120,
                                                                 child:
                                                                     GestureDetector(
-                                                                  onTap: () {},
+                                                                  onTap: () {
+                                                                    tap3
+                                                                        ? setState(
+                                                                            () {
+                                                                            tap3 =
+                                                                                !tap3;
+                                                                            whiteColor3 =
+                                                                                Colors.white;
+                                                                            blueColor3 =
+                                                                                Color(0xff2C50ED);
+                                                                          })
+                                                                        : setState(
+                                                                            () {
+                                                                            tap3 =
+                                                                                !tap3;
+                                                                            blueColor3 =
+                                                                                Colors.white;
+                                                                            whiteColor3 =
+                                                                                Color(0xff2C50ED);
+                                                                          });
+                                                                  },
                                                                   child:
                                                                       Container(
                                                                     alignment:
@@ -209,15 +310,18 @@ class _BanViewState extends State<BanView> {
                                                                     width: 138,
                                                                     height: 32,
                                                                     decoration: BoxDecoration(
-                                                                        color: ColorConstant
-                                                                            .blueColor,
+                                                                        color:
+                                                                            whiteColor3,
+                                                                        border: Border.all(
+                                                                            color:
+                                                                                blueColor3),
                                                                         borderRadius:
                                                                             BorderRadius.circular(24)),
                                                                     child: Text(
                                                                       'Active',
                                                                       style: TextStyle(
-                                                                          color: ColorConstant
-                                                                              .whiteColor,
+                                                                          color:
+                                                                              blueColor3,
                                                                           letterSpacing:
                                                                               0.5,
                                                                           fontSize:
@@ -235,8 +339,9 @@ class _BanViewState extends State<BanView> {
                                                     ),
                                                     const SizedBox(height: 20),
                                                     // 1
-                                                    TextFieldWidget(
-                                                        labelText:
+                                                    DropdownWidget4(
+                                                        items: adminList,
+                                                        selectItem:
                                                             'Select Admin'),
                                                     const SizedBox(height: 18),
                                                     TextFieldWidget(
@@ -264,12 +369,13 @@ class _BanViewState extends State<BanView> {
                                 width: 138,
                                 height: 32,
                                 decoration: BoxDecoration(
-                                    color: ColorConstant.blueColor,
+                                    color: whiteColor2,
+                                    border: Border.all(color: blueColor2),
                                     borderRadius: BorderRadius.circular(24)),
                                 child: Text(
                                   'Active',
                                   style: TextStyle(
-                                      color: ColorConstant.whiteColor,
+                                      color: blueColor2,
                                       letterSpacing: 0.5,
                                       fontSize: 11,
                                       fontWeight: FontWeight.w700),

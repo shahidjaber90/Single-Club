@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
 import 'package:singleclub/Widgets/dataHeadingWidget.dart';
+import 'package:singleclub/Widgets/dropdown_widget.dart';
 import 'package:singleclub/Widgets/textfield_heading.dart';
 import 'package:singleclub/Widgets/textfield_widget.dart';
 import 'package:singleclub/Widgets/textfield_widget2.dart';
@@ -16,6 +18,10 @@ class ReportView extends StatefulWidget {
 }
 
 class _ReportViewState extends State<ReportView> {
+  bool tap1 = false;
+  Color whiteColor = (Colors.white);
+  Color blueColor = const Color(0xff2C50ED);
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -54,7 +60,20 @@ class _ReportViewState extends State<ReportView> {
                                     padding: const EdgeInsets.only(bottom: 20),
                                     child: GestureDetector(
                                       onTap: () {
+                                        tap1
+                                            ? setState(() {
+                                                tap1 = !tap1;
+                                                whiteColor = Colors.white;
+                                                blueColor = Color(0xff2C50ED);
+                                              })
+                                            : setState(() {
+                                                tap1 = !tap1;
+                                                blueColor = Colors.white;
+                                                whiteColor = Color(0xff2C50ED);
+                                              });
+
                                         showDialog(
+                                          barrierDismissible: false,
                                           context: context,
                                           builder: (context) {
                                             return AlertDialog(
@@ -63,7 +82,7 @@ class _ReportViewState extends State<ReportView> {
                                                   Colors.transparent,
                                               elevation: 0,
                                               title: Container(
-                                                // width: 425,
+                                                width: 400,
                                                 decoration: BoxDecoration(
                                                     color:
                                                         ColorConstant.blueColor,
@@ -73,35 +92,66 @@ class _ReportViewState extends State<ReportView> {
                                                             .blueColor)),
                                                 child: Column(
                                                   children: [
-                                                     Container(
-                          // height: 53,
-                          // width: double.infinity,
-                          color: ColorConstant.blueColor,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                        
-                            
-                            children: [
-                              Text(
-                                // textAlign: TextAlign.center,
-                                "Create Complain",
-                                style: GoogleFonts.poppins(
-                                    color: ColorConstant.whiteColor,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              const SizedBox(width: 60,),
-                               
-                              IconButton(
-                                onPressed: () {
-                                  Navigator.pop(context);
-                                },
-                                icon: const Icon(Icons.close),
-                                color: ColorConstant.whiteColor,
-                              )
-                            ],
-                          ),
-                        ),
+                                                    Container(
+                                                      // height: 53,
+                                                      // width: double.infinity,
+                                                      color: ColorConstant
+                                                          .blueColor,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          Text(
+                                                            // textAlign: TextAlign.center,
+                                                            "Create Complain",
+                                                            style: GoogleFonts.poppins(
+                                                                color: ColorConstant
+                                                                    .whiteColor,
+                                                                fontSize: 30,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600),
+                                                          ),
+                                                          const SizedBox(
+                                                            width: 60,
+                                                          ),
+                                                          IconButton(
+                                                            onPressed: () {
+                                                              tap1
+                                                                  ? setState(
+                                                                      () {
+                                                                      tap1 =
+                                                                          !tap1;
+                                                                      whiteColor =
+                                                                          Colors
+                                                                              .white;
+                                                                      blueColor =
+                                                                          Color(
+                                                                              0xff2C50ED);
+                                                                    })
+                                                                  : setState(
+                                                                      () {
+                                                                      tap1 =
+                                                                          !tap1;
+                                                                      blueColor =
+                                                                          Colors
+                                                                              .white;
+                                                                      whiteColor =
+                                                                          Color(
+                                                                              0xff2C50ED);
+                                                                    });
+                                                              Navigator.pop(
+                                                                  context);
+                                                            },
+                                                            icon: const Icon(
+                                                                Icons.close),
+                                                            color: ColorConstant
+                                                                .whiteColor,
+                                                          )
+                                                        ],
+                                                      ),
+                                                    ),
                                                     Container(
                                                       // width: 425,
                                                       color: ColorConstant
@@ -116,15 +166,14 @@ class _ReportViewState extends State<ReportView> {
                                                                   .start,
                                                           children: [
                                                             // 1
-                                                            TextFieldHeadnig(
-                                                                headingText:
+                                                            DropdownWidget(
+                                                                items:
+                                                                    userTypes,
+                                                                selectItem:
+                                                                    'Select types',
+                                                                title:
                                                                     'Category'),
-                                                            Padding(
-                                                              padding: const EdgeInsets.only(left :20.0),
-                                                              child: TextFieldWidget(
-                                                                  labelText:
-                                                                      'Select Types'),
-                                                            ),
+
                                                             // 2
                                                             TextFieldHeadnig(
                                                                 headingText:
@@ -191,56 +240,64 @@ class _ReportViewState extends State<ReportView> {
                                                                         });
                                                                   },
                                                                   child:
- 
-                        Container(
-                          
-                          height: 100,
-                          width: 140,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                          color: ColorConstant.whiteColor,
-                            boxShadow: [
-                              BoxShadow(
-                                  color:
-                                      ColorConstant.blueColor.withOpacity(0.30),
-                                  offset: const Offset(1, 2.0),
-                                  blurRadius: 2.0,
-                                  spreadRadius: 0.0),
-                            ]),
-                           
-                          child: Padding(
-                            padding: const EdgeInsets.only(top : 8.0),
-                            child: Column(
-                              children: [
-                                Text(
-                                  textAlign: TextAlign.center,
-                                  "Upload File",
-                                  style: GoogleFonts.poppins(
-                                      color: ColorConstant.blueColor,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                                SizedBox(
-                                  height: 50,
-                                  width: 50,
-                                  child: Image.asset(
-                                    "assets/icons/cloudupload.png",
-                                    fit: BoxFit.contain,
-                                  ),
-                                ),
-                                Text(
-                                  textAlign: TextAlign.center,
-                                  "SVG/WEP",
-                                  style: GoogleFonts.poppins(
-                                      color: ColorConstant.blueColor,
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w400),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      
+                                                                      Container(
+                                                                    height: 100,
+                                                                    width: 140,
+                                                                    decoration: BoxDecoration(
+                                                                        borderRadius:
+                                                                            BorderRadius.circular(
+                                                                                10),
+                                                                        color: ColorConstant
+                                                                            .whiteColor,
+                                                                        boxShadow: [
+                                                                          BoxShadow(
+                                                                              color: ColorConstant.blueColor.withOpacity(0.30),
+                                                                              offset: const Offset(1, 2.0),
+                                                                              blurRadius: 2.0,
+                                                                              spreadRadius: 0.0),
+                                                                        ]),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: const EdgeInsets
+                                                                              .only(
+                                                                          top:
+                                                                              8.0),
+                                                                      child:
+                                                                          Column(
+                                                                        children: [
+                                                                          Text(
+                                                                            textAlign:
+                                                                                TextAlign.center,
+                                                                            "Upload File",
+                                                                            style: GoogleFonts.poppins(
+                                                                                color: ColorConstant.blueColor,
+                                                                                fontSize: 14,
+                                                                                fontWeight: FontWeight.w400),
+                                                                          ),
+                                                                          SizedBox(
+                                                                            height:
+                                                                                50,
+                                                                            width:
+                                                                                50,
+                                                                            child:
+                                                                                Image.asset(
+                                                                              "assets/icons/cloudupload.png",
+                                                                              fit: BoxFit.contain,
+                                                                            ),
+                                                                          ),
+                                                                          Text(
+                                                                            textAlign:
+                                                                                TextAlign.center,
+                                                                            "SVG/WEP",
+                                                                            style: GoogleFonts.poppins(
+                                                                                color: ColorConstant.blueColor,
+                                                                                fontSize: 14,
+                                                                                fontWeight: FontWeight.w400),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
                                                                 ),
                                                               ],
                                                             ),
@@ -266,18 +323,18 @@ class _ReportViewState extends State<ReportView> {
                                       //// alert dialog end
                                       child: Container(
                                         alignment: Alignment.center,
-                                        width: 105,
+                                        width: 120,
                                         height: 32,
                                         decoration: BoxDecoration(
-                                            color: ColorConstant.blueColor,
-                                            border: Border.all(
-                                                color: ColorConstant.blueColor),
+                                            color: whiteColor,
+                                            border:
+                                                Border.all(color: blueColor),
                                             borderRadius:
-                                                BorderRadius.circular(16)),
+                                                BorderRadius.circular(20)),
                                         child: Text(
                                           'Make Complain',
                                           style: TextStyle(
-                                              color: ColorConstant.whiteColor,
+                                              color: blueColor,
                                               letterSpacing: 0.5,
                                               fontSize: 11,
                                               fontWeight: FontWeight.w700),

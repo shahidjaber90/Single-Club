@@ -14,12 +14,20 @@ class UserWidget extends StatefulWidget {
 }
 
 class _UserWidgetState extends State<UserWidget> {
+  bool tap1 = false;
+  bool tap2 = false;
+  Color whiteColor = (Colors.white);
+  Color blueColor = const Color(0xff2C50ED);
+  Color whiteColor2 = (Colors.white);
+  Color blueColor2 = const Color(0xff2C50ED);
+
   List<Color> itemColors =
       List.generate(userDetails.length, (index) => Colors.white);
   List<Color> contentColors =
       List.generate(userDetails.length, (index) => Color(0xff2C50ED));
   int? lastSelectedIndex;
   bool isTap = false;
+  bool isTap2 = false;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -41,40 +49,70 @@ class _UserWidgetState extends State<UserWidget> {
                       width: 280,
                       child: Stack(
                         children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: 138,
-                            height: 32,
-                            decoration: BoxDecoration(
-                                color: ColorConstant.whiteColor,
-                                border:
-                                    Border.all(color: ColorConstant.blueColor),
-                                borderRadius: BorderRadius.circular(24)),
-                            child: Text(
-                              'Generate Password',
-                              style: TextStyle(
-                                  color: ColorConstant.blueColor,
-                                  letterSpacing: 0.5,
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                          ),
-                          Positioned(
-                            left: 120,
+                          GestureDetector(
+                            onTap: () {
+                              tap1
+                                  ? setState(() {
+                                      tap1 = !tap1;
+                                      whiteColor = Colors.white;
+                                      blueColor = Color(0xff2C50ED);
+                                    })
+                                  : setState(() {
+                                      tap1 = !tap1;
+                                      blueColor = Colors.white;
+                                      whiteColor = Color(0xff2C50ED);
+                                    });
+                            },
                             child: Container(
                               alignment: Alignment.center,
                               width: 138,
                               height: 32,
                               decoration: BoxDecoration(
-                                  color: ColorConstant.blueColor,
+                                  color: whiteColor,
+                                  border: Border.all(color: blueColor),
                                   borderRadius: BorderRadius.circular(24)),
                               child: Text(
-                                'Room Password',
+                                'Generate Password',
                                 style: TextStyle(
-                                    color: ColorConstant.whiteColor,
-                                    letterSpacing: 0.5,
+                                    color: blueColor,
+                                    // letterSpacing: 0.5,
                                     fontSize: 11,
                                     fontWeight: FontWeight.w700),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            left: 120,
+                            child: GestureDetector(
+                              onTap: () {
+                                tap2
+                                    ? setState(() {
+                                        tap2 = !tap2;
+                                        whiteColor2 = Colors.white;
+                                        blueColor2 = Color(0xff2C50ED);
+                                      })
+                                    : setState(() {
+                                        tap2 = !tap2;
+                                        blueColor2 = Colors.white;
+                                        whiteColor2 = Color(0xff2C50ED);
+                                      });
+                              },
+                              child: Container(
+                                alignment: Alignment.center,
+                                width: 138,
+                                height: 32,
+                                decoration: BoxDecoration(
+                                    color: whiteColor2,
+                                    border: Border.all(color: blueColor2),
+                                    borderRadius: BorderRadius.circular(24)),
+                                child: Text(
+                                  'Room Password',
+                                  style: TextStyle(
+                                      color: blueColor2,
+                                      letterSpacing: 0.5,
+                                      fontSize: 11,
+                                      fontWeight: FontWeight.w700),
+                                ),
                               ),
                             ),
                           ),
@@ -120,75 +158,79 @@ class _UserWidgetState extends State<UserWidget> {
                   ),
                 ),
                 // User Active Deactive Details Buttons
-                Expanded(
-                  child: Row(
-                    children: [
-                      Expanded(
-                        child: ListView.builder(
-                          scrollDirection: Axis.horizontal,
-                          itemCount: userDetails.length,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.symmetric(vertical: 10),
-                              child: GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      itemColors[index] =
-                                          ColorConstant.blueColor;
-                                      contentColors[index] =
-                                          ColorConstant.whiteColor;
-
-                                      if (lastSelectedIndex != null &&
-                                          lastSelectedIndex != index) {
-                                        itemColors[lastSelectedIndex!] =
-                                            ColorConstant.whiteColor;
-                                        contentColors[lastSelectedIndex!] =
+                Container(
+                  height: 58,
+                  child: Expanded(
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: ListView.builder(
+                            scrollDirection: Axis.horizontal,
+                            itemCount: userDetails.length,
+                            itemBuilder: (context, index) {
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 10),
+                                child: GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        itemColors[index] =
                                             ColorConstant.blueColor;
-                                      }
-                                      lastSelectedIndex = index;
-                                    });
+                                        contentColors[index] =
+                                            ColorConstant.whiteColor;
 
-                                    print(userDetails[index]);
-                                  },
-                                  child: Container(
-                                    alignment: Alignment.center,
-                                    height: 40,
-                                    width: 80,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      color: itemColors[index],
-                                    ),
-                                    child: Text(
-                                      '${userDetails[index]}',
-                                      style: GoogleFonts.poppins(
-                                          color: contentColors[index],
-                                          fontSize: 12,
-                                          fontWeight: FontWeight.w400,
-                                          letterSpacing: 0.5),
-                                    ),
-                                  )),
-                            );
-                          },
+                                        if (lastSelectedIndex != null &&
+                                            lastSelectedIndex != index) {
+                                          itemColors[lastSelectedIndex!] =
+                                              ColorConstant.whiteColor;
+                                          contentColors[lastSelectedIndex!] =
+                                              ColorConstant.blueColor;
+                                        }
+                                        lastSelectedIndex = index;
+                                      });
+
+                                      print(userDetails[index]);
+                                    },
+                                    child: Container(
+                                      alignment: Alignment.center,
+                                      height: 40,
+                                      width: 80,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(8),
+                                        color: itemColors[index],
+                                      ),
+                                      child: Text(
+                                        '${userDetails[index]}',
+                                        style: GoogleFonts.poppins(
+                                            color: contentColors[index],
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w400,
+                                            letterSpacing: 0.5),
+                                      ),
+                                    )),
+                              );
+                            },
+                          ),
                         ),
-                      ),
-                      Container(
-                        alignment: Alignment.center,
-                        height: 40,
-                        width: 225,
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    color: ColorConstant.searchColor),
-                                borderRadius: BorderRadius.circular(6),
-                              ),
-                              fillColor: ColorConstant.searchColor,
-                              filled: true,
-                              prefixIcon: Icon(Icons.search),
-                              hintText: 'Searching User'),
+                        Container(
+                          alignment: Alignment.center,
+                          height: 40,
+                          width: 225,
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                                border: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      color: ColorConstant.searchColor),
+                                  borderRadius: BorderRadius.circular(6),
+                                ),
+                                fillColor: ColorConstant.searchColor,
+                                filled: true,
+                                prefixIcon: Icon(Icons.search),
+                                hintText: 'Searching User'),
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 Container(
@@ -249,10 +291,10 @@ class _UserWidgetState extends State<UserWidget> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 5),
                               child: Checkbox(
-                                value: isTap,
+                                value: isTap2,
                                 onChanged: (value) {
                                   setState(() {
-                                    isTap = value!;
+                                    isTap2 = value!;
                                   });
                                 },
                               ),
