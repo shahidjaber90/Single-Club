@@ -421,22 +421,22 @@ class _StorPageState extends State<StorPage> {
               ),
             ],
           ),
-          actions: [
-            Container(
-              height: 45,
-              width: 225,
-              child: TextFormField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(6),
-                        borderSide: BorderSide.none),
-                    fillColor: ColorConstant.searchColor,
-                    filled: true,
-                    prefixIcon: const Icon(Icons.search),
-                    hintText: 'Search store'),
-              ),
-            ),
-          ],
+          // actions: [
+          //   Container(
+          //     height: 45,
+          //     width: 225,
+          //     child: TextFormField(
+          //       decoration: InputDecoration(
+          //           border: OutlineInputBorder(
+          //               borderRadius: BorderRadius.circular(6),
+          //               borderSide: BorderSide.none),
+          //           fillColor: ColorConstant.searchColor,
+          //           filled: true,
+          //           prefixIcon: const Icon(Icons.search),
+          //           hintText: 'Search store'),
+          //     ),
+          //   ),
+          // ],
         ),
       ),
       body: Padding(
@@ -457,15 +457,19 @@ class _StorPageState extends State<StorPage> {
                         color: ColorConstant.whiteColor
                         // color: ColorConstant.whiteColor,
                         ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: List.generate(
-                          text.length,
-                          (index) => Text(
-                                text[index],
-                                style: GoogleFonts.poppins(
-                                    fontSize: 16, fontWeight: FontWeight.w400),
-                              )),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: List.generate(
+                            text.length,
+                            (index) => Text(
+                                  text[index],
+                                  style: GoogleFonts.poppins(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w400),
+                                )),
+                      ),
                     ),
                   ),
                   const SizedBox(
@@ -473,95 +477,78 @@ class _StorPageState extends State<StorPage> {
                   ),
                   Container(
                     height: 60,
-                    width: MediaQuery.of(context).size.width,
+                    width: MediaQuery.of(context).size.width * 0.98,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(15),
-                        color: ColorConstant.whiteColor
-                        // color: ColorConstant.whiteColor,
-                        ),
+                      borderRadius: BorderRadius.circular(15),
+                      // color: Colors.yellow
+                      color: ColorConstant.whiteColor,
+                    ),
                     child: Padding(
-                      padding: const EdgeInsets.only(right: 30),
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Expanded(
-                            // flex: 1,
-                            child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Text(
-                                    text2[0],
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  SizedBox(
-                                    height: 50,
-                                    width: 50,
-                                    child: Image.asset(
-                                        "assets/images/hondaCBR.png"),
-                                  ),
-                                  Text(
-                                    text2[2],
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    text2[3],
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    text2[4],
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    text2[5],
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    text2[6],
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    text2[7],
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  Text(
-                                    text2[8],
-                                    style: GoogleFonts.poppins(
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                ]),
+                          Text(
+                            text2[0],
+                            style: GoogleFonts.poppins(
+                                fontSize: 15, fontWeight: FontWeight.w400),
+                          ),
+                          SizedBox(
+                            height: 50,
+                            width: 50,
+                            child: Image.asset("assets/images/hondaCBR.png"),
+                          ),
+                          Text(
+                            text2[2],
+                            style: GoogleFonts.poppins(
+                                fontSize: 15, fontWeight: FontWeight.w400),
+                          ),
+                          Text(
+                            text2[3],
+                            style: GoogleFonts.poppins(
+                                fontSize: 15, fontWeight: FontWeight.w400),
+                          ),
+                          Text(
+                            text2[4],
+                            style: GoogleFonts.poppins(
+                                fontSize: 15, fontWeight: FontWeight.w400),
+                          ),
+                          Text(
+                            text2[5],
+                            style: GoogleFonts.poppins(
+                                fontSize: 15, fontWeight: FontWeight.w400),
+                          ),
+                          Text(
+                            text2[6],
+                            style: GoogleFonts.poppins(
+                                fontSize: 15, fontWeight: FontWeight.w400),
+                          ),
+                          Text(
+                            text2[7],
+                            style: GoogleFonts.poppins(
+                                fontSize: 15, fontWeight: FontWeight.w400),
+                          ),
+                          Text(
+                            text2[8],
+                            style: GoogleFonts.poppins(
+                                fontSize: 15, fontWeight: FontWeight.w400),
                           ),
                           Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Icon(
-                                Icons.edit,
-                                color: ColorConstant.blueColor,
-                              ),
-                              const SizedBox(
-                                width: 5,
-                              ),
-                              Icon(
-                                Icons.delete,
-                                color: ColorConstant.blueColor,
-                              ),
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.edit,
+                                    color: ColorConstant.blueColor,
+                                  )),
+                              IconButton(
+                                  onPressed: () {},
+                                  icon: Icon(
+                                    Icons.delete,
+                                    color: ColorConstant.blueColor,
+                                  )),
                             ],
-                          ),
+                          )
                         ],
                       ),
                     ),

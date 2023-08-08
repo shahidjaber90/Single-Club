@@ -26,8 +26,8 @@ class _GiftPageState extends State<GiftPage> {
     "Product",
     "Name",
     "Category",
-    "7 Day",
     "Price",
+    "Tax",
     "Admin Name",
     "Category",
     "Date/Time",
@@ -36,14 +36,13 @@ class _GiftPageState extends State<GiftPage> {
 
   final List text2 = [
     "01",
-    "image",
     "Contenet here\nmaking",
     "Entry",
-    "15/30 days",
-    "60k/110k",
+    "25,000",
+    "10%",
     "King of Kings",
-    "Master Point",
-    "14-Feb-2023\n15:39",
+    "Master Panal",
+    "14-Feb-2023\n05:45",
   ];
 
   @override
@@ -664,22 +663,22 @@ class _GiftPageState extends State<GiftPage> {
               ),
             ],
           ),
-          actions: [
-            Container(
-              height: 45,
-              width: 225,
-              child: TextFormField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(6),
-                        borderSide: BorderSide.none),
-                    fillColor: ColorConstant.searchColor,
-                    filled: true,
-                    prefixIcon: const Icon(Icons.search),
-                    hintText: 'Search store'),
-              ),
-            ),
-          ],
+          // actions: [
+          //   Container(
+          //     height: 45,
+          //     width: 225,
+          //     child: TextFormField(
+          //       decoration: InputDecoration(
+          //           border: OutlineInputBorder(
+          //               borderRadius: BorderRadius.circular(6),
+          //               borderSide: BorderSide.none),
+          //           fillColor: ColorConstant.searchColor,
+          //           filled: true,
+          //           prefixIcon: const Icon(Icons.search),
+          //           hintText: 'Search store'),
+          //     ),
+          //   ),
+          // ],
         ),
       ),
       body: Padding(
@@ -697,15 +696,18 @@ class _GiftPageState extends State<GiftPage> {
                     color: ColorConstant.whiteColor
                     // color: ColorConstant.whiteColor,
                     ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: List.generate(
-                      text.length,
-                      (index) => Text(
-                            text[index],
-                            style: GoogleFonts.poppins(
-                                fontSize: 16, fontWeight: FontWeight.w400),
-                          )),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(
+                        text.length,
+                        (index) => Text(
+                              text[index],
+                              style: GoogleFonts.poppins(
+                                  fontSize: 16, fontWeight: FontWeight.w400),
+                            )),
+                  ),
                 ),
               ),
               const SizedBox(
@@ -720,57 +722,54 @@ class _GiftPageState extends State<GiftPage> {
                     // color: ColorConstant.whiteColor,
                     ),
                 child: Padding(
-                  padding: const EdgeInsets.only(right: 30),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Expanded(
-                        // flex: 1,
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text(
-                                text2[0],
-                                style: GoogleFonts.poppins(
-                                    fontSize: 15, fontWeight: FontWeight.w400),
-                              ),
-                              SizedBox(
-                                height: 50,
-                                width: 50,
-                                child:
-                                    Image.asset("assets/images/hondaCBR.png"),
-                              ),
-                              Text(
-                                text2[1],
-                                style: GoogleFonts.poppins(
-                                    fontSize: 15, fontWeight: FontWeight.w400),
-                              ),
-                              Text(
-                                text2[2],
-                                style: GoogleFonts.poppins(
-                                    fontSize: 15, fontWeight: FontWeight.w400),
-                              ),
-                              Text(
-                                text2[3],
-                                style: GoogleFonts.poppins(
-                                    fontSize: 15, fontWeight: FontWeight.w400),
-                              ),
-                              Text(
-                                text2[4],
-                                style: GoogleFonts.poppins(
-                                    fontSize: 15, fontWeight: FontWeight.w400),
-                              ),
-                              Text(
-                                text2[5],
-                                style: GoogleFonts.poppins(
-                                    fontSize: 15, fontWeight: FontWeight.w400),
-                              ),
-                              Text(
-                                text2[6],
-                                style: GoogleFonts.poppins(
-                                    fontSize: 15, fontWeight: FontWeight.w400),
-                              ),
-                            ]),
+                      Text(
+                        text2[0],
+                        style: GoogleFonts.poppins(
+                            fontSize: 15, fontWeight: FontWeight.w400),
+                      ),
+                      SizedBox(
+                        height: 50,
+                        width: 50,
+                        child: Image.asset("assets/images/hondaCBR.png"),
+                      ),
+                      Text(
+                        text2[1],
+                        style: GoogleFonts.poppins(
+                            fontSize: 15, fontWeight: FontWeight.w400),
+                      ),
+                      Text(
+                        text2[2],
+                        style: GoogleFonts.poppins(
+                            fontSize: 15, fontWeight: FontWeight.w400),
+                      ),
+                      Text(
+                        text2[3],
+                        style: GoogleFonts.poppins(
+                            fontSize: 15, fontWeight: FontWeight.w400),
+                      ),
+                      Text(
+                        text2[4],
+                        style: GoogleFonts.poppins(
+                            fontSize: 15, fontWeight: FontWeight.w400),
+                      ),
+                      Text(
+                        text2[5],
+                        style: GoogleFonts.poppins(
+                            fontSize: 15, fontWeight: FontWeight.w400),
+                      ),
+                      Text(
+                        text2[6],
+                        style: GoogleFonts.poppins(
+                            fontSize: 15, fontWeight: FontWeight.w400),
+                      ),
+                      Text(
+                        text2[7],
+                        style: GoogleFonts.poppins(
+                            fontSize: 15, fontWeight: FontWeight.w400),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -14,6 +14,7 @@ List<String> lastDays = [
   'All Over'
 ];
 List<String> adminList = ['Admin'];
+List<String> adsList = ['All','Manual','Country List'];
 List<String> giftCategory = ['Popular','Lucky','Event Luxury','Rank','VIP'];
 List<String> guardianList = ['Luxury', 'Royal', 'King'];
 List<String> userTypes = [

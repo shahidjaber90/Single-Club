@@ -43,8 +43,7 @@ class _AnalyseWidgetState extends State<AnalyseWidget> {
                           height: 50,
                           width: 200,
                           child: DropdownWidget7(
-                              items: lastDays, selectItem: 'Select Days')
-                          ),
+                              items: lastDays, selectItem: 'Select Days')),
                     ],
                   ),
                   const SizedBox(height: 8),
@@ -91,47 +90,65 @@ class _AnalyseWidgetState extends State<AnalyseWidget> {
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                // mainAxisAlignment:
+                                //     MainAxisAlignment.spaceAround,
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      const Text(
-                                        '-14',
-                                        style: TextStyle(
-                                            color: Colors.red, fontSize: 18),
-                                      ),
-                                      SvgPicture.asset(
-                                        'assets/svg/${navigationData[index]['icon']}',
-                                        color: contentColors[index],
-                                        height: 50,
-                                        width: 50,
-                                      ),
-                                      const Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceAround,
-                                        children: [
-                                          Text('+14',
-                                              style: TextStyle(
-                                                  color: Colors.green,
-                                                  fontSize: 18)),
-                                          // SizedBox(
-                                          //   height: 8,
-                                          // ),
-                                          // Text('850',
-                                          //     style: TextStyle(
-                                          //         color: Colors.yellow)),
-                                        ],
-                                      )
-                                    ],
+                                  Container(
+                                    height: 65,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        const Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                  left: 6, top: 6),
+                                              child: Text(
+                                                '-14',
+                                                style: TextStyle(
+                                                    color: Colors.green,
+                                                    fontSize: 18),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SvgPicture.asset(
+                                          'assets/svg/${navigationData[index]['icon']}',
+                                          color: contentColors[index],
+                                          height: 30,
+                                          width: 30,
+                                        ),
+                                        const Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                  right: 6, bottom: 6),
+                                              child: Text(
+                                                '-14',
+                                                style: TextStyle(
+                                                    color: Colors.red,
+                                                    fontSize: 18),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                   Text(
                                     '${navigationData[index]['count']}',
                                     style: TextStyle(
                                         color: contentColors[index],
-                                        fontSize: 20),
+                                        fontSize: 30),
                                   ),
                                   Text(
                                     '${navigationData[index]['title']}',

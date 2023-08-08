@@ -5,8 +5,10 @@ import 'package:line_icons/line_icon.dart';
 import 'package:provider/provider.dart';
 import 'package:singleclub/Local_variables/navigationData.dart';
 import 'package:singleclub/Local_variables/variables.dart';
+import 'package:singleclub/Screens/Pages/ads_view.dart';
 import 'package:singleclub/Screens/Pages/agency_view.dart';
 import 'package:singleclub/Screens/Pages/media_view.dart';
+import 'package:singleclub/Screens/Pages/verification_view.dart';
 import 'package:singleclub/Screens/admin_page.dart';
 import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Screens/Pages/Giftpage.dart';
@@ -87,14 +89,14 @@ class _HomePageViewState extends State<HomePageView> {
                 Container(
                   alignment: Alignment.topCenter,
                   height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width * 0.76,
+                  width: MediaQuery.of(context).size.width * 0.85,
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
                         Container(
                           alignment: Alignment.topCenter,
                           height: 60,
-                          width: MediaQuery.of(context).size.width * 0.76,
+                          width: MediaQuery.of(context).size.width * 0.72,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(
@@ -258,7 +260,7 @@ class _HomePageViewState extends State<HomePageView> {
 
                         Container(
                           height: MediaQuery.of(context).size.height * 1.00,
-                          width: MediaQuery.of(context).size.width * 0.76,
+                          width: MediaQuery.of(context).size.width * 0.85,
                           child: _getWidgetByIndex(ind),
                         ),
                       ],
@@ -299,9 +301,9 @@ Widget _getWidgetByIndex(int index) {
     case 10:
       return const GamePage(); // ok
     case 11:
-      return const AnalyseWidget(); // ads page pending
+      return const AdsPage(); // ok
     case 12:
-      return const MediaPage(); // verifications page pending
+      return const VerificationPage(); // ok
     case 13:
       return const AgencyPage(); // ok
     case 14:

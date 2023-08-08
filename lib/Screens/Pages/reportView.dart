@@ -237,7 +237,8 @@ class _ReportViewState extends State<ReportView> {
                                                                                   ],
                                                                                 )),
                                                                           );
-                                                                        });
+                                                                        }
+                                                                        );
                                                                   },
                                                                   child:
                                                                       Container(

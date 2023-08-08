@@ -4,14 +4,14 @@ import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/dataHeadingWidget.dart';
 import 'package:web_pagination/web_pagination.dart';
 
-class MediaPage extends StatefulWidget {
-  const MediaPage({super.key});
+class VerificationPage extends StatefulWidget {
+  const VerificationPage({super.key});
 
   @override
-  State<MediaPage> createState() => _MediaPageState();
+  State<VerificationPage> createState() => _VerificationPageState();
 }
 
-class _MediaPageState extends State<MediaPage> {
+class _VerificationPageState extends State<VerificationPage> {
   bool tap1 = false;
   Color whiteColor = (Colors.white);
   Color blueColor = const Color(0xff2C50ED);
@@ -25,7 +25,7 @@ class _MediaPageState extends State<MediaPage> {
           padding: const EdgeInsets.all(8.0),
           child: Container(
             height: MediaQuery.of(context).size.height * 0.98,
-            width: MediaQuery.of(context).size.width * 0.748,
+            width: MediaQuery.of(context).size.width * 0.80,
             color: ColorConstant.whiteColor,
             child: Column(
               children: [
@@ -34,7 +34,7 @@ class _MediaPageState extends State<MediaPage> {
                   color: ColorConstant.whiteColor,
                   alignment: Alignment.topLeft,
                   height: 650,
-                  width: MediaQuery.of(context).size.width * 0.748,
+                  width: MediaQuery.of(context).size.width * 0.80,
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,7 +44,7 @@ class _MediaPageState extends State<MediaPage> {
                           children: [
                             Container(
                               height: 155,
-                              width: MediaQuery.of(context).size.width * 0.748,
+                              width: MediaQuery.of(context).size.width * 0.80,
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 mainAxisAlignment:
@@ -236,27 +236,27 @@ class _MediaPageState extends State<MediaPage> {
                                           )
                                         ],
                                       )),
-                                  Padding(
-                                    padding: const EdgeInsets.only(bottom: 20),
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      height: 40,
-                                      width: 210,
-                                      child: TextFormField(
-                                        decoration: InputDecoration(
-                                            border: OutlineInputBorder(
-                                              borderSide: BorderSide.none,
-                                              borderRadius:
-                                                  BorderRadius.circular(20),
-                                            ),
-                                            fillColor:
-                                                ColorConstant.searchColor,
-                                            filled: true,
-                                            prefixIcon: Icon(Icons.search),
-                                            hintText: 'Search...'),
-                                      ),
-                                    ),
-                                  ),
+                                  // Padding(
+                                  //   padding: const EdgeInsets.only(bottom: 20),
+                                  //   child: Container(
+                                  //     alignment: Alignment.center,
+                                  //     height: 40,
+                                  //     width: 210,
+                                  //     child: TextFormField(
+                                  //       decoration: InputDecoration(
+                                  //           border: OutlineInputBorder(
+                                  //             borderSide: BorderSide.none,
+                                  //             borderRadius:
+                                  //                 BorderRadius.circular(20),
+                                  //           ),
+                                  //           fillColor:
+                                  //               ColorConstant.searchColor,
+                                  //           filled: true,
+                                  //           prefixIcon: Icon(Icons.search),
+                                  //           hintText: 'Search...'),
+                                  //     ),
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                             ),
@@ -265,45 +265,53 @@ class _MediaPageState extends State<MediaPage> {
                         //
                         Container(
                           height: 600,
+                          width: MediaQuery.of(context).size.width * 0.79,
                           color: ColorConstant.searchColor,
                           child: Column(
                             children: [
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   DataHeadingWidget(
                                       height: 24.0,
                                       width: 90.0,
-                                      headingText: 'User Name'),
+                                      headingText: ' Name'),
                                   DataHeadingWidget(
                                       height: 24.0,
-                                      width: 90.0,
-                                      headingText: 'Id Number'),
-                                  DataHeadingWidget(
-                                      height: 24.0,
-                                      width: 100.0,
-                                      headingText: 'Type'),
-                                  DataHeadingWidget(
-                                      height: 24.0,
-                                      width: 90.0,
-                                      headingText: 'Country'),
-                                  DataHeadingWidget(
-                                      height: 24.0,
-                                      width: 90.0,
-                                      headingText: 'Check'),
-                                  DataHeadingWidget(
-                                      height: 24.0,
-                                      width: 100.0,
-                                      headingText: 'Date/Time'),
+                                      width: 70.0,
+                                      headingText: 'Id Serial'),
                                   DataHeadingWidget(
                                       height: 24.0,
                                       width: 80.0,
+                                      headingText: 'Category'),
+                                  DataHeadingWidget(
+                                      height: 24.0,
+                                      width: 100.0,
+                                      headingText: 'Mobile'),
+                                  DataHeadingWidget(
+                                      height: 24.0,
+                                      width: 200.0,
+                                      headingText: 'Email'),
+                                  DataHeadingWidget(
+                                      height: 24.0,
+                                      width: 80.0,
+                                      headingText: 'Document'),
+                                  DataHeadingWidget(
+                                      height: 24.0,
+                                      width: 170.0,
+                                      headingText: 'Date/Time'),
+                                  DataHeadingWidget(
+                                      height: 24.0,
+                                      width: 82.0,
+                                      headingText: 'Status'),
+                                  DataHeadingWidget(
+                                      height: 24.0,
+                                      width: 120.0,
                                       headingText: 'Decision'),
                                   DataHeadingWidget(
                                       height: 24.0,
-                                      width: 60.0,
+                                      width: 80.0,
                                       headingText: 'Action'),
                                 ],
                               ),
@@ -315,8 +323,8 @@ class _MediaPageState extends State<MediaPage> {
                                 children: [
                                   Container(
                                     width: MediaQuery.of(context).size.width *
-                                        0.748,
-                                    height: 55,
+                                        0.79,
+                                    height: 85,
                                     color: ColorConstant.whiteColor,
                                     child: Row(
                                       mainAxisAlignment:
@@ -326,62 +334,166 @@ class _MediaPageState extends State<MediaPage> {
                                       children: [
                                         DataHeadingWidget(
                                             height: 24.0,
-                                            width: 100.0,
+                                            width: 90.0,
                                             headingText: 'KingOfKings'),
                                         DataHeadingWidget(
                                             height: 24.0,
-                                            width: 120.0,
+                                            width: 70.0,
                                             headingText: '784575'),
                                         DataHeadingWidget(
                                             height: 24.0,
-                                            width: 130.0,
-                                            headingText: 'Video'),
+                                            width: 80.0,
+                                            headingText: 'Host'),
                                         DataHeadingWidget(
                                             height: 24.0,
-                                            width: 150.0,
-                                            headingText: 'Bangladesh'),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          height: 20,
-                                          width: 84,
-                                          decoration: BoxDecoration(
-                                            color: ColorConstant.blueColor,
-                                            borderRadius:
-                                                BorderRadius.circular(4),
-                                          ),
-                                          child: Text(
-                                            'Open',
-                                            style: TextStyle(
-                                                color:
-                                                    ColorConstant.whiteColor),
+                                            width: 100.0,
+                                            headingText: '01765486524'),
+                                        DataHeadingWidget(
+                                            height: 24.0,
+                                            width: 200.0,
+                                            headingText:
+                                                'Hatespeech@gmail.com'),
+                                        SizedBox(
+                                          width: 80,
+                                          child: GestureDetector(
+                                            ///////////////
+                                            onTap: () {
+                                              showDialog(
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return AlertDialog(
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      elevation: 0,
+                                                      content: Container(
+                                                          height: 480,
+                                                          width: 410,
+                                                          decoration: BoxDecoration(
+                                                              color: ColorConstant
+                                                                  .whiteColor,
+                                                              border: Border.all(
+                                                                  width: 2,
+                                                                  color: ColorConstant
+                                                                      .blueColor)),
+                                                          child: Column(
+                                                            children: [
+                                                              Container(
+                                                                height: 26,
+                                                                width: 410,
+                                                                color: ColorConstant
+                                                                    .blueColor,
+                                                              ),
+                                                              Padding(
+                                                                padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            31)
+                                                                    .copyWith(
+                                                                        top:
+                                                                            40),
+                                                                child:
+                                                                    Container(
+                                                                  height: 288,
+                                                                  width: 400,
+                                                                  decoration: BoxDecoration(
+                                                                      image: DecorationImage(
+                                                                          image:
+                                                                              AssetImage('assets/images/complain.png'))),
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding: const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        8),
+                                                                child:
+                                                                    Container(
+                                                                  alignment:
+                                                                      Alignment
+                                                                          .center,
+                                                                  // height: 288,
+                                                                  width: 380,
+                                                                  child: Text(
+                                                                    'Music Time With My Chill ModMusic Time \nWith My Chill ModMusic Time With My Chill Mod',
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: GoogleFonts.poppins(
+                                                                        fontSize:
+                                                                            15,
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .w300,
+                                                                        letterSpacing:
+                                                                            0.5),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          )),
+                                                    );
+                                                  });
+                                            },
+
+                                            ///////////////
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              height: 24,
+                                              width: 55,
+                                              decoration: BoxDecoration(
+                                                  color:
+                                                      ColorConstant.blueColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(5)),
+                                              child: Text(
+                                                'Check',
+                                                style: GoogleFonts.aBeeZee(
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.w300,
+                                                    color: ColorConstant
+                                                        .whiteColor),
+                                              ),
+                                            ),
                                           ),
                                         ),
                                         DataHeadingWidget(
                                             height: 24.0,
-                                            width: 160.0,
+                                            width: 170.0,
                                             headingText:
-                                                '14 Feb 1994 09:45 PM'),
+                                                '14-Feb 1994 09:45 PM'),
+                                        Column(
+                                          children: [
+                                            Image.asset('assets/icons/off.png'),
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
+                                            Image.asset('assets/icons/on.png'),
+                                          ],
+                                        ),
                                         DataHeadingWidget(
                                             height: 24.0,
-                                            width: 80.0,
-                                            headingText: 'Name'),
-                                        Row(
-                                          children: [
-                                            IconButton(
-                                                onPressed: () {},
-                                                icon: Icon(
-                                                  Icons.edit,
-                                                  color:
-                                                      ColorConstant.blueColor,
-                                                )),
-                                            IconButton(
-                                                onPressed: () {},
-                                                icon: Icon(
-                                                  Icons.delete,
-                                                  color:
-                                                      ColorConstant.blueColor,
-                                                ))
-                                          ],
+                                            width: 120.0,
+                                            headingText: 'Admin name'),
+                                        SizedBox(
+                                          width: 80,
+                                          child: Row(
+                                            children: [
+                                              IconButton(
+                                                  onPressed: () {},
+                                                  icon: Icon(
+                                                    Icons.edit,
+                                                    color:
+                                                        ColorConstant.blueColor,
+                                                  )),
+                                              IconButton(
+                                                  onPressed: () {},
+                                                  icon: Icon(
+                                                    Icons.delete,
+                                                    color:
+                                                        ColorConstant.blueColor,
+                                                  ))
+                                            ],
+                                          ),
                                         ),
                                       ],
                                     ),
