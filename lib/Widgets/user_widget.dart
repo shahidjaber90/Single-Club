@@ -37,7 +37,7 @@ class _UserWidgetState extends State<UserWidget> {
           padding: const EdgeInsets.all(8.0),
           child: Container(
             height: MediaQuery.of(context).size.height * 0.96,
-            width: MediaQuery.of(context).size.width * 0.748,
+            width: MediaQuery.of(context).size.width * 0.76,
             color: ColorConstant.whiteColor,
             child: Column(
               children: [
@@ -160,6 +160,7 @@ class _UserWidgetState extends State<UserWidget> {
                 // User Active Deactive Details Buttons
                 Container(
                   height: 58,
+                  width: MediaQuery.of(context).size.width * 0.76,
                   child: Expanded(
                     child: Row(
                       children: [
@@ -237,7 +238,7 @@ class _UserWidgetState extends State<UserWidget> {
                   color: ColorConstant.searchColor,
                   alignment: Alignment.topLeft,
                   height: 430,
-                  width: MediaQuery.of(context).size.width * 0.748,
+                  width: MediaQuery.of(context).size.width * 0.76,
                   child: Column(
                     children: [
                       Row(

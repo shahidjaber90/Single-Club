@@ -44,7 +44,7 @@ class _BanViewState extends State<BanView> {
           padding: const EdgeInsets.all(8.0),
           child: Container(
             height: MediaQuery.of(context).size.height * 0.98,
-            width: MediaQuery.of(context).size.width * 0.748,
+            width: MediaQuery.of(context).size.width * 0.76,
             color: ColorConstant.whiteColor,
             child: Column(
               children: [
@@ -391,77 +391,77 @@ class _BanViewState extends State<BanView> {
                 // User Active Deactive Details Buttons
                 Container(
                   height: 60,
-                  child: Expanded(
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            itemCount: banDetails.length,
-                            itemBuilder: (context, index) {
-                              return Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 10),
-                                child: GestureDetector(
-                                    onTap: () {
-                                      setState(() {
-                                        itemColors[index] =
-                                            ColorConstant.blueColor;
-                                        contentColors[index] =
+                  width: MediaQuery.of(context).size.width * 0.76,
+                  color: ColorConstant.whiteColor,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: banDetails.length,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: 10),
+                              child: GestureDetector(
+                                  onTap: () {
+                                    setState(() {
+                                      itemColors[index] =
+                                          ColorConstant.blueColor;
+                                      contentColors[index] =
+                                          ColorConstant.whiteColor;
+
+                                      if (lastSelectedIndex != null &&
+                                          lastSelectedIndex != index) {
+                                        itemColors[lastSelectedIndex!] =
                                             ColorConstant.whiteColor;
+                                        contentColors[lastSelectedIndex!] =
+                                            ColorConstant.blueColor;
+                                      }
+                                      lastSelectedIndex = index;
+                                    });
 
-                                        if (lastSelectedIndex != null &&
-                                            lastSelectedIndex != index) {
-                                          itemColors[lastSelectedIndex!] =
-                                              ColorConstant.whiteColor;
-                                          contentColors[lastSelectedIndex!] =
-                                              ColorConstant.blueColor;
-                                        }
-                                        lastSelectedIndex = index;
-                                      });
-
-                                      print(banDetails[index]);
-                                    },
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      height: 40,
-                                      width: 90,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(8),
-                                        color: itemColors[index],
-                                      ),
-                                      child: Text(
-                                        '${banDetails[index]}',
-                                        style: GoogleFonts.poppins(
-                                            color: contentColors[index],
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w400,
-                                            letterSpacing: 0.5),
-                                      ),
-                                    )),
-                              );
-                            },
-                          ),
+                                    print(banDetails[index]);
+                                  },
+                                  child: Container(
+                                    alignment: Alignment.center,
+                                    height: 40,
+                                    width: 90,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      color: itemColors[index],
+                                    ),
+                                    child: Text(
+                                      '${banDetails[index]}',
+                                      style: GoogleFonts.poppins(
+                                          color: contentColors[index],
+                                          fontSize: 12,
+                                          fontWeight: FontWeight.w400,
+                                          letterSpacing: 0.5),
+                                    ),
+                                  )),
+                            );
+                          },
                         ),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 40,
-                          width: 210,
-                          child: TextFormField(
-                            decoration: InputDecoration(
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      color: ColorConstant.searchColor),
-                                  borderRadius: BorderRadius.circular(6),
-                                ),
-                                fillColor: ColorConstant.searchColor,
-                                filled: true,
-                                prefixIcon: Icon(Icons.search),
-                                hintText: 'Searching User'),
-                          ),
+                      ),
+                      Container(
+                        alignment: Alignment.center,
+                        height: 40,
+                        width: 210,
+                        child: TextFormField(
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    color: ColorConstant.searchColor),
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                              fillColor: ColorConstant.searchColor,
+                              filled: true,
+                              prefixIcon: Icon(Icons.search),
+                              hintText: 'Searching User'),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
                 // User Active Deactive Details Buttons end

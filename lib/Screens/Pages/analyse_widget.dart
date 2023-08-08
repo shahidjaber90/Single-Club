@@ -109,7 +109,7 @@ class _AnalyseWidgetState extends State<AnalyseWidget> {
                                               padding: EdgeInsets.only(
                                                   left: 6, top: 6),
                                               child: Text(
-                                                '-14',
+                                                '+14',
                                                 style: TextStyle(
                                                     color: Colors.green,
                                                     fontSize: 18),
