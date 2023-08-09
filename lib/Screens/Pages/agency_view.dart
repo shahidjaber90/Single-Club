@@ -659,126 +659,124 @@ class _AgencyPageState extends State<AgencyPage> {
                                                         Container(
                                                           width: 400,
                                                           height: 450,
-                                                          child: Expanded(
-                                                            child: ListView
-                                                                .builder(
-                                                              itemCount:
-                                                                  agencyList
-                                                                      .length,
-                                                              itemBuilder:
-                                                                  (context,
-                                                                      index) {
-                                                                return Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
-                                                                      horizontal:
-                                                                          6,
-                                                                      vertical:
-                                                                          4),
+                                                          child: ListView
+                                                              .builder(
+                                                            itemCount:
+                                                                agencyList
+                                                                    .length,
+                                                            itemBuilder:
+                                                                (context,
+                                                                    index) {
+                                                              return Padding(
+                                                                padding: const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        6,
+                                                                    vertical:
+                                                                        4),
+                                                                child:
+                                                                    Container(
+                                                                  width: 400,
+                                                                  height: 50,
+                                                                  decoration:
+                                                                      BoxDecoration(
+                                                                    color: ColorConstant
+                                                                        .whiteColor,
+                                                                    boxShadow: [
+                                                                      BoxShadow(
+                                                                        color:
+                                                                            ColorConstant.arrowColor,
+                                                                        blurRadius:
+                                                                            2.0, // soften the shadow
+                                                                        spreadRadius:
+                                                                            1.0, //extend the shadow
+                                                                        // offset:
+                                                                        //     Offset(
+                                                                        //   5.0, // Move to right 5  horizontally
+                                                                        //   5.0, // Move to bottom 5 Vertically
+                                                                        // ),
+                                                                      )
+                                                                    ],
+                                                                  ),
                                                                   child:
-                                                                      Container(
-                                                                    width: 400,
-                                                                    height: 50,
-                                                                    decoration:
-                                                                        BoxDecoration(
-                                                                      color: ColorConstant
-                                                                          .whiteColor,
-                                                                      boxShadow: [
-                                                                        BoxShadow(
-                                                                          color:
-                                                                              ColorConstant.arrowColor,
-                                                                          blurRadius:
-                                                                              2.0, // soften the shadow
-                                                                          spreadRadius:
-                                                                              1.0, //extend the shadow
-                                                                          // offset:
-                                                                          //     Offset(
-                                                                          //   5.0, // Move to right 5  horizontally
-                                                                          //   5.0, // Move to bottom 5 Vertically
-                                                                          // ),
-                                                                        )
+                                                                      Padding(
+                                                                    padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            10),
+                                                                    child:
+                                                                        Row(
+                                                                      mainAxisAlignment:
+                                                                          MainAxisAlignment.spaceBetween,
+                                                                      crossAxisAlignment:
+                                                                          CrossAxisAlignment.center,
+                                                                      children: [
+                                                                        Row(
+                                                                          children: [
+                                                                            Text(
+                                                                              agencyList[index]['id'],
+                                                                              style: GoogleFonts.inter(
+                                                                                fontSize: 14,
+                                                                                fontWeight: FontWeight.w700,
+                                                                              ),
+                                                                            ),
+                                                                            const SizedBox(
+                                                                              width: 8,
+                                                                            ),
+                                                                            Image.asset(agencyList[index]['profile']),
+                                                                            const SizedBox(
+                                                                              width: 8,
+                                                                            ),
+                                                                            Text(
+                                                                              agencyList[index]['text'],
+                                                                              style: GoogleFonts.inter(
+                                                                                fontSize: 15,
+                                                                                fontWeight: FontWeight.w500,
+                                                                              ),
+                                                                            ),
+                                                                            Image.asset(agencyList[index]['img']),
+                                                                          ],
+                                                                        ),
+                                                                        Row(
+                                                                          children: [
+                                                                            Image.asset(agencyList[index]['img2']),
+                                                                            const SizedBox(width: 4),
+                                                                            Text(
+                                                                              agencyList[index]['reward'],
+                                                                              style: GoogleFonts.inter(
+                                                                                fontSize: 14,
+                                                                                fontWeight: FontWeight.w700,
+                                                                              ),
+                                                                            ),
+                                                                            PopupMenuButton(
+                                                                                itemBuilder: (context) => [
+                                                                                      PopupMenuItem(
+                                                                                          height: 20,
+                                                                                          child: Text(
+                                                                                            'Remove',
+                                                                                            style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w500, color: Colors.black),
+                                                                                          )),
+                                                                                      PopupMenuItem(
+                                                                                          height: 20,
+                                                                                          child: Text(
+                                                                                            'Tax Hold',
+                                                                                            style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.black),
+                                                                                          )),
+                                                                                      PopupMenuItem(
+                                                                                          height: 20,
+                                                                                          child: Text(
+                                                                                            'Witdraw Frieze',
+                                                                                            style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.black),
+                                                                                          )),
+                                                                                    ]),
+                                                                          ],
+                                                                        ),
                                                                       ],
                                                                     ),
-                                                                    child:
-                                                                        Padding(
-                                                                      padding: const EdgeInsets
-                                                                              .symmetric(
-                                                                          horizontal:
-                                                                              10),
-                                                                      child:
-                                                                          Row(
-                                                                        mainAxisAlignment:
-                                                                            MainAxisAlignment.spaceBetween,
-                                                                        crossAxisAlignment:
-                                                                            CrossAxisAlignment.center,
-                                                                        children: [
-                                                                          Row(
-                                                                            children: [
-                                                                              Text(
-                                                                                agencyList[index]['id'],
-                                                                                style: GoogleFonts.inter(
-                                                                                  fontSize: 14,
-                                                                                  fontWeight: FontWeight.w700,
-                                                                                ),
-                                                                              ),
-                                                                              const SizedBox(
-                                                                                width: 8,
-                                                                              ),
-                                                                              Image.asset(agencyList[index]['profile']),
-                                                                              const SizedBox(
-                                                                                width: 8,
-                                                                              ),
-                                                                              Text(
-                                                                                agencyList[index]['text'],
-                                                                                style: GoogleFonts.inter(
-                                                                                  fontSize: 15,
-                                                                                  fontWeight: FontWeight.w500,
-                                                                                ),
-                                                                              ),
-                                                                              Image.asset(agencyList[index]['img']),
-                                                                            ],
-                                                                          ),
-                                                                          Row(
-                                                                            children: [
-                                                                              Image.asset(agencyList[index]['img2']),
-                                                                              const SizedBox(width: 4),
-                                                                              Text(
-                                                                                agencyList[index]['reward'],
-                                                                                style: GoogleFonts.inter(
-                                                                                  fontSize: 14,
-                                                                                  fontWeight: FontWeight.w700,
-                                                                                ),
-                                                                              ),
-                                                                              PopupMenuButton(
-                                                                                  itemBuilder: (context) => [
-                                                                                        PopupMenuItem(
-                                                                                            height: 20,
-                                                                                            child: Text(
-                                                                                              'Remove',
-                                                                                              style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w500, color: Colors.black),
-                                                                                            )),
-                                                                                        PopupMenuItem(
-                                                                                            height: 20,
-                                                                                            child: Text(
-                                                                                              'Tax Hold',
-                                                                                              style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.black),
-                                                                                            )),
-                                                                                        PopupMenuItem(
-                                                                                            height: 20,
-                                                                                            child: Text(
-                                                                                              'Witdraw Frieze',
-                                                                                              style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.black),
-                                                                                            )),
-                                                                                      ]),
-                                                                            ],
-                                                                          ),
-                                                                        ],
-                                                                      ),
-                                                                    ),
                                                                   ),
-                                                                );
-                                                              },
-                                                            ),
+                                                                ),
+                                                              );
+                                                            },
                                                           ),
                                                         )
                                                       ],
