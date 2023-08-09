@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:singleclub/Local_variables/userDetailsData.dart';
 import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
-import 'package:singleclub/Widgets/alertButton.dart';
 import 'package:singleclub/Widgets/chipField_widget.dart';
 import 'package:singleclub/Widgets/dataHeadingWidget.dart';
-import 'package:singleclub/Widgets/dropdown_widget.dart';
-import 'package:singleclub/Widgets/textfield_heading.dart';
-import 'package:singleclub/Widgets/textfield_widget2.dart';
 import 'package:web_pagination/web_pagination.dart';
 
 class AgencyPage extends StatefulWidget {
@@ -21,6 +18,11 @@ class _AgencyPageState extends State<AgencyPage> {
   bool tap1 = false;
   Color whiteColor = (Colors.white);
   Color blueColor = const Color(0xff2C50ED);
+  List<Color> itemColors =
+      List.generate(dailyDetails.length, (index) => Colors.white);
+  List<Color> contentColors =
+      List.generate(dailyDetails.length, (index) => Colors.black);
+  int? lastIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -486,11 +488,312 @@ class _AgencyPageState extends State<AgencyPage> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        DataHeadingWidget(
-                                            height: 24.0,
-                                            width: 180.0,
-                                            headingText:
-                                                'Looking Glass Agency'),
+                                        GestureDetector(
+                                          onTap: () {
+                                            showDialog(
+                                              barrierDismissible: false,
+                                              context: context,
+                                              builder: (context) {
+                                                return AlertDialog(
+                                                  backgroundColor:
+                                                      Colors.transparent,
+                                                  elevation: 0,
+                                                  content: Container(
+                                                    color: ColorConstant
+                                                        .whiteColor,
+                                                    child: Column(
+                                                      children: [
+                                                        Container(
+                                                          height: 52,
+                                                          width: 400,
+                                                          color: ColorConstant
+                                                              .blueColor,
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceBetween,
+                                                            children: [
+                                                              Text(''),
+                                                              Text(
+                                                                'Looking Glass Agency',
+                                                                style: GoogleFonts.poppins(
+                                                                    fontSize:
+                                                                        28,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    color: ColorConstant
+                                                                        .whiteColor),
+                                                              ),
+                                                              IconButton(
+                                                                  onPressed:
+                                                                      () {
+                                                                    Navigator.pop(
+                                                                        context);
+                                                                  },
+                                                                  icon: Icon(
+                                                                    Icons.close,
+                                                                    color: ColorConstant
+                                                                        .whiteColor,
+                                                                  ))
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        // daily monthly
+                                                        Container(
+                                                          height: 40,
+                                                          width: 400,
+                                                          child: Expanded(
+                                                            child: Row(
+                                                              children: [
+                                                                Expanded(
+                                                                  child: ListView
+                                                                      .builder(
+                                                                    scrollDirection:
+                                                                        Axis.horizontal,
+                                                                    itemCount:
+                                                                        dailyDetails
+                                                                            .length,
+                                                                    itemBuilder:
+                                                                        (context,
+                                                                            index) {
+                                                                      return Padding(
+                                                                        padding:
+                                                                            const EdgeInsets.symmetric(
+                                                                          vertical:
+                                                                              10,
+                                                                          // horizontal:
+                                                                        ),
+                                                                        child: GestureDetector(
+                                                                            onTap: () {
+                                                                              setState(() {
+                                                                                itemColors[index] = ColorConstant.blueColor;
+                                                                                contentColors[index] = ColorConstant.whiteColor;
+
+                                                                                if (lastIndex != null && lastIndex != index) {
+                                                                                  itemColors[lastIndex!] = ColorConstant.whiteColor;
+                                                                                  contentColors[lastIndex!] = Colors.black;
+                                                                                }
+                                                                                lastIndex = index;
+                                                                              });
+
+                                                                              print(dailyDetails[index]);
+                                                                            },
+                                                                            child: Container(
+                                                                              alignment: Alignment.center,
+                                                                              height: 40,
+                                                                              width: 80,
+                                                                              decoration: BoxDecoration(
+                                                                                borderRadius: BorderRadius.circular(8),
+                                                                                color: itemColors[index],
+                                                                              ),
+                                                                              child: Text(
+                                                                                '${dailyDetails[index]}',
+                                                                                style: GoogleFonts.poppins(color: contentColors[index], fontSize: 12, fontWeight: FontWeight.w400, letterSpacing: 0.5),
+                                                                              ),
+                                                                            )),
+                                                                      );
+                                                                    },
+                                                                  ),
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .symmetric(
+                                                                  horizontal:
+                                                                      10),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .end,
+                                                            children: [
+                                                              Container(
+                                                                width: 130,
+                                                                decoration: BoxDecoration(
+                                                                    color: ColorConstant
+                                                                        .blueColor,
+                                                                    borderRadius:
+                                                                        BorderRadius.circular(
+                                                                            2)),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceAround,
+                                                                  children: [
+                                                                    Text(
+                                                                      'Total',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: ColorConstant
+                                                                            .whiteColor,
+                                                                        fontSize:
+                                                                            12,
+                                                                      ),
+                                                                    ),
+                                                                    Image.asset(
+                                                                        'assets/icons/kohenoor.png'),
+                                                                    Text(
+                                                                      '54254 M',
+                                                                      style:
+                                                                          TextStyle(
+                                                                        color: ColorConstant
+                                                                            .whiteColor,
+                                                                        letterSpacing:
+                                                                            1,
+                                                                        fontSize:
+                                                                            12,
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              )
+                                                            ],
+                                                          ),
+                                                        ),
+                                                        const SizedBox(
+                                                            height: 5),
+                                                        Container(
+                                                          width: 400,
+                                                          height: 450,
+                                                          child: Expanded(
+                                                            child: ListView
+                                                                .builder(
+                                                              itemCount:
+                                                                  agencyList
+                                                                      .length,
+                                                              itemBuilder:
+                                                                  (context,
+                                                                      index) {
+                                                                return Padding(
+                                                                  padding: const EdgeInsets
+                                                                          .symmetric(
+                                                                      horizontal:
+                                                                          6,
+                                                                      vertical:
+                                                                          4),
+                                                                  child:
+                                                                      Container(
+                                                                    width: 400,
+                                                                    height: 50,
+                                                                    decoration:
+                                                                        BoxDecoration(
+                                                                      color: ColorConstant
+                                                                          .whiteColor,
+                                                                      boxShadow: [
+                                                                        BoxShadow(
+                                                                          color:
+                                                                              ColorConstant.arrowColor,
+                                                                          blurRadius:
+                                                                              2.0, // soften the shadow
+                                                                          spreadRadius:
+                                                                              1.0, //extend the shadow
+                                                                          // offset:
+                                                                          //     Offset(
+                                                                          //   5.0, // Move to right 5  horizontally
+                                                                          //   5.0, // Move to bottom 5 Vertically
+                                                                          // ),
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                    child:
+                                                                        Padding(
+                                                                      padding: const EdgeInsets
+                                                                              .symmetric(
+                                                                          horizontal:
+                                                                              10),
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.center,
+                                                                        children: [
+                                                                          Row(
+                                                                            children: [
+                                                                              Text(
+                                                                                agencyList[index]['id'],
+                                                                                style: GoogleFonts.inter(
+                                                                                  fontSize: 14,
+                                                                                  fontWeight: FontWeight.w700,
+                                                                                ),
+                                                                              ),
+                                                                              const SizedBox(
+                                                                                width: 8,
+                                                                              ),
+                                                                              Image.asset(agencyList[index]['profile']),
+                                                                              const SizedBox(
+                                                                                width: 8,
+                                                                              ),
+                                                                              Text(
+                                                                                agencyList[index]['text'],
+                                                                                style: GoogleFonts.inter(
+                                                                                  fontSize: 15,
+                                                                                  fontWeight: FontWeight.w500,
+                                                                                ),
+                                                                              ),
+                                                                              Image.asset(agencyList[index]['img']),
+                                                                            ],
+                                                                          ),
+                                                                          Row(
+                                                                            children: [
+                                                                              Image.asset(agencyList[index]['img2']),
+                                                                              const SizedBox(width: 4),
+                                                                              Text(
+                                                                                agencyList[index]['reward'],
+                                                                                style: GoogleFonts.inter(
+                                                                                  fontSize: 14,
+                                                                                  fontWeight: FontWeight.w700,
+                                                                                ),
+                                                                              ),
+                                                                              PopupMenuButton(
+                                                                                  itemBuilder: (context) => [
+                                                                                        PopupMenuItem(
+                                                                                            height: 20,
+                                                                                            child: Text(
+                                                                                              'Remove',
+                                                                                              style: GoogleFonts.poppins(fontSize: 13, fontWeight: FontWeight.w500, color: Colors.black),
+                                                                                            )),
+                                                                                        PopupMenuItem(
+                                                                                            height: 20,
+                                                                                            child: Text(
+                                                                                              'Tax Hold',
+                                                                                              style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.black),
+                                                                                            )),
+                                                                                        PopupMenuItem(
+                                                                                            height: 20,
+                                                                                            child: Text(
+                                                                                              'Witdraw Frieze',
+                                                                                              style: GoogleFonts.poppins(fontSize: 12, fontWeight: FontWeight.w500, color: Colors.black),
+                                                                                            )),
+                                                                                      ]),
+                                                                            ],
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
+                                                                );
+                                                              },
+                                                            ),
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
+                                                );
+                                              },
+                                            );
+                                          },
+                                          child: DataHeadingWidget(
+                                              height: 24.0,
+                                              width: 180.0,
+                                              headingText:
+                                                  'Looking Glass Agency'),
+                                        ),
                                         DataHeadingWidget(
                                             height: 24.0,
                                             width: 120.0,
@@ -519,16 +822,73 @@ class _AgencyPageState extends State<AgencyPage> {
                                             height: 24.0,
                                             width: 80.0,
                                             headingText: 'Name'),
-                                        Column(
+                                        Row(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.center,
                                           children: [
                                             DataHeadingWidget(
                                                 height: 24.0,
                                                 width: 80.0,
                                                 headingText: 'Active'),
-                                            DataHeadingWidget(
-                                                height: 24.0,
-                                                width: 80.0,
-                                                headingText: 'Ban'),
+                                            PopupMenuButton(
+                                                itemBuilder: (context) => [
+                                                      PopupMenuItem(
+                                                          height: 20,
+                                                          child: Text(
+                                                            'Ban',
+                                                            style: GoogleFonts
+                                                                .poppins(
+                                                                    fontSize:
+                                                                        13,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    color: Colors
+                                                                        .black),
+                                                          )),
+                                                      PopupMenuItem(
+                                                          height: 20,
+                                                          child: Text(
+                                                            'Active',
+                                                            style: GoogleFonts
+                                                                .poppins(
+                                                                    fontSize:
+                                                                        12,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    color: Colors
+                                                                        .black),
+                                                          )),
+                                                      PopupMenuItem(
+                                                          height: 20,
+                                                          child: Text(
+                                                            'Tax Hold',
+                                                            style: GoogleFonts
+                                                                .poppins(
+                                                                    fontSize:
+                                                                        12,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    color: Colors
+                                                                        .black),
+                                                          )),
+                                                      PopupMenuItem(
+                                                          height: 20,
+                                                          child: Text(
+                                                            'Name Change',
+                                                            style: GoogleFonts
+                                                                .poppins(
+                                                                    fontSize:
+                                                                        12,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w500,
+                                                                    color: Colors
+                                                                        .black),
+                                                          )),
+                                                    ]),
                                           ],
                                         ),
                                       ],

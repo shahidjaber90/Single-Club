@@ -89,14 +89,14 @@ class _HomePageViewState extends State<HomePageView> {
                 Container(
                   alignment: Alignment.topCenter,
                   height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width * 0.85,
+                  width: MediaQuery.of(context).size.width * 0.78,
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
                         Container(
                           alignment: Alignment.topCenter,
                           height: 60,
-                          width: MediaQuery.of(context).size.width * 0.72,
+                          width: MediaQuery.of(context).size.width * 0.75,
                           child: Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Row(

@@ -21,3 +21,10 @@ List banDetails = [
   'Freeze',
   'New Freeze',
 ];
+List dailyDetails = [
+  'Daily',
+  'weekly',
+  'Monthly',
+  'Last Month',
+  'All Over',
+];

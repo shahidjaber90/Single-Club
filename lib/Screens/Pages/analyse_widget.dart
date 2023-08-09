@@ -76,6 +76,8 @@ class _AnalyseWidgetState extends State<AnalyseWidget> {
                             });
                           },
                           child: Container(
+                            width: 145,
+                            height: 112,
                             decoration: BoxDecoration(
                                 color: itemColors[index],
                                 borderRadius: BorderRadius.circular(8),
@@ -90,11 +92,11 @@ class _AnalyseWidgetState extends State<AnalyseWidget> {
                             child: Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Column(
-                                // mainAxisAlignment:
-                                //     MainAxisAlignment.spaceAround,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceAround,
                                 children: [
                                   Container(
-                                    height: 65,
+                                    height: 58,
                                     child: Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
@@ -105,37 +107,33 @@ class _AnalyseWidgetState extends State<AnalyseWidget> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
-                                            Padding(
-                                              padding: EdgeInsets.only(
-                                                  left: 6, top: 6),
-                                              child: Text(
-                                                '+14',
-                                                style: TextStyle(
-                                                    color: Colors.green,
-                                                    fontSize: 18),
-                                              ),
+                                            Text(
+                                              '+14%',
+                                              style: TextStyle(
+                                                  color: Colors.green,
+                                                  fontSize: 12),
                                             ),
                                           ],
                                         ),
                                         SvgPicture.asset(
                                           'assets/svg/${navigationData[index]['icon']}',
                                           color: contentColors[index],
-                                          height: 30,
-                                          width: 30,
+                                          height: 40,
+                                          width: 40,
                                         ),
-                                        const Column(
+                                        Column(
                                           mainAxisAlignment:
                                               MainAxisAlignment.end,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
                                             Padding(
-                                              padding: EdgeInsets.only(
+                                              padding: const EdgeInsets.only(
                                                   right: 6, bottom: 6),
                                               child: Text(
                                                 '-14',
                                                 style: TextStyle(
-                                                    color: Colors.red,
+                                                    color: itemColors[index],
                                                     fontSize: 18),
                                               ),
                                             ),
@@ -148,14 +146,31 @@ class _AnalyseWidgetState extends State<AnalyseWidget> {
                                     '${navigationData[index]['count']}',
                                     style: TextStyle(
                                         color: contentColors[index],
-                                        fontSize: 30),
+                                        fontSize: 20),
                                   ),
-                                  Text(
-                                    '${navigationData[index]['title']}',
-                                    style: GoogleFonts.poppins(
-                                        color: contentColors[index],
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w500),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        '-14%',
+                                        style: TextStyle(
+                                            color: itemColors[index],
+                                            fontSize: 4),
+                                      ),
+                                      Text(
+                                        '${navigationData[index]['title']}',
+                                        style: GoogleFonts.poppins(
+                                            color: contentColors[index],
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                      const Text(
+                                        '-14%',
+                                        style: TextStyle(
+                                            color: Colors.red, fontSize: 12),
+                                      ),
+                                    ],
                                   ),
                                 ],
                               ),
