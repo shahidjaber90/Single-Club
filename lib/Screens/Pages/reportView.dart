@@ -93,18 +93,15 @@ class _ReportViewState extends State<ReportView> {
                                                 child: Column(
                                                   children: [
                                                     Container(
-                                                      // height: 53,
-                                                      // width: double.infinity,
                                                       color: ColorConstant
                                                           .blueColor,
                                                       child: Row(
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
-                                                                .center,
+                                                                .spaceBetween,
                                                         children: [
                                                           Text(
-                                                            // textAlign: TextAlign.center,
-                                                            "Create Complain",
+                                                            "",
                                                             style: GoogleFonts.poppins(
                                                                 color: ColorConstant
                                                                     .whiteColor,
@@ -113,8 +110,15 @@ class _ReportViewState extends State<ReportView> {
                                                                     FontWeight
                                                                         .w600),
                                                           ),
-                                                          const SizedBox(
-                                                            width: 60,
+                                                          Text(
+                                                            "Create Complain",
+                                                            style: GoogleFonts.poppins(
+                                                                color: ColorConstant
+                                                                    .whiteColor,
+                                                                fontSize: 30,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w600),
                                                           ),
                                                           IconButton(
                                                             onPressed: () {
@@ -237,8 +241,7 @@ class _ReportViewState extends State<ReportView> {
                                                                                   ],
                                                                                 )),
                                                                           );
-                                                                        }
-                                                                        );
+                                                                        });
                                                                   },
                                                                   child:
                                                                       Container(

@@ -15,8 +15,14 @@ class StickerView extends StatefulWidget {
 
 class _StickerViewState extends State<StickerView> {
   bool tap1 = false;
+  bool tap3 = false;
+  bool tap4 = false;
   Color whiteColor = (Colors.white);
   Color blueColor = const Color(0xff2C50ED);
+  Color whiteColor3 = (Colors.white);
+  Color blueColor3 = const Color(0xff2C50ED);
+  Color whiteColor4 = (Colors.white);
+  Color blueColor4 = const Color(0xff2C50ED);
   bool forpop = false;
   final List text = [
     "Level Name",
@@ -75,18 +81,21 @@ class _StickerViewState extends State<StickerView> {
                         Container(
                           color: ColorConstant.blueColor,
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                // textAlign: TextAlign.center,
-                                "Add Sticker",
+                                "",
                                 style: GoogleFonts.poppins(
                                     color: ColorConstant.whiteColor,
                                     fontSize: 30,
                                     fontWeight: FontWeight.w600),
                               ),
-                              const SizedBox(
-                                width: 60,
+                              Text(
+                                "Add Sticker",
+                                style: GoogleFonts.poppins(
+                                    color: ColorConstant.whiteColor,
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w600),
                               ),
                               IconButton(
                                 onPressed: () {
@@ -120,49 +129,86 @@ class _StickerViewState extends State<StickerView> {
                               width: 280,
                               child: Stack(
                                 children: [
-                                  GestureDetector(
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      width: 138,
-                                      height: 32,
-                                      decoration: BoxDecoration(
-                                          color: ColorConstant.whiteColor,
-                                          border: Border.all(
-                                              color: ColorConstant.blueColor),
-                                          borderRadius:
-                                              BorderRadius.circular(24)),
-                                      child: Text(
-                                        'Voice Room',
-                                        style: TextStyle(
-                                            color: ColorConstant.blueColor,
-                                            letterSpacing: 0.5,
-                                            fontSize: 11,
-                                            fontWeight: FontWeight.w700),
+                                  StatefulBuilder(
+                                    builder: (context, setState) =>
+                                        GestureDetector(
+                                      onTap: () {
+                                        tap3
+                                            ? setState(() {
+                                                tap3 = !tap3;
+                                                whiteColor3 = Colors.white;
+                                                blueColor3 = Color(0xff2C50ED);
+                                              })
+                                            : setState(() {
+                                                tap3 = !tap3;
+                                                blueColor3 = Colors.white;
+                                                whiteColor3 = Color(0xff2C50ED);
+                                              });
+                                        this.setState(() {});
+                                      },
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        width: 138,
+                                        height: 32,
+                                        decoration: BoxDecoration(
+                                            color: whiteColor3,
+                                            border:
+                                                Border.all(color: blueColor3),
+                                            borderRadius:
+                                                BorderRadius.circular(24)),
+                                        child: Text(
+                                          'Voice Room        ',
+                                          style: TextStyle(
+                                              color: blueColor3,
+                                              letterSpacing: 0.5,
+                                              fontSize: 11,
+                                              fontWeight: FontWeight.w700),
+                                        ),
                                       ),
                                     ),
                                   ),
                                   Positioned(
-                                    left: 120,
-                                    child: Container(
-                                      alignment: Alignment.center,
-                                      width: 138,
-                                      height: 32,
-                                      decoration: BoxDecoration(
-                                          color: ColorConstant.whiteColor,
-                                          border: Border.all(
-                                              color: ColorConstant.blueColor),
-                                          borderRadius:
-                                              BorderRadius.circular(24)),
-                                      child: Text(
-                                        'Post Reaction',
-                                        style: TextStyle(
-                                            color: ColorConstant.blueColor,
-                                            letterSpacing: 0.5,
-                                            fontSize: 11,
-                                            fontWeight: FontWeight.w700),
-                                      ),
-                                    ),
-                                  ),
+                                      left: 100,
+                                      child: StatefulBuilder(
+                                        builder: (context, setState) =>
+                                            GestureDetector(
+                                          onTap: () {
+                                            tap4
+                                                ? setState(() {
+                                                    tap4 = !tap4;
+                                                    whiteColor4 = Colors.white;
+                                                    blueColor4 =
+                                                        Color(0xff2C50ED);
+                                                  })
+                                                : setState(() {
+                                                    tap4 = !tap4;
+                                                    blueColor4 = Colors.white;
+                                                    whiteColor4 =
+                                                        Color(0xff2C50ED);
+                                                  });
+                                            this.setState(() {});
+                                          },
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            width: 138,
+                                            height: 32,
+                                            decoration: BoxDecoration(
+                                                color: whiteColor4,
+                                                border: Border.all(
+                                                    color: blueColor4),
+                                                borderRadius:
+                                                    BorderRadius.circular(24)),
+                                            child: Text(
+                                              'Post Reaction',
+                                              style: TextStyle(
+                                                  color: blueColor4,
+                                                  letterSpacing: 0.5,
+                                                  fontSize: 11,
+                                                  fontWeight: FontWeight.w700),
+                                            ),
+                                          ),
+                                        ),
+                                      )),
                                 ],
                               ),
                             ),

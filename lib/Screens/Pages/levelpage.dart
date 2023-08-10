@@ -14,8 +14,14 @@ class Levelview extends StatefulWidget {
 
 class _LevelviewState extends State<Levelview> {
   bool tap1 = false;
+  bool tap3 = false;
+  bool tap4 = false;
   Color whiteColor = (Colors.white);
   Color blueColor = const Color(0xff2C50ED);
+  Color whiteColor3 = (Colors.white);
+  Color blueColor3 = const Color(0xff2C50ED);
+  Color whiteColor4 = (Colors.white);
+  Color blueColor4 = const Color(0xff2C50ED);
 
   final List text = [
     "Level Name",
@@ -75,22 +81,24 @@ class _LevelviewState extends State<Levelview> {
                           child: Column(
                             children: [
                               Container(
-                                // height: 53,
-                                // width: double.infinity,
                                 color: ColorConstant.blueColor,
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      // textAlign: TextAlign.center,
-                                      "Add Level",
+                                      "",
                                       style: GoogleFonts.poppins(
                                           color: ColorConstant.whiteColor,
                                           fontSize: 30,
                                           fontWeight: FontWeight.w600),
                                     ),
-                                    const SizedBox(
-                                      width: 60,
+                                    Text(
+                                      "Add Level",
+                                      style: GoogleFonts.poppins(
+                                          color: ColorConstant.whiteColor,
+                                          fontSize: 30,
+                                          fontWeight: FontWeight.w600),
                                     ),
                                     IconButton(
                                       onPressed: () {
@@ -124,53 +132,95 @@ class _LevelviewState extends State<Levelview> {
                                     width: 280,
                                     child: Stack(
                                       children: [
-                                        GestureDetector(
-                                          child: Container(
-                                            alignment: Alignment.center,
-                                            width: 138,
-                                            height: 32,
-                                            decoration: BoxDecoration(
-                                                color: ColorConstant.whiteColor,
-                                                border: Border.all(
-                                                    color: ColorConstant
-                                                        .blueColor),
-                                                borderRadius:
-                                                    BorderRadius.circular(24)),
-                                            child: Text(
-                                              'Show off',
-                                              style: TextStyle(
-                                                  color:
-                                                      ColorConstant.blueColor,
-                                                  letterSpacing: 0.5,
-                                                  fontSize: 11,
-                                                  fontWeight: FontWeight.w700),
+                                        StatefulBuilder(
+                                          builder: (context, setState) =>
+                                              GestureDetector(
+                                            onTap: () {
+                                              tap3
+                                                  ? setState(() {
+                                                      tap3 = !tap3;
+                                                      whiteColor3 =
+                                                          Colors.white;
+                                                      blueColor3 =
+                                                          Color(0xff2C50ED);
+                                                    })
+                                                  : setState(() {
+                                                      tap3 = !tap3;
+                                                      blueColor3 = Colors.white;
+                                                      whiteColor3 =
+                                                          Color(0xff2C50ED);
+                                                    });
+                                              this.setState(() {});
+                                            },
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              width: 138,
+                                              height: 32,
+                                              decoration: BoxDecoration(
+                                                  color: whiteColor3,
+                                                  border: Border.all(
+                                                      color: blueColor3),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          24)),
+                                              child: Text(
+                                                'Show off',
+                                                style: TextStyle(
+                                                    color: blueColor3,
+                                                    letterSpacing: 0.5,
+                                                    fontSize: 11,
+                                                    fontWeight:
+                                                        FontWeight.w700),
+                                              ),
                                             ),
                                           ),
                                         ),
                                         Positioned(
-                                          left: 120,
-                                          child: Container(
-                                            alignment: Alignment.center,
-                                            width: 138,
-                                            height: 32,
-                                            decoration: BoxDecoration(
-                                                color: ColorConstant.whiteColor,
-                                                border: Border.all(
-                                                    color: ColorConstant
-                                                        .blueColor),
-                                                borderRadius:
-                                                    BorderRadius.circular(24)),
-                                            child: Text(
-                                              'Show off',
-                                              style: TextStyle(
-                                                  color:
-                                                      ColorConstant.blueColor,
-                                                  letterSpacing: 0.5,
-                                                  fontSize: 11,
-                                                  fontWeight: FontWeight.w700),
-                                            ),
-                                          ),
-                                        ),
+                                            left: 100,
+                                            child: StatefulBuilder(
+                                              builder: (context, setState) =>
+                                                  GestureDetector(
+                                                onTap: () {
+                                                  tap4
+                                                      ? setState(() {
+                                                          tap4 = !tap4;
+                                                          whiteColor4 =
+                                                              Colors.white;
+                                                          blueColor4 =
+                                                              Color(0xff2C50ED);
+                                                        })
+                                                      : setState(() {
+                                                          tap4 = !tap4;
+                                                          blueColor4 =
+                                                              Colors.white;
+                                                          whiteColor4 =
+                                                              Color(0xff2C50ED);
+                                                        });
+                                                  this.setState(() {});
+                                                },
+                                                child: Container(
+                                                  alignment: Alignment.center,
+                                                  width: 138,
+                                                  height: 32,
+                                                  decoration: BoxDecoration(
+                                                      color: whiteColor4,
+                                                      border: Border.all(
+                                                          color: blueColor4),
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              24)),
+                                                  child: Text(
+                                                    'Show off',
+                                                    style: TextStyle(
+                                                        color: blueColor4,
+                                                        letterSpacing: 0.5,
+                                                        fontSize: 11,
+                                                        fontWeight:
+                                                            FontWeight.w700),
+                                                  ),
+                                                ),
+                                              ),
+                                            )),
                                       ],
                                     ),
                                   ),
@@ -282,7 +332,7 @@ class _LevelviewState extends State<Levelview> {
         // menu
         Container(
           height: 60,
-          width: MediaQuery.of(context).size.width,
+          width: MediaQuery.of(context).size.width * 0.76,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: ColorConstant.whiteColor
@@ -304,7 +354,7 @@ class _LevelviewState extends State<Levelview> {
         ),
         Container(
           height: 60,
-          width: MediaQuery.of(context).size.width,
+          width: MediaQuery.of(context).size.width * 0.76,
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(15),
               color: ColorConstant.whiteColor
@@ -312,53 +362,50 @@ class _LevelviewState extends State<Levelview> {
               ),
           child: Padding(
             padding: const EdgeInsets.only(right: 30),
-            child: Expanded(
-              // flex: 1,
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Text(
-                      text2[0],
-                      style: GoogleFonts.poppins(
-                          fontSize: 15, fontWeight: FontWeight.w400),
-                    ),
-                    SizedBox(
-                      height: 50,
-                      width: 50,
-                      child: Image.asset("assets/images/levelimage.png"),
-                    ),
-                    Text(
-                      text2[2],
-                      style: GoogleFonts.poppins(
-                          fontSize: 15, fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      text2[3],
-                      style: GoogleFonts.poppins(
-                          fontSize: 15, fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      text2[4],
-                      style: GoogleFonts.poppins(
-                          fontSize: 15, fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      text2[5],
-                      style: GoogleFonts.poppins(
-                          fontSize: 15, fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      text2[6],
-                      style: GoogleFonts.poppins(
-                          fontSize: 15, fontWeight: FontWeight.w400),
-                    ),
-                    Text(
-                      text2[7],
-                      style: GoogleFonts.poppins(
-                          fontSize: 15, fontWeight: FontWeight.w400),
-                    ),
-                  ]),
-            ),
+            child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Text(
+                    text2[0],
+                    style: GoogleFonts.poppins(
+                        fontSize: 15, fontWeight: FontWeight.w400),
+                  ),
+                  SizedBox(
+                    height: 50,
+                    width: 50,
+                    child: Image.asset("assets/images/levelimage.png"),
+                  ),
+                  Text(
+                    text2[2],
+                    style: GoogleFonts.poppins(
+                        fontSize: 15, fontWeight: FontWeight.w400),
+                  ),
+                  Text(
+                    text2[3],
+                    style: GoogleFonts.poppins(
+                        fontSize: 15, fontWeight: FontWeight.w400),
+                  ),
+                  Text(
+                    text2[4],
+                    style: GoogleFonts.poppins(
+                        fontSize: 15, fontWeight: FontWeight.w400),
+                  ),
+                  Text(
+                    text2[5],
+                    style: GoogleFonts.poppins(
+                        fontSize: 15, fontWeight: FontWeight.w400),
+                  ),
+                  Text(
+                    text2[6],
+                    style: GoogleFonts.poppins(
+                        fontSize: 15, fontWeight: FontWeight.w400),
+                  ),
+                  Text(
+                    text2[7],
+                    style: GoogleFonts.poppins(
+                        fontSize: 15, fontWeight: FontWeight.w400),
+                  ),
+                ]),
           ),
         ),
       ],

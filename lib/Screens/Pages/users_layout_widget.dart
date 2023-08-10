@@ -4,7 +4,8 @@ import 'package:singleclub/Local_variables/users_data.dart';
 import 'package:singleclub/Utils/colors.dart';
 
 class UsersLayout extends StatelessWidget {
-  const UsersLayout({super.key});
+  String? title;
+  UsersLayout({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +16,16 @@ class UsersLayout extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Text(
-                'Top- Recharge',
+                title!,
                 style: GoogleFonts.montserrat(
                     fontSize: 20, fontWeight: FontWeight.w700),
               ),
             ),
           ],
         ),
-        Expanded(
+        Container(
+          height: 600,
+          width: 350,
           child: ListView.builder(
             itemCount: usersData.length,
             itemBuilder: ((context, index) {

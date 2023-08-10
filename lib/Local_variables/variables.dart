@@ -71,7 +71,11 @@ List<String> lastDays = [
   'Last Month',
   'All Over'
 ];
-List<String> adminList = ['Admin'];
+List<String> adminList = ['Admin', 'User'];
+List<String> reasonDaysList = ['1','3','5','7','10','10','20','28','45','60','Permanent'];
+List<String> reasonList = ["I just don't like it","Nudity or pornography","Hate speech or symbols","Violence or threat of violence",
+"Sale or promotion of firearms","Sale or promotion of drugs","Harassment or bullying","Self injury","Black Screen","Fake Live"];
+List<String> category = ['Account Ban', 'Account Freeze','Device Ban'];
 List<String> adsList = ['All', 'Manual', 'Country List'];
 List<String> giftCategory = ['Popular', 'Lucky', 'Event Luxury', 'Rank', 'VIP'];
 List<String> guardianList = ['Luxury', 'Royal', 'King'];

@@ -20,7 +20,7 @@ class _AnalyseWidgetState extends State<AnalyseWidget> {
   List<Color> itemColors =
       List.generate(navigationData.length, (index) => Colors.white);
   List<Color> contentColors =
-      List.generate(navigationData.length, (index) => Color(0xff2C50ED));
+      List.generate(navigationData.length, (index) => const Color(0xff2C50ED));
   int? lastSelectedIndex;
   @override
   Widget build(BuildContext context) {
@@ -31,156 +31,172 @@ class _AnalyseWidgetState extends State<AnalyseWidget> {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.96,
+              // height: MediaQuery.of(context).size.height * 0.96,
               width: 620,
               color: ColorConstant.whiteColor,
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                          height: 50,
-                          width: 200,
-                          child: DropdownWidget7(
-                              items: lastDays, selectItem: 'Select Days')),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Expanded(
-                    child: GridView.builder(
-                      itemCount: 20,
-                      padding: const EdgeInsetsDirectional.all(8),
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 4,
-                              crossAxisSpacing: 16.0,
-                              mainAxisSpacing: 12.0),
-                      itemBuilder: (BuildContext context, int index) {
-                        return GestureDetector(
-                          onTap: () {
-                            value.updateBoxIndex(index);
-                            setState(() {
-                              ind2 = index;
-                              itemColors[index] = ColorConstant.blueColor;
-                              contentColors[index] = ColorConstant.whiteColor;
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                            height: 50,
+                            width: 200,
+                            child: DropdownWidget7(
+                                items: lastDays, selectItem: 'Select Days')),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: 618,
+                          width: 696,
+                          child: GridView.builder(
+                            itemCount: 20,
+                            padding: const EdgeInsetsDirectional.all(8),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: 4,
+                                    crossAxisSpacing: 16.0,
+                                    mainAxisSpacing: 12.0),
+                            itemBuilder: (BuildContext context, int index) {
+                              return GestureDetector(
+                                onTap: () {
+                                  value.updateBoxIndex(index);
+                                  setState(() {
+                                    ind2 = index;
+                                    itemColors[index] = ColorConstant.blueColor;
+                                    contentColors[index] =
+                                        ColorConstant.whiteColor;
 
-                              if (lastSelectedIndex != null &&
-                                  lastSelectedIndex != index) {
-                                itemColors[lastSelectedIndex!] =
-                                    ColorConstant.whiteColor;
-                                contentColors[lastSelectedIndex!] =
-                                    ColorConstant.blueColor;
-                              }
-                              lastSelectedIndex = index;
-                            });
-                          },
-                          child: Container(
-                            width: 145,
-                            height: 112,
-                            decoration: BoxDecoration(
-                                color: itemColors[index],
-                                borderRadius: BorderRadius.circular(8),
-                                boxShadow: [
-                                  BoxShadow(
-                                      color: ColorConstant.blueColor
-                                          .withOpacity(0.30),
-                                      offset: const Offset(1, 2.0),
-                                      blurRadius: 2.0,
-                                      spreadRadius: 0.0),
-                                ]),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Container(
-                                    height: 58,
-                                    child: Row(
+                                    if (lastSelectedIndex != null &&
+                                        lastSelectedIndex != index) {
+                                      itemColors[lastSelectedIndex!] =
+                                          ColorConstant.whiteColor;
+                                      contentColors[lastSelectedIndex!] =
+                                          ColorConstant.blueColor;
+                                    }
+                                    lastSelectedIndex = index;
+                                  });
+                                },
+                                child: Container(
+                                  width: 145,
+                                  height: 112,
+                                  decoration: BoxDecoration(
+                                      color: itemColors[index],
+                                      borderRadius: BorderRadius.circular(8),
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: ColorConstant.blueColor
+                                                .withOpacity(0.30),
+                                            offset: const Offset(1, 2.0),
+                                            blurRadius: 2.0,
+                                            spreadRadius: 0.0),
+                                      ]),
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Column(
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceAround,
                                       children: [
-                                        const Column(
+                                        Container(
+                                          height: 58,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              const Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    '+14%',
+                                                    style: TextStyle(
+                                                        color: Colors.green,
+                                                        fontSize: 12),
+                                                  ),
+                                                ],
+                                              ),
+                                              SvgPicture.asset(
+                                                'assets/svg/${navigationData[index]['icon']}',
+                                                color: contentColors[index],
+                                                height: 40,
+                                                width: 40,
+                                              ),
+                                              Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            right: 6,
+                                                            bottom: 6),
+                                                    child: Text(
+                                                      '-14',
+                                                      style: TextStyle(
+                                                          color:
+                                                              itemColors[index],
+                                                          fontSize: 18),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Text(
+                                          '${navigationData[index]['count']}',
+                                          style: TextStyle(
+                                              color: contentColors[index],
+                                              fontSize: 20),
+                                        ),
+                                        Row(
                                           mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                              MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              '+14%',
+                                              '-14%',
                                               style: TextStyle(
-                                                  color: Colors.green,
-                                                  fontSize: 12),
+                                                  color: itemColors[index],
+                                                  fontSize: 4),
                                             ),
-                                          ],
-                                        ),
-                                        SvgPicture.asset(
-                                          'assets/svg/${navigationData[index]['icon']}',
-                                          color: contentColors[index],
-                                          height: 40,
-                                          width: 40,
-                                        ),
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Padding(
-                                              padding: const EdgeInsets.only(
-                                                  right: 6, bottom: 6),
-                                              child: Text(
-                                                '-14',
-                                                style: TextStyle(
-                                                    color: itemColors[index],
-                                                    fontSize: 18),
-                                              ),
+                                            Text(
+                                              '${navigationData[index]['title']}',
+                                              style: GoogleFonts.poppins(
+                                                  color: contentColors[index],
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                            const Text(
+                                              '-14%',
+                                              style: TextStyle(
+                                                  color: Colors.red,
+                                                  fontSize: 12),
                                             ),
                                           ],
                                         ),
                                       ],
                                     ),
                                   ),
-                                  Text(
-                                    '${navigationData[index]['count']}',
-                                    style: TextStyle(
-                                        color: contentColors[index],
-                                        fontSize: 20),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        '-14%',
-                                        style: TextStyle(
-                                            color: itemColors[index],
-                                            fontSize: 4),
-                                      ),
-                                      Text(
-                                        '${navigationData[index]['title']}',
-                                        style: GoogleFonts.poppins(
-                                            color: contentColors[index],
-                                            fontSize: 12,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                      const Text(
-                                        '-14%',
-                                        style: TextStyle(
-                                            color: Colors.red, fontSize: 12),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
+                                ),
+                              );
+                            },
                           ),
-                        );
-                      },
+                        ),
+                      ],
                     ),
-                  )
-                ],
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Image.asset('assets/images/map.png')
+                  ],
+                ),
               ),
             ),
           ),
@@ -190,7 +206,15 @@ class _AnalyseWidgetState extends State<AnalyseWidget> {
             child: Container(
               height: MediaQuery.of(context).size.height,
               width: 380,
-              child: UsersLayout(),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    UsersLayout(title: 'Top- Recharge'),
+                    UsersLayout(title: 'Top- Agency'),
+                    UsersLayout(title: 'Top- Host'),
+                  ],
+                ),
+              ),
             ),
           ),
         ],

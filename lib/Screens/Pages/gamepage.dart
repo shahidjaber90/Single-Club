@@ -70,18 +70,21 @@ class _GamePageState extends State<GamePage> {
                             width: double.infinity,
                             color: ColorConstant.blueColor,
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Text(
-                                  // textAlign: TextAlign.center,
-                                  "Manage Game",
+                                  "",
                                   style: GoogleFonts.poppins(
                                       color: ColorConstant.whiteColor,
                                       fontSize: 30,
                                       fontWeight: FontWeight.w600),
                                 ),
-                                const SizedBox(
-                                  width: 60,
+                                Text(
+                                  "Manage Game",
+                                  style: GoogleFonts.poppins(
+                                      color: ColorConstant.whiteColor,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w600),
                                 ),
                                 IconButton(
                                   onPressed: () {

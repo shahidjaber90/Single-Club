@@ -13,8 +13,46 @@ class VerificationPage extends StatefulWidget {
 
 class _VerificationPageState extends State<VerificationPage> {
   bool tap1 = false;
+  bool tap3 = false;
   Color whiteColor = (Colors.white);
   Color blueColor = const Color(0xff2C50ED);
+  Color whiteColor3 = (Colors.white);
+  Color blueColor3 = const Color(0xff2C50ED);
+  bool isSwitched = false;
+  var textValue = '';
+  bool isSwitched2 = false;
+
+  void toggleSwitch(bool value) {
+    if (isSwitched == false) {
+      setState(() {
+        isSwitched = true;
+        textValue = 'Active';
+      });
+      print('Switch Button is ON');
+    } else {
+      setState(() {
+        isSwitched = false;
+        textValue = 'Ban';
+      });
+      print('Switch Button is OFF');
+    }
+  }
+
+  void toggleSwitch2(bool value) {
+    if (isSwitched2 == false) {
+      setState(() {
+        isSwitched2 = true;
+        textValue = 'Active';
+      });
+      print('Switch Button is ON');
+    } else {
+      setState(() {
+        isSwitched2 = false;
+        textValue = 'Ban';
+      });
+      print('Switch Button is OFF');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +63,7 @@ class _VerificationPageState extends State<VerificationPage> {
           padding: const EdgeInsets.all(8.0),
           child: Container(
             height: MediaQuery.of(context).size.height * 0.98,
-            width: MediaQuery.of(context).size.width * 0.80,
+            width: MediaQuery.of(context).size.width * 0.76,
             color: ColorConstant.whiteColor,
             child: Column(
               children: [
@@ -34,7 +72,7 @@ class _VerificationPageState extends State<VerificationPage> {
                   color: ColorConstant.whiteColor,
                   alignment: Alignment.topLeft,
                   height: 650,
-                  width: MediaQuery.of(context).size.width * 0.80,
+                  width: MediaQuery.of(context).size.width * 0.76,
                   child: SingleChildScrollView(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,7 +82,7 @@ class _VerificationPageState extends State<VerificationPage> {
                           children: [
                             Container(
                               height: 155,
-                              width: MediaQuery.of(context).size.width * 0.80,
+                              width: MediaQuery.of(context).size.width * 0.76,
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 mainAxisAlignment:
@@ -209,54 +247,49 @@ class _VerificationPageState extends State<VerificationPage> {
                                           ),
                                           Positioned(
                                             left: 90,
-                                            child: Container(
-                                              alignment: Alignment.center,
-                                              width: 120,
-                                              height: 32,
-                                              decoration: BoxDecoration(
-                                                  color:
-                                                      ColorConstant.whiteColor,
-                                                  border: Border.all(
-                                                      color: ColorConstant
-                                                          .blueColor),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20)),
-                                              child: Text(
-                                                'SMS',
-                                                style: TextStyle(
-                                                    color:
-                                                        ColorConstant.blueColor,
-                                                    letterSpacing: 0.5,
-                                                    fontSize: 11,
-                                                    fontWeight:
-                                                        FontWeight.w700),
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                tap3
+                                                    ? setState(() {
+                                                        tap3 = !tap3;
+                                                        whiteColor3 =
+                                                            Colors.white;
+                                                        blueColor3 =
+                                                            Color(0xff2C50ED);
+                                                      })
+                                                    : setState(() {
+                                                        tap3 = !tap3;
+                                                        blueColor3 =
+                                                            Colors.white;
+                                                        whiteColor3 =
+                                                            Color(0xff2C50ED);
+                                                      });
+                                              },
+                                              child: Container(
+                                                alignment: Alignment.center,
+                                                width: 120,
+                                                height: 32,
+                                                decoration: BoxDecoration(
+                                                    color: whiteColor3,
+                                                    border: Border.all(
+                                                        color: blueColor3),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20)),
+                                                child: Text(
+                                                  'SMS',
+                                                  style: TextStyle(
+                                                      color: blueColor3,
+                                                      letterSpacing: 0.5,
+                                                      fontSize: 11,
+                                                      fontWeight:
+                                                          FontWeight.w700),
+                                                ),
                                               ),
                                             ),
                                           )
                                         ],
                                       )),
-                                  // Padding(
-                                  //   padding: const EdgeInsets.only(bottom: 20),
-                                  //   child: Container(
-                                  //     alignment: Alignment.center,
-                                  //     height: 40,
-                                  //     width: 210,
-                                  //     child: TextFormField(
-                                  //       decoration: InputDecoration(
-                                  //           border: OutlineInputBorder(
-                                  //             borderSide: BorderSide.none,
-                                  //             borderRadius:
-                                  //                 BorderRadius.circular(20),
-                                  //           ),
-                                  //           fillColor:
-                                  //               ColorConstant.searchColor,
-                                  //           filled: true,
-                                  //           prefixIcon: Icon(Icons.search),
-                                  //           hintText: 'Search...'),
-                                  //     ),
-                                  //   ),
-                                  // ),
                                 ],
                               ),
                             ),
@@ -265,7 +298,7 @@ class _VerificationPageState extends State<VerificationPage> {
                         //
                         Container(
                           height: 600,
-                          width: MediaQuery.of(context).size.width * 0.79,
+                          width: MediaQuery.of(context).size.width * 0.76,
                           color: ColorConstant.searchColor,
                           child: Column(
                             children: [
@@ -295,11 +328,11 @@ class _VerificationPageState extends State<VerificationPage> {
                                       headingText: 'Email'),
                                   DataHeadingWidget(
                                       height: 24.0,
-                                      width: 80.0,
+                                      width: 76.0,
                                       headingText: 'Document'),
                                   DataHeadingWidget(
                                       height: 24.0,
-                                      width: 170.0,
+                                      width: 160.0,
                                       headingText: 'Date/Time'),
                                   DataHeadingWidget(
                                       height: 24.0,
@@ -307,11 +340,11 @@ class _VerificationPageState extends State<VerificationPage> {
                                       headingText: 'Status'),
                                   DataHeadingWidget(
                                       height: 24.0,
-                                      width: 120.0,
+                                      width: 110.0,
                                       headingText: 'Decision'),
                                   DataHeadingWidget(
                                       height: 24.0,
-                                      width: 80.0,
+                                      width: 70.0,
                                       headingText: 'Action'),
                                 ],
                               ),
@@ -323,7 +356,7 @@ class _VerificationPageState extends State<VerificationPage> {
                                 children: [
                                   Container(
                                     width: MediaQuery.of(context).size.width *
-                                        0.79,
+                                        0.758,
                                     height: 85,
                                     color: ColorConstant.whiteColor,
                                     child: Row(
@@ -334,7 +367,7 @@ class _VerificationPageState extends State<VerificationPage> {
                                       children: [
                                         DataHeadingWidget(
                                             height: 24.0,
-                                            width: 90.0,
+                                            width: 88.0,
                                             headingText: 'KingOfKings'),
                                         DataHeadingWidget(
                                             height: 24.0,
@@ -342,11 +375,11 @@ class _VerificationPageState extends State<VerificationPage> {
                                             headingText: '784575'),
                                         DataHeadingWidget(
                                             height: 24.0,
-                                            width: 80.0,
+                                            width: 76.0,
                                             headingText: 'Host'),
                                         DataHeadingWidget(
                                             height: 24.0,
-                                            width: 100.0,
+                                            width: 98.0,
                                             headingText: '01765486524'),
                                         DataHeadingWidget(
                                             height: 24.0,
@@ -354,7 +387,7 @@ class _VerificationPageState extends State<VerificationPage> {
                                             headingText:
                                                 'Hatespeech@gmail.com'),
                                         SizedBox(
-                                          width: 80,
+                                          width: 76,
                                           child: GestureDetector(
                                             ///////////////
                                             onTap: () {
@@ -458,21 +491,85 @@ class _VerificationPageState extends State<VerificationPage> {
                                         ),
                                         DataHeadingWidget(
                                             height: 24.0,
-                                            width: 170.0,
+                                            width: 160.0,
                                             headingText:
                                                 '14-Feb 1994 09:45 PM'),
                                         Column(
                                           children: [
-                                            Image.asset('assets/icons/off.png'),
-                                            const SizedBox(
-                                              height: 5,
+                                            Container(
+                                              height: 24,
+                                              width: 38,
+                                              decoration: BoxDecoration(
+                                                  color: ColorConstant
+                                                      .arrowColor
+                                                      .withOpacity(0.70),
+                                                  border: Border.all(
+                                                      color: isSwitched
+                                                          ? Colors.red
+                                                          : Colors.blue),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          24)),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 4),
+                                                child: Transform.scale(
+                                                    scale: 1,
+                                                    child: Switch(
+                                                      onChanged: toggleSwitch,
+                                                      value: isSwitched,
+                                                      activeColor:
+                                                          Colors.red.shade800,
+                                                      activeTrackColor:
+                                                          Colors.white,
+                                                      inactiveThumbColor:
+                                                          Colors.blue,
+                                                      inactiveTrackColor:
+                                                          Colors.white,
+                                                    )),
+                                              ),
                                             ),
-                                            Image.asset('assets/icons/on.png'),
+                                            // two
+                                            Container(
+                                              height: 24,
+                                              width: 38,
+                                              decoration: BoxDecoration(
+                                                  color: ColorConstant
+                                                      .arrowColor
+                                                      .withOpacity(0.70),
+                                                  border: Border.all(
+                                                      color: isSwitched2
+                                                          ? Colors.red
+                                                          : Colors.blue),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          24)),
+                                              child: Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 4),
+                                                child: Transform.scale(
+                                                    scale: 1,
+                                                    child: Switch(
+                                                      onChanged: toggleSwitch2,
+                                                      value: isSwitched2,
+                                                      activeColor:
+                                                          Colors.red.shade800,
+                                                      activeTrackColor:
+                                                          Colors.white,
+                                                      inactiveThumbColor:
+                                                          Colors.blue,
+                                                      inactiveTrackColor:
+                                                          Colors.white,
+                                                    )),
+                                              ),
+                                            ),
                                           ],
                                         ),
                                         DataHeadingWidget(
                                             height: 24.0,
-                                            width: 120.0,
+                                            width: 110.0,
                                             headingText: 'Admin name'),
                                         SizedBox(
                                           width: 80,

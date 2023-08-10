@@ -21,13 +21,10 @@ class BanView extends StatefulWidget {
 class _BanViewState extends State<BanView> {
   bool tap1 = false;
   bool tap2 = false;
-  bool tap3 = false;
   Color whiteColor = (Colors.white);
   Color blueColor = const Color(0xff2C50ED);
   Color whiteColor2 = (Colors.white);
   Color blueColor2 = const Color(0xff2C50ED);
-  Color whiteColor3 = (Colors.white);
-  Color blueColor3 = const Color(0xff2C50ED);
 
   List<Color> itemColors =
       List.generate(userDetails.length, (index) => Colors.white);
@@ -105,6 +102,206 @@ class _BanViewState extends State<BanView> {
                                       blueColor = Colors.white;
                                       whiteColor = Color(0xff2C50ED);
                                     });
+
+                              showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    scrollable: true,
+                                    backgroundColor: Colors.transparent,
+                                    elevation: 0,
+                                    title: Container(
+                                      width: 400,
+                                      color: ColorConstant.blueColor,
+                                      child: Column(
+                                        children: [
+                                          Container(
+                                            color: ColorConstant.blueColor,
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Text(
+                                                  // textAlign: TextAlign.center,
+                                                  "",
+                                                  style: GoogleFonts.poppins(
+                                                      color: ColorConstant
+                                                          .whiteColor,
+                                                      fontSize: 30,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                ),
+                                                Text(
+                                                  // textAlign: TextAlign.center,
+                                                  "Active",
+                                                  style: GoogleFonts.poppins(
+                                                      color: ColorConstant
+                                                          .whiteColor,
+                                                      fontSize: 30,
+                                                      fontWeight:
+                                                          FontWeight.w600),
+                                                ),
+                                                IconButton(
+                                                  onPressed: () {
+                                                    tap1
+                                                        ? setState(() {
+                                                            tap1 = !tap1;
+                                                            whiteColor =
+                                                                Colors.white;
+                                                            blueColor = Color(
+                                                                0xff2C50ED);
+                                                          })
+                                                        : setState(() {
+                                                            tap1 = !tap1;
+                                                            blueColor =
+                                                                Colors.white;
+                                                            whiteColor = Color(
+                                                                0xff2C50ED);
+                                                          });
+                                                    Navigator.pop(context);
+                                                  },
+                                                  icon: const Icon(Icons.close),
+                                                  color:
+                                                      ColorConstant.whiteColor,
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            // width: 425,
+                                            color: ColorConstant.whiteColor,
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.all(8.0),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  // Buttons Admin And User in Alert
+                                                  const SizedBox(height: 20),
+                                                  // 1
+                                                  DropdownWidget4(
+                                                      items: category,
+                                                      selectItem:
+                                                          'Select Category'),
+                                                  const SizedBox(height: 18),
+                                                  DropdownWidget4(
+                                                      items: adminList,
+                                                      selectItem: 'User Types'),
+                                                  const SizedBox(height: 18),
+                                                  TextFieldWidget(
+                                                      labelText: 'ID:'),
+                                                  const SizedBox(height: 18),
+                                                  DropdownWidget4(
+                                                      items: reasonList,
+                                                      selectItem:
+                                                          'Select Reason'),
+                                                  const SizedBox(height: 18),
+                                                  DropdownWidget4(
+                                                      items: reasonDaysList,
+                                                      selectItem: 'Days'),
+                                                  SizedBox(
+                                                    height: 15,
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Container(
+                                                        height: 100,
+                                                        width: 140,
+                                                        decoration: BoxDecoration(
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        10),
+                                                            color: ColorConstant
+                                                                .whiteColor,
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                  color: ColorConstant
+                                                                      .blueColor
+                                                                      .withOpacity(
+                                                                          0.30),
+                                                                  offset:
+                                                                      const Offset(
+                                                                          1, 2.0),
+                                                                  blurRadius:
+                                                                      2.0,
+                                                                  spreadRadius:
+                                                                      0.0),
+                                                            ]),
+                                                        child: Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .only(
+                                                                  top: 8.0),
+                                                          child: Column(
+                                                            children: [
+                                                              Text(
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                "Upload File",
+                                                                style: GoogleFonts.poppins(
+                                                                    color: ColorConstant
+                                                                        .blueColor,
+                                                                    fontSize:
+                                                                        14,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400),
+                                                              ),
+                                                              SizedBox(
+                                                                height: 50,
+                                                                width: 50,
+                                                                child:
+                                                                    Image.asset(
+                                                                  "assets/icons/cloudupload.png",
+                                                                  fit: BoxFit
+                                                                      .contain,
+                                                                ),
+                                                              ),
+                                                              Text(
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
+                                                                "SVG/WEP",
+                                                                style: GoogleFonts.poppins(
+                                                                    color: ColorConstant
+                                                                        .blueColor,
+                                                                    fontSize:
+                                                                        14,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w400),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+
+                                                  //
+                                                  // Button
+                                                  const SizedBox(height: 24),
+                                                  AlertButton(
+                                                      buttonName: 'Ban'),
+                                                  const SizedBox(height: 20),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
                             },
                             child: Container(
                               alignment: Alignment.center,
@@ -125,7 +322,7 @@ class _BanViewState extends State<BanView> {
                             ),
                           ),
                           Positioned(
-                            left: 120,
+                            left: 100,
                             child: GestureDetector(
                               onTap: () {
                                 tap2
@@ -154,13 +351,22 @@ class _BanViewState extends State<BanView> {
                                         child: Column(
                                           children: [
                                             Container(
-                                              // height: 53,
-                                              // width: double.infinity,
                                               color: ColorConstant.blueColor,
                                               child: Row(
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment.center,
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                 children: [
+                                                  Text(
+                                                    // textAlign: TextAlign.center,
+                                                    "",
+                                                    style: GoogleFonts.poppins(
+                                                        color: ColorConstant
+                                                            .whiteColor,
+                                                        fontSize: 30,
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
                                                   Text(
                                                     // textAlign: TextAlign.center,
                                                     "Active",
@@ -170,9 +376,6 @@ class _BanViewState extends State<BanView> {
                                                         fontSize: 30,
                                                         fontWeight:
                                                             FontWeight.w600),
-                                                  ),
-                                                  const SizedBox(
-                                                    width: 60,
                                                   ),
                                                   IconButton(
                                                     onPressed: () {
@@ -212,131 +415,6 @@ class _BanViewState extends State<BanView> {
                                                       CrossAxisAlignment.start,
                                                   children: [
                                                     // Buttons Admin And User in Alert
-                                                    const SizedBox(
-                                                      height: 10,
-                                                    ),
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .center,
-                                                      children: [
-                                                        SizedBox(
-                                                          height: 40,
-                                                          width: 280,
-                                                          child: Stack(
-                                                            children: [
-                                                              GestureDetector(
-                                                                onTap: () {
-                                                                  tap3
-                                                                      ? setState(
-                                                                          () {
-                                                                          tap3 =
-                                                                              !tap3;
-                                                                          whiteColor3 =
-                                                                              Colors.white;
-                                                                          blueColor3 =
-                                                                              Color(0xff2C50ED);
-                                                                        })
-                                                                      : setState(
-                                                                          () {
-                                                                          tap3 =
-                                                                              !tap3;
-                                                                          blueColor3 =
-                                                                              Colors.white;
-                                                                          whiteColor3 =
-                                                                              Color(0xff2C50ED);
-                                                                        });
-                                                                },
-                                                                child:
-                                                                    Container(
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .center,
-                                                                  width: 138,
-                                                                  height: 32,
-                                                                  decoration: BoxDecoration(
-                                                                      color: ColorConstant
-                                                                          .whiteColor,
-                                                                      border: Border.all(
-                                                                          color: ColorConstant
-                                                                              .blueColor),
-                                                                      borderRadius:
-                                                                          BorderRadius.circular(
-                                                                              24)),
-                                                                  child: Text(
-                                                                    'User',
-                                                                    style: TextStyle(
-                                                                        color: ColorConstant
-                                                                            .blueColor,
-                                                                        letterSpacing:
-                                                                            0.5,
-                                                                        fontSize:
-                                                                            11,
-                                                                        fontWeight:
-                                                                            FontWeight.w700),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Positioned(
-                                                                left: 120,
-                                                                child:
-                                                                    GestureDetector(
-                                                                  onTap: () {
-                                                                    tap3
-                                                                        ? setState(
-                                                                            () {
-                                                                            tap3 =
-                                                                                !tap3;
-                                                                            whiteColor3 =
-                                                                                Colors.white;
-                                                                            blueColor3 =
-                                                                                Color(0xff2C50ED);
-                                                                          })
-                                                                        : setState(
-                                                                            () {
-                                                                            tap3 =
-                                                                                !tap3;
-                                                                            blueColor3 =
-                                                                                Colors.white;
-                                                                            whiteColor3 =
-                                                                                Color(0xff2C50ED);
-                                                                          });
-                                                                  },
-                                                                  child:
-                                                                      Container(
-                                                                    alignment:
-                                                                        Alignment
-                                                                            .center,
-                                                                    width: 138,
-                                                                    height: 32,
-                                                                    decoration: BoxDecoration(
-                                                                        color:
-                                                                            whiteColor3,
-                                                                        border: Border.all(
-                                                                            color:
-                                                                                blueColor3),
-                                                                        borderRadius:
-                                                                            BorderRadius.circular(24)),
-                                                                    child: Text(
-                                                                      'Active',
-                                                                      style: TextStyle(
-                                                                          color:
-                                                                              blueColor3,
-                                                                          letterSpacing:
-                                                                              0.5,
-                                                                          fontSize:
-                                                                              11,
-                                                                          fontWeight:
-                                                                              FontWeight.w700),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
                                                     const SizedBox(height: 20),
                                                     // 1
                                                     DropdownWidget4(
@@ -390,11 +468,9 @@ class _BanViewState extends State<BanView> {
                 ),
                 // User Active Deactive Details Buttons
                 Container(
-                  height: 60,
+                  height: 58,
                   width: MediaQuery.of(context).size.width * 0.76,
-                  color: ColorConstant.whiteColor,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
                         child: ListView.builder(

@@ -80,16 +80,14 @@ class _GuardianViewState extends State<GuardianView> {
                                           child: Column(
                                             children: [
                                               Container(
-                                                // height: 53,
-                                                // width: double.infinity,
                                                 color: ColorConstant.blueColor,
                                                 child: Row(
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment.center,
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      // textAlign: TextAlign.center,
-                                                      "Add Guardian",
+                                                      "",
                                                       style: GoogleFonts.poppins(
                                                           color: ColorConstant
                                                               .whiteColor,
@@ -97,8 +95,14 @@ class _GuardianViewState extends State<GuardianView> {
                                                           fontWeight:
                                                               FontWeight.w600),
                                                     ),
-                                                    const SizedBox(
-                                                      width: 60,
+                                                    Text(
+                                                      "Add Guardian",
+                                                      style: GoogleFonts.poppins(
+                                                          color: ColorConstant
+                                                              .whiteColor,
+                                                          fontSize: 30,
+                                                          fontWeight:
+                                                              FontWeight.w600),
                                                     ),
                                                     IconButton(
                                                       onPressed: () {
@@ -292,7 +296,7 @@ class _GuardianViewState extends State<GuardianView> {
                                       border: Border.all(color: blueColor),
                                       borderRadius: BorderRadius.circular(24)),
                                   child: Text(
-                                    'Add Guardian',
+                                    'Add Guardian      ',
                                     style: TextStyle(
                                         color: blueColor,
                                         letterSpacing: 0.5,
@@ -302,7 +306,7 @@ class _GuardianViewState extends State<GuardianView> {
                                 ),
                               ),
                               Positioned(
-                                left: 120,
+                                left: 100,
                                 child: GestureDetector(
                                   onTap: () {
                                     tap2
@@ -330,18 +334,15 @@ class _GuardianViewState extends State<GuardianView> {
                                             child: Column(
                                               children: [
                                                 Container(
-                                                  // height: 53,
-                                                  // width: double.infinity,
                                                   color:
                                                       ColorConstant.blueColor,
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
-                                                            .center,
+                                                            .spaceBetween,
                                                     children: [
                                                       Text(
-                                                        // textAlign: TextAlign.center,
-                                                        "Send Guardian",
+                                                        "",
                                                         style: GoogleFonts.poppins(
                                                             color: ColorConstant
                                                                 .whiteColor,
@@ -350,8 +351,15 @@ class _GuardianViewState extends State<GuardianView> {
                                                                 FontWeight
                                                                     .w600),
                                                       ),
-                                                      const SizedBox(
-                                                        width: 40,
+                                                      Text(
+                                                        "Send Guardian",
+                                                        style: GoogleFonts.poppins(
+                                                            color: ColorConstant
+                                                                .whiteColor,
+                                                            fontSize: 30,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600),
                                                       ),
                                                       IconButton(
                                                         onPressed: () {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:singleclub/Local_variables/variables.dart';
+import 'package:singleclub/Widgets/admin_field_heading.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
 import 'package:singleclub/Widgets/dropdown_widget.dart';
 
@@ -17,10 +18,16 @@ class RechargePage extends StatefulWidget {
 class _RechargePageState extends State<RechargePage> {
   bool tap1 = false;
   bool tap2 = false;
+  bool tap3 = false;
+  bool tap4 = false;
   Color whiteColor = (Colors.white);
   Color blueColor = const Color(0xff2C50ED);
   Color whiteColor2 = (Colors.white);
   Color blueColor2 = const Color(0xff2C50ED);
+  Color whiteColor3 = (Colors.white);
+  Color blueColor3 = const Color(0xff2C50ED);
+  Color whiteColor4 = (Colors.white);
+  Color blueColor4 = const Color(0xff2C50ED);
 
   final List text = [
     "SN",
@@ -188,8 +195,18 @@ class _RechargePageState extends State<RechargePage> {
                                           color: ColorConstant.blueColor,
                                           child: Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
+                                              Text(
+                                                // textAlign: TextAlign.center,
+                                                "",
+                                                style: GoogleFonts.poppins(
+                                                    color: ColorConstant
+                                                        .whiteColor,
+                                                    fontSize: 30,
+                                                    fontWeight:
+                                                        FontWeight.w600),
+                                              ),
                                               Text(
                                                 // textAlign: TextAlign.center,
                                                 "Recharge",
@@ -199,9 +216,6 @@ class _RechargePageState extends State<RechargePage> {
                                                     fontSize: 30,
                                                     fontWeight:
                                                         FontWeight.w600),
-                                              ),
-                                              const SizedBox(
-                                                width: 60,
                                               ),
                                               IconButton(
                                                 onPressed: () {
@@ -238,101 +252,14 @@ class _RechargePageState extends State<RechargePage> {
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
                                             children: [
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  SizedBox(
-                                                    height: 40,
-                                                    width: 280,
-                                                    child: Stack(
-                                                      children: [
-                                                        GestureDetector(
-                                                          child: Container(
-                                                            alignment: Alignment
-                                                                .center,
-                                                            width: 138,
-                                                            height: 32,
-                                                            decoration: BoxDecoration(
-                                                                color: ColorConstant
-                                                                    .whiteColor,
-                                                                border: Border.all(
-                                                                    color: ColorConstant
-                                                                        .blueColor),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            24)),
-                                                            child: Text(
-                                                              'Admin',
-                                                              style: TextStyle(
-                                                                  color: ColorConstant
-                                                                      .blueColor,
-                                                                  letterSpacing:
-                                                                      0.5,
-                                                                  fontSize: 11,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w700),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Positioned(
-                                                          left: 120,
-                                                          child:
-                                                              GestureDetector(
-                                                            //
-
-                                                            //
-                                                            //
-                                                            //
-                                                            //
-                                                            //
-                                                            //
-
-                                                            child: Container(
-                                                              alignment:
-                                                                  Alignment
-                                                                      .center,
-                                                              width: 138,
-                                                              height: 32,
-                                                              decoration: BoxDecoration(
-                                                                  color: ColorConstant
-                                                                      .whiteColor,
-                                                                  border: Border.all(
-                                                                      color: ColorConstant
-                                                                          .blueColor),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              24)),
-                                                              child: Text(
-                                                                'User',
-                                                                style: TextStyle(
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                    letterSpacing:
-                                                                        0.5,
-                                                                    fontSize:
-                                                                        11,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              DropdownWidget(
-                                                  items: adminList,
-                                                  selectItem: 'Select Admin',
-                                                  title: 'Admin'),
                                               const SizedBox(
-                                                height: 4,
+                                                height: 14,
+                                              ),
+                                              DropdownWidget4(
+                                                  items: adminList,
+                                                  selectItem: 'Admin'),
+                                              const SizedBox(
+                                                height: 10,
                                               ),
                                               TextFieldWidget(
                                                   labelText:
@@ -343,15 +270,13 @@ class _RechargePageState extends State<RechargePage> {
                                               TextFieldWidget(
                                                   labelText: 'ID :'),
                                               const SizedBox(
-                                                height: 20,
+                                                height: 10,
                                               ),
-                                              Text(
-                                                "Bonus Gift",
-                                                style: GoogleFonts.inter(
-                                                    color: Colors.black,
-                                                    fontSize: 25,
-                                                    fontWeight:
-                                                        FontWeight.w400),
+                                              const Padding(
+                                                padding:
+                                                    EdgeInsets.only(left: 14),
+                                                child: AdminFieldHeading(
+                                                    headingText: 'Bonus Gift'),
                                               ),
                                               const SizedBox(
                                                 height: 15,
@@ -374,7 +299,7 @@ class _RechargePageState extends State<RechargePage> {
                                             ],
                                           ),
                                         ),
-                                        AlertButton(buttonName: 'Add'),
+                                        AlertButton(buttonName: 'Send'),
                                         const SizedBox(
                                           height: 20,
                                         ),
@@ -405,7 +330,7 @@ class _RechargePageState extends State<RechargePage> {
                         ),
                       ),
                       Positioned(
-                        left: 120,
+                        left: 100,
                         child: GestureDetector(
                           onTap: () {
                             tap2
@@ -437,16 +362,14 @@ class _RechargePageState extends State<RechargePage> {
                                             CrossAxisAlignment.center,
                                         children: [
                                           Container(
-                                            // height: 53,
-                                            // width: double.infinity,
                                             color: ColorConstant.blueColor,
                                             child: Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text(
-                                                  // textAlign: TextAlign.center,
-                                                  "Recharge Back",
+                                                  "",
                                                   style: GoogleFonts.poppins(
                                                       color: ColorConstant
                                                           .whiteColor,
@@ -454,8 +377,14 @@ class _RechargePageState extends State<RechargePage> {
                                                       fontWeight:
                                                           FontWeight.w600),
                                                 ),
-                                                const SizedBox(
-                                                  width: 40,
+                                                Text(
+                                                  "Recharge Back",
+                                                  style: GoogleFonts.poppins(
+                                                      color: ColorConstant
+                                                          .whiteColor,
+                                                      fontSize: 30,
+                                                      fontWeight:
+                                                          FontWeight.w600),
                                                 ),
                                                 IconButton(
                                                   onPressed: () {
@@ -493,100 +422,9 @@ class _RechargePageState extends State<RechargePage> {
                                               crossAxisAlignment:
                                                   CrossAxisAlignment.start,
                                               children: [
-                                                Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    SizedBox(
-                                                      height: 40,
-                                                      width: 280,
-                                                      child: Stack(
-                                                        children: [
-                                                          GestureDetector(
-                                                            child: Container(
-                                                              alignment:
-                                                                  Alignment
-                                                                      .center,
-                                                              width: 138,
-                                                              height: 32,
-                                                              decoration: BoxDecoration(
-                                                                  color: ColorConstant
-                                                                      .whiteColor,
-                                                                  border: Border.all(
-                                                                      color: ColorConstant
-                                                                          .blueColor),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              24)),
-                                                              child: Text(
-                                                                'Admin',
-                                                                style: TextStyle(
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                    letterSpacing:
-                                                                        0.5,
-                                                                    fontSize:
-                                                                        11,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Positioned(
-                                                            left: 120,
-                                                            child:
-                                                                GestureDetector(
-                                                              //
-
-                                                              //
-                                                              //
-                                                              //
-                                                              //
-                                                              //
-                                                              //
-
-                                                              child: Container(
-                                                                alignment:
-                                                                    Alignment
-                                                                        .center,
-                                                                width: 138,
-                                                                height: 32,
-                                                                decoration: BoxDecoration(
-                                                                    color: ColorConstant
-                                                                        .whiteColor,
-                                                                    border: Border.all(
-                                                                        color: ColorConstant
-                                                                            .blueColor),
-                                                                    borderRadius:
-                                                                        BorderRadius.circular(
-                                                                            24)),
-                                                                child: Text(
-                                                                  'User',
-                                                                  style: TextStyle(
-                                                                      color: ColorConstant
-                                                                          .blueColor,
-                                                                      letterSpacing:
-                                                                          0.5,
-                                                                      fontSize:
-                                                                          11,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w700),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                                DropdownWidget(
+                                                DropdownWidget4(
                                                     items: adminList,
-                                                    selectItem: 'Select Admin',
-                                                    title: 'Admin'),
+                                                    selectItem: 'Select Admin'),
                                                 const SizedBox(
                                                   height: 4,
                                                 ),
@@ -604,51 +442,33 @@ class _RechargePageState extends State<RechargePage> {
                                                       width: 280,
                                                       child: Stack(
                                                         children: [
-                                                          GestureDetector(
-                                                            child: Container(
-                                                              alignment:
-                                                                  Alignment
-                                                                      .center,
-                                                              width: 138,
-                                                              height: 32,
-                                                              decoration: BoxDecoration(
-                                                                  color: ColorConstant
-                                                                      .whiteColor,
-                                                                  border: Border.all(
-                                                                      color: ColorConstant
-                                                                          .blueColor),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              24)),
-                                                              child: Text(
-                                                                'Specific',
-                                                                style: TextStyle(
-                                                                    color: ColorConstant
-                                                                        .blueColor,
-                                                                    letterSpacing:
-                                                                        0.5,
-                                                                    fontSize:
-                                                                        11,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                          Positioned(
-                                                            left: 120,
-                                                            child:
+                                                          StatefulBuilder(
+                                                            builder: (context,
+                                                                    setState) =>
                                                                 GestureDetector(
-                                                              //
-
-                                                              //
-                                                              //
-                                                              //
-                                                              //
-                                                              //
-                                                              //
-
+                                                              onTap: () {
+                                                                tap3
+                                                                    ? setState(
+                                                                        () {
+                                                                        tap3 =
+                                                                            !tap3;
+                                                                        whiteColor3 =
+                                                                            Colors.white;
+                                                                        blueColor3 =
+                                                                            Color(0xff2C50ED);
+                                                                      })
+                                                                    : setState(
+                                                                        () {
+                                                                        tap3 =
+                                                                            !tap3;
+                                                                        blueColor3 =
+                                                                            Colors.white;
+                                                                        whiteColor3 =
+                                                                            Color(0xff2C50ED);
+                                                                      });
+                                                                this.setState(
+                                                                    () {});
+                                                              },
                                                               child: Container(
                                                                 alignment:
                                                                     Alignment
@@ -656,19 +476,19 @@ class _RechargePageState extends State<RechargePage> {
                                                                 width: 138,
                                                                 height: 32,
                                                                 decoration: BoxDecoration(
-                                                                    color: ColorConstant
-                                                                        .whiteColor,
+                                                                    color:
+                                                                        whiteColor3,
                                                                     border: Border.all(
-                                                                        color: ColorConstant
-                                                                            .blueColor),
+                                                                        color:
+                                                                            blueColor3),
                                                                     borderRadius:
                                                                         BorderRadius.circular(
                                                                             24)),
                                                                 child: Text(
-                                                                  'All Clear ',
+                                                                  'Specific',
                                                                   style: TextStyle(
-                                                                      color: ColorConstant
-                                                                          .blueColor,
+                                                                      color:
+                                                                          blueColor3,
                                                                       letterSpacing:
                                                                           0.5,
                                                                       fontSize:
@@ -676,6 +496,68 @@ class _RechargePageState extends State<RechargePage> {
                                                                       fontWeight:
                                                                           FontWeight
                                                                               .w700),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                          Positioned(
+                                                            left: 100,
+                                                            child:
+                                                                StatefulBuilder(
+                                                              builder: (context,
+                                                                      setState) =>
+                                                                  GestureDetector(
+                                                                onTap: () {
+                                                                  tap4
+                                                                      ? setState(
+                                                                          () {
+                                                                          tap4 =
+                                                                              !tap4;
+                                                                          whiteColor4 =
+                                                                              Colors.white;
+                                                                          blueColor4 =
+                                                                              Color(0xff2C50ED);
+                                                                        })
+                                                                      : setState(
+                                                                          () {
+                                                                          tap4 =
+                                                                              !tap4;
+                                                                          blueColor4 =
+                                                                              Colors.white;
+                                                                          whiteColor4 =
+                                                                              Color(0xff2C50ED);
+                                                                        });
+                                                                  this.setState(
+                                                                      () {});
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  alignment:
+                                                                      Alignment
+                                                                          .center,
+                                                                  width: 138,
+                                                                  height: 32,
+                                                                  decoration: BoxDecoration(
+                                                                      color:
+                                                                          whiteColor4,
+                                                                      border: Border.all(
+                                                                          color:
+                                                                              blueColor4),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              24)),
+                                                                  child: Text(
+                                                                    'All Clear ',
+                                                                    style: TextStyle(
+                                                                        color:
+                                                                            blueColor4,
+                                                                        letterSpacing:
+                                                                            0.5,
+                                                                        fontSize:
+                                                                            11,
+                                                                        fontWeight:
+                                                                            FontWeight.w700),
+                                                                  ),
                                                                 ),
                                                               ),
                                                             ),
@@ -694,7 +576,7 @@ class _RechargePageState extends State<RechargePage> {
                                               ],
                                             ),
                                           ),
-                                          AlertButton(buttonName: 'Add'),
+                                          AlertButton(buttonName: 'Send'),
                                           const SizedBox(height: 20),
                                         ],
                                       ),

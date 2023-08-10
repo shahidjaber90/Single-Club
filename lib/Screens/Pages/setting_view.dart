@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:singleclub/Utils/colors.dart';
+import 'package:singleclub/Widgets/admin_field_heading.dart';
+import 'package:singleclub/Widgets/admin_textfield.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
 import 'package:singleclub/Widgets/textfield_heading.dart';
 import 'package:singleclub/Widgets/textfield_widget.dart';
@@ -173,25 +175,25 @@ class _SettingpageState extends State<Settingpage> {
                                     ),
 
                                     /// fields
-                                    TextFieldHeadnig(headingText: 'Name'),
-                                    TextFieldWidget(labelText: ''),
-                                    TextFieldHeadnig(headingText: 'Numer'),
-                                    TextFieldWidget(labelText: ''),
-                                    TextFieldHeadnig(headingText: 'Email'),
-                                    TextFieldWidget(labelText: ''),
-                                    TextFieldHeadnig(
+                                    const AdminFieldHeading(headingText: 'Name'),
+                                    AdminTextFieldWidget(),
+                                    const AdminFieldHeading(headingText: 'Numer'),
+                                    AdminTextFieldWidget(),
+                                    const AdminFieldHeading(headingText: 'Email'),
+                                    AdminTextFieldWidget(),
+                                    const AdminFieldHeading(
                                         headingText: 'Current Password'),
-                                    TextFieldWidget(labelText: ''),
-                                    TextFieldHeadnig(
+                                    AdminTextFieldWidget(),
+                                    const AdminFieldHeading(
                                         headingText: 'New Password'),
-                                    TextFieldWidget(labelText: ''),
-                                    TextFieldHeadnig(
+                                    AdminTextFieldWidget(),
+                                    const AdminFieldHeading(
                                         headingText: 'Confirm Password'),
-                                    TextFieldWidget(labelText: ''),
-                                    TextFieldHeadnig(headingText: 'Facebook'),
-                                    TextFieldWidget(labelText: ''),
-                                    TextFieldHeadnig(headingText: 'Whatsapp'),
-                                    TextFieldWidget(labelText: ''),
+                                    AdminTextFieldWidget(),
+                                    const AdminFieldHeading(headingText: 'Facebook'),
+                                    AdminTextFieldWidget(),
+                                    const AdminFieldHeading(headingText: 'Whatsapp'),
+                                    AdminTextFieldWidget(),
                                   ],
                                 ),
                               ),

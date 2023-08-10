@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:singleclub/Local_variables/userDetailsData.dart';
 import 'package:singleclub/Utils/colors.dart';
+import 'package:singleclub/Widgets/admin_field_heading.dart';
 import 'package:singleclub/Widgets/cardWidget.dart';
 import 'package:singleclub/Widgets/dataHeadingWidget.dart';
 import 'package:singleclub/Widgets/textfield_heading.dart';
 import 'package:singleclub/Widgets/textfield_widget.dart';
 import 'package:singleclub/Widgets/userDetailsInput.dart';
-
 
 class UserWidget extends StatefulWidget {
   const UserWidget({super.key});
@@ -19,10 +19,17 @@ class UserWidget extends StatefulWidget {
 class _UserWidgetState extends State<UserWidget> {
   bool tap1 = false;
   bool tap2 = false;
+  bool tap3 = false;
+  bool tap4 = false;
   Color whiteColor = (Colors.white);
   Color blueColor = const Color(0xff2C50ED);
   Color whiteColor2 = (Colors.white);
   Color blueColor2 = const Color(0xff2C50ED);
+  Color whiteColor3 = (Colors.white);
+  Color blueColor3 = const Color(0xff2C50ED);
+  Color whiteColor4 = (Colors.white);
+  Color blueColor4 = const Color(0xff2C50ED);
+  bool isObsecure = true;
 
   List<Color> itemColors =
       List.generate(userDetails.length, (index) => Colors.white);
@@ -31,6 +38,42 @@ class _UserWidgetState extends State<UserWidget> {
   int? lastSelectedIndex;
   bool isTap = false;
   bool isTap2 = false;
+  bool isSwitched = false;
+  var textValue = '';
+  bool isSwitched2 = false;
+
+  void toggleSwitch(bool value) {
+    if (isSwitched == false) {
+      setState(() {
+        isSwitched = true;
+        textValue = 'Active';
+      });
+      print('Switch Button is ON');
+    } else {
+      setState(() {
+        isSwitched = false;
+        textValue = 'Ban';
+      });
+      print('Switch Button is OFF');
+    }
+  }
+
+  void toggleSwitch2(bool value) {
+    if (isSwitched2 == false) {
+      setState(() {
+        isSwitched2 = true;
+        textValue = 'Active';
+      });
+      print('Switch Button is ON');
+    } else {
+      setState(() {
+        isSwitched2 = false;
+        textValue = 'Ban';
+      });
+      print('Switch Button is OFF');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -67,9 +110,9 @@ class _UserWidgetState extends State<UserWidget> {
                                         blueColor = Colors.white;
                                         whiteColor = Color(0xff2C50ED);
                                       });
-            
+
                                 showDialog(
-                                  
+                                  barrierDismissible: false,
                                   context: context,
                                   builder: (context) => AlertDialog(
                                     scrollable: true,
@@ -80,11 +123,50 @@ class _UserWidgetState extends State<UserWidget> {
                                         width: 400,
                                         color: ColorConstant.whiteColor,
                                         child: Padding(
-                                          padding: const EdgeInsets.all(10.0),
+                                          padding: const EdgeInsets.all(0.0),
                                           child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
-                                              
+                                              Padding(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                        horizontal: 0),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.end,
+                                                  children: [
+                                                    IconButton(
+                                                        onPressed: () {
+                                                          tap1
+                                                              ? setState(() {
+                                                                  tap1 = !tap1;
+                                                                  whiteColor =
+                                                                      Colors
+                                                                          .white;
+                                                                  blueColor = Color(
+                                                                      0xff2C50ED);
+                                                                })
+                                                              : setState(() {
+                                                                  tap1 = !tap1;
+                                                                  blueColor =
+                                                                      Colors
+                                                                          .white;
+                                                                  whiteColor =
+                                                                      Color(
+                                                                          0xff2C50ED);
+                                                                });
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                        icon: Icon(
+                                                          Icons.close,
+                                                          color: ColorConstant
+                                                              .blueColor,
+                                                        ))
+                                                  ],
+                                                ),
+                                              ),
                                               Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.center,
@@ -94,61 +176,33 @@ class _UserWidgetState extends State<UserWidget> {
                                                     width: 280,
                                                     child: Stack(
                                                       children: [
-                                                        GestureDetector(
-                                                          child: Container(
-                                                            alignment:
-                                                                Alignment
-                                                                    .center,
-                                                            width: 138,
-                                                            height: 32,
-                                                            decoration: BoxDecoration(
-                                                                color: ColorConstant
-                                                                    .whiteColor,
-                                                                border: Border.all(
-                                                                    color: ColorConstant
-                                                                        .blueColor),
-                                                                borderRadius:
-                                                                    BorderRadius
-                                                                        .circular(
-                                                                            24)),
-                                                            child: Text(
-                                                              'information',
-                                                              style: TextStyle(
-                                                                  color: ColorConstant
-                                                                      .blueColor,
-                                                                  letterSpacing:
-                                                                      0.5,
-                                                                  fontSize:
-                                                                      11,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w700),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Positioned(
-                                                          left: 120,
-                                                          child:
+                                                        StatefulBuilder(
+                                                          builder: (context,
+                                                                  setState) =>
                                                               GestureDetector(
                                                             onTap: () {
-                                                              tap2
+                                                              tap3
                                                                   ? setState(
                                                                       () {
-                                                                      tap2 =
-                                                                          !tap2;
-                                                                      whiteColor2 =
-                                                                          Colors.white;
-                                                                      blueColor2 =
-                                                                          Color(0xff2C50ED);
+                                                                      tap3 =
+                                                                          !tap3;
+                                                                      whiteColor3 =
+                                                                          Colors
+                                                                              .white;
+                                                                      blueColor3 =
+                                                                          Color(
+                                                                              0xff2C50ED);
                                                                     })
                                                                   : setState(
                                                                       () {
-                                                                      tap2 =
-                                                                          !tap2;
-                                                                      blueColor2 =
-                                                                          Colors.white;
-                                                                      whiteColor2 =
-                                                                          Color(0xff2C50ED);
+                                                                      tap3 =
+                                                                          !tap3;
+                                                                      blueColor3 =
+                                                                          Colors
+                                                                              .white;
+                                                                      whiteColor3 =
+                                                                          Color(
+                                                                              0xff2C50ED);
                                                                     });
                                                             },
                                                             child: Container(
@@ -158,19 +212,21 @@ class _UserWidgetState extends State<UserWidget> {
                                                               width: 138,
                                                               height: 32,
                                                               decoration: BoxDecoration(
-                                                                  color: ColorConstant
-                                                                      .whiteColor,
-                                                                  border: Border.all(
-                                                                      color: ColorConstant
-                                                                          .blueColor),
+                                                                  color:
+                                                                      whiteColor3,
+                                                                  border: Border
+                                                                      .all(
+                                                                          color:
+                                                                              blueColor3),
                                                                   borderRadius:
-                                                                      BorderRadius.circular(
-                                                                          24)),
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              24)),
                                                               child: Text(
-                                                                'Security',
+                                                                'information   ',
                                                                 style: TextStyle(
-                                                                    color: ColorConstant
-                                                                        .blueColor,
+                                                                    color:
+                                                                        blueColor3,
                                                                     letterSpacing:
                                                                         0.5,
                                                                     fontSize:
@@ -182,6 +238,67 @@ class _UserWidgetState extends State<UserWidget> {
                                                             ),
                                                           ),
                                                         ),
+                                                        Positioned(
+                                                            left: 100,
+                                                            child:
+                                                                StatefulBuilder(
+                                                              builder: (context,
+                                                                      setState) =>
+                                                                  GestureDetector(
+                                                                onTap: () {
+                                                                  tap4
+                                                                      ? setState(
+                                                                          () {
+                                                                          tap4 =
+                                                                              !tap4;
+                                                                          whiteColor4 =
+                                                                              Colors.white;
+                                                                          blueColor4 =
+                                                                              Color(0xff2C50ED);
+                                                                        })
+                                                                      : setState(
+                                                                          () {
+                                                                          tap4 =
+                                                                              !tap4;
+                                                                          blueColor4 =
+                                                                              Colors.white;
+                                                                          whiteColor4 =
+                                                                              Color(0xff2C50ED);
+                                                                        });
+                                                                  this.setState(
+                                                                      () {});
+                                                                },
+                                                                child:
+                                                                    Container(
+                                                                  alignment:
+                                                                      Alignment
+                                                                          .center,
+                                                                  width: 138,
+                                                                  height: 32,
+                                                                  decoration: BoxDecoration(
+                                                                      color:
+                                                                          whiteColor4,
+                                                                      border: Border.all(
+                                                                          color:
+                                                                              blueColor4),
+                                                                      borderRadius:
+                                                                          BorderRadius.circular(
+                                                                              24)),
+                                                                  child: Text(
+                                                                    'Security',
+                                                                    style: TextStyle(
+                                                                        color:
+                                                                            blueColor4,
+                                                                        letterSpacing:
+                                                                            0.5,
+                                                                        fontSize:
+                                                                            11,
+                                                                        fontWeight:
+                                                                            FontWeight.w700),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            )),
                                                       ],
                                                     ),
                                                   ),
@@ -190,41 +307,65 @@ class _UserWidgetState extends State<UserWidget> {
                                               const SizedBox(
                                                 height: 15,
                                               ),
-                                              TextFieldHeadnig(headingText: 'Login info'),const SizedBox(
+                                              const Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 20),
+                                                child: AdminFieldHeading(
+                                                    headingText: 'Login info'),
+                                              ),
+                                              const SizedBox(
                                                 height: 5,
                                               ),
-                                              TextFieldWidget(
-                                                  labelText: ''),
+                                              TextFieldWidget21(
+                                                labelText: '',
+                                              ),
                                               const SizedBox(
                                                 height: 15,
                                               ),
-                                              TextFieldHeadnig(headingText: 'Password'),const SizedBox(
+                                              const Padding(
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 20),
+                                                child: AdminFieldHeading(
+                                                    headingText: 'Password'),
+                                              ),
+                                              const SizedBox(
                                                 height: 5,
                                               ),
-                                              TextFieldWidget(
-                                                  labelText: ''),
+                                              TextFieldWidget21(
+                                                labelText: '',
+                                              ),
                                               const SizedBox(
                                                 height: 15,
                                               ),
-                                              
                                               Padding(
-                                                padding: const EdgeInsets.all(15.0),
+                                                padding:
+                                                    const EdgeInsets.all(15.0),
                                                 child: Container(
                                                   height: 50,
-                                                  color: ColorConstant.blueColor,
-                                                  width: MediaQuery.of(context).size.width,
-                                                  child: Center(child: Text("Generate Pasword",style: TextStyle(
-                                                    color: ColorConstant.whiteColor,
-                                                    fontSize: 20,
-                                                  ),),),
+                                                  color:
+                                                      ColorConstant.blueColor,
+                                                  width: MediaQuery.of(context)
+                                                      .size
+                                                      .width,
+                                                  child: Center(
+                                                    child: Text(
+                                                      "Generate Pasword",
+                                                      style: TextStyle(
+                                                        color: ColorConstant
+                                                            .whiteColor,
+                                                        fontSize: 20,
+                                                      ),
+                                                    ),
+                                                  ),
                                                 ),
                                               ),
                                               const SizedBox(
                                                 height: 10,
                                               ),
-                                              TextFieldWidget(
-                                                  labelText: ''),
-                                                  const SizedBox(
+                                              TextFieldWidget21(
+                                                labelText: '',
+                                              ),
+                                              const SizedBox(
                                                 height: 24,
                                               ),
                                             ],
@@ -234,7 +375,6 @@ class _UserWidgetState extends State<UserWidget> {
                                     ],
                                   ),
                                 );
-                             
                               },
                               child: Container(
                                 alignment: Alignment.center,
@@ -243,10 +383,9 @@ class _UserWidgetState extends State<UserWidget> {
                                 decoration: BoxDecoration(
                                     color: whiteColor,
                                     border: Border.all(color: blueColor),
-                                    borderRadius:
-                                        BorderRadius.circular(24)),
+                                    borderRadius: BorderRadius.circular(24)),
                                 child: Text(
-                                  'Generate Password',
+                                  'Generate Password      ',
                                   style: TextStyle(
                                       color: blueColor,
                                       // letterSpacing: 0.5,
@@ -256,7 +395,7 @@ class _UserWidgetState extends State<UserWidget> {
                               ),
                             ),
                             Positioned(
-                              left: 120,
+                              left: 110,
                               child: GestureDetector(
                                 onTap: () {
                                   tap2
@@ -270,110 +409,199 @@ class _UserWidgetState extends State<UserWidget> {
                                           blueColor2 = Colors.white;
                                           whiteColor2 = Color(0xff2C50ED);
                                         });
-                                        
-                                showDialog(
-                                  
-                                  context: context,
-                                  builder: (context) => AlertDialog(
-                                    scrollable: true,
-                                    backgroundColor: Colors.transparent,
-                                    elevation: 0,
-                                    actions: [
-                                      Container(
-                                        width: 400,
-                                        color: ColorConstant.whiteColor,
-                                        child: Padding(
-                                          padding: const EdgeInsets.all(10.0),
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              
-                                              Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  SizedBox(
-                                                    height: 40,
-                                                    width: 140,
-                                                    child: GestureDetector(
-                                                        onTap: () {
-                                                    
-                                                        },
-                                                        child: Container(
-                                                    alignment:
-                                                        Alignment
-                                                            .center,
-                                                    width: 138,
-                                                    height: 32,
-                                                    decoration: BoxDecoration(
-                                                        color: ColorConstant
-                                                            .whiteColor,
-                                                        border: Border.all(
+
+                                  showDialog(
+                                    barrierDismissible: false,
+                                    context: context,
+                                    builder: (context) => AlertDialog(
+                                      scrollable: true,
+                                      backgroundColor: Colors.transparent,
+                                      elevation: 0,
+                                      actions: [
+                                        Container(
+                                          width: 400,
+                                          color: ColorConstant.whiteColor,
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(0.0),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(horizontal: 0),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment.end,
+                                                    children: [
+                                                      IconButton(
+                                                          onPressed: () {
+                                                            tap2
+                                                                ? setState(() {
+                                                                    tap2 =
+                                                                        !tap2;
+                                                                    whiteColor2 =
+                                                                        Colors
+                                                                            .white;
+                                                                    blueColor2 =
+                                                                        Color(
+                                                                            0xff2C50ED);
+                                                                  })
+                                                                : setState(() {
+                                                                    tap2 =
+                                                                        !tap2;
+                                                                    blueColor2 =
+                                                                        Colors
+                                                                            .white;
+                                                                    whiteColor2 =
+                                                                        Color(
+                                                                            0xff2C50ED);
+                                                                  });
+                                                            Navigator.pop(
+                                                                context);
+                                                          },
+                                                          icon: Icon(
+                                                            Icons.close,
                                                             color: ColorConstant
-                                                                .blueColor),
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                                24)),
-                                                    child: Text(
-                                                      'Security',
-                                                      style: TextStyle(
+                                                                .blueColor,
+                                                          ))
+                                                    ],
+                                                  ),
+                                                ),
+                                                Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    SizedBox(
+                                                        height: 40,
+                                                        width: 140,
+                                                        child: StatefulBuilder(
+                                                          builder: (context,
+                                                                  setState) =>
+                                                              GestureDetector(
+                                                            onTap: () {
+                                                              tap3
+                                                                  ? setState(
+                                                                      () {
+                                                                      tap3 =
+                                                                          !tap3;
+                                                                      whiteColor3 =
+                                                                          Colors
+                                                                              .white;
+                                                                      blueColor3 =
+                                                                          Color(
+                                                                              0xff2C50ED);
+                                                                    })
+                                                                  : setState(
+                                                                      () {
+                                                                      tap3 =
+                                                                          !tap3;
+                                                                      blueColor3 =
+                                                                          Colors
+                                                                              .white;
+                                                                      whiteColor3 =
+                                                                          Color(
+                                                                              0xff2C50ED);
+                                                                    });
+                                                            },
+                                                            child: Container(
+                                                              alignment:
+                                                                  Alignment
+                                                                      .center,
+                                                              width: 138,
+                                                              height: 32,
+                                                              decoration: BoxDecoration(
+                                                                  color:
+                                                                      whiteColor3,
+                                                                  border: Border
+                                                                      .all(
+                                                                          color:
+                                                                              blueColor3),
+                                                                  borderRadius:
+                                                                      BorderRadius
+                                                                          .circular(
+                                                                              24)),
+                                                              child: Text(
+                                                                'Security',
+                                                                style: TextStyle(
+                                                                    color:
+                                                                        blueColor3,
+                                                                    letterSpacing:
+                                                                        0.5,
+                                                                    fontSize:
+                                                                        11,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w700),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        )),
+                                                  ],
+                                                ),
+                                                const SizedBox(
+                                                  height: 15,
+                                                ),
+                                                const Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 20),
+                                                  child: AdminFieldHeading(
+                                                      headingText: 'ID'),
+                                                ),
+                                                const SizedBox(
+                                                  height: 5,
+                                                ),
+                                                TextFieldWidget21(
+                                                    labelText: ''),
+                                                const SizedBox(
+                                                  height: 15,
+                                                ),
+                                                const Padding(
+                                                  padding: EdgeInsets.symmetric(
+                                                      horizontal: 20),
+                                                  child: AdminFieldHeading(
+                                                      headingText: 'Password'),
+                                                ),
+                                                const SizedBox(
+                                                  height: 5,
+                                                ),
+                                                TextFieldWidget21(
+                                                    labelText: ''),
+                                                const SizedBox(
+                                                  height: 15,
+                                                ),
+                                                Padding(
+                                                  padding: const EdgeInsets.all(
+                                                      15.0),
+                                                  child: Container(
+                                                    height: 50,
+                                                    color:
+                                                        ColorConstant.blueColor,
+                                                    width:
+                                                        MediaQuery.of(context)
+                                                            .size
+                                                            .width,
+                                                    child: Center(
+                                                      child: Text(
+                                                        "Check Pasword",
+                                                        style: TextStyle(
                                                           color: ColorConstant
-                                                              .blueColor,
-                                                          letterSpacing:
-                                                              0.5,
-                                                          fontSize:
-                                                              11,
-                                                          fontWeight:
-                                                              FontWeight
-                                                                  .w700),
-                                                    ),
+                                                              .whiteColor,
+                                                          fontSize: 20,
                                                         ),
                                                       ),
+                                                    ),
                                                   ),
-                                                ],
-                                              ),
-                                              const SizedBox(
-                                                height: 15,
-                                              ),
-                                              TextFieldHeadnig(headingText: 'ID'),const SizedBox(
-                                                height: 5,
-                                              ),
-                                              TextFieldWidget(
-                                                  labelText: ''),
-                                              const SizedBox(
-                                                height: 15,
-                                              ),
-                                              TextFieldHeadnig(headingText: 'Password'),const SizedBox(
-                                                height: 5,
-                                              ),
-                                              TextFieldWidget(
-                                                  labelText: ''),
-                                              const SizedBox(
-                                                height: 15,
-                                              ),
-                                              
-                                              Padding(
-                                                padding: const EdgeInsets.all(15.0),
-                                                child: Container(
-                                                  height: 50,
-                                                  color: ColorConstant.blueColor,
-                                                  width: MediaQuery.of(context).size.width,
-                                                  child: Center(child: Text("Check Pasword",style: TextStyle(
-                                                    color: ColorConstant.whiteColor,
-                                                    fontSize: 20,
-                                                  ),),),
                                                 ),
-                                              ),
-                                             
-                                            ],
+                                              ],
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  ),
-                                );
-                             
+                                      ],
+                                    ),
+                                  );
                                 },
                                 child: Container(
                                   alignment: Alignment.center,
@@ -382,8 +610,7 @@ class _UserWidgetState extends State<UserWidget> {
                                   decoration: BoxDecoration(
                                       color: whiteColor2,
                                       border: Border.all(color: blueColor2),
-                                      borderRadius:
-                                          BorderRadius.circular(24)),
+                                      borderRadius: BorderRadius.circular(24)),
                                   child: Text(
                                     'Room Password',
                                     style: TextStyle(
@@ -439,8 +666,9 @@ class _UserWidgetState extends State<UserWidget> {
                   // User Active Deactive Details Buttons
                   Container(
                     height: 58,
-                    width: MediaQuery.of(context).size.width * 0.76,
+                    width: MediaQuery.of(context).size.width * 0.70,
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Expanded(
                           child: ListView.builder(
@@ -448,8 +676,8 @@ class _UserWidgetState extends State<UserWidget> {
                             itemCount: userDetails.length,
                             itemBuilder: (context, index) {
                               return Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    vertical: 10),
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 10),
                                 child: GestureDetector(
                                     onTap: () {
                                       setState(() {
@@ -457,18 +685,17 @@ class _UserWidgetState extends State<UserWidget> {
                                             ColorConstant.blueColor;
                                         contentColors[index] =
                                             ColorConstant.whiteColor;
-            
+
                                         if (lastSelectedIndex != null &&
                                             lastSelectedIndex != index) {
                                           itemColors[lastSelectedIndex!] =
                                               ColorConstant.whiteColor;
-                                          contentColors[
-                                                  lastSelectedIndex!] =
+                                          contentColors[lastSelectedIndex!] =
                                               ColorConstant.blueColor;
                                         }
                                         lastSelectedIndex = index;
                                       });
-            
+
                                       print(userDetails[index]);
                                     },
                                     child: Container(
@@ -476,8 +703,7 @@ class _UserWidgetState extends State<UserWidget> {
                                       height: 40,
                                       width: 80,
                                       decoration: BoxDecoration(
-                                        borderRadius:
-                                            BorderRadius.circular(8),
+                                        borderRadius: BorderRadius.circular(8),
                                         color: itemColors[index],
                                       ),
                                       child: Text(
@@ -524,25 +750,21 @@ class _UserWidgetState extends State<UserWidget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 10),
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
                               child: Icon(
                                 Icons.delete,
                                 color: ColorConstant.blueColor,
                               ),
                             ),
                             DataHeadingWidget(
-                                height: 24.0,
-                                width: 18.0,
-                                headingText: 'SL'),
+                                height: 24.0, width: 18.0, headingText: 'SL'),
                             DataHeadingWidget(
                                 height: 35.0,
                                 width: 52.0,
                                 headingText: 'Image'),
                             DataHeadingWidget(
-                                height: 24.0,
-                                width: 91.0,
-                                headingText: 'name'),
+                                height: 24.0, width: 91.0, headingText: 'name'),
                             DataHeadingWidget(
                                 height: 24.0,
                                 width: 100.0,
@@ -564,26 +786,23 @@ class _UserWidgetState extends State<UserWidget> {
                                 width: 120.0,
                                 headingText: 'Country'),
                             DataHeadingWidget(
-                                height: 24.0,
-                                width: 44.0,
-                                headingText: 'Info'),
+                                height: 24.0, width: 44.0, headingText: 'Info'),
                           ],
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-            
+
                         // first details user
                         Container(
                           height: 55,
                           color: ColorConstant.whiteColor,
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 5),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 5),
                                 child: Checkbox(
                                   value: isTap2,
                                   onChanged: (value) {
@@ -594,9 +813,7 @@ class _UserWidgetState extends State<UserWidget> {
                                 ),
                               ),
                               DataHeadingWidget(
-                                  height: 24.0,
-                                  width: 20.0,
-                                  headingText: '01'),
+                                  height: 24.0, width: 20.0, headingText: '01'),
                               DataDetailsWidget(
                                   height: 35.0,
                                   width: 35.0,
@@ -618,32 +835,31 @@ class _UserWidgetState extends State<UserWidget> {
                                   width: 216.0,
                                   headingText: 'kingofkingslove@gmail.com'),
                               // status
+
                               Container(
                                 height: 24,
-                                width: 80,
+                                width: 40,
                                 decoration: BoxDecoration(
                                     color: ColorConstant.arrowColor
                                         .withOpacity(0.70),
-                                    borderRadius:
-                                        BorderRadius.circular(20)),
-                                child: const Padding(
+                                    border: Border.all(
+                                        color: isSwitched
+                                            ? Colors.red
+                                            : Colors.blue),
+                                    borderRadius: BorderRadius.circular(24)),
+                                child: Padding(
                                   padding:
-                                      EdgeInsets.symmetric(horizontal: 4),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Icon(
-                                        Icons.circle_sharp,
-                                        color: Colors.green,
-                                      ),
-                                      Text(
-                                        'Active',
-                                        style:
-                                            TextStyle(color: Colors.green),
-                                      )
-                                    ],
-                                  ),
+                                      const EdgeInsets.symmetric(horizontal: 4),
+                                  child: Transform.scale(
+                                      scale: 1,
+                                      child: Switch(
+                                        onChanged: toggleSwitch,
+                                        value: isSwitched,
+                                        activeColor: Colors.red.shade800,
+                                        activeTrackColor: Colors.white,
+                                        inactiveThumbColor: Colors.blue,
+                                        inactiveTrackColor: Colors.white,
+                                      )),
                                 ),
                               ),
                               Container(
@@ -653,8 +869,7 @@ class _UserWidgetState extends State<UserWidget> {
                                   children: [
                                     Row(
                                       children: [
-                                        Image.asset(
-                                            'assets/icons/flag.png'),
+                                        Image.asset('assets/icons/flag.png'),
                                         const SizedBox(width: 6),
                                         Text(
                                           'Bangladesh',
@@ -667,21 +882,157 @@ class _UserWidgetState extends State<UserWidget> {
                                   ],
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: ColorConstant.arrowColor),
-                                  borderRadius: BorderRadius.circular(4),
-                                  color: ColorConstant.whiteColor,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 4),
-                                  child: (Text(
-                                    'Details',
-                                    style: TextStyle(
+                              GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          backgroundColor: Colors.transparent,
+                                          elevation: 0,
+                                          content: Container(
+                                              height: 420,
+                                              width: 410,
+                                              decoration: BoxDecoration(
+                                                  color:
+                                                      ColorConstant.whiteColor,
+                                                  border: Border.all(
+                                                      width: 2,
+                                                      color: ColorConstant
+                                                          .blueColor)),
+                                              child: Column(
+                                                children: [
+                                                  Container(
+                                                    height: 26,
+                                                    width: 410,
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        IconButton(
+                                                            onPressed: () {
+                                                              Navigator.pop(
+                                                                  context);
+                                                            },
+                                                            icon: Icon(
+                                                              Icons.close,
+                                                              color:
+                                                                  ColorConstant
+                                                                      .blueColor,
+                                                            ))
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Container(
+                                                        alignment:
+                                                            Alignment.center,
+                                                        height: 30,
+                                                        width: 135,
+                                                        decoration: BoxDecoration(
+                                                            color: ColorConstant
+                                                                .blueColor,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        24)),
+                                                        child: Text(
+                                                          'Details',
+                                                          style: GoogleFonts.dmSans(
+                                                              fontSize: 13,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                              color: ColorConstant
+                                                                  .whiteColor),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                        .symmetric(
+                                                      horizontal: 50,
+                                                    ).copyWith(top: 30),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Container(
+                                                          width: 140,
+                                                          height: 18,
+                                                          child: Text(
+                                                            'Register Date/ Time',
+                                                            style: GoogleFonts.dmSans(
+                                                                fontSize: 13,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.60)),
+                                                          ),
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 10,
+                                                        ),
+                                                        Container(
+                                                          width: 140,
+                                                          height: 18,
+                                                          child: Text(
+                                                            '14 Feb 2023 11:45 PM',
+                                                            style: GoogleFonts.dmSans(
+                                                                fontSize: 13,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.60)),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      Image.asset(
+                                                        'assets/images/details.png',
+                                                        fit: BoxFit.cover,
+                                                      )
+                                                    ],
+                                                  ),
+                                                ],
+                                              )),
+                                        );
+                                      });
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
                                         color: ColorConstant.arrowColor),
-                                  )),
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: ColorConstant.whiteColor,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 4),
+                                    child: (Text(
+                                      'Details',
+                                      style: TextStyle(
+                                          color: ColorConstant.arrowColor),
+                                    )),
+                                  ),
                                 ),
                               )
                             ],
@@ -692,12 +1043,11 @@ class _UserWidgetState extends State<UserWidget> {
                           height: 55,
                           // color: ColorConstant.searchColor,
                           child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 5),
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 5),
                                 child: Checkbox(
                                   value: isTap,
                                   onChanged: (value) {
@@ -708,9 +1058,7 @@ class _UserWidgetState extends State<UserWidget> {
                                 ),
                               ),
                               DataHeadingWidget(
-                                  height: 24.0,
-                                  width: 20.0,
-                                  headingText: '02'),
+                                  height: 24.0, width: 20.0, headingText: '02'),
                               DataDetailsWidget(
                                   height: 42.0,
                                   width: 35.0,
@@ -726,29 +1074,28 @@ class _UserWidgetState extends State<UserWidget> {
                               // status
                               Container(
                                 height: 24,
-                                width: 80,
+                                width: 40,
                                 decoration: BoxDecoration(
                                     color: ColorConstant.arrowColor
                                         .withOpacity(0.70),
-                                    borderRadius:
-                                        BorderRadius.circular(20)),
-                                child: const Padding(
+                                    border: Border.all(
+                                        color: isSwitched2
+                                            ? Colors.red
+                                            : Colors.blue),
+                                    borderRadius: BorderRadius.circular(24)),
+                                child: Padding(
                                   padding:
-                                      EdgeInsets.symmetric(horizontal: 4),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    children: [
-                                      Icon(
-                                        Icons.circle_sharp,
-                                        color: Colors.red,
-                                      ),
-                                      Text(
-                                        'Ban',
-                                        style: TextStyle(color: Colors.red),
-                                      )
-                                    ],
-                                  ),
+                                      const EdgeInsets.symmetric(horizontal: 4),
+                                  child: Transform.scale(
+                                      scale: 1,
+                                      child: Switch(
+                                        onChanged: toggleSwitch2,
+                                        value: isSwitched2,
+                                        activeColor: Colors.red.shade800,
+                                        activeTrackColor: Colors.white,
+                                        inactiveThumbColor: Colors.blue,
+                                        inactiveTrackColor: Colors.white,
+                                      )),
                                 ),
                               ),
                               Container(
@@ -758,8 +1105,7 @@ class _UserWidgetState extends State<UserWidget> {
                                   children: [
                                     Row(
                                       children: [
-                                        Image.asset(
-                                            'assets/icons/flag.png'),
+                                        Image.asset('assets/icons/flag.png'),
                                         const SizedBox(width: 6),
                                         Text(
                                           'Bangladesh',
@@ -772,21 +1118,157 @@ class _UserWidgetState extends State<UserWidget> {
                                   ],
                                 ),
                               ),
-                              Container(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      color: ColorConstant.arrowColor),
-                                  borderRadius: BorderRadius.circular(4),
-                                  color: ColorConstant.whiteColor,
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 4),
-                                  child: (Text(
-                                    'Details',
-                                    style: TextStyle(
+                              GestureDetector(
+                                onTap: () {
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) {
+                                        return AlertDialog(
+                                          backgroundColor: Colors.transparent,
+                                          elevation: 0,
+                                          content: Container(
+                                              height: 420,
+                                              width: 410,
+                                              decoration: BoxDecoration(
+                                                  color:
+                                                      ColorConstant.whiteColor,
+                                                  border: Border.all(
+                                                      width: 2,
+                                                      color: ColorConstant
+                                                          .blueColor)),
+                                              child: Column(
+                                                children: [
+                                                  Container(
+                                                    height: 26,
+                                                    width: 410,
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment.end,
+                                                      children: [
+                                                        IconButton(
+                                                            onPressed: () {
+                                                              Navigator.pop(
+                                                                  context);
+                                                            },
+                                                            icon: Icon(
+                                                              Icons.close,
+                                                              color:
+                                                                  ColorConstant
+                                                                      .blueColor,
+                                                            ))
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Container(
+                                                        alignment:
+                                                            Alignment.center,
+                                                        height: 30,
+                                                        width: 135,
+                                                        decoration: BoxDecoration(
+                                                            color: ColorConstant
+                                                                .blueColor,
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        24)),
+                                                        child: Text(
+                                                          'Details',
+                                                          style: GoogleFonts.dmSans(
+                                                              fontSize: 13,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700,
+                                                              color: ColorConstant
+                                                                  .whiteColor),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                        .symmetric(
+                                                      horizontal: 50,
+                                                    ).copyWith(top: 30),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .center,
+                                                      children: [
+                                                        Container(
+                                                          width: 140,
+                                                          height: 18,
+                                                          child: Text(
+                                                            'Register Date/ Time',
+                                                            style: GoogleFonts.dmSans(
+                                                                fontSize: 13,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.60)),
+                                                          ),
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 10,
+                                                        ),
+                                                        Container(
+                                                          width: 140,
+                                                          height: 18,
+                                                          child: Text(
+                                                            '14 Feb 2023 11:45 PM',
+                                                            style: GoogleFonts.dmSans(
+                                                                fontSize: 13,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w700,
+                                                                color: Colors
+                                                                    .black
+                                                                    .withOpacity(
+                                                                        0.60)),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceAround,
+                                                    children: [
+                                                      Image.asset(
+                                                        'assets/images/details.png',
+                                                        fit: BoxFit.cover,
+                                                      )
+                                                    ],
+                                                  ),
+                                                ],
+                                              )),
+                                        );
+                                      });
+                                },
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
                                         color: ColorConstant.arrowColor),
-                                  )),
+                                    borderRadius: BorderRadius.circular(4),
+                                    color: ColorConstant.whiteColor,
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 4),
+                                    child: (Text(
+                                      'Details',
+                                      style: TextStyle(
+                                          color: ColorConstant.arrowColor),
+                                    )),
+                                  ),
                                 ),
                               )
                             ],

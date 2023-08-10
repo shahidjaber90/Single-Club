@@ -24,7 +24,7 @@ class DataHeadingWidget extends StatelessWidget {
           Text(
             headingText!,
             style:
-                GoogleFonts.poppins(fontSize: 15, fontWeight: FontWeight.w400),
+                GoogleFonts.poppins(fontSize: 14, fontWeight: FontWeight.w400),
           ),
         ],
       ),

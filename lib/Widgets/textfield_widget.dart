@@ -21,8 +21,54 @@ class TextFieldWidget extends StatelessWidget {
         decoration: InputDecoration(
           border: OutlineInputBorder(
               borderSide: BorderSide(color: ColorConstant.blueColor)),
-          contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           hintText: labelText,
+          hintStyle: GoogleFonts.poppins(
+              fontSize: 16, color: ColorConstant.arrowColor),
+        ),
+      ),
+      // ),
+    );
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////
+
+class TextFieldWidget21 extends StatefulWidget {
+  TextFieldWidget21({
+    super.key,
+    required this.labelText,
+  });
+  String? labelText;
+
+  @override
+  State<TextFieldWidget21> createState() => _TextFieldWidget21State();
+}
+
+class _TextFieldWidget21State extends State<TextFieldWidget21> {
+  bool isObsecure = true;
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      child: TextFormField(
+        obscureText: isObsecure,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+              borderSide: BorderSide(color: ColorConstant.blueColor)),
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+          hintText: widget.labelText,
+          suffixIcon: IconButton(
+              onPressed: () {
+                setState(() {
+                  isObsecure = !isObsecure;
+                });
+              },
+              icon: isObsecure
+                  ? Icon(Icons.visibility_off, color: ColorConstant.arrowColor)
+                  : Icon(Icons.visibility, color: ColorConstant.arrowColor)),
           hintStyle: GoogleFonts.poppins(
               fontSize: 16, color: ColorConstant.arrowColor),
         ),

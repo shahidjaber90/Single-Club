@@ -17,10 +17,16 @@ class GiftPage extends StatefulWidget {
 class _GiftPageState extends State<GiftPage> {
   bool tap1 = false;
   bool tap2 = false;
+  bool tap3 = false;
+  bool tap4 = false;
   Color whiteColor = (Colors.white);
   Color blueColor = const Color(0xff2C50ED);
   Color whiteColor2 = (Colors.white);
   Color blueColor2 = const Color(0xff2C50ED);
+  Color whiteColor3 = (Colors.white);
+  Color blueColor3 = const Color(0xff2C50ED);
+  Color whiteColor4 = (Colors.white);
+  Color blueColor4 = const Color(0xff2C50ED);
   final List text = [
     "SL",
     "Product",
@@ -115,16 +121,13 @@ class _GiftPageState extends State<GiftPage> {
                                     child: Column(
                                       children: [
                                         Container(
-                                          // height: 53,
-                                          // width: double.infinity,
                                           color: ColorConstant.blueColor,
                                           child: Row(
                                             mainAxisAlignment:
-                                                MainAxisAlignment.center,
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
                                               Text(
-                                                // textAlign: TextAlign.center,
-                                                "Send Gift",
+                                                "",
                                                 style: GoogleFonts.poppins(
                                                     color: ColorConstant
                                                         .whiteColor,
@@ -132,8 +135,14 @@ class _GiftPageState extends State<GiftPage> {
                                                     fontWeight:
                                                         FontWeight.w600),
                                               ),
-                                              const SizedBox(
-                                                width: 60,
+                                              Text(
+                                                "Send Gift",
+                                                style: GoogleFonts.poppins(
+                                                    color: ColorConstant
+                                                        .whiteColor,
+                                                    fontSize: 30,
+                                                    fontWeight:
+                                                        FontWeight.w600),
                                               ),
                                               IconButton(
                                                 onPressed: () {
@@ -172,56 +181,80 @@ class _GiftPageState extends State<GiftPage> {
                                               width: 280,
                                               child: Stack(
                                                 children: [
-                                                  GestureDetector(
-                                                    child: Container(
-                                                      alignment:
-                                                          Alignment.center,
-                                                      width: 138,
-                                                      height: 32,
-                                                      decoration: BoxDecoration(
-                                                          color: ColorConstant
-                                                              .whiteColor,
-                                                          border: Border.all(
-                                                              color: ColorConstant
-                                                                  .blueColor),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      24)),
-                                                      child: Text(
-                                                        'Add Gift',
-                                                        style: TextStyle(
-                                                            color: ColorConstant
-                                                                .blueColor,
-                                                            letterSpacing: 0.5,
-                                                            fontSize: 11,
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w700),
+                                                  StatefulBuilder(
+                                                    builder:
+                                                        (context, setState) =>
+                                                            GestureDetector(
+                                                      onTap: () {
+                                                        tap3
+                                                            ? setState(() {
+                                                                tap3 = !tap3;
+                                                                whiteColor3 =
+                                                                    Colors
+                                                                        .white;
+                                                                blueColor3 = Color(
+                                                                    0xff2C50ED);
+                                                              })
+                                                            : setState(() {
+                                                                tap3 = !tap3;
+                                                                blueColor3 =
+                                                                    Colors
+                                                                        .white;
+                                                                whiteColor3 = Color(
+                                                                    0xff2C50ED);
+                                                              });
+                                                        this.setState(() {});
+                                                      },
+                                                      child: Container(
+                                                        alignment:
+                                                            Alignment.center,
+                                                        width: 138,
+                                                        height: 32,
+                                                        decoration: BoxDecoration(
+                                                            color: whiteColor3,
+                                                            border: Border.all(
+                                                                color:
+                                                                    blueColor3),
+                                                            borderRadius:
+                                                                BorderRadius
+                                                                    .circular(
+                                                                        24)),
+                                                        child: Text(
+                                                          'Add Gift',
+                                                          style: TextStyle(
+                                                              color: blueColor3,
+                                                              letterSpacing:
+                                                                  0.5,
+                                                              fontSize: 11,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w700),
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
                                                   Positioned(
-                                                    left: 120,
+                                                    left: 100,
                                                     child: GestureDetector(
                                                       onTap: () {
-                                                        tap2
+                                                        tap4
                                                             ? setState(() {
-                                                                tap2 = !tap2;
-                                                                whiteColor2 =
+                                                                tap4 = !tap4;
+                                                                whiteColor4 =
                                                                     Colors
                                                                         .white;
-                                                                blueColor2 = Color(
+                                                                blueColor4 = Color(
                                                                     0xff2C50ED);
                                                               })
                                                             : setState(() {
-                                                                tap2 = !tap2;
-                                                                blueColor2 =
+                                                                tap4 = !tap4;
+                                                                blueColor4 =
                                                                     Colors
                                                                         .white;
-                                                                whiteColor2 = Color(
+                                                                whiteColor4 = Color(
                                                                     0xff2C50ED);
                                                               });
+                                                        this.setState(() {});
 
                                                         showDialog(
                                                           barrierDismissible:
@@ -248,36 +281,35 @@ class _GiftPageState extends State<GiftPage> {
                                                                             .start,
                                                                     children: [
                                                                       Container(
-                                                                        // height: 53,
-                                                                        // width: double.infinity,
                                                                         color: ColorConstant
                                                                             .blueColor,
                                                                         child:
                                                                             Row(
                                                                           mainAxisAlignment:
-                                                                              MainAxisAlignment.center,
+                                                                              MainAxisAlignment.spaceBetween,
                                                                           children: [
                                                                             Text(
-                                                                              // textAlign: TextAlign.center,
+                                                                              "",
+                                                                              style: GoogleFonts.poppins(color: ColorConstant.whiteColor, fontSize: 30, fontWeight: FontWeight.w600),
+                                                                            ),
+                                                                            Text(
                                                                               "lucky Gift",
                                                                               style: GoogleFonts.poppins(color: ColorConstant.whiteColor, fontSize: 30, fontWeight: FontWeight.w600),
                                                                             ),
-                                                                            const SizedBox(
-                                                                              width: 60,
-                                                                            ),
                                                                             IconButton(
                                                                               onPressed: () {
-                                                                                tap2
+                                                                                tap4
                                                                                     ? setState(() {
-                                                                                        tap2 = !tap2;
-                                                                                        whiteColor2 = Colors.white;
-                                                                                        blueColor2 = Color(0xff2C50ED);
+                                                                                        tap4 = !tap4;
+                                                                                        whiteColor4 = Colors.white;
+                                                                                        blueColor4 = Color(0xff2C50ED);
                                                                                       })
                                                                                     : setState(() {
-                                                                                        tap2 = !tap2;
-                                                                                        blueColor2 = Colors.white;
-                                                                                        whiteColor2 = Color(0xff2C50ED);
+                                                                                        tap4 = !tap4;
+                                                                                        blueColor4 = Colors.white;
+                                                                                        whiteColor4 = Color(0xff2C50ED);
                                                                                       });
+                                                                                this.setState(() {});
                                                                                 Navigator.pop(context);
                                                                               },
                                                                               icon: const Icon(Icons.close),
@@ -497,11 +529,10 @@ class _GiftPageState extends State<GiftPage> {
                                                         width: 138,
                                                         height: 32,
                                                         decoration: BoxDecoration(
-                                                            color: ColorConstant
-                                                                .whiteColor,
+                                                            color: whiteColor4,
                                                             border: Border.all(
-                                                                color: ColorConstant
-                                                                    .blueColor),
+                                                                color:
+                                                                    blueColor4),
                                                             borderRadius:
                                                                 BorderRadius
                                                                     .circular(
@@ -509,9 +540,7 @@ class _GiftPageState extends State<GiftPage> {
                                                         child: Text(
                                                           'Lucky Gift',
                                                           style: TextStyle(
-                                                              color:
-                                                                  ColorConstant
-                                                                      .blueColor,
+                                                              color: blueColor4,
                                                               letterSpacing:
                                                                   0.5,
                                                               fontSize: 11,
@@ -635,24 +664,40 @@ class _GiftPageState extends State<GiftPage> {
                           ),
                         ),
                         Positioned(
-                          left: 120,
-                          child: Container(
-                            alignment: Alignment.center,
-                            width: 138,
-                            height: 32,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                  color: ColorConstant.blueColor,
-                                ),
-                                color: ColorConstant.whiteColor,
-                                borderRadius: BorderRadius.circular(24)),
-                            child: Text(
-                              'Send Gift',
-                              style: TextStyle(
-                                  color: ColorConstant.blueColor,
-                                  letterSpacing: 0.5,
-                                  fontSize: 11,
-                                  fontWeight: FontWeight.w700),
+                          left: 100,
+                          child: GestureDetector(
+                            onTap: () {
+                              tap2
+                                  ? setState(() {
+                                      tap2 = !tap2;
+                                      whiteColor2 = Colors.white;
+                                      blueColor2 = Color(0xff2C50ED);
+                                    })
+                                  : setState(() {
+                                      tap2 = !tap2;
+                                      blueColor2 = Colors.white;
+                                      whiteColor2 = Color(0xff2C50ED);
+                                    });
+                              this.setState(() {});
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: 138,
+                              height: 32,
+                              decoration: BoxDecoration(
+                                  border: Border.all(
+                                    color: blueColor2,
+                                  ),
+                                  color: whiteColor2,
+                                  borderRadius: BorderRadius.circular(24)),
+                              child: Text(
+                                'Send Gift',
+                                style: TextStyle(
+                                    color: blueColor2,
+                                    letterSpacing: 0.5,
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w700),
+                              ),
                             ),
                           ),
                         ),

@@ -116,24 +116,19 @@ class _StorPageState extends State<StorPage> {
                                   Padding(
                                     padding: const EdgeInsets.all(20.0),
                                     child: Container(
-                                      // height:
-                                      // MediaQuery.of(context).size.height *
-                                      //     0.55, //
                                       width: 400,
                                       color: ColorConstant.whiteColor,
                                       child: Column(
                                         children: [
                                           Container(
-                                            // height: 53,
-                                            // width: double.infinity,
                                             color: ColorConstant.blueColor,
                                             child: Row(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.center,
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
                                               children: [
                                                 Text(
-                                                  // textAlign: TextAlign.center,
-                                                  "Send Gift",
+                                                  "",
                                                   style: GoogleFonts.poppins(
                                                       color: ColorConstant
                                                           .whiteColor,
@@ -141,8 +136,14 @@ class _StorPageState extends State<StorPage> {
                                                       fontWeight:
                                                           FontWeight.w600),
                                                 ),
-                                                const SizedBox(
-                                                  width: 60,
+                                                Text(
+                                                  "Send Gift",
+                                                  style: GoogleFonts.poppins(
+                                                      color: ColorConstant
+                                                          .whiteColor,
+                                                      fontSize: 30,
+                                                      fontWeight:
+                                                          FontWeight.w600),
                                                 ),
                                                 IconButton(
                                                   onPressed: () {
@@ -211,7 +212,7 @@ class _StorPageState extends State<StorPage> {
                           ),
                         ),
                         Positioned(
-                          left: 120,
+                          left: 100,
                           child: GestureDetector(
                             onTap: () {
                               tap2
@@ -244,16 +245,14 @@ class _StorPageState extends State<StorPage> {
                                           child: Column(
                                             children: [
                                               Container(
-                                                // height: 53,
-                                                // width: double.infinity,
                                                 color: ColorConstant.blueColor,
                                                 child: Row(
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment.center,
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      // textAlign: TextAlign.center,
-                                                      "Add Effect",
+                                                      "",
                                                       style: GoogleFonts.poppins(
                                                           color: ColorConstant
                                                               .whiteColor,
@@ -261,8 +260,14 @@ class _StorPageState extends State<StorPage> {
                                                           fontWeight:
                                                               FontWeight.w600),
                                                     ),
-                                                    const SizedBox(
-                                                      width: 60,
+                                                    Text(
+                                                      "Add Effect",
+                                                      style: GoogleFonts.poppins(
+                                                          color: ColorConstant
+                                                              .whiteColor,
+                                                          fontSize: 30,
+                                                          fontWeight:
+                                                              FontWeight.w600),
                                                     ),
                                                     IconButton(
                                                       onPressed: () {

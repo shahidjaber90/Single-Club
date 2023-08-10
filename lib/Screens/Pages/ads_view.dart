@@ -17,6 +17,13 @@ class AdsPage extends StatefulWidget {
 }
 
 class _AdsPageState extends State<AdsPage> {
+  bool tap3 = false;
+  bool tap4 = false;
+  Color whiteColor3 = (Colors.white);
+  Color blueColor3 = const Color(0xff2C50ED);
+  Color whiteColor4 = (Colors.white);
+  Color blueColor4 = const Color(0xff2C50ED);
+
   final List text = [
     "User Name",
     "ld Number",
@@ -117,15 +124,12 @@ class _AdsPageState extends State<AdsPage> {
                 actions: [
                   Container(
                     height: MediaQuery.of(context).size.height / 1.2,
-                    // width: MediaQuery.of(context).size.width *
-                    //     0.30,
                     color: ColorConstant.whiteColor,
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
                       child: Column(
                         children: [
                           Container(
-                            // height: 53,
                             width: double.infinity,
                             color: ColorConstant.blueColor,
                             child: Text(
@@ -153,50 +157,42 @@ class _AdsPageState extends State<AdsPage> {
                                       width: 280,
                                       child: Stack(
                                         children: [
-                                          GestureDetector(
-                                            child: Container(
-                                              alignment: Alignment.center,
-                                              width: 138,
-                                              height: 32,
-                                              decoration: BoxDecoration(
-                                                  color:
-                                                      ColorConstant.whiteColor,
-                                                  border: Border.all(
-                                                      color: ColorConstant
-                                                          .blueColor),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          24)),
-                                              child: Text(
-                                                'Profile',
-                                                style: TextStyle(
-                                                    color:
-                                                        ColorConstant.blueColor,
-                                                    letterSpacing: 0.5,
-                                                    fontSize: 11,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                              ),
-                                            ),
-                                          ),
-                                          Positioned(
-                                            left: 120,
-                                            child: GestureDetector(
+                                          StatefulBuilder(
+                                            builder: (context, setState) =>
+                                                GestureDetector(
+                                              onTap: () {
+                                                tap3
+                                                    ? setState(() {
+                                                        tap3 = !tap3;
+                                                        whiteColor3 =
+                                                            Colors.white;
+                                                        blueColor3 =
+                                                            Color(0xff2C50ED);
+                                                      })
+                                                    : setState(() {
+                                                        tap3 = !tap3;
+                                                        blueColor3 =
+                                                            Colors.white;
+                                                        whiteColor3 =
+                                                            Color(0xff2C50ED);
+                                                      });
+                                                this.setState(() {});
+                                              },
                                               child: Container(
                                                 alignment: Alignment.center,
                                                 width: 138,
                                                 height: 32,
                                                 decoration: BoxDecoration(
-                                                    color:
-                                                        ColorConstant.blueColor,
+                                                    color: whiteColor3,
+                                                    border: Border.all(
+                                                        color: blueColor3),
                                                     borderRadius:
                                                         BorderRadius.circular(
                                                             24)),
                                                 child: Text(
-                                                  'Post',
+                                                  'Profile',
                                                   style: TextStyle(
-                                                      color: ColorConstant
-                                                          .whiteColor,
+                                                      color: blueColor3,
                                                       letterSpacing: 0.5,
                                                       fontSize: 11,
                                                       fontWeight:
@@ -205,6 +201,52 @@ class _AdsPageState extends State<AdsPage> {
                                               ),
                                             ),
                                           ),
+                                          Positioned(
+                                              left: 100,
+                                              child: StatefulBuilder(
+                                                builder: (context, setState) =>
+                                                    GestureDetector(
+                                                  onTap: () {
+                                                    tap4
+                                                        ? setState(() {
+                                                            tap4 = !tap4;
+                                                            whiteColor4 =
+                                                                Colors.white;
+                                                            blueColor4 = Color(
+                                                                0xff2C50ED);
+                                                          })
+                                                        : setState(() {
+                                                            tap4 = !tap4;
+                                                            blueColor4 =
+                                                                Colors.white;
+                                                            whiteColor4 = Color(
+                                                                0xff2C50ED);
+                                                          });
+                                                    this.setState(() {});
+                                                  },
+                                                  child: Container(
+                                                    alignment: Alignment.center,
+                                                    width: 138,
+                                                    height: 32,
+                                                    decoration: BoxDecoration(
+                                                        color: whiteColor4,
+                                                        border: Border.all(
+                                                            color: blueColor4),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(24)),
+                                                    child: Text(
+                                                      'Post',
+                                                      style: TextStyle(
+                                                          color: blueColor4,
+                                                          letterSpacing: 0.5,
+                                                          fontSize: 11,
+                                                          fontWeight:
+                                                              FontWeight.w700),
+                                                    ),
+                                                  ),
+                                                ),
+                                              )),
                                         ],
                                       ),
                                     ),

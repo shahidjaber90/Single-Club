@@ -81,16 +81,14 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                           child: Column(
                                             children: [
                                               Container(
-                                                // height: 53,
-                                                // width: double.infinity,
                                                 color: ColorConstant.blueColor,
                                                 child: Row(
                                                   mainAxisAlignment:
-                                                      MainAxisAlignment.center,
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
-                                                      // textAlign: TextAlign.center,
-                                                      "Add Vip",
+                                                      "",
                                                       style: GoogleFonts.poppins(
                                                           color: ColorConstant
                                                               .whiteColor,
@@ -98,8 +96,14 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                                           fontWeight:
                                                               FontWeight.w600),
                                                     ),
-                                                    const SizedBox(
-                                                      width: 60,
+                                                    Text(
+                                                      "Add Vip",
+                                                      style: GoogleFonts.poppins(
+                                                          color: ColorConstant
+                                                              .whiteColor,
+                                                          fontSize: 30,
+                                                          fontWeight:
+                                                              FontWeight.w600),
                                                     ),
                                                     IconButton(
                                                       onPressed: () {
@@ -374,7 +378,7 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                 ),
                               ),
                               Positioned(
-                                left: 120,
+                                left: 100,
                                 child: GestureDetector(
                                   onTap: () {
                                     tap2
@@ -402,18 +406,15 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                             child: Column(
                                               children: [
                                                 Container(
-                                                  // height: 53,
-                                                  // width: double.infinity,
                                                   color:
                                                       ColorConstant.blueColor,
                                                   child: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
-                                                            .center,
+                                                            .spaceBetween,
                                                     children: [
                                                       Text(
-                                                        // textAlign: TextAlign.center,
-                                                        "Send Vip",
+                                                        "",
                                                         style: GoogleFonts.poppins(
                                                             color: ColorConstant
                                                                 .whiteColor,
@@ -422,8 +423,15 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                                                 FontWeight
                                                                     .w600),
                                                       ),
-                                                      const SizedBox(
-                                                        width: 60,
+                                                      Text(
+                                                        "Send Vip",
+                                                        style: GoogleFonts.poppins(
+                                                            color: ColorConstant
+                                                                .whiteColor,
+                                                            fontSize: 30,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600),
                                                       ),
                                                       IconButton(
                                                         onPressed: () {

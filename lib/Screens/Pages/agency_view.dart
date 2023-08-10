@@ -543,41 +543,45 @@ class _AgencyPageState extends State<AgencyPage> {
                                                         Container(
                                                           height: 40,
                                                           width: 400,
-                                                          child: Expanded(
-                                                            child: Row(
-                                                              children: [
-                                                                Expanded(
-                                                                  child: ListView
-                                                                      .builder(
-                                                                    scrollDirection:
-                                                                        Axis.horizontal,
-                                                                    itemCount:
-                                                                        dailyDetails
-                                                                            .length,
-                                                                    itemBuilder:
-                                                                        (context,
-                                                                            index) {
-                                                                      return Padding(
-                                                                        padding:
-                                                                            const EdgeInsets.symmetric(
-                                                                          vertical:
-                                                                              10,
-                                                                          // horizontal:
-                                                                        ),
-                                                                        child: GestureDetector(
+                                                          child: Row(
+                                                            children: [
+                                                              Expanded(
+                                                                child: ListView
+                                                                    .builder(
+                                                                  scrollDirection:
+                                                                      Axis.horizontal,
+                                                                  itemCount:
+                                                                      dailyDetails
+                                                                          .length,
+                                                                  itemBuilder:
+                                                                      (context,
+                                                                          index) {
+                                                                    return Padding(
+                                                                      padding:
+                                                                          const EdgeInsets
+                                                                              .symmetric(
+                                                                        vertical:
+                                                                            10,
+                                                                        // horizontal:
+                                                                      ),
+                                                                      child:
+                                                                          StatefulBuilder(
+                                                                        builder: (context, setState) => GestureDetector(
                                                                             onTap: () {
                                                                               setState(() {
                                                                                 itemColors[index] = ColorConstant.blueColor;
                                                                                 contentColors[index] = ColorConstant.whiteColor;
 
-                                                                                if (lastIndex != null && lastIndex != index) {
+                                                                                lastIndex = index;
+                                                                                if (lastIndex != null  && lastIndex != index) {
                                                                                   itemColors[lastIndex!] = ColorConstant.whiteColor;
                                                                                   contentColors[lastIndex!] = Colors.black;
                                                                                 }
-                                                                                lastIndex = index;
                                                                               });
+                                                                              this.setState(() {});
 
-                                                                              print(dailyDetails[index]);
+                                                                              print('daily Details:: ${dailyDetails[index]}');
+                                                                              print('last Index:: $lastIndex');
                                                                             },
                                                                             child: Container(
                                                                               alignment: Alignment.center,
@@ -592,12 +596,12 @@ class _AgencyPageState extends State<AgencyPage> {
                                                                                 style: GoogleFonts.poppins(color: contentColors[index], fontSize: 12, fontWeight: FontWeight.w400, letterSpacing: 0.5),
                                                                               ),
                                                                             )),
-                                                                      );
-                                                                    },
-                                                                  ),
+                                                                      ),
+                                                                    );
+                                                                  },
                                                                 ),
-                                                              ],
-                                                            ),
+                                                              ),
+                                                            ],
                                                           ),
                                                         ),
                                                         Padding(
@@ -659,8 +663,8 @@ class _AgencyPageState extends State<AgencyPage> {
                                                         Container(
                                                           width: 400,
                                                           height: 450,
-                                                          child: ListView
-                                                              .builder(
+                                                          child:
+                                                              ListView.builder(
                                                             itemCount:
                                                                 agencyList
                                                                     .length,
@@ -684,8 +688,8 @@ class _AgencyPageState extends State<AgencyPage> {
                                                                         .whiteColor,
                                                                     boxShadow: [
                                                                       BoxShadow(
-                                                                        color:
-                                                                            ColorConstant.arrowColor,
+                                                                        color: ColorConstant
+                                                                            .arrowColor,
                                                                         blurRadius:
                                                                             2.0, // soften the shadow
                                                                         spreadRadius:
@@ -704,12 +708,13 @@ class _AgencyPageState extends State<AgencyPage> {
                                                                             .symmetric(
                                                                         horizontal:
                                                                             10),
-                                                                    child:
-                                                                        Row(
+                                                                    child: Row(
                                                                       mainAxisAlignment:
-                                                                          MainAxisAlignment.spaceBetween,
+                                                                          MainAxisAlignment
+                                                                              .spaceBetween,
                                                                       crossAxisAlignment:
-                                                                          CrossAxisAlignment.center,
+                                                                          CrossAxisAlignment
+                                                                              .center,
                                                                       children: [
                                                                         Row(
                                                                           children: [

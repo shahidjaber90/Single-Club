@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:provider/provider.dart';
-import 'package:singleclub/Local_variables/navigationData.dart';
 import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Screens/Pages/ads_view.dart';
 import 'package:singleclub/Screens/Pages/agency_view.dart';
@@ -30,7 +29,6 @@ import 'package:singleclub/Screens/Pages/vipView_widget.dart';
 import 'package:singleclub/Screens/Pages/vs_page.dart';
 import 'package:singleclub/Widgets/side_navigation_bar.dart';
 import 'package:singleclub/Widgets/user_widget.dart';
-import 'package:singleclub/Screens/Pages/users_layout_widget.dart';
 import 'package:singleclub/provider/togglepage.dart';
 
 class HomePageView extends StatefulWidget {
@@ -47,6 +45,8 @@ class _HomePageViewState extends State<HomePageView> {
   bool icon4 = false;
   bool icon5 = false;
   DateTime selectedDate = DateTime.now();
+  String? currentHoure;
+  String? currentMinutes;
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? picked = await showDatePicker(
       context: context,
@@ -59,6 +59,11 @@ class _HomePageViewState extends State<HomePageView> {
         selectedDate = picked;
       });
     }
+    setState(() {
+      icon4 = !icon4;
+      currentHoure = DateFormat('mm').format(selectedDate.hour as DateTime);
+      currentMinutes = DateFormat('mm').format(selectedDate.minute as DateTime);
+    });
   }
 
   @override
@@ -183,6 +188,7 @@ class _HomePageViewState extends State<HomePageView> {
                                               ),
                                               GestureDetector(
                                                 onTap: () {
+                                                  _selectDate(context);
                                                   setState(() {
                                                     icon4 = !icon4;
                                                   });

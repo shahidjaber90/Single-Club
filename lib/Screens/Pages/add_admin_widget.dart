@@ -4,9 +4,6 @@ import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/admin_field_heading.dart';
 import 'package:singleclub/Widgets/admin_textfield.dart';
 import 'package:singleclub/Widgets/admin_textfiled_widget2.dart';
-import 'package:singleclub/Widgets/textfield_heading.dart';
-import 'package:singleclub/Widgets/textfield_widget.dart';
-import 'package:singleclub/Widgets/textfield_widget2.dart';
 
 class AddAdminWidget extends StatefulWidget {
   const AddAdminWidget({super.key});

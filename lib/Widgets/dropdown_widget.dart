@@ -407,7 +407,7 @@ class _DropdownWidget5State extends State<DropdownWidget5> {
                           BorderSide(color: ColorConstant.blueColor, width: 2)),
                   contentPadding: const EdgeInsets.symmetric(horizontal: 16)),
               hint: Text(
-                'Select Power',
+                'Select Product',
                 style: TextStyle(
                   fontSize: 14,
                   color: Theme.of(context).hintColor,

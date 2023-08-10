@@ -57,16 +57,14 @@ class _RewardViewState extends State<RewardView> {
                                         child: Column(
                                           children: [
                                             Container(
-                                              // height: 53,
-                                              // width: double.infinity,
                                               color: ColorConstant.blueColor,
                                               child: Row(
                                                 mainAxisAlignment:
-                                                    MainAxisAlignment.center,
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
                                                 children: [
                                                   Text(
-                                                    // textAlign: TextAlign.center,
-                                                    "Set up Reward",
+                                                    "",
                                                     style: GoogleFonts.poppins(
                                                         color: ColorConstant
                                                             .whiteColor,
@@ -74,8 +72,14 @@ class _RewardViewState extends State<RewardView> {
                                                         fontWeight:
                                                             FontWeight.w600),
                                                   ),
-                                                  const SizedBox(
-                                                    width: 60,
+                                                  Text(
+                                                    "Set up Reward",
+                                                    style: GoogleFonts.poppins(
+                                                        color: ColorConstant
+                                                            .whiteColor,
+                                                        fontSize: 30,
+                                                        fontWeight:
+                                                            FontWeight.w600),
                                                   ),
                                                   IconButton(
                                                     onPressed: () {
