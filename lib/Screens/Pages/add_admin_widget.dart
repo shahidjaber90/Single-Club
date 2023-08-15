@@ -19,7 +19,7 @@ class _AddAdminWidgetState extends State<AddAdminWidget> {
       padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.025),
       child: Container(
         width: 295,
-        height: 700,
+        // height: 950,
         color: ColorConstant.searchColor,
         child: SingleChildScrollView(
           child: Column(
@@ -78,65 +78,67 @@ class _AddAdminWidgetState extends State<AddAdminWidget> {
                 child: Container(
                   height: 521,
                   width: MediaQuery.of(context).size.width * 0.18,
-                  child: Column(
-                    children: [
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          AdminFieldHeading(headingText: 'Admin Name'),
-                        ],
-                      ),
-                      AdminTextFieldWidget(),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          AdminFieldHeading(headingText: 'Category'),
-                        ],
-                      ),
-                      AdminTextFieldWidget(),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          AdminFieldHeading(headingText: 'Number'),
-                        ],
-                      ),
-                      AdminTextFieldWidget(),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          AdminFieldHeading(headingText: 'Email'),
-                        ],
-                      ),
-                      AdminTextFieldWidget(),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          AdminFieldHeading(headingText: 'Password'),
-                        ],
-                      ),
-                      AdminTextFieldWidget(),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          AdminFieldHeading(headingText: 'Facebook'),
-                        ],
-                      ),
-                      AdminTextFieldWidget(),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          AdminFieldHeading(headingText: 'Whatsapp'),
-                        ],
-                      ),
-                      AdminTextFieldWidget(),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          AdminFieldHeading(headingText: 'Power of Antoni'),
-                        ],
-                      ),
-                      AdminTextFieldWidget2(labelText: 'Select Power'),
-                    ],
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            AdminFieldHeading(headingText: 'Admin Name'),
+                          ],
+                        ),
+                        AdminTextFieldWidget(),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            AdminFieldHeading(headingText: 'Category'),
+                          ],
+                        ),
+                        AdminTextFieldWidget(),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            AdminFieldHeading(headingText: 'Number'),
+                          ],
+                        ),
+                        AdminTextFieldWidget(),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            AdminFieldHeading(headingText: 'Email'),
+                          ],
+                        ),
+                        AdminTextFieldWidget(),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            AdminFieldHeading(headingText: 'Password'),
+                          ],
+                        ),
+                        AdminTextFieldWidget(),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            AdminFieldHeading(headingText: 'Facebook'),
+                          ],
+                        ),
+                        AdminTextFieldWidget(),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            AdminFieldHeading(headingText: 'Whatsapp'),
+                          ],
+                        ),
+                        AdminTextFieldWidget(),
+                        const Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            AdminFieldHeading(headingText: 'Power of Antoni'),
+                          ],
+                        ),
+                        AdminTextFieldWidget2(labelText: 'Select Power'),
+                      ],
+                    ),
                   ),
                 ),
               ),

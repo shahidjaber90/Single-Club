@@ -112,7 +112,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                         // name and icons
                                         Positioned(
                                           top: 120,
-                                          left: 110,
+                                          left: 100,
                                           child: Container(
                                             width: 180,
                                             height: 50,
@@ -121,7 +121,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                                 Row(
                                                   children: [
                                                     Text(
-                                                      "King Of King’s",
+                                                      "   King Of King’s",
                                                       style:
                                                           GoogleFonts.poppins(
                                                               fontSize: 16,
@@ -142,7 +142,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                                       width: 10,
                                                     ),
                                                     Text(
-                                                      "Power",
+                                                      "   Power",
                                                       style:
                                                           GoogleFonts.poppins(
                                                               fontSize: 16,
@@ -153,7 +153,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                                                   0.5),
                                                     ),
                                                     Container(
-                                                      width: 80,
+                                                      width: 75,
                                                       child: Row(
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
@@ -367,7 +367,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                         // name and icons
                                         Positioned(
                                           top: 120,
-                                          left: 110,
+                                          left: 100,
                                           child: Container(
                                             width: 180,
                                             height: 50,
@@ -376,7 +376,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                                 Row(
                                                   children: [
                                                     Text(
-                                                      "King Of King’s",
+                                                      "   King Of King’s",
                                                       style:
                                                           GoogleFonts.poppins(
                                                               fontSize: 16,
@@ -397,7 +397,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                                       width: 10,
                                                     ),
                                                     Text(
-                                                      "Power",
+                                                      "   Power",
                                                       style:
                                                           GoogleFonts.poppins(
                                                               fontSize: 16,
@@ -408,7 +408,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                                                   0.5),
                                                     ),
                                                     Container(
-                                                      width: 80,
+                                                      width: 75,
                                                       child: Row(
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
@@ -625,7 +625,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                         // name and icons
                                         Positioned(
                                           top: 120,
-                                          left: 110,
+                                          left: 100,
                                           child: Container(
                                             width: 180,
                                             height: 50,
@@ -634,7 +634,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                                 Row(
                                                   children: [
                                                     Text(
-                                                      "King Of King’s",
+                                                      "   King Of King’s",
                                                       style:
                                                           GoogleFonts.poppins(
                                                               fontSize: 16,
@@ -655,7 +655,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                                       width: 10,
                                                     ),
                                                     Text(
-                                                      "Power",
+                                                      "   Power",
                                                       style:
                                                           GoogleFonts.poppins(
                                                               fontSize: 16,
@@ -666,7 +666,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                                                   0.5),
                                                     ),
                                                     Container(
-                                                      width: 80,
+                                                      width: 75,
                                                       child: Row(
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
@@ -880,7 +880,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                         // name and icons
                                         Positioned(
                                           top: 120,
-                                          left: 110,
+                                          left: 100,
                                           child: Container(
                                             width: 180,
                                             height: 50,
@@ -889,7 +889,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                                 Row(
                                                   children: [
                                                     Text(
-                                                      "King Of King’s",
+                                                      "   King Of King’s",
                                                       style:
                                                           GoogleFonts.poppins(
                                                               fontSize: 16,
@@ -910,7 +910,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                                       width: 10,
                                                     ),
                                                     Text(
-                                                      "Power",
+                                                      "   Power",
                                                       style:
                                                           GoogleFonts.poppins(
                                                               fontSize: 16,
@@ -921,7 +921,7 @@ class _AddAdminPageState extends State<AddAdminPage> {
                                                                   0.5),
                                                     ),
                                                     Container(
-                                                      width: 80,
+                                                      width: 75,
                                                       child: Row(
                                                         mainAxisAlignment:
                                                             MainAxisAlignment

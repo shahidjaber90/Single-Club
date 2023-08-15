@@ -38,6 +38,9 @@ class _DropdownWidgetState extends State<DropdownWidget> {
             child: DropdownButtonFormField2<String>(
               isExpanded: true,
               decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: ColorConstant.blueColor, width: 2)),
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: ColorConstant.blueColor, width: 2)),
@@ -108,6 +111,9 @@ class _DropDown2State extends State<DropDown2> {
             child: DropdownButtonFormField2<String>(
               isExpanded: true,
               decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: ColorConstant.blueColor, width: 2)),
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: ColorConstant.blueColor, width: 2)),
@@ -145,6 +151,9 @@ class _DropDown2State extends State<DropDown2> {
             child: DropdownButtonFormField2<String>(
               isExpanded: true,
               decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: ColorConstant.blueColor, width: 2)),
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: ColorConstant.blueColor, width: 2)),
@@ -238,7 +247,11 @@ class _DropdownWidget3State extends State<DropdownWidget3> {
           DropdownButtonHideUnderline(
             child: DropdownButtonFormField<Map<String, String>>(
               isExpanded: true,
+              dropdownColor: ColorConstant.blueColor,
               decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: ColorConstant.blueColor, width: 2)),
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: ColorConstant.blueColor, width: 2)),
@@ -314,6 +327,9 @@ class _DropdownWidget4State extends State<DropdownWidget4> {
             child: DropdownButtonFormField2<String>(
               isExpanded: true,
               decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: ColorConstant.blueColor, width: 2)),
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: ColorConstant.blueColor, width: 2)),
@@ -394,7 +410,8 @@ class _DropdownWidget5State extends State<DropdownWidget5> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.symmetric(horizontal: 16)
+          .copyWith(bottom: 8, top: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -402,10 +419,13 @@ class _DropdownWidget5State extends State<DropdownWidget5> {
             child: DropdownButtonFormField<Map<String, String>>(
               isExpanded: true,
               decoration: InputDecoration(
-                  border: OutlineInputBorder(
+                  enabledBorder: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: ColorConstant.blueColor, width: 2)),
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(color: ColorConstant.blueColor)),
                   contentPadding: const EdgeInsets.symmetric(horizontal: 16)),
+              // focusColor: ColorConstant.blueColor,
               hint: Text(
                 'Select Product',
                 style: TextStyle(
@@ -477,6 +497,9 @@ class _DropdownWidget6State extends State<DropdownWidget6> {
             child: DropdownButtonFormField<Map<String, String>>(
               isExpanded: true,
               decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: ColorConstant.blueColor, width: 2)),
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: ColorConstant.blueColor, width: 2)),
@@ -550,12 +573,13 @@ class _DropdownWidget7State extends State<DropdownWidget7> {
           isExpanded: true,
           barrierDismissible: false,
           decoration: InputDecoration(
-              fillColor: ColorConstant.searchColor,
+              fillColor: ColorConstant.searchColor.withOpacity(0.90),
               filled: true,
-              border: OutlineInputBorder(
+              enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(14),
-                  borderSide:
-                      BorderSide(color: ColorConstant.arrowColor, width: 1)),
+                  borderSide: BorderSide(
+                    color: ColorConstant.arrowColor,
+                  )),
               contentPadding: const EdgeInsets.symmetric(horizontal: 10)),
           hint: Text(
             widget.selectItem!,
@@ -598,18 +622,37 @@ class _DropDown8State extends State<DropDown8> {
   String? selectTypes;
   String? selectValues;
 
-  List<String> selectType = ['Store','VIP','S VIP','Guardian'];
+  List<String> selectType = ['Store', 'VIP', 'S VIP', 'Guardian'];
   Map<String, List<String>> selectValue = {
-    'Store': ['Fream','Entrance Effect','Chat Bubbels','Background'],
-    'VIP': ['VIP Medal','VIP Bullet Screen','Profile Picture Decoration','Entrance Effect','Video Call Frame','Chat Bubbels'],
-    'S VIP': ['VIP Medal','VIP Bullet Screen','Profile Picture Decoration','Entrance Effect','Video Call Frame','Chat Bubbels'],
-    'Guardian': ['Ranking Forward','Distinguished Logo','Entry Special Effect','Exclusive Bubbels'],
+    'Store': ['Fream', 'Entrance Effect', 'Chat Bubbels', 'Background'],
+    'VIP': [
+      'VIP Medal',
+      'VIP Bullet Screen',
+      'Profile Picture Decoration',
+      'Entrance Effect',
+      'Video Call Frame',
+      'Chat Bubbels'
+    ],
+    'S VIP': [
+      'VIP Medal',
+      'VIP Bullet Screen',
+      'Profile Picture Decoration',
+      'Entrance Effect',
+      'Video Call Frame',
+      'Chat Bubbels'
+    ],
+    'Guardian': [
+      'Ranking Forward',
+      'Distinguished Logo',
+      'Entry Special Effect',
+      'Exclusive Bubbels'
+    ],
   };
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16).copyWith(bottom: 5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -617,6 +660,9 @@ class _DropDown8State extends State<DropDown8> {
             child: DropdownButtonFormField2<String>(
               isExpanded: true,
               decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: ColorConstant.blueColor, width: 2)),
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: ColorConstant.blueColor, width: 2)),
@@ -643,11 +689,14 @@ class _DropDown8State extends State<DropDown8> {
               }).toList(),
             ),
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 10),
           DropdownButtonHideUnderline(
             child: DropdownButtonFormField2<String>(
               isExpanded: true,
               decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                      borderSide:
+                          BorderSide(color: ColorConstant.blueColor, width: 2)),
                   border: OutlineInputBorder(
                       borderSide:
                           BorderSide(color: ColorConstant.blueColor, width: 2)),

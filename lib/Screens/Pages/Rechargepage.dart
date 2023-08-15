@@ -4,6 +4,7 @@ import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Widgets/admin_field_heading.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
 import 'package:singleclub/Widgets/dropdown_widget.dart';
+import 'package:singleclub/Widgets/infoDialouge.dart';
 
 import '../../Utils/colors.dart';
 import '../../Widgets/textfield_widget.dart';
@@ -51,7 +52,6 @@ class _RechargePageState extends State<RechargePage> {
     "3 Days",
     "14-Feb-1994 15:39 PM",
     "1548256",
-    "Check",
   ];
   @override
   Widget build(BuildContext context) {
@@ -64,14 +64,14 @@ class _RechargePageState extends State<RechargePage> {
                 width: 150,
               ),
               Container(
-                height: 140,
+                height: 120,
                 width: 600,
                 child: Stack(
                   children: [
                     Container(
                       alignment: Alignment.centerLeft,
-                      width: 320,
-                      height: 140,
+                      width: 250,
+                      height: 120,
                       decoration: BoxDecoration(
                           color: ColorConstant.whiteColor,
                           border: Border.all(color: ColorConstant.blueColor),
@@ -83,22 +83,22 @@ class _RechargePageState extends State<RechargePage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(
-                              height: 30,
-                              width: 50,
+                              height: 24,
+                              width: 36,
                               child: Image.asset("assets/icons/ruby.png"),
                             ),
                             Text(
                               '78500000',
                               style: GoogleFonts.poppins(
                                   color: ColorConstant.blueColor,
-                                  fontSize: 30,
+                                  fontSize: 24,
                                   fontWeight: FontWeight.w500),
                             ),
                             Text(
                               'Avalaible ',
                               style: GoogleFonts.poppins(
                                   color: ColorConstant.blueColor,
-                                  fontSize: 30,
+                                  fontSize: 24,
                                   fontWeight: FontWeight.w500),
                             ),
                           ],
@@ -106,11 +106,11 @@ class _RechargePageState extends State<RechargePage> {
                       ),
                     ),
                     Positioned(
-                      left: 240,
+                      left: 170,
                       child: Container(
                         alignment: Alignment.center,
-                        width: 320,
-                        height: 140,
+                        width: 250,
+                        height: 120,
                         decoration: BoxDecoration(
                             color: ColorConstant.blueColor,
                             borderRadius: BorderRadius.circular(24)),
@@ -120,22 +120,22 @@ class _RechargePageState extends State<RechargePage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SizedBox(
-                                height: 30,
-                                width: 50,
+                                height: 24,
+                                width: 36,
                                 child: Image.asset("assets/icons/ruby.png"),
                               ),
                               Text(
                                 '18400000',
                                 style: GoogleFonts.poppins(
                                     color: ColorConstant.whiteColor,
-                                    fontSize: 30,
+                                    fontSize: 24,
                                     fontWeight: FontWeight.w500),
                               ),
                               Text(
                                 'Recharge ',
                                 style: GoogleFonts.poppins(
                                     color: ColorConstant.whiteColor,
-                                    fontSize: 30,
+                                    fontSize: 24,
                                     fontWeight: FontWeight.w500),
                               ),
                             ],
@@ -183,7 +183,11 @@ class _RechargePageState extends State<RechargePage> {
                                 Container(
                                   width: 400,
                                   height: 641,
-                                  color: ColorConstant.whiteColor,
+                                  decoration: BoxDecoration(
+                                      color: ColorConstant.whiteColor,
+                                      border: Border.all(
+                                          color: ColorConstant.blueColor,
+                                          width: 2)),
                                   child: SingleChildScrollView(
                                     child: Column(
                                       crossAxisAlignment:
@@ -257,7 +261,7 @@ class _RechargePageState extends State<RechargePage> {
                                               ),
                                               DropdownWidget4(
                                                   items: adminList,
-                                                  selectItem: 'Admin'),
+                                                  selectItem: 'Select User'),
                                               const SizedBox(
                                                 height: 10,
                                               ),
@@ -355,7 +359,11 @@ class _RechargePageState extends State<RechargePage> {
                                 actions: [
                                   Container(
                                     width: 400,
-                                    color: ColorConstant.whiteColor,
+                                    decoration: BoxDecoration(
+                                        color: ColorConstant.whiteColor,
+                                        border: Border.all(
+                                            color: ColorConstant.blueColor,
+                                            width: 2)),
                                     child: SingleChildScrollView(
                                       child: Column(
                                         crossAxisAlignment:
@@ -620,7 +628,7 @@ class _RechargePageState extends State<RechargePage> {
                       fillColor: ColorConstant.searchColor,
                       filled: true,
                       prefixIcon: const Icon(Icons.search),
-                      hintText: 'Search store'),
+                      hintText: 'Search...'),
                 ),
               ),
             ],
@@ -681,6 +689,7 @@ class _RechargePageState extends State<RechargePage> {
                         ),
                       ),
                     ),
+                    const InfoDialouge2(),
                   ]),
             ),
           ),

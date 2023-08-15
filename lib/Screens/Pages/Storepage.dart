@@ -117,7 +117,11 @@ class _StorPageState extends State<StorPage> {
                                     padding: const EdgeInsets.all(20.0),
                                     child: Container(
                                       width: 400,
-                                      color: ColorConstant.whiteColor,
+                                      decoration: BoxDecoration(
+                                          color: ColorConstant.whiteColor,
+                                          border: Border.all(
+                                              color: ColorConstant.blueColor,
+                                              width: 2)),
                                       child: Column(
                                         children: [
                                           Container(
@@ -240,7 +244,11 @@ class _StorPageState extends State<StorPage> {
                                       child: Container(
                                         width: 400,
                                         height: 601,
-                                        color: ColorConstant.whiteColor,
+                                        decoration: BoxDecoration(
+                                            color: ColorConstant.whiteColor,
+                                            border: Border.all(
+                                                color: ColorConstant.blueColor,
+                                                width: 2)),
                                         child: SingleChildScrollView(
                                           child: Column(
                                             children: [
@@ -299,16 +307,12 @@ class _StorPageState extends State<StorPage> {
                                                 ),
                                               ),
                                               const SizedBox(
-                                                height: 16,
+                                                height: 10,
                                               ),
-                                              // DropdownWidget4(
-                                              //     items: storeCategory,
-                                              //     selectItem:
-                                              //         'select Category'),
                                               DropDown8(),
-                                              const SizedBox(
-                                                height: 8,
-                                              ),
+                                              // const SizedBox(
+                                              //   height: 8,
+                                              // ),
                                               TextFieldWidget(
                                                   labelText: 'Name :'),
                                               TextFieldWidget(

@@ -110,12 +110,25 @@ class _AdsPageState extends State<AdsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 200,
+        toolbarHeight: 40,
         backgroundColor: ColorConstant.whiteColor,
         elevation: 0,
         title: GestureDetector(
           onTap: () {
+            tap3
+                ? setState(() {
+                    tap3 = !tap3;
+                    whiteColor3 = Colors.white;
+                    blueColor3 = Color(0xff2C50ED);
+                  })
+                : setState(() {
+                    tap3 = !tap3;
+                    blueColor3 = Colors.white;
+                    whiteColor3 = Color(0xff2C50ED);
+                  });
+
             showDialog(
+              barrierDismissible: false,
               context: context,
               builder: (context) => AlertDialog(
                 scrollable: true,
@@ -132,13 +145,41 @@ class _AdsPageState extends State<AdsPage> {
                           Container(
                             width: double.infinity,
                             color: ColorConstant.blueColor,
-                            child: Text(
-                              textAlign: TextAlign.center,
-                              "Manage Ads",
-                              style: GoogleFonts.poppins(
-                                  color: ColorConstant.whiteColor,
-                                  fontSize: 30,
-                                  fontWeight: FontWeight.w600),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Icon(
+                                  Icons.abc,
+                                  color: ColorConstant.blueColor,
+                                ),
+                                Text(
+                                  textAlign: TextAlign.center,
+                                  "Manage Ads",
+                                  style: GoogleFonts.poppins(
+                                      color: ColorConstant.whiteColor,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.w600),
+                                ),
+                                IconButton(
+                                    onPressed: () {
+                                      tap3
+                                          ? setState(() {
+                                              tap3 = !tap3;
+                                              whiteColor3 = Colors.white;
+                                              blueColor3 = Color(0xff2C50ED);
+                                            })
+                                          : setState(() {
+                                              tap3 = !tap3;
+                                              blueColor3 = Colors.white;
+                                              whiteColor3 = Color(0xff2C50ED);
+                                            });
+                                      Navigator.pop(context);
+                                    },
+                                    icon: Icon(
+                                      Icons.close,
+                                      color: ColorConstant.whiteColor,
+                                    ))
+                              ],
                             ),
                           ),
                           const SizedBox(
@@ -506,13 +547,13 @@ class _AdsPageState extends State<AdsPage> {
             width: 138,
             height: 32,
             decoration: BoxDecoration(
-                color: ColorConstant.blueColor,
-                border: Border.all(color: ColorConstant.blueColor),
+                color: whiteColor3,
+                border: Border.all(color: blueColor3),
                 borderRadius: BorderRadius.circular(24)),
             child: Text(
               'Manage Ads',
               style: TextStyle(
-                  color: ColorConstant.whiteColor,
+                  color: blueColor3,
                   letterSpacing: 0.5,
                   fontSize: 11,
                   fontWeight: FontWeight.w700),
@@ -586,17 +627,76 @@ class _AdsPageState extends State<AdsPage> {
                       style: GoogleFonts.poppins(
                           fontSize: 16, fontWeight: FontWeight.w400),
                     ),
-                    Container(
-                      color: ColorConstant.blueColor,
-                      height: 30,
-                      width: 80,
-                      child: Center(
-                        child: Text(
-                          text2[5],
-                          style: GoogleFonts.poppins(
-                              color: ColorConstant.whiteColor,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400),
+                    GestureDetector(
+                      onTap: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return AlertDialog(
+                                backgroundColor: Colors.transparent,
+                                elevation: 0,
+                                content: Container(
+                                    height: 480,
+                                    width: 410,
+                                    decoration: BoxDecoration(
+                                        color: ColorConstant.whiteColor,
+                                        border: Border.all(
+                                            width: 2,
+                                            color: ColorConstant.blueColor)),
+                                    child: Column(
+                                      children: [
+                                        Container(
+                                          height: 26,
+                                          width: 410,
+                                          color: ColorConstant.blueColor,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                                  horizontal: 31)
+                                              .copyWith(top: 40),
+                                          child: Container(
+                                            height: 288,
+                                            width: 400,
+                                            decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                    image: AssetImage(
+                                                        'assets/images/complain.png'))),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              horizontal: 8),
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            // height: 288,
+                                            width: 380,
+                                            child: Text(
+                                              'Music Time With My Chill ModMusic Time \nWith My Chill ModMusic Time With My Chill Mod',
+                                              textAlign: TextAlign.center,
+                                              style: GoogleFonts.poppins(
+                                                  fontSize: 15,
+                                                  fontWeight: FontWeight.w300,
+                                                  letterSpacing: 0.5),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    )),
+                              );
+                            });
+                      },
+                      child: Container(
+                        color: ColorConstant.blueColor,
+                        height: 30,
+                        width: 80,
+                        child: Center(
+                          child: Text(
+                            text2[5],
+                            style: GoogleFonts.poppins(
+                                color: ColorConstant.whiteColor,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w400),
+                          ),
                         ),
                       ),
                     ),

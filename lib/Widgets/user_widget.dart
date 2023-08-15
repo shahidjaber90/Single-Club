@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:singleclub/Local_variables/information.dart';
 import 'package:singleclub/Local_variables/userDetailsData.dart';
 import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/admin_field_heading.dart';
@@ -121,7 +122,12 @@ class _UserWidgetState extends State<UserWidget> {
                                     actions: [
                                       Container(
                                         width: 400,
-                                        color: ColorConstant.whiteColor,
+                                        decoration: BoxDecoration(
+                                            color: ColorConstant.whiteColor,
+                                            border: Border.all(
+                                                width: 2,
+                                                color:
+                                                    ColorConstant.blueColor)),
                                         child: Padding(
                                           padding: const EdgeInsets.all(0.0),
                                           child: Column(
@@ -420,7 +426,12 @@ class _UserWidgetState extends State<UserWidget> {
                                       actions: [
                                         Container(
                                           width: 400,
-                                          color: ColorConstant.whiteColor,
+                                          decoration: BoxDecoration(
+                                              color: ColorConstant.whiteColor,
+                                              border: Border.all(
+                                                  width: 2,
+                                                  color:
+                                                      ColorConstant.blueColor)),
                                           child: Padding(
                                             padding: const EdgeInsets.all(0.0),
                                             child: Column(
@@ -524,7 +535,7 @@ class _UserWidgetState extends State<UserWidget> {
                                                                           .circular(
                                                                               24)),
                                                               child: Text(
-                                                                'Security',
+                                                                'Room Password',
                                                                 style: TextStyle(
                                                                     color:
                                                                         blueColor3,
@@ -542,7 +553,7 @@ class _UserWidgetState extends State<UserWidget> {
                                                   ],
                                                 ),
                                                 const SizedBox(
-                                                  height: 15,
+                                                  height: 5,
                                                 ),
                                                 const Padding(
                                                   padding: EdgeInsets.symmetric(
@@ -555,9 +566,9 @@ class _UserWidgetState extends State<UserWidget> {
                                                 ),
                                                 TextFieldWidget21(
                                                     labelText: ''),
-                                                const SizedBox(
-                                                  height: 15,
-                                                ),
+                                                // const SizedBox(
+                                                //   height: 15,
+                                                // ),
                                                 const Padding(
                                                   padding: EdgeInsets.symmetric(
                                                       horizontal: 20),
@@ -567,14 +578,10 @@ class _UserWidgetState extends State<UserWidget> {
                                                 const SizedBox(
                                                   height: 5,
                                                 ),
-                                                TextFieldWidget21(
-                                                    labelText: ''),
-                                                const SizedBox(
-                                                  height: 15,
-                                                ),
                                                 Padding(
-                                                  padding: const EdgeInsets.all(
-                                                      15.0),
+                                                  padding: const EdgeInsets
+                                                          .symmetric(
+                                                      horizontal: 15.0),
                                                   child: Container(
                                                     height: 50,
                                                     color:
@@ -594,6 +601,14 @@ class _UserWidgetState extends State<UserWidget> {
                                                       ),
                                                     ),
                                                   ),
+                                                ),
+                                                const SizedBox(
+                                                  height: 15,
+                                                ),
+                                                TextFieldWidget21(
+                                                    labelText: ''),
+                                                const SizedBox(
+                                                  height: 15,
                                                 ),
                                               ],
                                             ),
@@ -666,7 +681,8 @@ class _UserWidgetState extends State<UserWidget> {
                   // User Active Deactive Details Buttons
                   Container(
                     height: 58,
-                    width: MediaQuery.of(context).size.width * 0.70,
+                    width: MediaQuery.of(context).size.width * 0.76,
+                    // color: Colors.yellow,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -700,8 +716,8 @@ class _UserWidgetState extends State<UserWidget> {
                                     },
                                     child: Container(
                                       alignment: Alignment.center,
-                                      height: 40,
-                                      width: 80,
+                                      height: 32,
+                                      width: 77,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(8),
                                         color: itemColors[index],
@@ -722,7 +738,7 @@ class _UserWidgetState extends State<UserWidget> {
                         Container(
                           alignment: Alignment.center,
                           height: 40,
-                          width: 225,
+                          width: 210,
                           child: TextFormField(
                             decoration: InputDecoration(
                                 border: OutlineInputBorder(
@@ -733,7 +749,7 @@ class _UserWidgetState extends State<UserWidget> {
                                 fillColor: ColorConstant.searchColor,
                                 filled: true,
                                 prefixIcon: Icon(Icons.search),
-                                hintText: 'Searching User'),
+                                hintText: 'Searching...'),
                           ),
                         ),
                       ],
@@ -845,7 +861,7 @@ class _UserWidgetState extends State<UserWidget> {
                                     border: Border.all(
                                         color: isSwitched
                                             ? Colors.red
-                                            : Colors.blue),
+                                            : ColorConstant.blueColor),
                                     borderRadius: BorderRadius.circular(24)),
                                 child: Padding(
                                   padding:
@@ -857,7 +873,8 @@ class _UserWidgetState extends State<UserWidget> {
                                         value: isSwitched,
                                         activeColor: Colors.red.shade800,
                                         activeTrackColor: Colors.white,
-                                        inactiveThumbColor: Colors.blue,
+                                        inactiveThumbColor:
+                                            ColorConstant.blueColor,
                                         inactiveTrackColor: Colors.white,
                                       )),
                                 ),
@@ -891,7 +908,7 @@ class _UserWidgetState extends State<UserWidget> {
                                           backgroundColor: Colors.transparent,
                                           elevation: 0,
                                           content: Container(
-                                              height: 420,
+                                              height: 480,
                                               width: 410,
                                               decoration: BoxDecoration(
                                                   color:
@@ -973,10 +990,8 @@ class _UserWidgetState extends State<UserWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w700,
-                                                                color: Colors
-                                                                    .black
-                                                                    .withOpacity(
-                                                                        0.60)),
+                                                                color: ColorConstant
+                                                                    .blueColor),
                                                           ),
                                                         ),
                                                         const SizedBox(
@@ -992,26 +1007,75 @@ class _UserWidgetState extends State<UserWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w700,
-                                                                color: Colors
-                                                                    .black
-                                                                    .withOpacity(
-                                                                        0.60)),
+                                                                color: ColorConstant
+                                                                    .blueColor),
                                                           ),
                                                         ),
                                                       ],
                                                     ),
                                                   ),
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
-                                                    children: [
-                                                      Image.asset(
-                                                        'assets/images/details.png',
-                                                        fit: BoxFit.cover,
-                                                      )
-                                                    ],
-                                                  ),
+                                                  Expanded(
+                                                    child: ListView.builder(
+                                                      itemCount:
+                                                          information.length,
+                                                      itemBuilder:
+                                                          (context, index) {
+                                                        return Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .symmetric(
+                                                                  vertical: 5),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Container(
+                                                                width: 140,
+                                                                height: 18,
+                                                                child: Text(
+                                                                  information[
+                                                                          index]
+                                                                      ['title'],
+                                                                  style: GoogleFonts.dmSans(
+                                                                      fontSize:
+                                                                          13,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w700,
+                                                                      color: Colors
+                                                                          .black
+                                                                          .withOpacity(
+                                                                              0.60)),
+                                                                ),
+                                                              ),
+                                                              const SizedBox(
+                                                                width: 10,
+                                                              ),
+                                                              Container(
+                                                                width: 140,
+                                                                height: 18,
+                                                                child: Text(
+                                                                  information[
+                                                                          index]
+                                                                      [
+                                                                      'details'],
+                                                                  style: GoogleFonts.dmSans(
+                                                                      fontSize:
+                                                                          13,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w700,
+                                                                      color: ColorConstant
+                                                                          .blueColor),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
+                                                  )
                                                 ],
                                               )),
                                         );
@@ -1081,7 +1145,7 @@ class _UserWidgetState extends State<UserWidget> {
                                     border: Border.all(
                                         color: isSwitched2
                                             ? Colors.red
-                                            : Colors.blue),
+                                            : ColorConstant.blueColor),
                                     borderRadius: BorderRadius.circular(24)),
                                 child: Padding(
                                   padding:
@@ -1093,7 +1157,8 @@ class _UserWidgetState extends State<UserWidget> {
                                         value: isSwitched2,
                                         activeColor: Colors.red.shade800,
                                         activeTrackColor: Colors.white,
-                                        inactiveThumbColor: Colors.blue,
+                                        inactiveThumbColor:
+                                            ColorConstant.blueColor,
                                         inactiveTrackColor: Colors.white,
                                       )),
                                 ),
@@ -1127,7 +1192,7 @@ class _UserWidgetState extends State<UserWidget> {
                                           backgroundColor: Colors.transparent,
                                           elevation: 0,
                                           content: Container(
-                                              height: 420,
+                                              height: 480,
                                               width: 410,
                                               decoration: BoxDecoration(
                                                   color:
@@ -1209,10 +1274,8 @@ class _UserWidgetState extends State<UserWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w700,
-                                                                color: Colors
-                                                                    .black
-                                                                    .withOpacity(
-                                                                        0.60)),
+                                                                color: ColorConstant
+                                                                    .blueColor),
                                                           ),
                                                         ),
                                                         const SizedBox(
@@ -1228,26 +1291,75 @@ class _UserWidgetState extends State<UserWidget> {
                                                                 fontWeight:
                                                                     FontWeight
                                                                         .w700,
-                                                                color: Colors
-                                                                    .black
-                                                                    .withOpacity(
-                                                                        0.60)),
+                                                                color: ColorConstant
+                                                                    .blueColor),
                                                           ),
                                                         ),
                                                       ],
                                                     ),
                                                   ),
-                                                  Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceAround,
-                                                    children: [
-                                                      Image.asset(
-                                                        'assets/images/details.png',
-                                                        fit: BoxFit.cover,
-                                                      )
-                                                    ],
-                                                  ),
+                                                  Expanded(
+                                                    child: ListView.builder(
+                                                      itemCount:
+                                                          information.length,
+                                                      itemBuilder:
+                                                          (context, index) {
+                                                        return Padding(
+                                                          padding:
+                                                              const EdgeInsets
+                                                                      .symmetric(
+                                                                  vertical: 5),
+                                                          child: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              Container(
+                                                                width: 140,
+                                                                height: 18,
+                                                                child: Text(
+                                                                  information[
+                                                                          index]
+                                                                      ['title'],
+                                                                  style: GoogleFonts.dmSans(
+                                                                      fontSize:
+                                                                          13,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w700,
+                                                                      color: Colors
+                                                                          .black
+                                                                          .withOpacity(
+                                                                              0.60)),
+                                                                ),
+                                                              ),
+                                                              const SizedBox(
+                                                                width: 10,
+                                                              ),
+                                                              Container(
+                                                                width: 140,
+                                                                height: 18,
+                                                                child: Text(
+                                                                  information[
+                                                                          index]
+                                                                      [
+                                                                      'details'],
+                                                                  style: GoogleFonts.dmSans(
+                                                                      fontSize:
+                                                                          13,
+                                                                      fontWeight:
+                                                                          FontWeight
+                                                                              .w700,
+                                                                      color: ColorConstant
+                                                                          .blueColor),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                        );
+                                                      },
+                                                    ),
+                                                  )
                                                 ],
                                               )),
                                         );

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
 import 'package:singleclub/Widgets/alertbutton2.dart';
+import 'package:singleclub/Widgets/dropdown_widget.dart';
 
 import '../../Widgets/textfield_widget.dart';
 
@@ -75,7 +77,10 @@ class _StickerViewState extends State<StickerView> {
                 actions: [
                   Container(
                     width: 400,
-                    color: ColorConstant.whiteColor,
+                    decoration: BoxDecoration(
+                        color: ColorConstant.whiteColor,
+                        border: Border.all(
+                            color: ColorConstant.blueColor, width: 2)),
                     child: Column(
                       children: [
                         Container(
@@ -83,12 +88,9 @@ class _StickerViewState extends State<StickerView> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                "",
-                                style: GoogleFonts.poppins(
-                                    color: ColorConstant.whiteColor,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600),
+                              Icon(
+                                Icons.account_balance_sharp,
+                                color: ColorConstant.blueColor,
                               ),
                               Text(
                                 "Add Sticker",
@@ -119,101 +121,10 @@ class _StickerViewState extends State<StickerView> {
                           ),
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 24,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              height: 40,
-                              width: 280,
-                              child: Stack(
-                                children: [
-                                  StatefulBuilder(
-                                    builder: (context, setState) =>
-                                        GestureDetector(
-                                      onTap: () {
-                                        tap3
-                                            ? setState(() {
-                                                tap3 = !tap3;
-                                                whiteColor3 = Colors.white;
-                                                blueColor3 = Color(0xff2C50ED);
-                                              })
-                                            : setState(() {
-                                                tap3 = !tap3;
-                                                blueColor3 = Colors.white;
-                                                whiteColor3 = Color(0xff2C50ED);
-                                              });
-                                        this.setState(() {});
-                                      },
-                                      child: Container(
-                                        alignment: Alignment.center,
-                                        width: 138,
-                                        height: 32,
-                                        decoration: BoxDecoration(
-                                            color: whiteColor3,
-                                            border:
-                                                Border.all(color: blueColor3),
-                                            borderRadius:
-                                                BorderRadius.circular(24)),
-                                        child: Text(
-                                          'Voice Room        ',
-                                          style: TextStyle(
-                                              color: blueColor3,
-                                              letterSpacing: 0.5,
-                                              fontSize: 11,
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Positioned(
-                                      left: 100,
-                                      child: StatefulBuilder(
-                                        builder: (context, setState) =>
-                                            GestureDetector(
-                                          onTap: () {
-                                            tap4
-                                                ? setState(() {
-                                                    tap4 = !tap4;
-                                                    whiteColor4 = Colors.white;
-                                                    blueColor4 =
-                                                        Color(0xff2C50ED);
-                                                  })
-                                                : setState(() {
-                                                    tap4 = !tap4;
-                                                    blueColor4 = Colors.white;
-                                                    whiteColor4 =
-                                                        Color(0xff2C50ED);
-                                                  });
-                                            this.setState(() {});
-                                          },
-                                          child: Container(
-                                            alignment: Alignment.center,
-                                            width: 138,
-                                            height: 32,
-                                            decoration: BoxDecoration(
-                                                color: whiteColor4,
-                                                border: Border.all(
-                                                    color: blueColor4),
-                                                borderRadius:
-                                                    BorderRadius.circular(24)),
-                                            child: Text(
-                                              'Post Reaction',
-                                              style: TextStyle(
-                                                  color: blueColor4,
-                                                  letterSpacing: 0.5,
-                                                  fontSize: 11,
-                                                  fontWeight: FontWeight.w700),
-                                            ),
-                                          ),
-                                        ),
-                                      )),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                        DropdownWidget4(
+                            items: stickerList, selectItem: 'Category'),
                         const SizedBox(
                           height: 15,
                         ),
@@ -311,106 +222,112 @@ class _StickerViewState extends State<StickerView> {
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  GestureDetector(
-                                                      onTap: () {
-                                                        showDialog(
-                                                          context: context,
-                                                          builder: (context) =>
-                                                              AlertDialog(
-                                                            content: Container(
-                                                              height: MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .height /
-                                                                  5,
-                                                              child: Center(
-                                                                child: Wrap(
-                                                                  children: [
-                                                                    Column(
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .center,
-                                                                      children: [
-                                                                        Text(
-                                                                          "Successful",
-                                                                          style: GoogleFonts.poppins(
-                                                                              color: Colors.green,
-                                                                              fontSize: 20,
-                                                                              fontWeight: FontWeight.w500),
-                                                                        ),
-                                                                        const SizedBox(
-                                                                          height:
-                                                                              15,
-                                                                        ),
-                                                                        SizedBox(
-                                                                          height:
-                                                                              60,
-                                                                          width:
-                                                                              60,
-                                                                          child:
-                                                                              Image.asset("Assets/icons/Successful.png"),
-                                                                        ),
-                                                                      ],
+                                                  StatefulBuilder(
+                                                    builder: (context,
+                                                            setState) =>
+                                                        GestureDetector(
+                                                            onTap: () {
+                                                              Navigator.pop(
+                                                                  context);
+                                                              showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (context) =>
+                                                                        AlertDialog(
+                                                                  content:
+                                                                      Container(
+                                                                    height: MediaQuery.of(context)
+                                                                            .size
+                                                                            .height /
+                                                                        5,
+                                                                    child:
+                                                                        Center(
+                                                                      child:
+                                                                          Wrap(
+                                                                        children: [
+                                                                          Column(
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.center,
+                                                                            children: [
+                                                                              Text(
+                                                                                "Successful",
+                                                                                style: GoogleFonts.poppins(color: Colors.green, fontSize: 20, fontWeight: FontWeight.w500),
+                                                                              ),
+                                                                              const SizedBox(
+                                                                                height: 15,
+                                                                              ),
+                                                                              SizedBox(
+                                                                                height: 60,
+                                                                                width: 60,
+                                                                                child: Image.asset("Assets/icons/Successful.png"),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ],
+                                                                      ),
                                                                     ),
-                                                                  ],
+                                                                  ),
                                                                 ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      },
-                                                      child: AlertButton2(
-                                                          buttonName: "Yes")),
-                                                  GestureDetector(
-                                                      onTap: () {
-                                                        showDialog(
-                                                          context: context,
-                                                          builder: (context) =>
-                                                              AlertDialog(
-                                                            content: Container(
-                                                              height: MediaQuery.of(
-                                                                          context)
-                                                                      .size
-                                                                      .height /
-                                                                  5,
-                                                              child: Center(
-                                                                child: Wrap(
-                                                                  children: [
-                                                                    Column(
-                                                                      crossAxisAlignment:
-                                                                          CrossAxisAlignment
-                                                                              .center,
-                                                                      children: [
-                                                                        Text(
-                                                                          "Successful",
-                                                                          style: GoogleFonts.poppins(
-                                                                              color: Colors.red,
-                                                                              fontSize: 20,
-                                                                              fontWeight: FontWeight.w500),
-                                                                        ),
-                                                                        const SizedBox(
-                                                                          height:
-                                                                              15,
-                                                                        ),
-                                                                        SizedBox(
-                                                                          height:
-                                                                              60,
-                                                                          width:
-                                                                              60,
-                                                                          child:
-                                                                              Image.asset("Assets/icons/delete.png"),
-                                                                        ),
-                                                                      ],
-                                                                    )
-                                                                  ],
+                                                              );
+                                                            },
+                                                            child: AlertButton2(
+                                                                buttonName:
+                                                                    "Yes")),
+                                                  ),
+                                                  StatefulBuilder(
+                                                    builder: (context,
+                                                            setState) =>
+                                                        GestureDetector(
+                                                            onTap: () {
+                                                              Navigator.pop(
+                                                                  context);
+                                                              showDialog(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (context) =>
+                                                                        AlertDialog(
+                                                                  content:
+                                                                      Container(
+                                                                    height: MediaQuery.of(context)
+                                                                            .size
+                                                                            .height /
+                                                                        5,
+                                                                    child:
+                                                                        Center(
+                                                                      child:
+                                                                          Wrap(
+                                                                        children: [
+                                                                          Column(
+                                                                            crossAxisAlignment:
+                                                                                CrossAxisAlignment.center,
+                                                                            children: [
+                                                                              Text(
+                                                                                "Successful",
+                                                                                style: GoogleFonts.poppins(color: Colors.red, fontSize: 20, fontWeight: FontWeight.w500),
+                                                                              ),
+                                                                              const SizedBox(
+                                                                                height: 15,
+                                                                              ),
+                                                                              SizedBox(
+                                                                                height: 60,
+                                                                                width: 60,
+                                                                                child: Image.asset("Assets/icons/delete.png"),
+                                                                              ),
+                                                                            ],
+                                                                          )
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ),
                                                                 ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        );
-                                                      },
-                                                      child: AlertButton2(
-                                                          buttonName: "No")),
+                                                              );
+                                                            },
+                                                            child: AlertButton2(
+                                                                buttonName:
+                                                                    "No")),
+                                                  ),
                                                 ],
                                               ),
                                             ],
@@ -504,14 +421,20 @@ class _StickerViewState extends State<StickerView> {
                       ),
                     ),
                   ),
-                  const Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Icon(Icons.edit),
-                      SizedBox(
+                      Icon(
+                        Icons.edit,
+                        color: ColorConstant.blueColor,
+                      ),
+                      const SizedBox(
                         width: 5,
                       ),
-                      Icon(Icons.delete),
+                      Icon(
+                        Icons.delete,
+                        color: ColorConstant.blueColor,
+                      ),
                     ],
                   ),
                 ],

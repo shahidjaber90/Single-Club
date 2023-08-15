@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
+import 'package:singleclub/Widgets/buttonDate.dart';
 import 'package:singleclub/Widgets/dropdown_widget.dart';
+import 'package:singleclub/Widgets/recordRow1.dart';
 
 import '../../Utils/colors.dart';
 import '../../Widgets/textfield_widget.dart';
@@ -15,8 +17,11 @@ class ClearPage extends StatefulWidget {
 }
 
 class _ClearPageState extends State<ClearPage> {
+  bool tap = false;
   bool tap3 = false;
   bool tap4 = false;
+  Color whiteColor = (Colors.white);
+  Color blueColor = const Color(0xff2C50ED);
   Color whiteColor3 = (Colors.white);
   Color blueColor3 = const Color(0xff2C50ED);
   Color whiteColor4 = (Colors.white);
@@ -61,8 +66,8 @@ class _ClearPageState extends State<ClearPage> {
                   children: [
                     Container(
                       alignment: Alignment.centerLeft,
-                      width: 320,
-                      height: 140,
+                      width: 250,
+                      height: 120,
                       decoration: BoxDecoration(
                           color: ColorConstant.whiteColor,
                           border: Border.all(color: ColorConstant.blueColor),
@@ -74,22 +79,22 @@ class _ClearPageState extends State<ClearPage> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(
-                              height: 30,
-                              width: 50,
+                              height: 24,
+                              width: 36,
                               child: Image.asset("assets/icons/ruby.png"),
                             ),
                             Text(
                               '78500000',
                               style: GoogleFonts.poppins(
                                   color: ColorConstant.blueColor,
-                                  fontSize: 30,
+                                  fontSize: 24,
                                   fontWeight: FontWeight.w500),
                             ),
                             Text(
                               'Avalaible ',
                               style: GoogleFonts.poppins(
                                   color: ColorConstant.blueColor,
-                                  fontSize: 30,
+                                  fontSize: 24,
                                   fontWeight: FontWeight.w500),
                             ),
                           ],
@@ -97,11 +102,11 @@ class _ClearPageState extends State<ClearPage> {
                       ),
                     ),
                     Positioned(
-                      left: 240,
+                      left: 180,
                       child: Container(
                         alignment: Alignment.center,
-                        width: 320,
-                        height: 140,
+                        width: 250,
+                        height: 120,
                         decoration: BoxDecoration(
                             color: ColorConstant.blueColor,
                             borderRadius: BorderRadius.circular(24)),
@@ -111,22 +116,22 @@ class _ClearPageState extends State<ClearPage> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               SizedBox(
-                                height: 30,
-                                width: 50,
+                                height: 24,
+                                width: 36,
                                 child: Image.asset("assets/icons/ruby.png"),
                               ),
                               Text(
                                 '18400000',
                                 style: GoogleFonts.poppins(
                                     color: ColorConstant.whiteColor,
-                                    fontSize: 30,
+                                    fontSize: 24,
                                     fontWeight: FontWeight.w500),
                               ),
                               Text(
                                 'Recharge ',
                                 style: GoogleFonts.poppins(
                                     color: ColorConstant.whiteColor,
-                                    fontSize: 30,
+                                    fontSize: 24,
                                     fontWeight: FontWeight.w500),
                               ),
                             ],
@@ -146,10 +151,22 @@ class _ClearPageState extends State<ClearPage> {
               children: [
                 Container(
                   alignment: Alignment.centerLeft,
-                  width: 770,
+                  width: MediaQuery.of(context).size.width * 0.58,
                   height: 30,
                   child: GestureDetector(
                     onTap: () {
+                      tap
+                          ? setState(() {
+                              tap = !tap;
+                              whiteColor = Colors.white;
+                              blueColor = Color(0xff2C50ED);
+                            })
+                          : setState(() {
+                              tap = !tap;
+                              blueColor = Colors.white;
+                              whiteColor = Color(0xff2C50ED);
+                            });
+
                       showDialog(
                         barrierDismissible: false,
                         context: context,
@@ -161,7 +178,11 @@ class _ClearPageState extends State<ClearPage> {
                             Container(
                               width: 400,
                               height: 341,
-                              color: ColorConstant.whiteColor,
+                              decoration: BoxDecoration(
+                                  color: ColorConstant.whiteColor,
+                                  border: Border.all(
+                                      color: ColorConstant.blueColor,
+                                      width: 2)),
                               child: SingleChildScrollView(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -172,20 +193,30 @@ class _ClearPageState extends State<ClearPage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Text('                     '),
+                                          Text(''),
                                           Text(
-                                            // textAlign: TextAlign.center,
                                             "Clear Amount",
                                             style: GoogleFonts.poppins(
                                                 color: ColorConstant.whiteColor,
                                                 fontSize: 30,
                                                 fontWeight: FontWeight.w600),
                                           ),
-                                          const SizedBox(
-                                            width: 60,
-                                          ),
                                           IconButton(
                                             onPressed: () {
+                                              tap
+                                                  ? setState(() {
+                                                      tap = !tap;
+                                                      whiteColor = Colors.white;
+                                                      blueColor =
+                                                          Color(0xff2C50ED);
+                                                    })
+                                                  : setState(() {
+                                                      tap = !tap;
+                                                      blueColor = Colors.white;
+                                                      whiteColor =
+                                                          Color(0xff2C50ED);
+                                                    });
+
                                               Navigator.pop(context);
                                             },
                                             icon: const Icon(Icons.close),
@@ -204,141 +235,11 @@ class _ClearPageState extends State<ClearPage> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
-                                            children: [
-                                              SizedBox(
-                                                height: 40,
-                                                width: 280,
-                                                child: Stack(
-                                                  children: [
-                                                    StatefulBuilder(
-                                                      builder:
-                                                          (context, setState) =>
-                                                              GestureDetector(
-                                                        onTap: () {
-                                                          tap3
-                                                              ? setState(() {
-                                                                  tap3 = !tap3;
-                                                                  whiteColor3 =
-                                                                      Colors
-                                                                          .white;
-                                                                  blueColor3 =
-                                                                      Color(
-                                                                          0xff2C50ED);
-                                                                })
-                                                              : setState(() {
-                                                                  tap3 = !tap3;
-                                                                  blueColor3 =
-                                                                      Colors
-                                                                          .white;
-                                                                  whiteColor3 =
-                                                                      Color(
-                                                                          0xff2C50ED);
-                                                                });
-                                                        },
-                                                        child: Container(
-                                                          alignment:
-                                                              Alignment.center,
-                                                          width: 138,
-                                                          height: 32,
-                                                          decoration: BoxDecoration(
-                                                              color:
-                                                                  whiteColor3,
-                                                              border: Border.all(
-                                                                  color:
-                                                                      blueColor3),
-                                                              borderRadius:
-                                                                  BorderRadius
-                                                                      .circular(
-                                                                          24)),
-                                                          child: Text(
-                                                            'Specific    ',
-                                                            style: TextStyle(
-                                                                color:
-                                                                    blueColor3,
-                                                                letterSpacing:
-                                                                    0.5,
-                                                                fontSize: 11,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w700),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                    Positioned(
-                                                        left: 90,
-                                                        child: StatefulBuilder(
-                                                          builder: (context,
-                                                                  setState) =>
-                                                              GestureDetector(
-                                                            onTap: () {
-                                                              tap4
-                                                                  ? setState(
-                                                                      () {
-                                                                      tap4 =
-                                                                          !tap4;
-                                                                      whiteColor4 =
-                                                                          Colors
-                                                                              .white;
-                                                                      blueColor4 =
-                                                                          Color(
-                                                                              0xff2C50ED);
-                                                                    })
-                                                                  : setState(
-                                                                      () {
-                                                                      tap4 =
-                                                                          !tap4;
-                                                                      blueColor4 =
-                                                                          Colors
-                                                                              .white;
-                                                                      whiteColor4 =
-                                                                          Color(
-                                                                              0xff2C50ED);
-                                                                    });
-                                                              this.setState(
-                                                                  () {});
-                                                            },
-                                                            child: Container(
-                                                              alignment:
-                                                                  Alignment
-                                                                      .center,
-                                                              width: 138,
-                                                              height: 32,
-                                                              decoration: BoxDecoration(
-                                                                  color:
-                                                                      whiteColor4,
-                                                                  border: Border
-                                                                      .all(
-                                                                          color:
-                                                                              blueColor4),
-                                                                  borderRadius:
-                                                                      BorderRadius
-                                                                          .circular(
-                                                                              24)),
-                                                              child: Text(
-                                                                'All Clear',
-                                                                style: TextStyle(
-                                                                    color:
-                                                                        blueColor4,
-                                                                    letterSpacing:
-                                                                        0.5,
-                                                                    fontSize:
-                                                                        11,
-                                                                    fontWeight:
-                                                                        FontWeight
-                                                                            .w700),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        )),
-                                                  ],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
+                                          const SizedBox(height: 12),
+                                          DropdownWidget4(
+                                              items: paymentsList,
+                                              selectItem: 'Amount Types'),
+                                          const SizedBox(height: 10),
                                           TextFieldWidget(labelText: 'ID:'),
                                           const SizedBox(
                                             height: 10,
@@ -365,17 +266,18 @@ class _ClearPageState extends State<ClearPage> {
                     },
                     child: Container(
                       alignment: Alignment.center,
-                      height: 24,
-                      width: 110,
+                      height: 28,
+                      width: 120,
                       decoration: BoxDecoration(
-                          color: ColorConstant.blueColor,
+                          color: whiteColor,
+                          border: Border.all(color: blueColor),
                           borderRadius: BorderRadius.circular(18)),
                       child: Text(
                         'Clear Amount',
                         style: GoogleFonts.dmSans(
                             fontSize: 13,
                             fontWeight: FontWeight.w700,
-                            color: ColorConstant.whiteColor),
+                            color: blueColor),
                       ),
                     ),
                   ),
@@ -392,7 +294,7 @@ class _ClearPageState extends State<ClearPage> {
                         fillColor: ColorConstant.searchColor,
                         filled: true,
                         prefixIcon: const Icon(Icons.search),
-                        hintText: 'Search store'),
+                        hintText: 'Search...'),
                   ),
                 ),
               ],
@@ -460,13 +362,16 @@ class _ClearPageState extends State<ClearPage> {
                           GestureDetector(
                             onTap: () {
                               showDialog(
+                                  useSafeArea: false,
+                                  barrierDismissible: false,
                                   context: context,
                                   builder: (context) {
                                     return AlertDialog(
+                                      scrollable: true,
                                       backgroundColor: Colors.transparent,
                                       elevation: 0,
                                       content: Container(
-                                          height: 480,
+                                          height: 640,
                                           width: 410,
                                           decoration: BoxDecoration(
                                               color: ColorConstant.whiteColor,
@@ -477,43 +382,83 @@ class _ClearPageState extends State<ClearPage> {
                                           child: Column(
                                             children: [
                                               Container(
-                                                height: 26,
                                                 width: 410,
+                                                height: 40,
                                                 color: ColorConstant.blueColor,
-                                              ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                            horizontal: 31)
-                                                        .copyWith(top: 40),
-                                                child: Container(
-                                                  height: 288,
-                                                  width: 400,
-                                                  decoration: BoxDecoration(
-                                                      image: DecorationImage(
-                                                          image: AssetImage(
-                                                              'assets/images/complain.png'))),
+                                                child: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  children: [
+                                                    Text(''),
+                                                    Text(
+                                                      'Record',
+                                                      style: GoogleFonts.poppins(
+                                                          fontSize: 30,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          color: ColorConstant
+                                                              .whiteColor),
+                                                    ),
+                                                    IconButton(
+                                                        onPressed: () {
+                                                          Navigator.pop(
+                                                              context);
+                                                        },
+                                                        icon: Icon(
+                                                          Icons.close,
+                                                          color: ColorConstant
+                                                              .whiteColor,
+                                                        ))
+                                                  ],
                                                 ),
                                               ),
-                                              Padding(
-                                                padding:
-                                                    const EdgeInsets.symmetric(
-                                                        horizontal: 8),
-                                                child: Container(
-                                                  alignment: Alignment.center,
-                                                  // height: 288,
-                                                  width: 380,
-                                                  child: Text(
-                                                    'Music Time With My Chill ModMusic Time \nWith My Chill ModMusic Time With My Chill Mod',
-                                                    textAlign: TextAlign.center,
-                                                    style: GoogleFonts.poppins(
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.w300,
-                                                        letterSpacing: 0.5),
-                                                  ),
-                                                ),
-                                              ),
+                                              ButtonDate(
+                                                  buttonText:
+                                                      '14-February-2024'),
+                                              RecordRow1(
+                                                  textOne: 'Live Duration',
+                                                  textTwo: 'Receive Coin'),
+                                              RecordRow2(
+                                                  textOne: '02:45 PM',
+                                                  textTwo: '4575644  Coins'),
+                                              const SizedBox(height: 16),
+                                              RecordRow1(
+                                                  textOne: 'Audio Duration',
+                                                  textTwo: 'Receive Coin'),
+                                              RecordRow2(
+                                                  textOne: '02:45 PM',
+                                                  textTwo: '4575644  Coins'),
+                                              const SizedBox(height: 16),
+                                              RecordRow3(
+                                                  textOne:
+                                                      'Total Receive:      1546845 Coins'),
+                                              RecordRow3(
+                                                  textOne:
+                                                      'Total Withdrew:      1546845 Coins'),
+                                              ButtonDate(
+                                                  buttonText:
+                                                      '18-December-2024'),
+                                              RecordRow1(
+                                                  textOne: 'Live Duration',
+                                                  textTwo: 'Receive Coin'),
+                                              RecordRow2(
+                                                  textOne: '02:45 PM',
+                                                  textTwo: '4575644  Coins'),
+                                              const SizedBox(height: 16),
+                                              RecordRow1(
+                                                  textOne: 'Audio Duration',
+                                                  textTwo: 'Receive Coin'),
+                                              RecordRow2(
+                                                  textOne: '02:45 PM',
+                                                  textTwo: '4575644  Coins'),
+                                              const SizedBox(height: 16),
+                                              RecordRow3(
+                                                  textOne:
+                                                      'Total Receive:      1546845 Coins'),
+                                              RecordRow3(
+                                                  textOne:
+                                                      'Total Withdrew:      1546845 Coins'),
                                             ],
                                           )),
                                     );

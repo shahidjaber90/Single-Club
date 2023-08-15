@@ -5,8 +5,6 @@ import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/admin_field_heading.dart';
 import 'package:singleclub/Widgets/admin_textfield.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
-import 'package:singleclub/Widgets/textfield_heading.dart';
-import 'package:singleclub/Widgets/textfield_widget.dart';
 
 class Settingpage extends StatefulWidget {
   const Settingpage({super.key});
@@ -37,7 +35,13 @@ class _SettingpageState extends State<Settingpage> {
             children: [
               Container(
                 width: MediaQuery.of(context).size.width / 2.2,
-                color: ColorConstant.whiteColor,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: ColorConstant.blueColor,
+                    width: 2,
+                  ),
+                  color: ColorConstant.whiteColor,
+                ),
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
@@ -80,7 +84,7 @@ class _SettingpageState extends State<Settingpage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        SizedBox(
+                                        Container(
                                           height: 40,
                                           width: 280,
                                           child: Stack(
@@ -175,11 +179,14 @@ class _SettingpageState extends State<Settingpage> {
                                     ),
 
                                     /// fields
-                                    const AdminFieldHeading(headingText: 'Name'),
+                                    const AdminFieldHeading(
+                                        headingText: 'Name'),
                                     AdminTextFieldWidget(),
-                                    const AdminFieldHeading(headingText: 'Numer'),
+                                    const AdminFieldHeading(
+                                        headingText: 'Numer'),
                                     AdminTextFieldWidget(),
-                                    const AdminFieldHeading(headingText: 'Email'),
+                                    const AdminFieldHeading(
+                                        headingText: 'Email'),
                                     AdminTextFieldWidget(),
                                     const AdminFieldHeading(
                                         headingText: 'Current Password'),
@@ -190,9 +197,11 @@ class _SettingpageState extends State<Settingpage> {
                                     const AdminFieldHeading(
                                         headingText: 'Confirm Password'),
                                     AdminTextFieldWidget(),
-                                    const AdminFieldHeading(headingText: 'Facebook'),
+                                    const AdminFieldHeading(
+                                        headingText: 'Facebook'),
                                     AdminTextFieldWidget(),
-                                    const AdminFieldHeading(headingText: 'Whatsapp'),
+                                    const AdminFieldHeading(
+                                        headingText: 'Whatsapp'),
                                     AdminTextFieldWidget(),
                                   ],
                                 ),
@@ -209,7 +218,6 @@ class _SettingpageState extends State<Settingpage> {
                                       2,
                                   child: Row(
                                     children: [
-                                      // second profile
                                       Container(
                                         width:
                                             MediaQuery.of(context).size.width /
@@ -242,6 +250,36 @@ class _SettingpageState extends State<Settingpage> {
                                                         .whiteColor),
                                               )),
                                             ),
+                                            //
+                                            Positioned(
+                                                top: 132,
+                                                left: 193,
+                                                child: Container(
+                                                  child: Row(
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    // mainAxisAlignment:
+                                                    //     MainAxisAlignment
+                                                    //         .spaceBetween,
+                                                    children: [
+                                                      LineIcon.facebook(
+                                                        color: ColorConstant
+                                                            .blueColor,
+                                                      ),
+                                                      LineIcon.whatSApp(
+                                                        color: ColorConstant
+                                                            .blueColor,
+                                                      ),
+                                                      LineIcon(
+                                                        Icons.call,
+                                                        size: 17,
+                                                        color: ColorConstant
+                                                            .blueColor,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                )),
+
                                             // profile
                                             Positioned(
                                               top: 70,
@@ -265,6 +303,7 @@ class _SettingpageState extends State<Settingpage> {
                                                 )),
                                               ),
                                             ),
+                                            // name and icons
                                             // name and icons
                                             Positioned(
                                               top: 170,
@@ -305,7 +344,7 @@ class _SettingpageState extends State<Settingpage> {
                                                         Text(
                                                           "master Panel",
                                                           style: GoogleFonts.poppins(
-                                                              fontSize: 10,
+                                                              fontSize: 12,
                                                               color:
                                                                   ColorConstant
                                                                       .blueColor,
@@ -318,9 +357,6 @@ class _SettingpageState extends State<Settingpage> {
                                                       ],
                                                     ),
                                                     Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceEvenly,
                                                       children: [
                                                         Text(
                                                           "Power Atton",
@@ -334,32 +370,6 @@ class _SettingpageState extends State<Settingpage> {
                                                                       .w500,
                                                               letterSpacing:
                                                                   0.5),
-                                                        ),
-                                                        Row(
-                                                          mainAxisSize:
-                                                              MainAxisSize.min,
-                                                          mainAxisAlignment:
-                                                              MainAxisAlignment
-                                                                  .spaceEvenly,
-                                                          children: [
-                                                            LineIcon.facebook(
-                                                              color:
-                                                                  ColorConstant
-                                                                      .blueColor,
-                                                            ),
-                                                            LineIcon.whatSApp(
-                                                              color:
-                                                                  ColorConstant
-                                                                      .blueColor,
-                                                            ),
-                                                            LineIcon(
-                                                              Icons.call,
-                                                              size: 17,
-                                                              color:
-                                                                  ColorConstant
-                                                                      .blueColor,
-                                                            ),
-                                                          ],
                                                         ),
                                                       ],
                                                     ),
@@ -472,7 +482,10 @@ class _SettingpageState extends State<Settingpage> {
                                 const SizedBox(
                                   height: 300,
                                 ),
-                                AlertButton(buttonName: "Save")
+                                AlertButton(buttonName: "Save"),
+                                const SizedBox(
+                                  height: 12,
+                                ),
                               ],
                             ),
                           ],

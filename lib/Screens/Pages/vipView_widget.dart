@@ -41,7 +41,7 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                 Row(
                   children: [
                     Container(
-                      height: 160,
+                      height: 60,
                       width: 400,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +77,12 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                         elevation: 0,
                                         title: Container(
                                           width: 400,
-                                          color: ColorConstant.blueColor,
+                                          decoration: BoxDecoration(
+                                              color: ColorConstant.whiteColor,
+                                              border: Border.all(
+                                                  color:
+                                                      ColorConstant.blueColor,
+                                                  width: 2)),
                                           child: Column(
                                             children: [
                                               Container(
@@ -402,7 +407,12 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                                           elevation: 0,
                                           title: Container(
                                             // width: 400,
-                                            color: ColorConstant.blueColor,
+                                            decoration: BoxDecoration(
+                                                color: ColorConstant.whiteColor,
+                                                border: Border.all(
+                                                    color:
+                                                        ColorConstant.blueColor,
+                                                    width: 2)),
                                             child: Column(
                                               children: [
                                                 Container(
@@ -588,6 +598,7 @@ class _VipViewWidgetState extends State<VipViewWidget> {
                     ),
                   ],
                 ),
+                const SizedBox(height: 20),
                 // headings
                 Container(
                   color: ColorConstant.whiteColor,

@@ -18,6 +18,7 @@ class _MediaPageState extends State<MediaPage> {
   Color blueColor = const Color(0xff2C50ED);
   Color whiteColor2 = (Colors.white);
   Color blueColor2 = const Color(0xff2C50ED);
+  String typeofText = 'Post';
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,7 @@ class _MediaPageState extends State<MediaPage> {
                         Row(
                           children: [
                             Container(
-                              height: 155,
+                              height: 60,
                               width: MediaQuery.of(context).size.width * 0.748,
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -67,15 +68,32 @@ class _MediaPageState extends State<MediaPage> {
                                             onTap: () {
                                               tap1
                                                   ? setState(() {
+                                                      typeofText = 'post';
                                                       tap1 = !tap1;
                                                       whiteColor = Colors.white;
                                                       blueColor =
                                                           Color(0xff2C50ED);
                                                     })
                                                   : setState(() {
+                                                      typeofText = 'post';
                                                       tap1 = !tap1;
                                                       blueColor = Colors.white;
                                                       whiteColor =
+                                                          Color(0xff2C50ED);
+                                                    });
+
+                                              tap2
+                                                  ? setState(() {
+                                                      tap2 = !tap2;
+                                                      whiteColor2 =
+                                                          Colors.white;
+                                                      blueColor2 =
+                                                          Color(0xff2C50ED);
+                                                    })
+                                                  : setState(() {
+                                                      tap2 = !tap2;
+                                                      blueColor2 = Colors.white;
+                                                      whiteColor2 =
                                                           Color(0xff2C50ED);
                                                     });
 
@@ -216,6 +234,7 @@ class _MediaPageState extends State<MediaPage> {
                                               onTap: () {
                                                 tap2
                                                     ? setState(() {
+                                                        typeofText = 'SMS';
                                                         tap2 = !tap2;
                                                         whiteColor2 =
                                                             Colors.white;
@@ -223,552 +242,13 @@ class _MediaPageState extends State<MediaPage> {
                                                             Color(0xff2C50ED);
                                                       })
                                                     : setState(() {
+                                                        typeofText = 'SMS';
                                                         tap2 = !tap2;
                                                         blueColor2 =
                                                             Colors.white;
                                                         whiteColor2 =
                                                             Color(0xff2C50ED);
                                                       });
-
-                                                showDialog(
-                                                  barrierDismissible: false,
-                                                  context: context,
-                                                  builder: (context) =>
-                                                      AlertDialog(
-                                                    scrollable: true,
-                                                    backgroundColor:
-                                                        Colors.transparent,
-                                                    elevation: 0,
-                                                    actions: [
-                                                      Padding(
-                                                        padding:
-                                                            const EdgeInsets
-                                                                .all(20.0),
-                                                        child: Container(
-                                                          width: 400,
-                                                          height: 601,
-                                                          color: ColorConstant
-                                                              .whiteColor,
-                                                          child:
-                                                              SingleChildScrollView(
-                                                            child: Column(
-                                                              children: [
-                                                                Container(
-                                                                  width: 400,
-                                                                  color: ColorConstant
-                                                                      .blueColor,
-                                                                  child: Row(
-                                                                    mainAxisAlignment:
-                                                                        MainAxisAlignment
-                                                                            .spaceBetween,
-                                                                    children: [
-                                                                      Text(''),
-                                                                      Text(
-                                                                        textAlign:
-                                                                            TextAlign.center,
-                                                                        "SMS",
-                                                                        style: GoogleFonts.poppins(
-                                                                            color: ColorConstant
-                                                                                .whiteColor,
-                                                                            fontSize:
-                                                                                30,
-                                                                            fontWeight:
-                                                                                FontWeight.w600),
-                                                                      ),
-                                                                      IconButton(
-                                                                        onPressed:
-                                                                            () {
-                                                                          tap2
-                                                                              ? setState(() {
-                                                                                  tap2 = !tap2;
-                                                                                  whiteColor2 = Colors.white;
-                                                                                  blueColor2 = Color(0xff2C50ED);
-                                                                                })
-                                                                              : setState(() {
-                                                                                  tap2 = !tap2;
-                                                                                  blueColor2 = Colors.white;
-                                                                                  whiteColor2 = Color(0xff2C50ED);
-                                                                                });
-                                                                          Navigator.pop(
-                                                                              context);
-                                                                        },
-                                                                        icon: const Icon(
-                                                                            Icons.close),
-                                                                        color: ColorConstant
-                                                                            .whiteColor,
-                                                                      )
-                                                                    ],
-                                                                  ),
-                                                                ),
-
-                                                                /// SMS body Start
-                                                                Container(
-                                                                  width: 400,
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsets.symmetric(
-                                                                            horizontal:
-                                                                                20)
-                                                                        .copyWith(
-                                                                            top:
-                                                                                20),
-                                                                    child: Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceBetween,
-                                                                      children: [
-                                                                        Row(
-                                                                          children: [
-                                                                            Image.asset('assets/icons/Back.png'),
-                                                                            const SizedBox(width: 15),
-                                                                            Image.asset('assets/icons/chatUser.png'),
-                                                                            const SizedBox(width: 10),
-                                                                            Column(
-                                                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                                                              children: [
-                                                                                Text(
-                                                                                  'Martha Craig',
-                                                                                  style: GoogleFonts.yantramanav(fontSize: 17, fontWeight: FontWeight.w700, color: Colors.black),
-                                                                                ),
-                                                                                Text(
-                                                                                  'Messenger',
-                                                                                  style: GoogleFonts.yantramanav(fontSize: 13, fontWeight: FontWeight.w500, color: Colors.black.withOpacity(0.40)),
-                                                                                ),
-                                                                              ],
-                                                                            )
-                                                                          ],
-                                                                        ),
-                                                                        Row(
-                                                                          children: [
-                                                                            Image.asset('assets/icons/Call.png'),
-                                                                            const SizedBox(width: 15),
-                                                                            Image.asset('assets/icons/Video Call.png'),
-                                                                          ],
-                                                                        )
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 400,
-                                                                  height: 150,
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsets.symmetric(
-                                                                            horizontal:
-                                                                                20)
-                                                                        .copyWith(
-                                                                            top:
-                                                                                20),
-                                                                    child: Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .end,
-                                                                      children: [
-                                                                        Container(
-                                                                          height:
-                                                                              150,
-                                                                          width:
-                                                                              200,
-                                                                          decoration:
-                                                                              BoxDecoration(image: DecorationImage(image: AssetImage('assets/icons/post.png'), fit: BoxFit.fill)),
-                                                                        ),
-                                                                        Container(
-                                                                          height:
-                                                                              80,
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.end,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.end,
-                                                                            children: [
-                                                                              Image.asset('assets/icons/sender2.png'),
-                                                                            ],
-                                                                          ),
-                                                                        )
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 400,
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsets
-                                                                            .symmetric(
-                                                                        horizontal:
-                                                                            20),
-                                                                    child: Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceBetween,
-                                                                      children: [
-                                                                        Text(
-                                                                            ''),
-                                                                        Text(
-                                                                          '21:32',
-                                                                          style: GoogleFonts.yantramanav(
-                                                                              fontSize: 12,
-                                                                              fontWeight: FontWeight.w500,
-                                                                              color: Colors.black.withOpacity(0.40)),
-                                                                        ),
-                                                                        Text(
-                                                                            ''),
-                                                                        Text(
-                                                                          'ID: 784575',
-                                                                          style: GoogleFonts.poppins(
-                                                                              fontSize: 14,
-                                                                              fontWeight: FontWeight.w400),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-
-                                                                ///
-
-                                                                Container(
-                                                                  width: 400,
-                                                                  // height: 150,
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsets.symmetric(
-                                                                            horizontal:
-                                                                                20)
-                                                                        .copyWith(
-                                                                            top:
-                                                                                20),
-                                                                    child: Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .start,
-                                                                      children: [
-                                                                        Container(
-                                                                          height:
-                                                                              50,
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.end,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children: [
-                                                                              Image.asset('assets/icons/sender1.png'),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                        const SizedBox(
-                                                                            width:
-                                                                                10),
-                                                                        Container(
-                                                                          height:
-                                                                              41,
-                                                                          width:
-                                                                              198,
-                                                                          decoration:
-                                                                              BoxDecoration(image: DecorationImage(image: AssetImage('assets/icons/voice.png'), fit: BoxFit.fill)),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .topLeft,
-                                                                  width: 400,
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsets
-                                                                            .symmetric(
-                                                                        horizontal:
-                                                                            20),
-                                                                    child: Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceBetween,
-                                                                      children: [
-                                                                        Text(
-                                                                          'ID: 784575',
-                                                                          style: GoogleFonts.poppins(
-                                                                              fontSize: 14,
-                                                                              fontWeight: FontWeight.w400),
-                                                                        ),
-                                                                        Text(
-                                                                            ''),
-                                                                        Text(
-                                                                            ''),
-                                                                        Text(
-                                                                            ''),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-
-                                                                /// again user
-
-                                                                Container(
-                                                                  width: 400,
-                                                                  height: 150,
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsets
-                                                                            .symmetric(
-                                                                        horizontal:
-                                                                            20),
-                                                                    child: Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .end,
-                                                                      children: [
-                                                                        Container(
-                                                                          height:
-                                                                              150,
-                                                                          width:
-                                                                              200,
-                                                                          decoration:
-                                                                              BoxDecoration(image: DecorationImage(image: AssetImage('assets/icons/post.png'), fit: BoxFit.fill)),
-                                                                        ),
-                                                                        Container(
-                                                                          height:
-                                                                              80,
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.end,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.end,
-                                                                            children: [
-                                                                              Image.asset('assets/icons/sender2.png'),
-                                                                            ],
-                                                                          ),
-                                                                        )
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 400,
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsets
-                                                                            .symmetric(
-                                                                        horizontal:
-                                                                            20),
-                                                                    child: Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceBetween,
-                                                                      children: [
-                                                                        Text(
-                                                                            ''),
-                                                                        Text(
-                                                                          '21:32',
-                                                                          style: GoogleFonts.yantramanav(
-                                                                              fontSize: 12,
-                                                                              fontWeight: FontWeight.w500,
-                                                                              color: Colors.black.withOpacity(0.40)),
-                                                                        ),
-                                                                        Text(
-                                                                            ''),
-                                                                        Text(
-                                                                          'ID: 784575',
-                                                                          style: GoogleFonts.poppins(
-                                                                              fontSize: 14,
-                                                                              fontWeight: FontWeight.w400),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 400,
-                                                                  // height: 150,
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsets
-                                                                            .symmetric(
-                                                                        horizontal:
-                                                                            20),
-                                                                    child: Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .end,
-                                                                      children: [
-                                                                        Container(
-                                                                          alignment:
-                                                                              Alignment.center,
-                                                                          // height:
-                                                                          //     150,
-                                                                          width:
-                                                                              200,
-                                                                          child:
-                                                                              Column(
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children: [
-                                                                              Text(
-                                                                                'Hello, Jacob!',
-                                                                                style: GoogleFonts.yantramanav(fontSize: 17, fontWeight: FontWeight.w600),
-                                                                              ),
-                                                                              Text(
-                                                                                'How are you doing?',
-                                                                                style: GoogleFonts.yantramanav(fontSize: 17, fontWeight: FontWeight.w600),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                        Container(
-                                                                          // height:
-                                                                          //     80,
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.end,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.end,
-                                                                            children: [
-                                                                              Image.asset('assets/icons/sender2.png'),
-                                                                            ],
-                                                                          ),
-                                                                        )
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                                Container(
-                                                                  width: 400,
-                                                                  // height: 150,
-                                                                  child:
-                                                                      Padding(
-                                                                    padding: const EdgeInsets
-                                                                            .symmetric(
-                                                                        horizontal:
-                                                                            20),
-                                                                    child: Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .start,
-                                                                      children: [
-                                                                        Container(
-                                                                          // height:
-                                                                          //     80,
-                                                                          child:
-                                                                              Column(
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.end,
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children: [
-                                                                              Image.asset('assets/icons/sender2.png'),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                        Container(
-                                                                          alignment:
-                                                                              Alignment.center,
-                                                                          // height:
-                                                                          //     150,
-                                                                          width:
-                                                                              200,
-                                                                          child:
-                                                                              Column(
-                                                                            crossAxisAlignment:
-                                                                                CrossAxisAlignment.start,
-                                                                            children: [
-                                                                              Text(
-                                                                                'Hello, Jacob!',
-                                                                                style: GoogleFonts.yantramanav(fontSize: 17, fontWeight: FontWeight.w600),
-                                                                              ),
-                                                                              Text(
-                                                                                'How are you doing?',
-                                                                                style: GoogleFonts.yantramanav(fontSize: 17, fontWeight: FontWeight.w600),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                ),
-
-                                                                Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
-                                                                      horizontal:
-                                                                          20),
-                                                                  child: Row(
-                                                                    children: [
-                                                                      Text(
-                                                                        'ID: 784575',
-                                                                        style: GoogleFonts.poppins(
-                                                                            fontSize:
-                                                                                14,
-                                                                            fontWeight:
-                                                                                FontWeight.w400),
-                                                                      ),
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                                Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .symmetric(
-                                                                      horizontal:
-                                                                          20,
-                                                                      vertical:
-                                                                          10),
-                                                                  child:
-                                                                      Container(
-                                                                    width: 400,
-                                                                    child: Row(
-                                                                      mainAxisAlignment:
-                                                                          MainAxisAlignment
-                                                                              .spaceBetween,
-                                                                      children: [
-                                                                        Container(
-                                                                          width:
-                                                                              290,
-                                                                          child:
-                                                                              Row(
-                                                                            mainAxisAlignment:
-                                                                                MainAxisAlignment.spaceBetween,
-                                                                            children: [
-                                                                              Image.asset('assets/icons/Gallery.png'),
-                                                                              Image.asset('assets/icons/Audio.png'),
-                                                                              Image.asset('assets/icons/image 5.png'),
-                                                                              Container(
-                                                                                alignment: Alignment.center,
-                                                                                height: 36,
-                                                                                width: 157,
-                                                                                child: TextField(
-                                                                                  textAlign: TextAlign.center,
-                                                                                  textAlignVertical: TextAlignVertical.center,
-                                                                                  decoration: InputDecoration(fillColor: ColorConstant.arrowColor.withOpacity(0.60), filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(24), borderSide: BorderSide.none)),
-                                                                                ),
-                                                                              ),
-                                                                            ],
-                                                                          ),
-                                                                        ),
-                                                                        Row(
-                                                                          children: [
-                                                                            Image.asset('assets/icons/Like.png'),
-                                                                          ],
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                )
-
-                                                                /// SMS Boy End
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                );
                                               },
                                               child: Container(
                                                 alignment: Alignment.center,
@@ -894,25 +374,600 @@ class _MediaPageState extends State<MediaPage> {
                                         DataHeadingWidget(
                                             height: 24.0,
                                             width: 130.0,
-                                            headingText: 'Video'),
+                                            headingText: typeofText),
                                         DataHeadingWidget(
                                             height: 24.0,
                                             width: 150.0,
                                             headingText: 'Bangladesh'),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          height: 20,
-                                          width: 84,
-                                          decoration: BoxDecoration(
-                                            color: ColorConstant.blueColor,
-                                            borderRadius:
-                                                BorderRadius.circular(4),
-                                          ),
-                                          child: Text(
-                                            'Open',
-                                            style: TextStyle(
-                                                color:
-                                                    ColorConstant.whiteColor),
+                                        GestureDetector(
+                                          onTap: () {
+                                            showDialog(
+                                              barrierDismissible: false,
+                                              context: context,
+                                              builder: (context) => AlertDialog(
+                                                scrollable: true,
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                                elevation: 0,
+                                                actions: [
+                                                  Padding(
+                                                    padding:
+                                                        const EdgeInsets.all(
+                                                            20.0),
+                                                    child: Container(
+                                                      width: 400,
+                                                      height: 601,
+                                                      decoration: BoxDecoration(
+                                                          color: ColorConstant
+                                                              .whiteColor,
+                                                          border: Border.all(
+                                                              color:
+                                                                  ColorConstant
+                                                                      .blueColor,
+                                                              width: 2)),
+                                                      child:
+                                                          SingleChildScrollView(
+                                                        child: Column(
+                                                          children: [
+                                                            Container(
+                                                              width: 400,
+                                                              color:
+                                                                  ColorConstant
+                                                                      .blueColor,
+                                                              child: Row(
+                                                                mainAxisAlignment:
+                                                                    MainAxisAlignment
+                                                                        .spaceBetween,
+                                                                children: [
+                                                                  Text(''),
+                                                                  Text(
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    "SMS",
+                                                                    style: GoogleFonts.poppins(
+                                                                        color: ColorConstant
+                                                                            .whiteColor,
+                                                                        fontSize:
+                                                                            30,
+                                                                        fontWeight:
+                                                                            FontWeight.w600),
+                                                                  ),
+                                                                  IconButton(
+                                                                    onPressed:
+                                                                        () {
+                                                                      Navigator.pop(
+                                                                          context);
+                                                                    },
+                                                                    icon: const Icon(
+                                                                        Icons
+                                                                            .close),
+                                                                    color: ColorConstant
+                                                                        .whiteColor,
+                                                                  )
+                                                                ],
+                                                              ),
+                                                            ),
+
+                                                            /// SMS body Start
+                                                            Container(
+                                                              width: 400,
+                                                              child: Padding(
+                                                                padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            20)
+                                                                    .copyWith(
+                                                                        top:
+                                                                            20),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Row(
+                                                                      children: [
+                                                                        Image.asset(
+                                                                            'assets/icons/Back.png'),
+                                                                        const SizedBox(
+                                                                            width:
+                                                                                15),
+                                                                        Image.asset(
+                                                                            'assets/icons/chatUser.png'),
+                                                                        const SizedBox(
+                                                                            width:
+                                                                                10),
+                                                                        Column(
+                                                                          crossAxisAlignment:
+                                                                              CrossAxisAlignment.start,
+                                                                          children: [
+                                                                            Text(
+                                                                              'Martha Craig',
+                                                                              style: GoogleFonts.yantramanav(fontSize: 17, fontWeight: FontWeight.w700, color: Colors.black),
+                                                                            ),
+                                                                            Text(
+                                                                              'Messenger',
+                                                                              style: GoogleFonts.yantramanav(fontSize: 13, fontWeight: FontWeight.w500, color: Colors.black.withOpacity(0.40)),
+                                                                            ),
+                                                                          ],
+                                                                        )
+                                                                      ],
+                                                                    ),
+                                                                    Row(
+                                                                      children: [
+                                                                        Image.asset(
+                                                                            'assets/icons/Call.png'),
+                                                                        const SizedBox(
+                                                                            width:
+                                                                                15),
+                                                                        Image.asset(
+                                                                            'assets/icons/Video Call.png'),
+                                                                      ],
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                              width: 400,
+                                                              height: 150,
+                                                              child: Padding(
+                                                                padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            20)
+                                                                    .copyWith(
+                                                                        top:
+                                                                            20),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .end,
+                                                                  children: [
+                                                                    Container(
+                                                                      height:
+                                                                          150,
+                                                                      width:
+                                                                          200,
+                                                                      decoration: BoxDecoration(
+                                                                          image: DecorationImage(
+                                                                              image: AssetImage('assets/icons/post.png'),
+                                                                              fit: BoxFit.fill)),
+                                                                    ),
+                                                                    Container(
+                                                                      height:
+                                                                          80,
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.end,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.end,
+                                                                        children: [
+                                                                          Image.asset(
+                                                                              'assets/icons/sender2.png'),
+                                                                        ],
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                              width: 400,
+                                                              child: Padding(
+                                                                padding: const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        20),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Text(''),
+                                                                    Text(
+                                                                      '21:32',
+                                                                      style: GoogleFonts.yantramanav(
+                                                                          fontSize:
+                                                                              12,
+                                                                          fontWeight: FontWeight
+                                                                              .w500,
+                                                                          color: Colors
+                                                                              .black
+                                                                              .withOpacity(0.40)),
+                                                                    ),
+                                                                    Text(''),
+                                                                    Text(
+                                                                      'ID: 784575',
+                                                                      style: GoogleFonts.poppins(
+                                                                          fontSize:
+                                                                              14,
+                                                                          fontWeight:
+                                                                              FontWeight.w400),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+
+                                                            ///
+
+                                                            Container(
+                                                              width: 400,
+                                                              // height: 150,
+                                                              child: Padding(
+                                                                padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            20)
+                                                                    .copyWith(
+                                                                        top:
+                                                                            20),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Container(
+                                                                      height:
+                                                                          50,
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.end,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Image.asset(
+                                                                              'assets/icons/sender1.png'),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    const SizedBox(
+                                                                        width:
+                                                                            10),
+                                                                    Container(
+                                                                      height:
+                                                                          41,
+                                                                      width:
+                                                                          198,
+                                                                      decoration: BoxDecoration(
+                                                                          image: DecorationImage(
+                                                                              image: AssetImage('assets/icons/voice.png'),
+                                                                              fit: BoxFit.fill)),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                              alignment:
+                                                                  Alignment
+                                                                      .topLeft,
+                                                              width: 400,
+                                                              child: Padding(
+                                                                padding: const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        20),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Text(
+                                                                      'ID: 784575',
+                                                                      style: GoogleFonts.poppins(
+                                                                          fontSize:
+                                                                              14,
+                                                                          fontWeight:
+                                                                              FontWeight.w400),
+                                                                    ),
+                                                                    Text(''),
+                                                                    Text(''),
+                                                                    Text(''),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+
+                                                            /// again user
+
+                                                            Container(
+                                                              width: 400,
+                                                              height: 150,
+                                                              child: Padding(
+                                                                padding: const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        20),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .end,
+                                                                  children: [
+                                                                    Container(
+                                                                      height:
+                                                                          150,
+                                                                      width:
+                                                                          200,
+                                                                      decoration: BoxDecoration(
+                                                                          image: DecorationImage(
+                                                                              image: AssetImage('assets/icons/post.png'),
+                                                                              fit: BoxFit.fill)),
+                                                                    ),
+                                                                    Container(
+                                                                      height:
+                                                                          80,
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.end,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.end,
+                                                                        children: [
+                                                                          Image.asset(
+                                                                              'assets/icons/sender2.png'),
+                                                                        ],
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                              width: 400,
+                                                              child: Padding(
+                                                                padding: const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        20),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Text(''),
+                                                                    Text(
+                                                                      '21:32',
+                                                                      style: GoogleFonts.yantramanav(
+                                                                          fontSize:
+                                                                              12,
+                                                                          fontWeight: FontWeight
+                                                                              .w500,
+                                                                          color: Colors
+                                                                              .black
+                                                                              .withOpacity(0.40)),
+                                                                    ),
+                                                                    Text(''),
+                                                                    Text(
+                                                                      'ID: 784575',
+                                                                      style: GoogleFonts.poppins(
+                                                                          fontSize:
+                                                                              14,
+                                                                          fontWeight:
+                                                                              FontWeight.w400),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                              width: 400,
+                                                              // height: 150,
+                                                              child: Padding(
+                                                                padding: const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        20),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .end,
+                                                                  children: [
+                                                                    Container(
+                                                                      alignment:
+                                                                          Alignment
+                                                                              .center,
+                                                                      // height:
+                                                                      //     150,
+                                                                      width:
+                                                                          200,
+                                                                      child:
+                                                                          Column(
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Text(
+                                                                            'Hello, Jacob!',
+                                                                            style:
+                                                                                GoogleFonts.yantramanav(fontSize: 17, fontWeight: FontWeight.w600),
+                                                                          ),
+                                                                          Text(
+                                                                            'How are you doing?',
+                                                                            style:
+                                                                                GoogleFonts.yantramanav(fontSize: 17, fontWeight: FontWeight.w600),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    Container(
+                                                                      // height:
+                                                                      //     80,
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.end,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.end,
+                                                                        children: [
+                                                                          Image.asset(
+                                                                              'assets/icons/sender2.png'),
+                                                                        ],
+                                                                      ),
+                                                                    )
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+                                                            Container(
+                                                              width: 400,
+                                                              // height: 150,
+                                                              child: Padding(
+                                                                padding: const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        20),
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .start,
+                                                                  children: [
+                                                                    Container(
+                                                                      // height:
+                                                                      //     80,
+                                                                      child:
+                                                                          Column(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.end,
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Image.asset(
+                                                                              'assets/icons/sender2.png'),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    Container(
+                                                                      alignment:
+                                                                          Alignment
+                                                                              .center,
+                                                                      // height:
+                                                                      //     150,
+                                                                      width:
+                                                                          200,
+                                                                      child:
+                                                                          Column(
+                                                                        crossAxisAlignment:
+                                                                            CrossAxisAlignment.start,
+                                                                        children: [
+                                                                          Text(
+                                                                            'Hello, Jacob!',
+                                                                            style:
+                                                                                GoogleFonts.yantramanav(fontSize: 17, fontWeight: FontWeight.w600),
+                                                                          ),
+                                                                          Text(
+                                                                            'How are you doing?',
+                                                                            style:
+                                                                                GoogleFonts.yantramanav(fontSize: 17, fontWeight: FontWeight.w600),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ),
+
+                                                            Padding(
+                                                              padding: const EdgeInsets
+                                                                      .symmetric(
+                                                                  horizontal:
+                                                                      20),
+                                                              child: Row(
+                                                                children: [
+                                                                  Text(
+                                                                    'ID: 784575',
+                                                                    style: GoogleFonts.poppins(
+                                                                        fontSize:
+                                                                            14,
+                                                                        fontWeight:
+                                                                            FontWeight.w400),
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                            Padding(
+                                                              padding: const EdgeInsets
+                                                                      .symmetric(
+                                                                  horizontal:
+                                                                      20,
+                                                                  vertical: 10),
+                                                              child: Container(
+                                                                width: 400,
+                                                                child: Row(
+                                                                  mainAxisAlignment:
+                                                                      MainAxisAlignment
+                                                                          .spaceBetween,
+                                                                  children: [
+                                                                    Container(
+                                                                      width:
+                                                                          290,
+                                                                      child:
+                                                                          Row(
+                                                                        mainAxisAlignment:
+                                                                            MainAxisAlignment.spaceBetween,
+                                                                        children: [
+                                                                          Image.asset(
+                                                                              'assets/icons/Gallery.png'),
+                                                                          Image.asset(
+                                                                              'assets/icons/Audio.png'),
+                                                                          Image.asset(
+                                                                              'assets/icons/image 5.png'),
+                                                                          Container(
+                                                                            alignment:
+                                                                                Alignment.center,
+                                                                            height:
+                                                                                36,
+                                                                            width:
+                                                                                157,
+                                                                            child:
+                                                                                TextField(
+                                                                              textAlign: TextAlign.center,
+                                                                              textAlignVertical: TextAlignVertical.center,
+                                                                              decoration: InputDecoration(fillColor: ColorConstant.arrowColor.withOpacity(0.60), filled: true, border: OutlineInputBorder(borderRadius: BorderRadius.circular(24), borderSide: BorderSide.none)),
+                                                                            ),
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                    Row(
+                                                                      children: [
+                                                                        Image.asset(
+                                                                            'assets/icons/Like.png'),
+                                                                      ],
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            )
+
+                                                            /// SMS Boy End
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            );
+                                          },
+                                          child: Container(
+                                            alignment: Alignment.center,
+                                            height: 20,
+                                            width: 84,
+                                            decoration: BoxDecoration(
+                                              color: ColorConstant.blueColor,
+                                              borderRadius:
+                                                  BorderRadius.circular(4),
+                                            ),
+                                            child: Text(
+                                              'Open',
+                                              style: TextStyle(
+                                                  color:
+                                                      ColorConstant.whiteColor),
+                                            ),
                                           ),
                                         ),
                                         DataHeadingWidget(

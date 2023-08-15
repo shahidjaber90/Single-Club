@@ -40,7 +40,7 @@ class _GuardianViewState extends State<GuardianView> {
                 Row(
                   children: [
                     Container(
-                      height: 160,
+                      height: 50,
                       width: 400,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,7 +76,12 @@ class _GuardianViewState extends State<GuardianView> {
                                         elevation: 0,
                                         title: Container(
                                           width: 400,
-                                          color: ColorConstant.blueColor,
+                                          decoration: BoxDecoration(
+                                              color: ColorConstant.blueColor,
+                                              border: Border.all(
+                                                  color:
+                                                      ColorConstant.blueColor,
+                                                  width: 2)),
                                           child: Column(
                                             children: [
                                               Container(
@@ -330,7 +335,12 @@ class _GuardianViewState extends State<GuardianView> {
                                           elevation: 0,
                                           title: Container(
                                             width: 400,
-                                            color: ColorConstant.blueColor,
+                                            decoration: BoxDecoration(
+                                                color: ColorConstant.blueColor,
+                                                border: Border.all(
+                                                    color:
+                                                        ColorConstant.blueColor,
+                                                    width: 2)),
                                             child: Column(
                                               children: [
                                                 Container(
@@ -516,6 +526,9 @@ class _GuardianViewState extends State<GuardianView> {
                   ],
                 ),
                 // headings
+                const SizedBox(
+                  height: 2,
+                ),
                 Container(
                   color: ColorConstant.whiteColor,
                   alignment: Alignment.topCenter,

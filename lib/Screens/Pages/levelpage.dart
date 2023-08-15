@@ -49,281 +49,279 @@ class _LevelviewState extends State<Levelview> {
       children: [
         Row(
           children: [
-            Container(
-              alignment: Alignment.centerLeft,
-              height: 200,
-              width: 500,
-              child: GestureDetector(
-                onTap: () {
-                  tap1
-                      ? setState(() {
-                          tap1 = !tap1;
-                          whiteColor = Colors.white;
-                          blueColor = Color(0xff2C50ED);
-                        })
-                      : setState(() {
-                          tap1 = !tap1;
-                          blueColor = Colors.white;
-                          whiteColor = Color(0xff2C50ED);
-                        });
+            Padding(
+              padding: const EdgeInsets.only(left: 25, top: 12),
+              child: Container(
+                alignment: Alignment.topLeft,
+                height: 40,
+                width: 500,
+                child: GestureDetector(
+                  onTap: () {
+                    tap1
+                        ? setState(() {
+                            tap1 = !tap1;
+                            whiteColor = Colors.white;
+                            blueColor = Color(0xff2C50ED);
+                          })
+                        : setState(() {
+                            tap1 = !tap1;
+                            blueColor = Colors.white;
+                            whiteColor = Color(0xff2C50ED);
+                          });
 
-                  showDialog(
-                    barrierDismissible: false,
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      scrollable: true,
-                      backgroundColor: Colors.transparent,
-                      elevation: 0,
-                      actions: [
-                        Container(
-                          width: 400,
-                          color: ColorConstant.whiteColor,
-                          child: Column(
-                            children: [
-                              Container(
-                                color: ColorConstant.blueColor,
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "",
-                                      style: GoogleFonts.poppins(
-                                          color: ColorConstant.whiteColor,
-                                          fontSize: 30,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    Text(
-                                      "Add Level",
-                                      style: GoogleFonts.poppins(
-                                          color: ColorConstant.whiteColor,
-                                          fontSize: 30,
-                                          fontWeight: FontWeight.w600),
-                                    ),
-                                    IconButton(
-                                      onPressed: () {
-                                        tap1
-                                            ? setState(() {
-                                                tap1 = !tap1;
-                                                whiteColor = Colors.white;
-                                                blueColor = Color(0xff2C50ED);
-                                              })
-                                            : setState(() {
-                                                tap1 = !tap1;
-                                                blueColor = Colors.white;
-                                                whiteColor = Color(0xff2C50ED);
-                                              });
-                                        Navigator.pop(context);
-                                      },
-                                      icon: const Icon(Icons.close),
-                                      color: ColorConstant.whiteColor,
-                                    )
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    height: 40,
-                                    width: 280,
-                                    child: Stack(
-                                      children: [
-                                        StatefulBuilder(
-                                          builder: (context, setState) =>
-                                              GestureDetector(
-                                            onTap: () {
-                                              tap3
-                                                  ? setState(() {
-                                                      tap3 = !tap3;
-                                                      whiteColor3 =
-                                                          Colors.white;
-                                                      blueColor3 =
-                                                          Color(0xff2C50ED);
-                                                    })
-                                                  : setState(() {
-                                                      tap3 = !tap3;
-                                                      blueColor3 = Colors.white;
-                                                      whiteColor3 =
-                                                          Color(0xff2C50ED);
-                                                    });
-                                              this.setState(() {});
-                                            },
-                                            child: Container(
-                                              alignment: Alignment.center,
-                                              width: 138,
-                                              height: 32,
-                                              decoration: BoxDecoration(
-                                                  color: whiteColor3,
-                                                  border: Border.all(
-                                                      color: blueColor3),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          24)),
-                                              child: Text(
-                                                'Show off',
-                                                style: TextStyle(
-                                                    color: blueColor3,
-                                                    letterSpacing: 0.5,
-                                                    fontSize: 11,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        Positioned(
-                                            left: 100,
-                                            child: StatefulBuilder(
-                                              builder: (context, setState) =>
-                                                  GestureDetector(
-                                                onTap: () {
-                                                  tap4
-                                                      ? setState(() {
-                                                          tap4 = !tap4;
-                                                          whiteColor4 =
-                                                              Colors.white;
-                                                          blueColor4 =
-                                                              Color(0xff2C50ED);
-                                                        })
-                                                      : setState(() {
-                                                          tap4 = !tap4;
-                                                          blueColor4 =
-                                                              Colors.white;
-                                                          whiteColor4 =
-                                                              Color(0xff2C50ED);
-                                                        });
-                                                  this.setState(() {});
-                                                },
-                                                child: Container(
-                                                  alignment: Alignment.center,
-                                                  width: 138,
-                                                  height: 32,
-                                                  decoration: BoxDecoration(
-                                                      color: whiteColor4,
-                                                      border: Border.all(
-                                                          color: blueColor4),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              24)),
-                                                  child: Text(
-                                                    'Show off',
-                                                    style: TextStyle(
-                                                        color: blueColor4,
-                                                        letterSpacing: 0.5,
-                                                        fontSize: 11,
-                                                        fontWeight:
-                                                            FontWeight.w700),
-                                                  ),
-                                                ),
-                                              ),
-                                            )),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              TextFieldWidget(labelText: 'Level Name :'),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              TextFieldWidget(labelText: 'Coin require'),
-                              const SizedBox(
-                                height: 15,
-                              ),
-                              Container(
-                                height: 100,
-                                width: 140,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(10),
-                                    color: ColorConstant.whiteColor,
-                                    boxShadow: [
-                                      BoxShadow(
-                                          color: ColorConstant.blueColor
-                                              .withOpacity(0.30),
-                                          offset: const Offset(1, 2.0),
-                                          blurRadius: 2.0,
-                                          spreadRadius: 0.0),
-                                    ]),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(top: 8.0),
-                                  child: Column(
+                    showDialog(
+                      barrierDismissible: false,
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        scrollable: true,
+                        backgroundColor: Colors.transparent,
+                        elevation: 0,
+                        actions: [
+                          Container(
+                            width: 400,
+                            decoration: BoxDecoration(
+                                color: ColorConstant.whiteColor,
+                                border: Border.all(
+                                    color: ColorConstant.blueColor, width: 2)),
+                            child: Column(
+                              children: [
+                                Container(
+                                  color: ColorConstant.blueColor,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        textAlign: TextAlign.center,
-                                        "Upload File",
+                                        "",
                                         style: GoogleFonts.poppins(
-                                            color: ColorConstant.blueColor,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w400),
-                                      ),
-                                      SizedBox(
-                                        height: 50,
-                                        width: 50,
-                                        child: Image.asset(
-                                          "assets/icons/cloudupload.png",
-                                          fit: BoxFit.contain,
-                                        ),
+                                            color: ColorConstant.whiteColor,
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.w600),
                                       ),
                                       Text(
-                                        textAlign: TextAlign.center,
-                                        "SVG/WEP",
+                                        "Add Level",
                                         style: GoogleFonts.poppins(
-                                            color: ColorConstant.blueColor,
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.w400),
+                                            color: ColorConstant.whiteColor,
+                                            fontSize: 30,
+                                            fontWeight: FontWeight.w600),
                                       ),
+                                      IconButton(
+                                        onPressed: () {
+                                          tap1
+                                              ? setState(() {
+                                                  tap1 = !tap1;
+                                                  whiteColor = Colors.white;
+                                                  blueColor = Color(0xff2C50ED);
+                                                })
+                                              : setState(() {
+                                                  tap1 = !tap1;
+                                                  blueColor = Colors.white;
+                                                  whiteColor =
+                                                      Color(0xff2C50ED);
+                                                });
+                                          Navigator.pop(context);
+                                        },
+                                        icon: const Icon(Icons.close),
+                                        color: ColorConstant.whiteColor,
+                                      )
                                     ],
                                   ),
                                 ),
-                              ),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              AlertButton(buttonName: 'Add'),
-                              const SizedBox(
-                                height: 24,
-                              ),
-                            ],
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      height: 40,
+                                      width: 280,
+                                      child: Stack(
+                                        children: [
+                                          StatefulBuilder(
+                                            builder: (context, setState) =>
+                                                GestureDetector(
+                                              onTap: () {
+                                                tap3
+                                                    ? setState(() {
+                                                        tap3 = !tap3;
+                                                        whiteColor3 =
+                                                            Colors.white;
+                                                        blueColor3 =
+                                                            Color(0xff2C50ED);
+                                                      })
+                                                    : setState(() {
+                                                        tap3 = !tap3;
+                                                        blueColor3 =
+                                                            Colors.white;
+                                                        whiteColor3 =
+                                                            Color(0xff2C50ED);
+                                                      });
+                                                this.setState(() {});
+                                              },
+                                              child: Container(
+                                                alignment: Alignment.center,
+                                                width: 138,
+                                                height: 32,
+                                                decoration: BoxDecoration(
+                                                    color: whiteColor3,
+                                                    border: Border.all(
+                                                        color: blueColor3),
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            24)),
+                                                child: Text(
+                                                  'Show off',
+                                                  style: TextStyle(
+                                                      color: blueColor3,
+                                                      letterSpacing: 0.5,
+                                                      fontSize: 11,
+                                                      fontWeight:
+                                                          FontWeight.w700),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                          Positioned(
+                                              left: 100,
+                                              child: StatefulBuilder(
+                                                builder: (context, setState) =>
+                                                    GestureDetector(
+                                                  onTap: () {
+                                                    tap4
+                                                        ? setState(() {
+                                                            tap4 = !tap4;
+                                                            whiteColor4 =
+                                                                Colors.white;
+                                                            blueColor4 = Color(
+                                                                0xff2C50ED);
+                                                          })
+                                                        : setState(() {
+                                                            tap4 = !tap4;
+                                                            blueColor4 =
+                                                                Colors.white;
+                                                            whiteColor4 = Color(
+                                                                0xff2C50ED);
+                                                          });
+                                                    this.setState(() {});
+                                                  },
+                                                  child: Container(
+                                                    alignment: Alignment.center,
+                                                    width: 138,
+                                                    height: 32,
+                                                    decoration: BoxDecoration(
+                                                        color: whiteColor4,
+                                                        border: Border.all(
+                                                            color: blueColor4),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(24)),
+                                                    child: Text(
+                                                      'Show off',
+                                                      style: TextStyle(
+                                                          color: blueColor4,
+                                                          letterSpacing: 0.5,
+                                                          fontSize: 11,
+                                                          fontWeight:
+                                                              FontWeight.w700),
+                                                    ),
+                                                  ),
+                                                ),
+                                              )),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                TextFieldWidget(labelText: 'Level Name :'),
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                TextFieldWidget(labelText: 'Coin require'),
+                                const SizedBox(
+                                  height: 15,
+                                ),
+                                Container(
+                                  height: 100,
+                                  width: 140,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(10),
+                                      color: ColorConstant.whiteColor,
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: ColorConstant.blueColor
+                                                .withOpacity(0.30),
+                                            offset: const Offset(1, 2.0),
+                                            blurRadius: 2.0,
+                                            spreadRadius: 0.0),
+                                      ]),
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 8.0),
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          textAlign: TextAlign.center,
+                                          "Upload File",
+                                          style: GoogleFonts.poppins(
+                                              color: ColorConstant.blueColor,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                        SizedBox(
+                                          height: 50,
+                                          width: 50,
+                                          child: Image.asset(
+                                            "assets/icons/cloudupload.png",
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                        Text(
+                                          textAlign: TextAlign.center,
+                                          "SVG/WEP",
+                                          style: GoogleFonts.poppins(
+                                              color: ColorConstant.blueColor,
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.w400),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                AlertButton(buttonName: 'Add'),
+                                const SizedBox(
+                                  height: 24,
+                                ),
+                              ],
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
+                    );
+                  },
+                  child: Container(
+                    alignment: Alignment.center,
+                    width: 138,
+                    height: 32,
+                    decoration: BoxDecoration(
+                        color: whiteColor,
+                        border: Border.all(color: blueColor),
+                        borderRadius: BorderRadius.circular(24)),
+                    child: Text(
+                      'Add Level',
+                      style: TextStyle(
+                          color: blueColor,
+                          letterSpacing: 0.5,
+                          fontSize: 11,
+                          fontWeight: FontWeight.w700),
                     ),
-                  );
-                },
-                child: Container(
-                  alignment: Alignment.center,
-                  width: 138,
-                  height: 32,
-                  decoration: BoxDecoration(
-                      color: whiteColor,
-                      border: Border.all(color: blueColor),
-                      borderRadius: BorderRadius.circular(24)),
-                  child: Text(
-                    'Add Level',
-                    style: TextStyle(
-                        color: blueColor,
-                        letterSpacing: 0.5,
-                        fontSize: 11,
-                        fontWeight: FontWeight.w700),
                   ),
                 ),
-              ),
-            ),
-            Container(
-              alignment: Alignment.centerLeft,
-              height: 200,
-              width: 500,
-              child: Text(
-                'Result',
-                style: GoogleFonts.aBeeZee(
-                    fontSize: 18, fontWeight: FontWeight.w400),
               ),
             ),
           ],

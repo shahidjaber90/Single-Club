@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
+import 'package:singleclub/Widgets/admin_field_heading.dart';
+import 'package:singleclub/Widgets/admin_textfiled_widget2.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
 import 'package:singleclub/Widgets/chip.dart';
 import 'package:singleclub/Widgets/dropdown_widget.dart';
@@ -90,7 +92,7 @@ class _GiftPageState extends State<GiftPage> {
                 children: [
                   SizedBox(
                     height: 40,
-                    width: 280,
+                    width: 360,
                     child: Stack(
                       children: [
                         GestureDetector(
@@ -117,7 +119,11 @@ class _GiftPageState extends State<GiftPage> {
                                 actions: [
                                   Container(
                                     width: 400,
-                                    color: ColorConstant.whiteColor,
+                                    decoration: BoxDecoration(
+                                        color: ColorConstant.whiteColor,
+                                        border: Border.all(
+                                            color: ColorConstant.blueColor,
+                                            width: 2)),
                                     child: Column(
                                       children: [
                                         Container(
@@ -172,390 +178,6 @@ class _GiftPageState extends State<GiftPage> {
                                         const SizedBox(
                                           height: 10,
                                         ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            SizedBox(
-                                              height: 40,
-                                              width: 280,
-                                              child: Stack(
-                                                children: [
-                                                  StatefulBuilder(
-                                                    builder:
-                                                        (context, setState) =>
-                                                            GestureDetector(
-                                                      onTap: () {
-                                                        tap3
-                                                            ? setState(() {
-                                                                tap3 = !tap3;
-                                                                whiteColor3 =
-                                                                    Colors
-                                                                        .white;
-                                                                blueColor3 = Color(
-                                                                    0xff2C50ED);
-                                                              })
-                                                            : setState(() {
-                                                                tap3 = !tap3;
-                                                                blueColor3 =
-                                                                    Colors
-                                                                        .white;
-                                                                whiteColor3 = Color(
-                                                                    0xff2C50ED);
-                                                              });
-                                                        this.setState(() {});
-                                                      },
-                                                      child: Container(
-                                                        alignment:
-                                                            Alignment.center,
-                                                        width: 138,
-                                                        height: 32,
-                                                        decoration: BoxDecoration(
-                                                            color: whiteColor3,
-                                                            border: Border.all(
-                                                                color:
-                                                                    blueColor3),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        24)),
-                                                        child: Text(
-                                                          'Add Gift',
-                                                          style: TextStyle(
-                                                              color: blueColor3,
-                                                              letterSpacing:
-                                                                  0.5,
-                                                              fontSize: 11,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w700),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Positioned(
-                                                    left: 100,
-                                                    child: GestureDetector(
-                                                      onTap: () {
-                                                        tap4
-                                                            ? setState(() {
-                                                                tap4 = !tap4;
-                                                                whiteColor4 =
-                                                                    Colors
-                                                                        .white;
-                                                                blueColor4 = Color(
-                                                                    0xff2C50ED);
-                                                              })
-                                                            : setState(() {
-                                                                tap4 = !tap4;
-                                                                blueColor4 =
-                                                                    Colors
-                                                                        .white;
-                                                                whiteColor4 = Color(
-                                                                    0xff2C50ED);
-                                                              });
-                                                        this.setState(() {});
-
-                                                        showDialog(
-                                                          barrierDismissible:
-                                                              false,
-                                                          context: context,
-                                                          builder: (context) =>
-                                                              AlertDialog(
-                                                            scrollable: true,
-                                                            backgroundColor:
-                                                                Colors
-                                                                    .transparent,
-                                                            elevation: 0,
-                                                            actions: [
-                                                              Container(
-                                                                width: 400,
-                                                                height: 641,
-                                                                color: ColorConstant
-                                                                    .whiteColor,
-                                                                child:
-                                                                    SingleChildScrollView(
-                                                                  child: Column(
-                                                                    crossAxisAlignment:
-                                                                        CrossAxisAlignment
-                                                                            .start,
-                                                                    children: [
-                                                                      Container(
-                                                                        color: ColorConstant
-                                                                            .blueColor,
-                                                                        child:
-                                                                            Row(
-                                                                          mainAxisAlignment:
-                                                                              MainAxisAlignment.spaceBetween,
-                                                                          children: [
-                                                                            Text(
-                                                                              "",
-                                                                              style: GoogleFonts.poppins(color: ColorConstant.whiteColor, fontSize: 30, fontWeight: FontWeight.w600),
-                                                                            ),
-                                                                            Text(
-                                                                              "lucky Gift",
-                                                                              style: GoogleFonts.poppins(color: ColorConstant.whiteColor, fontSize: 30, fontWeight: FontWeight.w600),
-                                                                            ),
-                                                                            IconButton(
-                                                                              onPressed: () {
-                                                                                tap4
-                                                                                    ? setState(() {
-                                                                                        tap4 = !tap4;
-                                                                                        whiteColor4 = Colors.white;
-                                                                                        blueColor4 = Color(0xff2C50ED);
-                                                                                      })
-                                                                                    : setState(() {
-                                                                                        tap4 = !tap4;
-                                                                                        blueColor4 = Colors.white;
-                                                                                        whiteColor4 = Color(0xff2C50ED);
-                                                                                      });
-                                                                                this.setState(() {});
-                                                                                Navigator.pop(context);
-                                                                              },
-                                                                              icon: const Icon(Icons.close),
-                                                                              color: ColorConstant.whiteColor,
-                                                                            )
-                                                                          ],
-                                                                        ),
-                                                                      ),
-                                                                      const SizedBox(
-                                                                        height:
-                                                                            5,
-                                                                      ),
-                                                                      Padding(
-                                                                        padding:
-                                                                            const EdgeInsets.only(left: 10.0),
-                                                                        child:
-                                                                            Column(
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.start,
-                                                                          children: [
-                                                                            DropdownWidget3(
-                                                                              title: 'Choose Gift',
-                                                                              hintText: 'Select Gift',
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            Text(
-                                                                              // textAlign: TextAlign.center,
-                                                                              "Comission",
-                                                                              style: GoogleFonts.inter(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w400),
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            const Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                              children: [
-                                                                                ChipWidget(text: "Minimum 20%"),
-                                                                                ChipWidget(text: "Minimum 30%"),
-                                                                              ],
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            Text(
-                                                                              // textAlign: TextAlign.center,
-                                                                              "Single Sent Time",
-                                                                              style: GoogleFonts.inter(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w400),
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            const Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                              children: [
-                                                                                ChipWidget(text: "Minimum 10x"),
-                                                                                ChipWidget(text: "Minimum 150x"),
-                                                                              ],
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            Text(
-                                                                              // textAlign: TextAlign.center,
-                                                                              "Single Back Time",
-                                                                              style: GoogleFonts.inter(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w400),
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            const Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                              children: [
-                                                                                ChipWidget(text: "4x"),
-                                                                                ChipWidget(text: "10x"),
-                                                                                ChipWidget(text: "22x"),
-                                                                                ChipWidget(text: "50x"),
-                                                                              ],
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            const Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                              children: [
-                                                                                ChipWidget(text: "70x"),
-                                                                                ChipWidget(text: "85x"),
-                                                                                ChipWidget(text: "100x"),
-                                                                                ChipWidget(text: "120x"),
-                                                                              ],
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            Text(
-                                                                              // textAlign: TextAlign.center,
-                                                                              "Combo Sent Time",
-                                                                              style: GoogleFonts.inter(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w400),
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            const Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                              children: [
-                                                                                ChipWidget(text: "Minimum 5x"),
-                                                                                ChipWidget(text: "Minimum 30x"),
-                                                                              ],
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            Text(
-                                                                              // textAlign: TextAlign.center,
-                                                                              "Combo Back Time",
-                                                                              style: GoogleFonts.inter(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w400),
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            const Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                              children: [
-                                                                                ChipWidget(text: "4x"),
-                                                                                ChipWidget(text: "9x"),
-                                                                                ChipWidget(text: "16x"),
-                                                                                ChipWidget(text: "25x"),
-                                                                              ],
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            Text(
-                                                                              // textAlign: TextAlign.center,
-                                                                              "Super Jackpot Store",
-                                                                              style: GoogleFonts.inter(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w400),
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            const Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                              children: [
-                                                                                ChipWidget(text: "Minimum 2 mnt"),
-                                                                                ChipWidget(text: "Minimum 20 mnt"),
-                                                                              ],
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 5,
-                                                                            ),
-                                                                            const Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                              children: [
-                                                                                ChipWidget(text: "Minimum 5 mnt"),
-                                                                                ChipWidget(text: "Minimum 5 0mnt"),
-                                                                              ],
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 5,
-                                                                            ),
-                                                                            const Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.start,
-                                                                              children: [
-                                                                                SizedBox(
-                                                                                  width: 37,
-                                                                                ),
-                                                                                ChipWidget(text: "Select icon"),
-                                                                              ],
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            Text(
-                                                                              // textAlign: TextAlign.center,
-                                                                              "Super Jackpot Back",
-                                                                              style: GoogleFonts.inter(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w400),
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 10,
-                                                                            ),
-                                                                            const Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                              children: [
-                                                                                ChipWidget(text: "400x"),
-                                                                                ChipWidget(text: "480x"),
-                                                                                ChipWidget(text: "550x"),
-                                                                                ChipWidget(text: "680x"),
-                                                                              ],
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 15,
-                                                                            ),
-                                                                            Row(
-                                                                              mainAxisAlignment: MainAxisAlignment.center,
-                                                                              children: [
-                                                                                AlertButton(buttonName: "Save"),
-                                                                              ],
-                                                                            ),
-                                                                            const SizedBox(
-                                                                              height: 24,
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      )
-                                                                    ],
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        );
-                                                      },
-                                                      child: Container(
-                                                        alignment:
-                                                            Alignment.center,
-                                                        width: 138,
-                                                        height: 32,
-                                                        decoration: BoxDecoration(
-                                                            color: whiteColor4,
-                                                            border: Border.all(
-                                                                color:
-                                                                    blueColor4),
-                                                            borderRadius:
-                                                                BorderRadius
-                                                                    .circular(
-                                                                        24)),
-                                                        child: Text(
-                                                          'Lucky Gift',
-                                                          style: TextStyle(
-                                                              color: blueColor4,
-                                                              letterSpacing:
-                                                                  0.5,
-                                                              fontSize: 11,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w700),
-                                                        ),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ),
-                                          ],
-                                        ),
                                         const SizedBox(
                                           height: 15,
                                         ),
@@ -565,7 +187,7 @@ class _GiftPageState extends State<GiftPage> {
                                         ),
                                         DropdownWidget4(
                                             items: giftCategory,
-                                            selectItem: 'select Category'),
+                                            selectItem: 'Select Category'),
                                         const SizedBox(
                                           height: 10,
                                         ),
@@ -663,6 +285,470 @@ class _GiftPageState extends State<GiftPage> {
                             ),
                           ),
                         ),
+
+                        // 3rd
+                        Positioned(
+                          left: 210,
+                          child: GestureDetector(
+                            onTap: () {
+                              tap4
+                                  ? setState(() {
+                                      tap4 = !tap4;
+                                      whiteColor4 = Colors.white;
+                                      blueColor4 = Color(0xff2C50ED);
+                                    })
+                                  : setState(() {
+                                      tap4 = !tap4;
+                                      blueColor4 = Colors.white;
+                                      whiteColor4 = Color(0xff2C50ED);
+                                    });
+                              this.setState(() {});
+
+                              showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  scrollable: true,
+                                  backgroundColor: Colors.transparent,
+                                  elevation: 0,
+                                  actions: [
+                                    Container(
+                                      width: 400,
+                                      height: 641,
+                                      decoration: BoxDecoration(
+                                          color: ColorConstant.whiteColor,
+                                          border: Border.all(
+                                              color: ColorConstant.blueColor,
+                                              width: 2)),
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Container(
+                                              color: ColorConstant.blueColor,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Icon(
+                                                    Icons
+                                                        .accessibility_new_rounded,
+                                                    color:
+                                                        ColorConstant.blueColor,
+                                                  ),
+                                                  Text(
+                                                    "Lucky Gift",
+                                                    style: GoogleFonts.poppins(
+                                                        color: ColorConstant
+                                                            .whiteColor,
+                                                        fontSize: 30,
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                  IconButton(
+                                                    onPressed: () {
+                                                      tap4
+                                                          ? setState(() {
+                                                              tap4 = !tap4;
+                                                              whiteColor4 =
+                                                                  Colors.white;
+                                                              blueColor4 = Color(
+                                                                  0xff2C50ED);
+                                                            })
+                                                          : setState(() {
+                                                              tap4 = !tap4;
+                                                              blueColor4 =
+                                                                  Colors.white;
+                                                              whiteColor4 = Color(
+                                                                  0xff2C50ED);
+                                                            });
+                                                      this.setState(() {});
+                                                      Navigator.pop(context);
+                                                    },
+                                                    icon:
+                                                        const Icon(Icons.close),
+                                                    color: ColorConstant
+                                                        .whiteColor,
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 5,
+                                            ),
+                                            Padding(
+                                              padding: const EdgeInsets.only(
+                                                  left: 10.0),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  DropdownWidget3(
+                                                    title: 'Choose Gift',
+                                                    hintText: 'Select Gift',
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 20),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Container(
+                                                            width: 150,
+                                                            child: AdminFieldHeading(
+                                                                headingText:
+                                                                    'Commission')),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 20),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        AdminTextFieldWidget3(
+                                                          width: 150,
+                                                          labelText:
+                                                              'Minimum 20 %',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 150,
+                                                          labelText:
+                                                              'Maximam 30 %',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10,
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 20),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Container(
+                                                            width: 150,
+                                                            child: AdminFieldHeading(
+                                                                headingText:
+                                                                    'Single Send Time')),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 20),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        AdminTextFieldWidget3(
+                                                          width: 150,
+                                                          labelText:
+                                                              'Minimum 10 x',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 150,
+                                                          labelText:
+                                                              'Maximam 150 x',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10,
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 20),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Container(
+                                                            width: 150,
+                                                            child: AdminFieldHeading(
+                                                                headingText:
+                                                                    'Single Back Time')),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 20),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        AdminTextFieldWidget3(
+                                                          width: 75,
+                                                          labelText: '4 x',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 75,
+                                                          labelText: '10 x',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 75,
+                                                          labelText: '22 x',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 75,
+                                                          labelText: '50 x',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                                .symmetric(
+                                                            horizontal: 20)
+                                                        .copyWith(top: 10),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        AdminTextFieldWidget3(
+                                                          width: 75,
+                                                          labelText: '70 x',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 75,
+                                                          labelText: '85 x',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 75,
+                                                          labelText: '100 x',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 75,
+                                                          labelText: '120 x',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 20,
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 20),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Container(
+                                                            width: 150,
+                                                            child: AdminFieldHeading(
+                                                                headingText:
+                                                                    'Combo Send Time')),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 20),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        AdminTextFieldWidget3(
+                                                          width: 150,
+                                                          labelText:
+                                                              'Minimum 5 x',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 150,
+                                                          labelText:
+                                                              'Maximam 30 x',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10,
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 10,
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 20),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Container(
+                                                            width: 200,
+                                                            child: AdminFieldHeading(
+                                                                headingText:
+                                                                    'Supper Jackpot Store')),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 20),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        AdminTextFieldWidget3(
+                                                          width: 150,
+                                                          labelText:
+                                                              'Minimum 2 Mnt',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 150,
+                                                          labelText:
+                                                              'Maximam 20 Mnt',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                                .symmetric(
+                                                            horizontal: 20)
+                                                        .copyWith(top: 10),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        AdminTextFieldWidget3(
+                                                          width: 150,
+                                                          labelText:
+                                                              'Minimum 5 Mnt',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 150,
+                                                          labelText:
+                                                              'Maximam 50 Mnt',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                                .symmetric(
+                                                            horizontal: 20)
+                                                        .copyWith(top: 16),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        Container(
+                                                            width: 200,
+                                                            child: AdminFieldHeading(
+                                                                headingText:
+                                                                    'Supper Jackpot Back')),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets
+                                                            .symmetric(
+                                                        horizontal: 20),
+                                                    child: Row(
+                                                      mainAxisAlignment:
+                                                          MainAxisAlignment
+                                                              .spaceBetween,
+                                                      children: [
+                                                        AdminTextFieldWidget3(
+                                                          width: 75,
+                                                          labelText: '400 x',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 75,
+                                                          labelText: '480 x',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 75,
+                                                          labelText: '550 x',
+                                                        ),
+                                                        AdminTextFieldWidget3(
+                                                          width: 75,
+                                                          labelText: '680 x',
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 22,
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      AlertButton(
+                                                          buttonName: "Save"),
+                                                    ],
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 24,
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
+                            },
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: 138,
+                              height: 32,
+                              decoration: BoxDecoration(
+                                  color: whiteColor4,
+                                  border: Border.all(color: blueColor4),
+                                  borderRadius: BorderRadius.circular(24)),
+                              child: Text(
+                                'Lucky Gift',
+                                style: TextStyle(
+                                    color: blueColor4,
+                                    letterSpacing: 0.5,
+                                    fontSize: 11,
+                                    fontWeight: FontWeight.w700),
+                              ),
+                            ),
+                          ),
+                        ),
+                        // 2nd
                         Positioned(
                           left: 100,
                           child: GestureDetector(
@@ -679,6 +765,100 @@ class _GiftPageState extends State<GiftPage> {
                                       whiteColor2 = Color(0xff2C50ED);
                                     });
                               this.setState(() {});
+
+                              showDialog(
+                                barrierDismissible: false,
+                                context: context,
+                                builder: (context) => AlertDialog(
+                                  scrollable: true,
+                                  backgroundColor: Colors.transparent,
+                                  elevation: 0,
+                                  actions: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(20.0),
+                                      child: Container(
+                                        width: 400,
+                                        decoration: BoxDecoration(
+                                            color: ColorConstant.whiteColor,
+                                            border: Border.all(
+                                                color: ColorConstant.blueColor,
+                                                width: 2)),
+                                        child: Column(
+                                          children: [
+                                            Container(
+                                              color: ColorConstant.blueColor,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  Text(
+                                                    "",
+                                                    style: GoogleFonts.poppins(
+                                                        color: ColorConstant
+                                                            .whiteColor,
+                                                        fontSize: 30,
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                  Text(
+                                                    "Send Gift",
+                                                    style: GoogleFonts.poppins(
+                                                        color: ColorConstant
+                                                            .whiteColor,
+                                                        fontSize: 30,
+                                                        fontWeight:
+                                                            FontWeight.w600),
+                                                  ),
+                                                  IconButton(
+                                                    onPressed: () {
+                                                      tap2
+                                                          ? setState(() {
+                                                              tap2 = !tap2;
+                                                              whiteColor2 =
+                                                                  Colors.white;
+                                                              blueColor2 = Color(
+                                                                  0xff2C50ED);
+                                                            })
+                                                          : setState(() {
+                                                              tap2 = !tap2;
+                                                              blueColor2 =
+                                                                  Colors.white;
+                                                              whiteColor2 = Color(
+                                                                  0xff2C50ED);
+                                                            });
+                                                      Navigator.pop(context);
+                                                    },
+                                                    icon:
+                                                        const Icon(Icons.close),
+                                                    color: ColorConstant
+                                                        .whiteColor,
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                            TextFieldWidget(labelText: 'ID :'),
+                                            // const SizedBox(
+                                            //   height: 16,
+                                            // ),
+                                            DropDown8(),
+                                            DropdownWidget5(),
+                                            TextFieldWidget(
+                                                labelText: 'Expire'),
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                            AlertButton(buttonName: 'Send'),
+                                            const SizedBox(
+                                              height: 24,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              );
                             },
                             child: Container(
                               alignment: Alignment.center,

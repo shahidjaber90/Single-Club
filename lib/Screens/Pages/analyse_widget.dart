@@ -44,7 +44,7 @@ class _AnalyseWidgetState extends State<AnalyseWidget> {
                             height: 50,
                             width: 200,
                             child: DropdownWidget7(
-                                items: lastDays, selectItem: 'Select Days')),
+                                items: lastDays, selectItem: 'Today')),
                       ],
                     ),
                     Column(
@@ -191,10 +191,36 @@ class _AnalyseWidgetState extends State<AnalyseWidget> {
                         ),
                       ],
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Image.asset('assets/images/map.png')
+                    // const SizedBox(
+                    //   height: 10,
+                    // ),
+                    Column(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                'Top Countries',
+                                style: GoogleFonts.poppins(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w700,
+                                    letterSpacing: 0.5),
+                              ),
+                              Container(
+                                  height: 50,
+                                  width: 200,
+                                  child: DropdownWidget7(
+                                      items: lastDays,
+                                      selectItem: 'Last 7 Days')),
+                            ],
+                          ),
+                        ),
+                        Image.asset('assets/images/map.png'),
+                      ],
+                    )
                   ],
                 ),
               ),

@@ -96,211 +96,219 @@ class _GamePageState extends State<GamePage> {
                               ],
                             ),
                           ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.symmetric(horizontal: 12.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                // const SizedBox(
-                                //   height: 1,
-                                // ),
-                                DropdownWidget(
-                                    items: selectCategorys,
-                                    selectItem: "Select game",
-                                    title: " Game List"),
-                                // TextFieldWidget2(labelText: 'Slect Gift:'),
-                                const SizedBox(
-                                  height: 5,
-                                ),
+                          Column(
+                            children: [
+                              DropdownWidget(
+                                  items: selectCategorys,
+                                  selectItem: "Select game",
+                                  title: " Game List"),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 24),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    // const SizedBox(
+                                    //   height: 1,
+                                    // ),
 
-                                Text(
-                                  // textAlign: TextAlign.left,
-                                  "Bet Setup",
-                                  style: GoogleFonts.poppins(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w400),
-                                ),
+                                    // TextFieldWidget2(labelText: 'Slect Gift:'),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
 
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ChipWidget(text: "Coin Collect Time"),
-                                    ChipWidget(text: "Remind Time"),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ChipWidget(text: "Destitution Time"),
-                                    ChipWidget(text: "Result Time"),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    ChipWidget(text: "Total Time"),
-                                  ],
-                                ),
-                                //   ),
-                                // ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  // textAlign: TextAlign.left,
-                                  "Commotion",
-                                  style: GoogleFonts.poppins(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w400),
-                                ),
+                                    Text(
+                                      // textAlign: TextAlign.left,
+                                      "Bet Setup",
+                                      style: GoogleFonts.poppins(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w400),
+                                    ),
 
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ChipWidget(text: "Minimun%"),
-                                    ChipWidget(text: "Maximum%"),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  // textAlign: TextAlign.left,
-                                  "Big Bet",
-                                  style: GoogleFonts.poppins(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w400),
-                                ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ChipWidget(text: "Coin Collect Time"),
+                                        ChipWidget(text: "Remind Time"),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ChipWidget(text: "Destitution Time"),
+                                        ChipWidget(text: "Result Time"),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        ChipWidget(text: "Total Time"),
+                                      ],
+                                    ),
+                                    //   ),
+                                    // ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      // textAlign: TextAlign.left,
+                                      "Commotion",
+                                      style: GoogleFonts.poppins(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w400),
+                                    ),
 
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ChipWidget(text: "Minimun"),
-                                    ChipWidget(text: "Maximum"),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  // textAlign: TextAlign.left,
-                                  "Win Limitation Minimum",
-                                  style: GoogleFonts.poppins(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w400),
-                                ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ChipWidget(text: "Minimun%"),
+                                        ChipWidget(text: "Maximum%"),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      // textAlign: TextAlign.left,
+                                      "Big Bet",
+                                      style: GoogleFonts.poppins(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w400),
+                                    ),
 
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ChipWidget(text: "Set amount"),
-                                    ChipWidget(text: "Restriction Hrs"),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ChipWidget(text: "Restriction Days"),
-                                    ChipWidget(text: "Select icons"),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    ChipWidget(text: "icon expire"),
-                                  ],
-                                ),
-                                //   ),
-                                // ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                Text(
-                                  // textAlign: TextAlign.left,
-                                  "Win Limitation Maximun",
-                                  style: GoogleFonts.poppins(
-                                      color: Colors.black,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.w400),
-                                ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ChipWidget(text: "Minimun"),
+                                        ChipWidget(text: "Maximum"),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      // textAlign: TextAlign.left,
+                                      "Win Limitation Minimum",
+                                      style: GoogleFonts.poppins(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w400),
+                                    ),
 
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ChipWidget(text: "Set amount"),
-                                    ChipWidget(text: "Restriction Hrs"),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ChipWidget(text: "Set amount"),
+                                        ChipWidget(text: "Restriction Hrs"),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ChipWidget(text: "Restriction Days"),
+                                        ChipWidget(text: "Select icons"),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        ChipWidget(text: "icon expire"),
+                                      ],
+                                    ),
+                                    //   ),
+                                    // ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      // textAlign: TextAlign.left,
+                                      "Win Limitation Maximun",
+                                      style: GoogleFonts.poppins(
+                                          color: Colors.black,
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ChipWidget(text: "Set amount"),
+                                        ChipWidget(text: "Restriction Hrs"),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        ChipWidget(text: "Restriction Days"),
+                                        ChipWidget(text: "Select icons"),
+                                      ],
+                                    ),
+                                    const SizedBox(
+                                      height: 5,
+                                    ),
+                                    const Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        ChipWidget(text: "icon expire"),
+                                      ],
+                                    ),
+                                    //   ),
+                                    // ),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
+                                    AlertButton(buttonName: 'Add'),
+                                    const SizedBox(
+                                      height: 10,
+                                    ),
                                   ],
                                 ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                const Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    ChipWidget(text: "Restriction Days"),
-                                    ChipWidget(text: "Select icons"),
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 5,
-                                ),
-                                const Row(
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    ChipWidget(text: "icon expire"),
-                                  ],
-                                ),
-                                //   ),
-                                // ),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                AlertButton(buttonName: 'Add'),
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ],
                       ),

@@ -72,6 +72,10 @@ List<String> lastDays = [
   'All Over'
 ];
 List<String> adminList = ['Admin', 'User'];
+List<String> stickerList = ['Live', 'Reaction'];
+List<String> bannerList = ['Home','Opening','Reward'];
+List<String> officialList = ['Normal', 'Live House'];
+List<String> paymentsList = ['Specific', 'All'];
 List<String> reasonDaysList = ['1','3','5','7','10','10','20','28','45','60','Permanent'];
 List<String> reasonList = ["I just don't like it","Nudity or pornography","Hate speech or symbols","Violence or threat of violence",
 "Sale or promotion of firearms","Sale or promotion of drugs","Harassment or bullying","Self injury","Black Screen","Fake Live"];

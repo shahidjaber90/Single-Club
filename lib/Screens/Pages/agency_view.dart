@@ -50,7 +50,7 @@ class _AgencyPageState extends State<AgencyPage> {
                         Row(
                           children: [
                             Container(
-                              height: 155,
+                              height: 60,
                               width: MediaQuery.of(context).size.width * 0.748,
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -100,17 +100,20 @@ class _AgencyPageState extends State<AgencyPage> {
                                                     child: Column(
                                                       children: [
                                                         Container(
-                                                          // height: 53,
-                                                          // width: double.infinity,
                                                           color: ColorConstant
                                                               .blueColor,
                                                           child: Row(
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
-                                                                    .center,
+                                                                    .spaceBetween,
                                                             children: [
+                                                              Icon(
+                                                                Icons
+                                                                    .g_mobiledata,
+                                                                color: ColorConstant
+                                                                    .blueColor,
+                                                              ),
                                                               Text(
-                                                                // textAlign: TextAlign.center,
                                                                 "Commission",
                                                                 style: GoogleFonts.poppins(
                                                                     color: ColorConstant
@@ -120,9 +123,6 @@ class _AgencyPageState extends State<AgencyPage> {
                                                                     fontWeight:
                                                                         FontWeight
                                                                             .w600),
-                                                              ),
-                                                              const SizedBox(
-                                                                width: 60,
                                                               ),
                                                               IconButton(
                                                                 onPressed: () {
@@ -379,14 +379,17 @@ class _AgencyPageState extends State<AgencyPage> {
                                             width: 130,
                                             height: 32,
                                             decoration: BoxDecoration(
-                                                color: ColorConstant.blueColor,
+                                                color: ColorConstant.whiteColor,
+                                                border: Border.all(
+                                                    color: ColorConstant
+                                                        .blueColor),
                                                 borderRadius:
                                                     BorderRadius.circular(20)),
                                             child: Text(
                                               'Reward',
                                               style: TextStyle(
                                                   color:
-                                                      ColorConstant.whiteColor,
+                                                      ColorConstant.blueColor,
                                                   letterSpacing: 1,
                                                   fontSize: 11,
                                                   fontWeight: FontWeight.w700),
@@ -573,7 +576,7 @@ class _AgencyPageState extends State<AgencyPage> {
                                                                                 contentColors[index] = ColorConstant.whiteColor;
 
                                                                                 lastIndex = index;
-                                                                                if (lastIndex != null  && lastIndex != index) {
+                                                                                if (lastIndex != null && lastIndex != index) {
                                                                                   itemColors[lastIndex!] = ColorConstant.whiteColor;
                                                                                   contentColors[lastIndex!] = Colors.black;
                                                                                 }

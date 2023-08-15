@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:singleclub/Local_variables/variables.dart';
 import 'package:singleclub/Utils/colors.dart';
 import 'package:singleclub/Widgets/alertButton.dart';
+import 'package:singleclub/Widgets/dropdown_widget.dart';
 
 import '../../Widgets/textfield_widget.dart';
 
@@ -73,7 +75,12 @@ class _BannerViewState extends State<BannerView> {
                 actions: [
                   Container(
                     width: 400,
-                    color: ColorConstant.whiteColor,
+                    decoration: BoxDecoration(
+                        color: ColorConstant.whiteColor,
+                        border: Border.all(
+                          color: ColorConstant.blueColor,
+                          width: 2,
+                        )),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -82,12 +89,9 @@ class _BannerViewState extends State<BannerView> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                "",
-                                style: GoogleFonts.poppins(
-                                    color: ColorConstant.whiteColor,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w600),
+                              Icon(
+                                Icons.accessibility_rounded,
+                                color: ColorConstant.blueColor,
                               ),
                               Text(
                                 "Add Banner",
@@ -118,101 +122,10 @@ class _BannerViewState extends State<BannerView> {
                           ),
                         ),
                         const SizedBox(
-                          height: 10,
+                          height: 24,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              height: 40,
-                              width: 280,
-                              child: Stack(
-                                children: [
-                                  StatefulBuilder(
-                                    builder: (context, setState) =>
-                                        GestureDetector(
-                                      onTap: () {
-                                        tap3
-                                            ? setState(() {
-                                                tap3 = !tap3;
-                                                whiteColor3 = Colors.white;
-                                                blueColor3 = Color(0xff2C50ED);
-                                              })
-                                            : setState(() {
-                                                tap3 = !tap3;
-                                                blueColor3 = Colors.white;
-                                                whiteColor3 = Color(0xff2C50ED);
-                                              });
-                                        this.setState(() {});
-                                      },
-                                      child: Container(
-                                        alignment: Alignment.center,
-                                        width: 138,
-                                        height: 32,
-                                        decoration: BoxDecoration(
-                                            color: whiteColor3,
-                                            border:
-                                                Border.all(color: blueColor3),
-                                            borderRadius:
-                                                BorderRadius.circular(24)),
-                                        child: Text(
-                                          'Add Home        ',
-                                          style: TextStyle(
-                                              color: blueColor3,
-                                              letterSpacing: 0.5,
-                                              fontSize: 11,
-                                              fontWeight: FontWeight.w700),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Positioned(
-                                      left: 90,
-                                      child: StatefulBuilder(
-                                        builder: (context, setState) =>
-                                            GestureDetector(
-                                          onTap: () {
-                                            tap4
-                                                ? setState(() {
-                                                    tap4 = !tap4;
-                                                    whiteColor4 = Colors.white;
-                                                    blueColor4 =
-                                                        Color(0xff2C50ED);
-                                                  })
-                                                : setState(() {
-                                                    tap4 = !tap4;
-                                                    blueColor4 = Colors.white;
-                                                    whiteColor4 =
-                                                        Color(0xff2C50ED);
-                                                  });
-                                            this.setState(() {});
-                                          },
-                                          child: Container(
-                                            alignment: Alignment.center,
-                                            width: 138,
-                                            height: 32,
-                                            decoration: BoxDecoration(
-                                                color: whiteColor4,
-                                                border: Border.all(
-                                                    color: blueColor4),
-                                                borderRadius:
-                                                    BorderRadius.circular(24)),
-                                            child: Text(
-                                              'Add opening',
-                                              style: TextStyle(
-                                                  color: blueColor4,
-                                                  letterSpacing: 0.5,
-                                                  fontSize: 11,
-                                                  fontWeight: FontWeight.w700),
-                                            ),
-                                          ),
-                                        ),
-                                      )),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
+                        DropdownWidget4(
+                            items: bannerList, selectItem: 'Category'),
                         const SizedBox(
                           height: 15,
                         ),

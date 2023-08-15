@@ -9,7 +9,7 @@ class TextFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
       // child: Container(
       //   alignment: Alignment.center,
       //   height: 40,
@@ -19,6 +19,8 @@ class TextFieldWidget extends StatelessWidget {
       //       border: Border.all(width: 2, color: ColorConstant.blueColor)),
       child: TextFormField(
         decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ColorConstant.blueColor, width: 2)),
           border: OutlineInputBorder(
               borderSide: BorderSide(color: ColorConstant.blueColor)),
           contentPadding:
@@ -55,6 +57,8 @@ class _TextFieldWidget21State extends State<TextFieldWidget21> {
       child: TextFormField(
         obscureText: isObsecure,
         decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: ColorConstant.blueColor, width: 2)),
           border: OutlineInputBorder(
               borderSide: BorderSide(color: ColorConstant.blueColor)),
           contentPadding:
@@ -68,7 +72,7 @@ class _TextFieldWidget21State extends State<TextFieldWidget21> {
               },
               icon: isObsecure
                   ? Icon(Icons.visibility_off, color: ColorConstant.arrowColor)
-                  : Icon(Icons.visibility, color: ColorConstant.arrowColor)),
+                  : Icon(Icons.visibility, color: ColorConstant.blueColor)),
           hintStyle: GoogleFonts.poppins(
               fontSize: 16, color: ColorConstant.arrowColor),
         ),

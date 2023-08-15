@@ -81,217 +81,8 @@ class _VerificationPageState extends State<VerificationPage> {
                         Row(
                           children: [
                             Container(
-                              height: 155,
+                              height: 20,
                               width: MediaQuery.of(context).size.width * 0.76,
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Padding(
-                                      padding:
-                                          const EdgeInsets.only(bottom: 20),
-                                      child: Stack(
-                                        children: [
-                                          Container(
-                                            height: 35,
-                                            width: 260,
-                                          ),
-                                          //firstButton
-                                          GestureDetector(
-                                            onTap: () {
-                                              tap1
-                                                  ? setState(() {
-                                                      tap1 = !tap1;
-                                                      whiteColor = Colors.white;
-                                                      blueColor =
-                                                          Color(0xff2C50ED);
-                                                    })
-                                                  : setState(() {
-                                                      tap1 = !tap1;
-                                                      blueColor = Colors.white;
-                                                      whiteColor =
-                                                          Color(0xff2C50ED);
-                                                    });
-
-                                              showDialog(
-                                                  barrierDismissible: false,
-                                                  context: context,
-                                                  builder: (context) {
-                                                    return AlertDialog(
-                                                      backgroundColor:
-                                                          Colors.transparent,
-                                                      elevation: 0,
-                                                      content: Container(
-                                                          height: 480,
-                                                          width: 410,
-                                                          decoration: BoxDecoration(
-                                                              color: ColorConstant
-                                                                  .whiteColor,
-                                                              border: Border.all(
-                                                                  width: 2,
-                                                                  color: ColorConstant
-                                                                      .blueColor)),
-                                                          child: Column(
-                                                            children: [
-                                                              Container(
-                                                                alignment: Alignment
-                                                                    .centerRight,
-                                                                height: 32,
-                                                                width: 410,
-                                                                color: ColorConstant
-                                                                    .blueColor,
-                                                                child: Padding(
-                                                                  padding: const EdgeInsets
-                                                                          .only(
-                                                                      bottom: 6,
-                                                                      right:
-                                                                          10),
-                                                                  child: IconButton(
-                                                                      onPressed: () {
-                                                                        tap1
-                                                                            ? setState(() {
-                                                                                tap1 = !tap1;
-                                                                                whiteColor = Colors.white;
-                                                                                blueColor = Color(0xff2C50ED);
-                                                                              })
-                                                                            : setState(() {
-                                                                                tap1 = !tap1;
-                                                                                blueColor = Colors.white;
-                                                                                whiteColor = Color(0xff2C50ED);
-                                                                              });
-                                                                        Navigator.pop(
-                                                                            context);
-                                                                      },
-                                                                      icon: Icon(
-                                                                        Icons
-                                                                            .close,
-                                                                        color: ColorConstant
-                                                                            .whiteColor,
-                                                                      )),
-                                                                ),
-                                                              ),
-                                                              Padding(
-                                                                padding: const EdgeInsets
-                                                                            .symmetric(
-                                                                        horizontal:
-                                                                            31)
-                                                                    .copyWith(
-                                                                        top:
-                                                                            40),
-                                                                child:
-                                                                    Container(
-                                                                  height: 288,
-                                                                  width: 400,
-                                                                  decoration: BoxDecoration(
-                                                                      image: DecorationImage(
-                                                                          image:
-                                                                              AssetImage('assets/images/complain.png'))),
-                                                                ),
-                                                              ),
-                                                              Padding(
-                                                                padding: const EdgeInsets
-                                                                        .symmetric(
-                                                                    horizontal:
-                                                                        8),
-                                                                child:
-                                                                    Container(
-                                                                  alignment:
-                                                                      Alignment
-                                                                          .center,
-                                                                  // height: 288,
-                                                                  width: 380,
-                                                                  child: Text(
-                                                                    'Music Time With My Chill ModMusic Time \nWith My Chill ModMusic Time With My Chill Mod',
-                                                                    textAlign:
-                                                                        TextAlign
-                                                                            .center,
-                                                                    style: GoogleFonts.poppins(
-                                                                        fontSize:
-                                                                            15,
-                                                                        fontWeight:
-                                                                            FontWeight
-                                                                                .w300,
-                                                                        letterSpacing:
-                                                                            0.5),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          )),
-                                                    );
-                                                  });
-                                            },
-                                            //// alert dialog end
-                                            child: Container(
-                                              alignment: Alignment.center,
-                                              width: 120,
-                                              height: 32,
-                                              decoration: BoxDecoration(
-                                                  color: whiteColor,
-                                                  border: Border.all(
-                                                      color: blueColor),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          20)),
-                                              child: Text(
-                                                'Post',
-                                                style: TextStyle(
-                                                    color: blueColor,
-                                                    letterSpacing: 0.5,
-                                                    fontSize: 11,
-                                                    fontWeight:
-                                                        FontWeight.w700),
-                                              ),
-                                            ),
-                                          ),
-                                          Positioned(
-                                            left: 90,
-                                            child: GestureDetector(
-                                              onTap: () {
-                                                tap3
-                                                    ? setState(() {
-                                                        tap3 = !tap3;
-                                                        whiteColor3 =
-                                                            Colors.white;
-                                                        blueColor3 =
-                                                            Color(0xff2C50ED);
-                                                      })
-                                                    : setState(() {
-                                                        tap3 = !tap3;
-                                                        blueColor3 =
-                                                            Colors.white;
-                                                        whiteColor3 =
-                                                            Color(0xff2C50ED);
-                                                      });
-                                              },
-                                              child: Container(
-                                                alignment: Alignment.center,
-                                                width: 120,
-                                                height: 32,
-                                                decoration: BoxDecoration(
-                                                    color: whiteColor3,
-                                                    border: Border.all(
-                                                        color: blueColor3),
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20)),
-                                                child: Text(
-                                                  'SMS',
-                                                  style: TextStyle(
-                                                      color: blueColor3,
-                                                      letterSpacing: 0.5,
-                                                      fontSize: 11,
-                                                      fontWeight:
-                                                          FontWeight.w700),
-                                                ),
-                                              ),
-                                            ),
-                                          )
-                                        ],
-                                      )),
-                                ],
-                              ),
                             ),
                           ],
                         ),
@@ -506,7 +297,8 @@ class _VerificationPageState extends State<VerificationPage> {
                                                   border: Border.all(
                                                       color: isSwitched
                                                           ? Colors.red
-                                                          : Colors.blue),
+                                                          : ColorConstant
+                                                              .blueColor),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           24)),
@@ -524,7 +316,8 @@ class _VerificationPageState extends State<VerificationPage> {
                                                       activeTrackColor:
                                                           Colors.white,
                                                       inactiveThumbColor:
-                                                          Colors.blue,
+                                                          ColorConstant
+                                                              .blueColor,
                                                       inactiveTrackColor:
                                                           Colors.white,
                                                     )),
@@ -541,7 +334,8 @@ class _VerificationPageState extends State<VerificationPage> {
                                                   border: Border.all(
                                                       color: isSwitched2
                                                           ? Colors.red
-                                                          : Colors.blue),
+                                                          : ColorConstant
+                                                              .blueColor),
                                                   borderRadius:
                                                       BorderRadius.circular(
                                                           24)),
@@ -559,7 +353,8 @@ class _VerificationPageState extends State<VerificationPage> {
                                                       activeTrackColor:
                                                           Colors.white,
                                                       inactiveThumbColor:
-                                                          Colors.blue,
+                                                          ColorConstant
+                                                              .blueColor,
                                                       inactiveTrackColor:
                                                           Colors.white,
                                                     )),

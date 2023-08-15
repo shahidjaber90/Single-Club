@@ -49,7 +49,7 @@ class _ReportViewState extends State<ReportView> {
                         Row(
                           children: [
                             Container(
-                              height: 155,
+                              height: 60,
                               width: MediaQuery.of(context).size.width * 0.748,
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.end,
@@ -100,15 +100,11 @@ class _ReportViewState extends State<ReportView> {
                                                             MainAxisAlignment
                                                                 .spaceBetween,
                                                         children: [
-                                                          Text(
-                                                            "",
-                                                            style: GoogleFonts.poppins(
-                                                                color: ColorConstant
-                                                                    .whiteColor,
-                                                                fontSize: 30,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
+                                                          Icon(
+                                                            Icons
+                                                                .accessible_rounded,
+                                                            color: ColorConstant
+                                                                .blueColor,
                                                           ),
                                                           Text(
                                                             "Create Complain",
@@ -246,7 +242,7 @@ class _ReportViewState extends State<ReportView> {
                                                                   child:
                                                                       Container(
                                                                     height: 100,
-                                                                    width: 140,
+                                                                    width: 150,
                                                                     decoration: BoxDecoration(
                                                                         borderRadius:
                                                                             BorderRadius.circular(
@@ -292,7 +288,7 @@ class _ReportViewState extends State<ReportView> {
                                                                           Text(
                                                                             textAlign:
                                                                                 TextAlign.center,
-                                                                            "SVG/WEP",
+                                                                            "Video/Screen-Short",
                                                                             style: GoogleFonts.poppins(
                                                                                 color: ColorConstant.blueColor,
                                                                                 fontSize: 14,
@@ -306,7 +302,7 @@ class _ReportViewState extends State<ReportView> {
                                                               ],
                                                             ),
                                                             const SizedBox(
-                                                                height: 12),
+                                                                height: 20),
                                                             // Button
                                                             AlertButton(
                                                                 buttonName:
@@ -458,20 +454,107 @@ class _ReportViewState extends State<ReportView> {
                                             height: 24.0,
                                             width: 100.0,
                                             headingText: 'Hate Speech'),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          height: 20,
-                                          width: 84,
-                                          decoration: BoxDecoration(
-                                            color: ColorConstant.blueColor,
-                                            borderRadius:
-                                                BorderRadius.circular(8),
-                                          ),
-                                          child: Text(
-                                            'Show',
-                                            style: TextStyle(
-                                                color:
-                                                    ColorConstant.whiteColor),
+                                        SizedBox(
+                                          width: 76,
+                                          child: GestureDetector(
+                                            ///////////////
+                                            onTap: () {
+                                              showDialog(
+                                                  context: context,
+                                                  builder: (context) {
+                                                    return AlertDialog(
+                                                      backgroundColor:
+                                                          Colors.transparent,
+                                                      elevation: 0,
+                                                      content: Container(
+                                                          height: 480,
+                                                          width: 410,
+                                                          decoration: BoxDecoration(
+                                                              color: ColorConstant
+                                                                  .whiteColor,
+                                                              border: Border.all(
+                                                                  width: 2,
+                                                                  color: ColorConstant
+                                                                      .blueColor)),
+                                                          child: Column(
+                                                            children: [
+                                                              Container(
+                                                                height: 26,
+                                                                width: 410,
+                                                                color: ColorConstant
+                                                                    .blueColor,
+                                                              ),
+                                                              Padding(
+                                                                padding: const EdgeInsets
+                                                                            .symmetric(
+                                                                        horizontal:
+                                                                            31)
+                                                                    .copyWith(
+                                                                        top:
+                                                                            40),
+                                                                child:
+                                                                    Container(
+                                                                  height: 288,
+                                                                  width: 400,
+                                                                  decoration: BoxDecoration(
+                                                                      image: DecorationImage(
+                                                                          image:
+                                                                              AssetImage('assets/images/complain.png'))),
+                                                                ),
+                                                              ),
+                                                              Padding(
+                                                                padding: const EdgeInsets
+                                                                        .symmetric(
+                                                                    horizontal:
+                                                                        8),
+                                                                child:
+                                                                    Container(
+                                                                  alignment:
+                                                                      Alignment
+                                                                          .center,
+                                                                  // height: 288,
+                                                                  width: 380,
+                                                                  child: Text(
+                                                                    'Music Time With My Chill ModMusic Time \nWith My Chill ModMusic Time With My Chill Mod',
+                                                                    textAlign:
+                                                                        TextAlign
+                                                                            .center,
+                                                                    style: GoogleFonts.poppins(
+                                                                        fontSize:
+                                                                            15,
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .w300,
+                                                                        letterSpacing:
+                                                                            0.5),
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          )),
+                                                    );
+                                                  });
+                                            },
+
+                                            ///////////////
+                                            child: Container(
+                                              alignment: Alignment.center,
+                                              height: 24,
+                                              width: 55,
+                                              decoration: BoxDecoration(
+                                                  color:
+                                                      ColorConstant.blueColor,
+                                                  borderRadius:
+                                                      BorderRadius.circular(5)),
+                                              child: Text(
+                                                'Show',
+                                                style: GoogleFonts.aBeeZee(
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.w300,
+                                                    color: ColorConstant
+                                                        .whiteColor),
+                                              ),
+                                            ),
                                           ),
                                         ),
                                         DataHeadingWidget(

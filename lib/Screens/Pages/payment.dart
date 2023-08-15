@@ -11,6 +11,9 @@ class PaymentPage extends StatefulWidget {
 }
 
 class _PaymentPageState extends State<PaymentPage> {
+  bool tap1 = false;
+  Color whiteColor = (Colors.white);
+  Color blueColor = const Color(0xff2C50ED);
   final List text = [
     "User Name",
     "ld Number",
@@ -57,7 +60,7 @@ class _PaymentPageState extends State<PaymentPage> {
     "032123",
     "032123",
   ];
-  List amount =  [
+  List amount = [
     "\$400",
     "\$55",
     "\$40",
@@ -71,7 +74,7 @@ class _PaymentPageState extends State<PaymentPage> {
     "Ended",
     "Completed",
   ];
-   List rreturn = [
+  List rreturn = [
     "#03023",
     "#03123",
     "#32100",
@@ -101,18 +104,31 @@ class _PaymentPageState extends State<PaymentPage> {
         backgroundColor: ColorConstant.whiteColor,
         elevation: 0,
         title: GestureDetector(
+          onTap: () {
+            tap1
+                ? setState(() {
+                    tap1 = !tap1;
+                    whiteColor = Colors.white;
+                    blueColor = Color(0xff2C50ED);
+                  })
+                : setState(() {
+                    tap1 = !tap1;
+                    blueColor = Colors.white;
+                    whiteColor = Color(0xff2C50ED);
+                  });
+          },
           child: Container(
             alignment: Alignment.center,
             width: 138,
             height: 32,
             decoration: BoxDecoration(
-                color: ColorConstant.blueColor,
-                border: Border.all(color: ColorConstant.blueColor),
+                color: whiteColor,
+                border: Border.all(color: blueColor),
                 borderRadius: BorderRadius.circular(24)),
             child: Text(
               'Make Complain',
               style: TextStyle(
-                  color: ColorConstant.whiteColor,
+                  color: blueColor,
                   letterSpacing: 0.5,
                   fontSize: 11,
                   fontWeight: FontWeight.w700),
@@ -214,8 +230,7 @@ class _PaymentPageState extends State<PaymentPage> {
                     ),
                   ]),
             ),
-          ), 
-
+          ),
           const SizedBox(
             height: 50,
           ),
@@ -223,24 +238,16 @@ class _PaymentPageState extends State<PaymentPage> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                          "Transiction",
-                          style: GoogleFonts.poppins(
-                              fontSize: 25, fontWeight: FontWeight.w500),
-                        ),
+                "Transiction",
+                style: GoogleFonts.poppins(
+                    fontSize: 25, fontWeight: FontWeight.w500),
+              ),
             ],
           ),
-           const SizedBox(
+          const SizedBox(
             height: 10,
           ),
-
-
-
-            
-
-
-
-
-           Container(
+          Container(
             height: 60,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
@@ -259,7 +266,6 @@ class _PaymentPageState extends State<PaymentPage> {
                       )),
             ),
           ),
-                    
           Expanded(
             child: Container(
               decoration: BoxDecoration(
@@ -293,11 +299,11 @@ class _PaymentPageState extends State<PaymentPage> {
                                 fontSize: 16, fontWeight: FontWeight.w400),
                           ),
                           //image
-                         SizedBox(
-                          height: 40,
-                          width: 40,
-                          child: Image.asset(images[index]),
-                         ),
+                          SizedBox(
+                            height: 40,
+                            width: 40,
+                            child: Image.asset(images[index]),
+                          ),
                           Text(
                             rate[index],
                             style: GoogleFonts.poppins(
@@ -314,7 +320,9 @@ class _PaymentPageState extends State<PaymentPage> {
                                 fontSize: 16, fontWeight: FontWeight.w400),
                           ),
                           Container(
-                            color: status[index] == "Completed" ? Colors.orange.shade300 : Colors.red.shade400 ,
+                            color: status[index] == "Completed"
+                                ? Colors.orange.shade300
+                                : Colors.red.shade400,
                             height: 30,
                             width: 100,
                             child: Center(
@@ -327,9 +335,6 @@ class _PaymentPageState extends State<PaymentPage> {
                               ),
                             ),
                           ),
-                          
-                         
-                         
                         ],
                       ),
                     ),
@@ -338,9 +343,7 @@ class _PaymentPageState extends State<PaymentPage> {
               ),
             ),
           )
-       
         ],
-
       ),
     );
   }

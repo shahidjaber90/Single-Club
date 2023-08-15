@@ -17,6 +17,9 @@ class RewardView extends StatefulWidget {
 }
 
 class _RewardViewState extends State<RewardView> {
+  bool tap1 = false;
+  Color whiteColor = (Colors.white);
+  Color blueColor = const Color(0xff2C50ED);
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -34,7 +37,7 @@ class _RewardViewState extends State<RewardView> {
                 Row(
                   children: [
                     Container(
-                      height: 160,
+                      height: 60,
                       width: 400,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,7 +47,20 @@ class _RewardViewState extends State<RewardView> {
                             padding: const EdgeInsets.only(bottom: 20),
                             child: GestureDetector(
                               onTap: () {
+                                tap1
+                                    ? setState(() {
+                                        tap1 = !tap1;
+                                        whiteColor = Colors.white;
+                                        blueColor = Color(0xff2C50ED);
+                                      })
+                                    : setState(() {
+                                        tap1 = !tap1;
+                                        blueColor = Colors.white;
+                                        whiteColor = Color(0xff2C50ED);
+                                      });
+
                                 showDialog(
+                                  barrierDismissible: false,
                                   context: context,
                                   builder: (context) {
                                     return AlertDialog(
@@ -53,7 +69,11 @@ class _RewardViewState extends State<RewardView> {
                                       elevation: 0,
                                       title: Container(
                                         // width: 425,
-                                        color: ColorConstant.blueColor,
+                                        decoration: BoxDecoration(
+                                            color: ColorConstant.blueColor,
+                                            border: Border.all(
+                                                color: ColorConstant.blueColor,
+                                                width: 2)),
                                         child: Column(
                                           children: [
                                             Container(
@@ -63,14 +83,11 @@ class _RewardViewState extends State<RewardView> {
                                                     MainAxisAlignment
                                                         .spaceBetween,
                                                 children: [
-                                                  Text(
-                                                    "",
-                                                    style: GoogleFonts.poppins(
-                                                        color: ColorConstant
-                                                            .whiteColor,
-                                                        fontSize: 30,
-                                                        fontWeight:
-                                                            FontWeight.w600),
+                                                  Icon(
+                                                    Icons
+                                                        .airline_seat_recline_extra_sharp,
+                                                    color:
+                                                        ColorConstant.blueColor,
                                                   ),
                                                   Text(
                                                     "Set up Reward",
@@ -83,6 +100,21 @@ class _RewardViewState extends State<RewardView> {
                                                   ),
                                                   IconButton(
                                                     onPressed: () {
+                                                      tap1
+                                                          ? setState(() {
+                                                              tap1 = !tap1;
+                                                              whiteColor =
+                                                                  Colors.white;
+                                                              blueColor = Color(
+                                                                  0xff2C50ED);
+                                                            })
+                                                          : setState(() {
+                                                              tap1 = !tap1;
+                                                              blueColor =
+                                                                  Colors.white;
+                                                              whiteColor = Color(
+                                                                  0xff2C50ED);
+                                                            });
                                                       Navigator.pop(context);
                                                     },
                                                     icon:
@@ -159,17 +191,16 @@ class _RewardViewState extends State<RewardView> {
                               },
                               child: Container(
                                 alignment: Alignment.center,
-                                width: 105,
+                                width: 130,
                                 height: 32,
                                 decoration: BoxDecoration(
-                                    color: ColorConstant.blueColor,
-                                    border: Border.all(
-                                        color: ColorConstant.blueColor),
-                                    borderRadius: BorderRadius.circular(8)),
+                                    color: whiteColor,
+                                    border: Border.all(color: blueColor),
+                                    borderRadius: BorderRadius.circular(24)),
                                 child: Text(
                                   'Add Reward',
                                   style: TextStyle(
-                                      color: ColorConstant.whiteColor,
+                                      color: blueColor,
                                       letterSpacing: 0.5,
                                       fontSize: 11,
                                       fontWeight: FontWeight.w700),
